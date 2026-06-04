@@ -1,0 +1,177 @@
+// prisma/schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+  id               String   @id @default(cuid())
+  slug             String   @unique
+  name             String
+  tagline          String
+  description      String   @db.Text
+  longDescription  String   @db.Text
+  price            Float
+  salePrice        Float?
+  category         Category
+  useCase          UseCase[]
+  sizes            ProductSize[]
+  images           ProductImage[]
+  features         String[]
+  specs            Json
+  finishes         Finish[]
+  inStock          Boolean  @default(true)
+  featured         Boolean  @default(false)
+  bestseller       Boolean  @default(false)
+  new              Boolean  @default(false)
+  rating           Float    @default(0)
+  reviewCount      Int      @default(0)
+  leadTime         String   @default("6-8 weeks")
+  warranty         String   @default("10 years")
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  reviews          Review[]
+  orderItems       OrderItem[]
+}
+
+model ProductImage {
+  id        String  @id @default(cuid())
+  url       String
+  alt       String
+  isPrimary Boolean @default(false)
+  order     Int     @default(0)
+  productId String
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+}
+
+model ProductSize {
+  id          String  @id @default(cuid())
+  label       String
+  widthM      Float
+  depthM      Float
+  heightM     Float
+  sqm         Float
+  priceAdder  Float   @default(0)
+  productId   String
+  product     Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+}
+
+model Finish {
+  id          String  @id @default(cuid())
+  name        String
+  hexColor    String?
+  imageUrl    String?
+  priceAdder  Float   @default(0)
+  productId   String
+  product     Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+}
+
+model Review {
+  id         String   @id @default(cuid())
+  rating     Int
+  title      String
+  body       String   @db.Text
+  authorName String
+  authorAge  String?
+  authorUse  String?
+  verified   Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  productId  String
+  product    Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+}
+
+model Order {
+  id              String      @id @default(cuid())
+  orderNumber     String      @unique @default(cuid())
+  customerEmail   String
+  customerName    String
+  status          OrderStatus @default(PENDING)
+  subtotal        Float
+  tax             Float
+  shipping        Float
+  total           Float
+  stripePaymentId String?
+  notes           String?
+  shippingAddress Json
+  items           OrderItem[]
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+}
+
+model OrderItem {
+  id         String  @id @default(cuid())
+  quantity   Int
+  price      Float
+  configOpts Json?
+  orderId    String
+  productId  String
+  order      Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  product    Product @relation(fields: [productId], references: [id])
+}
+
+model Enquiry {
+  id        String        @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  message   String        @db.Text
+  productId String?
+  type      EnquiryType   @default(GENERAL)
+  status    EnquiryStatus @default(NEW)
+  createdAt DateTime      @default(now())
+}
+
+model NewsletterSubscriber {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  createdAt DateTime @default(now())
+  active    Boolean  @default(true)
+}
+
+enum Category {
+  GARDEN_ROOM
+  GARDEN_POD
+  STUDIO
+  SAUNA
+  GYM
+  OFFICE
+}
+
+enum UseCase {
+  HOME_OFFICE
+  GYM_WELLNESS
+  ART_STUDIO
+  SAUNA_SPA
+  GUEST_ROOM
+  ENTERTAINMENT
+  READING_RETREAT
+  YOGA_STUDIO
+  MUSIC_STUDIO
+  GARDEN_ROOM
+}
+
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  IN_PRODUCTION
+  DELIVERED
+  CANCELLED
+}
+
+enum EnquiryType {
+  GENERAL
+  PRODUCT
+  CONFIGURATOR
+  TRADE
+}
+
+enum EnquiryStatus {
+  NEW
+  IN_PROGRESS
+  RESOLVED
+}
