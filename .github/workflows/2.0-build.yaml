@@ -41,6 +41,8 @@ jobs:
         run: |
           npm install --legacy-peer-deps
           npx prisma generate
+          npx prisma db push
+          npx tsx prisma/seed.ts
           npm run build
 
 # Please do not touch the following action
