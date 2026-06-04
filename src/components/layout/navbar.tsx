@@ -97,7 +97,7 @@ export function Navbar() {
                   isScrolled || !isHomePage ? "text-charcoal-900" : "text-white"
                 )}
               >
-                YourGardenPod
+                Tainhaus
               </span>
             </Link>
 

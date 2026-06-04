@@ -11,7 +11,7 @@ const TESTIMONIALS = [
     id: 1,
     rating: 5,
     title: "Best investment we've ever made",
-    body: "I'm 67 and I use The Horizon every single morning as my reading room and art studio. It's the most peaceful space I've ever had. The installation team were absolute gentlemen — professional, tidy, and finished in a day. I tell everyone about YourGardenPod.",
+    body: "I'm 67 and I use The Horizon every single morning as my reading room and art studio. It's the most peaceful space I've ever had. The installation team were absolute gentlemen — professional, tidy, and finished in a day. I tell everyone about Tainhaus.",
     author: "Margaret H.",
     age: "67",
     use: "Art Studio & Reading Room",

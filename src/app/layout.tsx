@@ -6,27 +6,27 @@ import { Footer } from "@/components/layout/footer";
 import { CartDrawer } from "@/components/layout/cart-drawer";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://yourgardenpod.co.uk"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://Tainhaus.co.uk"),
   title: {
-    default: "YourGardenPod — Premium Garden Rooms & Pods",
-    template: "%s | YourGardenPod",
+    default: "Tainhaus — Premium Garden Rooms & Pods",
+    template: "%s | Tainhaus",
   },
   description:
     "Bespoke garden rooms, pods, studios, saunas, and annexes. Handcrafted to the highest standard, designed to transform your outdoor space — for life.",
   keywords: ["garden room","garden pod","garden office","home office pod","garden studio","garden sauna","garden annexe","outdoor living","bespoke garden buildings"],
-  authors: [{ name: "YourGardenPod" }],
+  authors: [{ name: "Tainhaus" }],
   openGraph: {
     type: "website",
     locale: "en_GB",
-    url: "https://yourgardenpod.co.uk",
-    siteName: "YourGardenPod",
-    title: "YourGardenPod — Premium Garden Rooms & Pods",
+    url: "https://Tainhaus.co.uk",
+    siteName: "Tainhaus",
+    title: "Tainhaus — Premium Garden Rooms & Pods",
     description: "Bespoke garden rooms, pods, studios, saunas, and annexes. Handcrafted to the highest standard.",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "YourGardenPod" }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Tainhaus" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "YourGardenPod — Premium Garden Rooms & Pods",
+    title: "Tainhaus — Premium Garden Rooms & Pods",
     description: "Bespoke garden rooms, pods, studios, saunas, and annexes.",
     images: ["/og-image.jpg"],
   },

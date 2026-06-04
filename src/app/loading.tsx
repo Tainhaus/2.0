@@ -8,7 +8,7 @@ export default function Loading() {
           <div className="absolute inset-0 rounded-full border-2 border-forest-800 border-t-transparent animate-spin" />
         </div>
         <p className="font-display text-sm font-semibold text-forest-800 tracking-wide">
-          YourGardenPod
+          Tainhaus
         </p>
       </div>
     </div>

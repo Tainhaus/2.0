@@ -7,7 +7,7 @@ import { ArrowRight, TreePine, Award, Users, Hammer } from "lucide-react";
 export const metadata: Metadata = {
   title: "Our Story",
   description:
-    "Learn about YourGardenPod — how we started, what we stand for, and why we build the finest garden rooms in Britain.",
+    "Learn about Tainhaus — how we started, what we stand for, and why we build the finest garden rooms in Britain.",
 };
 
 const MILESTONES = [
@@ -70,7 +70,7 @@ export default function AboutPage() {
       <section className="relative h-[60vh] min-h-[480px] overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=2000&q=85"
-          alt="YourGardenPod workshop interior"
+          alt="Tainhaus workshop interior"
           fill
           priority
           className="object-cover"
@@ -112,7 +112,7 @@ export default function AboutPage() {
                   James's reaction was immediate: <em>"We could build something so much better than this."</em>
                 </p>
                 <p>
-                  So they did. The first YourGardenPod was installed in a south-facing 
+                  So they did. The first Tainhaus was installed in a south-facing 
                   Worcestershire garden in the autumn of 2015. It was a simple design — 
                   3×4m, Siberian Larch cladding, triple-glazed doors — but every neighbour 
                   who saw it wanted one.

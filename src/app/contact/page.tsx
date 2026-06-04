@@ -274,8 +274,8 @@ export default function ContactPage() {
                   {
                     Icon: Mail,
                     label: "Email us",
-                    value: "hello@yourgardenpod.co.uk",
-                    href: "mailto:hello@yourgardenpod.co.uk",
+                    value: "hello@Tainhaus.co.uk",
+                    href: "mailto:hello@Tainhaus.co.uk",
                   },
                   {
                     Icon: MapPin,
@@ -320,7 +320,7 @@ export default function ContactPage() {
             <div className="relative aspect-[4/3] rounded-3xl overflow-hidden">
               <Image
                 src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&q=85"
-                alt="YourGardenPod showroom"
+                alt="Tainhaus showroom"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 33vw"

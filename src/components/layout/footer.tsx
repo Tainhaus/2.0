@@ -99,7 +99,7 @@ export function Footer() {
                 <span className="text-white font-display font-bold text-lg">Y</span>
               </div>
               <span className="font-display font-semibold text-white text-lg">
-                YourGardenPod
+                Tainhaus
               </span>
             </Link>
 
@@ -112,7 +112,7 @@ export function Footer() {
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-terracotta-400 mt-0.5 shrink-0" />
                 <span className="font-body text-xs text-sand-500">
-                  YourGardenPod Workshop<br />
+                  Tainhaus Workshop<br />
                   14 Craftsman Way, Worcestershire, WR4 0AB
                 </span>
               </div>
@@ -124,8 +124,8 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-terracotta-400 shrink-0" />
-                <Link href="mailto:hello@yourgardenpod.co.uk" className="font-body text-xs text-sand-500 hover:text-white transition-colors">
-                  hello@yourgardenpod.co.uk
+                <Link href="mailto:hello@Tainhaus.co.uk" className="font-body text-xs text-sand-500 hover:text-white transition-colors">
+                  hello@Tainhaus.co.uk
                 </Link>
               </div>
             </div>
@@ -177,7 +177,7 @@ export function Footer() {
       <div className="border-t border-white/5 py-6">
         <div className="container-site flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="font-body text-xs text-sand-600">
-            © {new Date().getFullYear()} YourGardenPod Ltd. All rights reserved. Company No. 12345678. 
+            © {new Date().getFullYear()} Tainhaus Ltd. All rights reserved. Company No. 12345678. 
             VAT No. GB 123 4567 89
           </p>
           <div className="flex items-center gap-6">

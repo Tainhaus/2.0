@@ -1,6 +1,6 @@
-# YourGardenPod — Premium Garden Rooms & Pods E-Commerce Platform
+# Tainhaus — Premium Garden Rooms & Pods E-Commerce Platform
 
-A production-ready Next.js 15 e-commerce website for a premium garden rooms and pods brand. Replace `[YourGardenPod]` with your actual brand name.
+A production-ready Next.js 15 e-commerce website for a premium garden rooms and pods brand. Replace `[Tainhaus]` with your actual brand name.
 
 ---
 
@@ -273,7 +273,7 @@ npm run db:studio
 
 ```bash
 git add .
-git commit -m "Initial YourGardenPod build"
+git commit -m "Initial Tainhaus build"
 git push origin main
 ```
 
@@ -338,7 +338,7 @@ For Cloudinary:
 ## 🎨 Customisation Guide
 
 ### Brand name
-Search and replace `YourGardenPod` across all files.
+Search and replace `Tainhaus` across all files.
 
 ### Colours
 Edit `tailwind.config.ts` — the `forest`, `terracotta`, `sand`, and `olive` colour scales.
@@ -350,7 +350,7 @@ Edit `prisma/seed.ts` with your actual products, or use Prisma Studio (`npm run 
 Change the Google Fonts imports in `src/app/layout.tsx`. The display font variable is `--font-display`.
 
 ### Phone / email
-Search for `01234 567 890` and `hello@yourgardenpod.co.uk` and replace throughout.
+Search for `01234 567 890` and `hello@Tainhaus.co.uk` and replace throughout.
 
 ### Address
 Search for `14 Craftsman Way, Worcestershire` and replace.
@@ -394,7 +394,7 @@ npm run db:seed      # Seed database with demo data
 
 ### Essential before launch
 - [ ] Replace all Unsplash images with real brand photography
-- [ ] Replace `[YourGardenPod]` with your actual brand name
+- [ ] Replace `[Tainhaus]` with your actual brand name
 - [ ] Connect Stripe with live keys and test full checkout flow
 - [ ] Set up email notifications for enquiries (Resend / SendGrid)
 - [ ] Set up Stripe webhooks for order confirmation emails
@@ -416,8 +416,8 @@ npm run db:seed      # Seed database with demo data
 
 ## 📄 Licence
 
-© YourGardenPod Ltd. All rights reserved.
+© Tainhaus Ltd. All rights reserved.
 
 ---
 
-*Built with care by YourGardenPod. Replace this with your own attribution.*
+*Built with care by Tainhaus. Replace this with your own attribution.*

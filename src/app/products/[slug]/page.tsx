@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: product.name,
     description: product.description,
     openGraph: {
-      title: `${product.name} | YourGardenPod`,
+      title: `${product.name} | Tainhaus`,
       description: product.description,
       images: [{ url: (product.images as any[])[0]?.url ?? "/og-image.jpg" }],
     },
