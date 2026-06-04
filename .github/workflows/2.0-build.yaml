@@ -35,7 +35,7 @@ jobs:
       - name: Build Node assets
         env:
           CI: true
-          DATABASE_URL: postgresql://placeholder:placeholder@localhost/placeholder
+          DATABASE_URL: postgresql://neondb_owner:npg_KdMl5oT8WAak@ep-lingering-breeze-ab64iy3b.eu-west-2.aws.neon.tech/neondb?sslmode=require
           NEXT_PUBLIC_SITE_URL: https://fountainuk.co.uk
           SITE_URL: ${{ inputs.site-url }}
         run: |
