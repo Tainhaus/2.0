@@ -41,27 +41,22 @@ export function ProductConfigurator({ product }: ProductConfiguratorProps) {
 
   const { setSelectedFinishName } = useFinish();
 
-  // Broadcast finish name to gallery whenever it changes
   useEffect(() => {
     setSelectedFinishName(selectedFinish?.name ?? "");
   }, [selectedFinish, setSelectedFinishName]);
 
   const { addItem } = useCartStore();
 
-  const basePrice = product.salePrice ?? product.price;
-  const sizeAdder = selectedSize?.priceAdder ?? 0;
+  const basePrice  = product.salePrice ?? product.price;
+  const sizeAdder  = selectedSize?.priceAdder ?? 0;
   const finishAdder = selectedFinish?.priceAdder ?? 0;
-  const unitPrice = basePrice + sizeAdder + finishAdder;
+  const unitPrice  = basePrice + sizeAdder + finishAdder;
   const totalPrice = unitPrice * quantity;
 
   const handleAddToCart = async () => {
     setIsAdding(true);
     await new Promise((r) => setTimeout(r, 400));
-    addItem(product, {
-      selectedSize,
-      selectedFinish,
-      useCase: selectedUseCase,
-    });
+    addItem(product, { selectedSize, selectedFinish, useCase: selectedUseCase });
     setIsAdding(false);
     setAddedFeedback(true);
     setTimeout(() => setAddedFeedback(false), 2500);
@@ -69,6 +64,7 @@ export function ProductConfigurator({ product }: ProductConfiguratorProps) {
 
   return (
     <div className="space-y-6">
+
       {/* Size selector */}
       {product.sizes && product.sizes.length > 0 && (
         <ConfigSection
@@ -88,18 +84,14 @@ export function ProductConfigurator({ product }: ProductConfiguratorProps) {
                 )}
               >
                 <div>
-                  <p
-                    className={cn(
-                      "font-body text-sm font-semibold",
-                      selectedSize?.id === size.id
-                        ? "text-forest-800"
-                        : "text-charcoal-800"
-                    )}
-                  >
+                  <p className={cn(
+                    "font-body text-sm font-semibold",
+                    selectedSize?.id === size.id ? "text-forest-800" : "text-charcoal-800"
+                  )}>
                     {size.label}
                   </p>
                   <p className="font-body text-xs text-charcoal-500 mt-0.5">
-                    {size.sqm}mÂ² â€¢ {size.heightM}m height
+                    {size.sqm}mÂ² Â· {size.heightM}m height
                   </p>
                 </div>
                 {size.priceAdder > 0 && (
@@ -131,7 +123,6 @@ export function ProductConfigurator({ product }: ProductConfiguratorProps) {
                     : "border-sand-200 hover:border-sand-400"
                 )}
               >
-                {/* Cladding image */}
                 <div className="aspect-[4/3] overflow-hidden bg-sand-100">
                   {(finish as any).imageUrl ? (
                     // eslint-disable-next-line @next/next/no-img-element
@@ -141,13 +132,9 @@ export function ProductConfigurator({ product }: ProductConfiguratorProps) {
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                   ) : (
-                    <div
-                      className="w-full h-full"
-                      style={{ backgroundColor: finish.hexColor ?? "#D4A76A" }}
-                    />
+                    <div className="w-full h-full" style={{ backgroundColor: finish.hexColor ?? "#D4A76A" }} />
                   )}
                 </div>
-                {/* Label */}
                 <div className="p-2.5">
                   <p className="font-body text-xs font-semibold text-charcoal-800 leading-tight">
                     {finish.name}
@@ -158,7 +145,6 @@ export function ProductConfigurator({ product }: ProductConfiguratorProps) {
                     </p>
                   )}
                 </div>
-                {/* Selected tick */}
                 {selectedFinish?.id === finish.id && (
                   <div className="absolute top-2 right-2 w-5 h-5 bg-forest-800 rounded-full flex items-center justify-center">
                     <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 12 12">
@@ -210,34 +196,24 @@ export function ProductConfigurator({ product }: ProductConfiguratorProps) {
         {sizeAdder > 0 && (
           <div className="flex items-center justify-between">
             <span className="font-body text-sm text-charcoal-600">Size upgrade</span>
-            <span className="font-body text-sm font-medium text-terracotta-600">
-              +{formatPrice(sizeAdder)}
-            </span>
+            <span className="font-body text-sm font-medium text-terracotta-600">+{formatPrice(sizeAdder)}</span>
           </div>
         )}
         {finishAdder > 0 && (
           <div className="flex items-center justify-between">
             <span className="font-body text-sm text-charcoal-600">Finish upgrade</span>
-            <span className="font-body text-sm font-medium text-terracotta-600">
-              +{formatPrice(finishAdder)}
-            </span>
+            <span className="font-body text-sm font-medium text-terracotta-600">+{formatPrice(finishAdder)}</span>
           </div>
         )}
         <div className="border-t border-sand-200 pt-2 flex items-center justify-between">
           <span className="font-body font-semibold text-charcoal-900">Total</span>
-          <span className="font-display text-2xl font-bold text-forest-800">
-            {formatPrice(totalPrice)}
-          </span>
+          <span className="font-display text-2xl font-bold text-forest-800">{formatPrice(totalPrice)}</span>
         </div>
-        <p className="font-body text-xs text-charcoal-400">
-          inc. VAT. Installation quoted separately after site survey.
-        </p>
       </div>
 
       {/* Qty + Add to cart */}
       <div className="space-y-3">
         <div className="flex items-center gap-4">
-          {/* Qty */}
           <div className="flex items-center gap-3 bg-sand-200 rounded-full px-3 py-2">
             <button
               onClick={() => setQuantity(Math.max(1, quantity - 1))}
@@ -246,9 +222,7 @@ export function ProductConfigurator({ product }: ProductConfiguratorProps) {
             >
               <Minus className="w-3.5 h-3.5 text-charcoal-700" />
             </button>
-            <span className="font-body font-semibold text-charcoal-900 w-6 text-center">
-              {quantity}
-            </span>
+            <span className="font-body font-semibold text-charcoal-900 w-6 text-center">{quantity}</span>
             <button
               onClick={() => setQuantity(quantity + 1)}
               className="w-7 h-7 rounded-full bg-white flex items-center justify-center shadow-sm hover:shadow transition-shadow"
@@ -257,8 +231,6 @@ export function ProductConfigurator({ product }: ProductConfiguratorProps) {
               <Plus className="w-3.5 h-3.5 text-charcoal-700" />
             </button>
           </div>
-
-          {/* Add to cart */}
           <button
             onClick={handleAddToCart}
             disabled={isAdding || !product.inStock}
@@ -275,7 +247,7 @@ export function ProductConfigurator({ product }: ProductConfiguratorProps) {
             {isAdding ? (
               <span className="inline-block w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" />
             ) : addedFeedback ? (
-              <>âœ“ Added to cart</>
+              <>&#10003; Added to cart</>
             ) : (
               <>
                 <ShoppingBag className="w-4 h-4" />
@@ -285,7 +257,6 @@ export function ProductConfigurator({ product }: ProductConfiguratorProps) {
           </button>
         </div>
 
-        {/* Expert CTA */}
         <a
           href="/contact"
           className="flex items-center justify-center gap-2 w-full py-3.5 rounded-full border-2 border-forest-800/20 text-forest-800 font-body font-medium text-sm hover:border-forest-800/40 hover:bg-forest-800/5 transition-all duration-200"
@@ -297,8 +268,7 @@ export function ProductConfigurator({ product }: ProductConfiguratorProps) {
 
       {/* Lead time note */}
       <p className="font-body text-xs text-center text-charcoal-500">
-        ðŸ• Typical lead time: <strong>{product.leadTime}</strong> â€¢{" "}
-        ðŸ›¡ {product.warranty}
+        Typical lead time: <strong>{product.leadTime}</strong> Â· {product.warranty}
       </p>
     </div>
   );
