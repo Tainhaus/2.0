@@ -7,13 +7,6 @@ import Image from "next/image";
 import { ArrowRight, Play, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const HERO_STATS = [
-  { value: "2,400+", label: "Happy homeowners" },
-  { value: "10yr", label: "Structural warranty" },
-  { value: "4.9★", label: "Average review" },
-  { value: "6–8wk", label: "Lead time" },
-];
-
 const HERO_SLIDES = [
   {
     src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=2400&q=90",
