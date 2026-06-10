@@ -262,7 +262,7 @@ export function ProductConfigurator({ product }: ProductConfiguratorProps) {
           className="flex items-center justify-center gap-2 w-full py-3.5 rounded-full border-2 border-forest-800/20 text-forest-800 font-body font-medium text-sm hover:border-forest-800/40 hover:bg-forest-800/5 transition-all duration-200"
         >
           <MessageSquare className="w-4 h-4" />
-          Speak to an expert first
+          Speak to our expert first
         </a>
       </div>
 
