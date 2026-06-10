@@ -65,7 +65,7 @@ export function ProductConfigurator({ product }: ProductConfiguratorProps) {
       {product.sizes && product.sizes.length > 0 && (
         <ConfigSection
           title="Size"
-          subtitle={selectedSize ? `${selectedSize.sqm}m² floor area` : undefined}
+          subtitle={selectedSize ? `${selectedSize.sqm}mÂ² floor area` : undefined}
         >
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {product.sizes.map((size) => (
@@ -91,7 +91,7 @@ export function ProductConfigurator({ product }: ProductConfiguratorProps) {
                     {size.label}
                   </p>
                   <p className="font-body text-xs text-charcoal-500 mt-0.5">
-                    {size.sqm}m² • {size.heightM}m height
+                    {size.sqm}mÂ² â€¢ {size.heightM}m height
                   </p>
                 </div>
                 {size.priceAdder > 0 && (
@@ -105,41 +105,69 @@ export function ProductConfigurator({ product }: ProductConfiguratorProps) {
         </ConfigSection>
       )}
 
-      {/* Finish selector */}
+      {/* Cladding finish selector */}
       {product.finishes && product.finishes.length > 0 && (
         <ConfigSection
-          title="Exterior Finish"
-          subtitle={selectedFinish?.name}
+          title="Exterior Cladding"
+          subtitle={selectedFinish ? `Selected: ${selectedFinish.name}` : "Choose a cladding style"}
         >
-          <div className="flex flex-wrap gap-2.5">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {product.finishes.map((finish) => (
               <button
                 key={finish.id}
                 onClick={() => setSelectedFinish(finish)}
-                title={`${finish.name}${finish.priceAdder > 0 ? ` (+${formatPrice(finish.priceAdder)})` : ""}`}
                 className={cn(
-                  "group relative w-10 h-10 rounded-full border-2 transition-all duration-200",
+                  "group relative rounded-xl overflow-hidden border-2 transition-all duration-200 text-left",
                   selectedFinish?.id === finish.id
-                    ? "border-forest-800 scale-110 shadow-luxury"
-                    : "border-sand-300 hover:border-sand-500 hover:scale-105"
+                    ? "border-forest-800 shadow-luxury"
+                    : "border-sand-200 hover:border-sand-400"
                 )}
-                style={{
-                  backgroundColor: finish.hexColor ?? "#D4A76A",
-                }}
               >
+                {/* Cladding image */}
+                <div className="aspect-[4/3] overflow-hidden bg-sand-100">
+                  {(finish as any).imageUrl ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={(finish as any).imageUrl}
+                      alt={finish.name}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  ) : (
+                    <div
+                      className="w-full h-full"
+                      style={{ backgroundColor: finish.hexColor ?? "#D4A76A" }}
+                    />
+                  )}
+                </div>
+                {/* Label */}
+                <div className="p-2.5">
+                  <p className="font-body text-xs font-semibold text-charcoal-800 leading-tight">
+                    {finish.name}
+                  </p>
+                  {finish.priceAdder > 0 && (
+                    <p className="font-body text-xs text-terracotta-600 mt-0.5">
+                      +{formatPrice(finish.priceAdder)}
+                    </p>
+                  )}
+                </div>
+                {/* Selected tick */}
                 {selectedFinish?.id === finish.id && (
-                  <span className="absolute inset-0 flex items-center justify-center">
-                    <span className="w-3 h-3 rounded-full bg-white/70 backdrop-blur-sm" />
-                  </span>
+                  <div className="absolute top-2 right-2 w-5 h-5 bg-forest-800 rounded-full flex items-center justify-center">
+                    <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 12 12">
+                      <path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
                 )}
-                {/* Tooltip */}
-                <span className="absolute -top-9 left-1/2 -translate-x-1/2 bg-charcoal-900 text-white text-2xs font-body px-2 py-1 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                  {finish.name}
-                  {finish.priceAdder > 0 && ` +${formatPrice(finish.priceAdder)}`}
-                </span>
               </button>
             ))}
           </div>
+          <p className="font-body text-xs text-charcoal-400 mt-3">
+            Cladding supplied by{" "}
+            <a href="https://akuwoodpanel.uk/collections/exterior-wall-cladding" target="_blank" rel="noopener noreferrer" className="text-forest-700 underline underline-offset-2 hover:text-forest-900">
+              Akuwood Panel
+            </a>
+            {" "}â€” weather-resistant composite, 25-year lifespan.
+          </p>
         </ConfigSection>
       )}
 
@@ -239,7 +267,7 @@ export function ProductConfigurator({ product }: ProductConfiguratorProps) {
             {isAdding ? (
               <span className="inline-block w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" />
             ) : addedFeedback ? (
-              <>✓ Added to cart</>
+              <>âœ“ Added to cart</>
             ) : (
               <>
                 <ShoppingBag className="w-4 h-4" />
@@ -261,8 +289,8 @@ export function ProductConfigurator({ product }: ProductConfiguratorProps) {
 
       {/* Lead time note */}
       <p className="font-body text-xs text-center text-charcoal-500">
-        🕐 Typical lead time: <strong>{product.leadTime}</strong> •{" "}
-        🛡 {product.warranty}
+        ðŸ• Typical lead time: <strong>{product.leadTime}</strong> â€¢{" "}
+        ðŸ›¡ {product.warranty}
       </p>
     </div>
   );
@@ -284,7 +312,7 @@ function ConfigSection({
           {title}
         </p>
         {subtitle && (
-          <span className="font-body text-xs text-charcoal-500">— {subtitle}</span>
+          <span className="font-body text-xs text-charcoal-500">â€” {subtitle}</span>
         )}
       </div>
       {children}

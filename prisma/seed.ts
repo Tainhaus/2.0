@@ -4,7 +4,7 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 async function main() {
-  console.log("🌱 Seeding database with Northern Log Cabins products...");
+  console.log("ðŸŒ± Seeding database with Northern Log Cabins products...");
 
   await prisma.review.deleteMany();
   await prisma.productImage.deleteMany();
@@ -12,18 +12,18 @@ async function main() {
   await prisma.finish.deleteMany();
   await prisma.product.deleteMany();
 
-  // ─── 1. SICILIA ───────────────────────────────────────────────
+  // â”€â”€â”€ 1. SICILIA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   await prisma.product.create({
     data: {
       slug: "sicilia-6-7x3-8m-log-cabin",
-      name: "Sicilia 6.7×3.8m Log Cabin",
+      name: "Sicilia 6.7Ã—3.8m Log Cabin",
       tagline: "A contemporary haven of style and comfort",
-      description: "Immerse yourself in the modern elegance and comfort of the Sicilia Log Cabin — a sleek retreat where contemporary design meets timeless charm. This spacious cabin is meticulously designed to provide a versatile space where you can relax, work, create, or entertain with flair.",
+      description: "Immerse yourself in the modern elegance and comfort of the Sicilia Log Cabin â€” a sleek retreat where contemporary design meets timeless charm. This spacious cabin is meticulously designed to provide a versatile space where you can relax, work, create, or entertain with flair.",
       longDescription: `The Sicilia is our most spacious contemporary log cabin. Whether you envision it as a stylish garden office, a chic studio space, a cosy lounge area, or a welcoming guest suite, the Sicilia is crafted to elevate your lifestyle and offer a luxurious haven amidst the serenity of nature.
 
 Constructed with premium Nordic spruce logs grown in ecologically managed forests of Sweden, Finland and the Baltic States, every Sicilia is built to last. The 44mm log walls provide excellent insulation, keeping the space warm in winter and cool in summer.
 
-Double-glazed windows and secure doors flood the interior with natural light while maintaining energy efficiency. The flexible interior layout can be personalised to suit your exact needs — from a professional home office setup to a creative studio or entertainment space.
+Double-glazed windows and secure doors flood the interior with natural light while maintaining energy efficiency. The flexible interior layout can be personalised to suit your exact needs â€” from a professional home office setup to a creative studio or entertainment space.
 
 All products are packaged in UV-resistant plastic film and protected during transport. Installation plans are available for download upon purchase.`,
       price: 6237,
@@ -33,12 +33,12 @@ All products are packaged in UV-resistant plastic film and protected during tran
       bestseller: true,
       rating: 4.8,
       reviewCount: 24,
-      leadTime: "3–5 weeks",
+      leadTime: "3â€“5 weeks",
       warranty: "5 years structural",
       features: [
         "44mm Nordic spruce log construction",
         "Double glazed windows and doors",
-        "Floor area: 24.9m²",
+        "Floor area: 24.9mÂ²",
         "Ridge height: 304cm",
         "Side wall height: 228cm",
         "18mm floor and roof boards",
@@ -48,19 +48,19 @@ All products are packaged in UV-resistant plastic film and protected during tran
         "Fully customisable interior",
       ],
       specs: {
-        externalDimensions: "676 × 400 cm",
-        wallDimensions: "656 × 380 cm",
+        externalDimensions: "676 Ã— 400 cm",
+        wallDimensions: "656 Ã— 380 cm",
         logThickness: "40mm",
         sideWallHeight: "228 cm",
         ridgeHeight: "304 cm",
-        roofSurface: "31.9 m²",
+        roofSurface: "31.9 mÂ²",
         roofBoards: "18 mm",
         frontOverhang: "20 cm",
-        roofTiltAngle: "22°",
+        roofTiltAngle: "22Â°",
         floorBoards: "18 mm",
-        floorSurface: "24.9 m²",
-        windows: "2 × 865 × 1210mm double glazed",
-        door: "1425 × 1900mm double glazed",
+        floorSurface: "24.9 mÂ²",
+        windows: "2 Ã— 865 Ã— 1210mm double glazed",
+        door: "1425 Ã— 1900mm double glazed",
         packageWeight: "68 kg",
       },
       images: {
@@ -81,16 +81,35 @@ All products are packaged in UV-resistant plastic film and protected during tran
       },
       sizes: {
         create: [
-          { label: "6.7 × 3.8m (Standard)", widthM: 6.7, depthM: 3.8, heightM: 3.04, sqm: 24.9, priceAdder: 0 },
+          { label: "6.7 Ã— 3.8m (Standard)", widthM: 6.7, depthM: 3.8, heightM: 3.04, sqm: 24.9, priceAdder: 0 },
         ],
       },
       finishes: {
         create: [
-          { name: "Natural Spruce", hexColor: "#C8A96A", priceAdder: 0 },
-          { name: "Light Grey", hexColor: "#A0A0A0", priceAdder: 0 },
-          { name: "Dark Grey", hexColor: "#4A4A4A", priceAdder: 0 },
-          { name: "Black", hexColor: "#1A1A1A", priceAdder: 350 },
-          { name: "Forest Green", hexColor: "#2D5016", priceAdder: 0 },
+          {
+            name: "Birch",
+            hexColor: "#D4C5A9",
+            imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/birch-aluwoodpanel1.jpg?v=1724067587&width=1030",
+            priceAdder: 0,
+          },
+          {
+            name: "Stone Grey",
+            hexColor: "#8A8F8A",
+            imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/stonegray-outdoorwallpanel1.jpg?v=1725361464&width=1030",
+            priceAdder: 0,
+          },
+          {
+            name: "Oak",
+            hexColor: "#B8864E",
+            imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/oak-outdoorwallpanel1.jpg?v=1730215792&width=1030",
+            priceAdder: 0,
+          },
+          {
+            name: "Black",
+            hexColor: "#1A1A1A",
+            imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/black-aluwoodpanel1.jpg?v=1724067608&width=1030",
+            priceAdder: 0,
+          },
         ],
       },
       reviews: {
@@ -118,14 +137,14 @@ All products are packaged in UV-resistant plastic film and protected during tran
     },
   });
 
-  // ─── 2. ORIENTAL-4 ───────────────────────────────────────────
+  // â”€â”€â”€ 2. ORIENTAL-4 â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   await prisma.product.create({
     data: {
       slug: "oriental-4-4-7x3-2m-log-cabin",
-      name: "Oriental 4 — 4.7×3.2m Log Cabin",
+      name: "Oriental 4 â€” 4.7Ã—3.2m Log Cabin",
       tagline: "Your tranquil oasis in nature's embrace",
       description: "Unveil the perfect blend of elegance and tranquillity with the Oriental 4 Log Cabin. This captivating cabin offers a harmonious fusion of traditional allure and modern sophistication, providing a serene oasis where relaxation and creativity intertwine seamlessly.",
-      longDescription: `The Oriental 4 is crafted from premium Nordic spruce wood, offering lasting durability and natural charm. Its generous dimensions of 4.7m × 3.2m provide ample room for various uses and configurations, from a reading nook or art studio to a meditation space or personal sanctuary.
+      longDescription: `The Oriental 4 is crafted from premium Nordic spruce wood, offering lasting durability and natural charm. Its generous dimensions of 4.7m Ã— 3.2m provide ample room for various uses and configurations, from a reading nook or art studio to a meditation space or personal sanctuary.
 
 Multiple windows and a single door provide generous natural light and ventilation throughout the cabin. The simple, clean lines of the Oriental design mean it suits both modern and traditional garden settings equally well.
 
@@ -138,12 +157,12 @@ All products are constructed using dry spruce grown in ecologically managed fore
       featured: true,
       rating: 4.7,
       reviewCount: 18,
-      leadTime: "3–4 weeks",
+      leadTime: "3â€“4 weeks",
       warranty: "5 years structural",
       features: [
         "Premium Nordic spruce construction",
         "40mm wall logs for excellent insulation",
-        "Floor area: 12.80m²",
+        "Floor area: 12.80mÂ²",
         "3 double glazed windows",
         "Double glazed door included",
         "Ridge height: 222cm",
@@ -153,18 +172,18 @@ All products are constructed using dry spruce grown in ecologically managed fore
         "Suitable as office, studio or retreat",
       ],
       specs: {
-        externalDimensions: "470 × 320 cm",
-        wallDimensions: "450 × 300 cm",
+        externalDimensions: "470 Ã— 320 cm",
+        wallDimensions: "450 Ã— 300 cm",
         logThickness: "40mm",
         sideWallHeight: "211 cm",
         ridgeHeight: "222 cm",
-        roofSurface: "28.30 m²",
+        roofSurface: "28.30 mÂ²",
         roofBoards: "18 mm",
-        roofTiltAngle: "2°",
+        roofTiltAngle: "2Â°",
         floorBoards: "18 mm",
-        floorSurface: "12.80 m²",
-        windows: "3 × 515 × 1890mm double glazed",
-        door: "1425 × 1955mm double glazed",
+        floorSurface: "12.80 mÂ²",
+        windows: "3 Ã— 515 Ã— 1890mm double glazed",
+        door: "1425 Ã— 1955mm double glazed",
       },
       images: {
         create: [
@@ -184,15 +203,35 @@ All products are constructed using dry spruce grown in ecologically managed fore
       },
       sizes: {
         create: [
-          { label: "4.7 × 3.2m (Standard)", widthM: 4.7, depthM: 3.2, heightM: 2.22, sqm: 12.8, priceAdder: 0 },
+          { label: "4.7 Ã— 3.2m (Standard)", widthM: 4.7, depthM: 3.2, heightM: 2.22, sqm: 12.8, priceAdder: 0 },
         ],
       },
       finishes: {
         create: [
-          { name: "Natural Spruce", hexColor: "#C8A96A", priceAdder: 0 },
-          { name: "Light Grey", hexColor: "#A0A0A0", priceAdder: 0 },
-          { name: "Dark Grey", hexColor: "#4A4A4A", priceAdder: 0 },
-          { name: "Forest Green", hexColor: "#2D5016", priceAdder: 0 },
+          {
+            name: "Birch",
+            hexColor: "#D4C5A9",
+            imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/birch-aluwoodpanel1.jpg?v=1724067587&width=1030",
+            priceAdder: 0,
+          },
+          {
+            name: "Stone Grey",
+            hexColor: "#8A8F8A",
+            imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/stonegray-outdoorwallpanel1.jpg?v=1725361464&width=1030",
+            priceAdder: 0,
+          },
+          {
+            name: "Oak",
+            hexColor: "#B8864E",
+            imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/oak-outdoorwallpanel1.jpg?v=1730215792&width=1030",
+            priceAdder: 0,
+          },
+          {
+            name: "Black",
+            hexColor: "#1A1A1A",
+            imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/black-aluwoodpanel1.jpg?v=1724067608&width=1030",
+            priceAdder: 0,
+          },
         ],
       },
       reviews: {
@@ -211,14 +250,14 @@ All products are constructed using dry spruce grown in ecologically managed fore
     },
   });
 
-  // ─── 3. GLORIA-H ─────────────────────────────────────────────
+  // â”€â”€â”€ 3. GLORIA-H â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   await prisma.product.create({
     data: {
       slug: "gloria-h-4-5x2-9m-log-cabin",
-      name: "Gloria H — 4.5×2.9m Log Cabin",
+      name: "Gloria H â€” 4.5Ã—2.9m Log Cabin",
       tagline: "Luxury craftsmanship in Nordic high-quality spruce",
       description: "Introducing the Gloria H Log Cabin from Northern Log Cabins, a stunning abode crafted from 100% Nordic high-quality spruce. Step into luxury and craftsmanship with this exquisite log cabin featuring extra-dry laminated timber windows and doors.",
-      longDescription: `The Gloria H is built from 100% Nordic high-quality spruce — the same material used in premium Scandinavian construction for centuries. Extra-dry (8–12% moisture content) laminated timber windows and doors resist warping and ensure a perfect fit year after year.
+      longDescription: `The Gloria H is built from 100% Nordic high-quality spruce â€” the same material used in premium Scandinavian construction for centuries. Extra-dry (8â€“12% moisture content) laminated timber windows and doors resist warping and ensure a perfect fit year after year.
 
 The glazed windows open in both directions for optimal ventilation, keeping the cabin fresh and comfortable even on warm summer days. Glazed doors with 100% furnishings are included as standard, along with an 18mm thick profile board for both ceiling and floor.
 
@@ -232,11 +271,11 @@ Ideal as a serene home office, cosy guest accommodation, tranquil reading nook, 
       new: true,
       rating: 4.9,
       reviewCount: 31,
-      leadTime: "2–3 weeks",
+      leadTime: "2â€“3 weeks",
       warranty: "5 years structural",
       features: [
         "100% Nordic high-quality spruce",
-        "Extra-dry (8–12%) laminated timber doors & windows",
+        "Extra-dry (8â€“12%) laminated timber doors & windows",
         "Windows open in both directions",
         "18mm profile board ceiling and floor",
         "Autoclave impregnated foundation beams",
@@ -248,7 +287,7 @@ Ideal as a serene home office, cosy guest accommodation, tranquil reading nook, 
       ],
       specs: {
         material: "100% Nordic high-quality spruce",
-        windowMaterial: "Extra-dry laminated timber (8–12% moisture)",
+        windowMaterial: "Extra-dry laminated timber (8â€“12% moisture)",
         floorBoards: "18mm profile board",
         ceilingBoards: "18mm profile board",
         foundationBeams: "Autoclave impregnated",
@@ -273,15 +312,35 @@ Ideal as a serene home office, cosy guest accommodation, tranquil reading nook, 
       },
       sizes: {
         create: [
-          { label: "4.5 × 2.9m (Standard)", widthM: 4.5, depthM: 2.9, heightM: 2.2, sqm: 13.05, priceAdder: 0 },
+          { label: "4.5 Ã— 2.9m (Standard)", widthM: 4.5, depthM: 2.9, heightM: 2.2, sqm: 13.05, priceAdder: 0 },
         ],
       },
       finishes: {
         create: [
-          { name: "Natural Spruce", hexColor: "#C8A96A", priceAdder: 0 },
-          { name: "Light Grey", hexColor: "#A0A0A0", priceAdder: 0 },
-          { name: "Anthracite", hexColor: "#3A3A3A", priceAdder: 0 },
-          { name: "Forest Green", hexColor: "#2D5016", priceAdder: 0 },
+          {
+            name: "Birch",
+            hexColor: "#D4C5A9",
+            imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/birch-aluwoodpanel1.jpg?v=1724067587&width=1030",
+            priceAdder: 0,
+          },
+          {
+            name: "Stone Grey",
+            hexColor: "#8A8F8A",
+            imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/stonegray-outdoorwallpanel1.jpg?v=1725361464&width=1030",
+            priceAdder: 0,
+          },
+          {
+            name: "Oak",
+            hexColor: "#B8864E",
+            imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/oak-outdoorwallpanel1.jpg?v=1730215792&width=1030",
+            priceAdder: 0,
+          },
+          {
+            name: "Black",
+            hexColor: "#1A1A1A",
+            imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/black-aluwoodpanel1.jpg?v=1724067608&width=1030",
+            priceAdder: 0,
+          },
         ],
       },
       reviews: {
@@ -289,7 +348,7 @@ Ideal as a serene home office, cosy guest accommodation, tranquil reading nook, 
           {
             rating: 5,
             title: "Superb quality for the price",
-            body: "Absolutely love the Gloria H. The windows are a real highlight — they open both ways and let in so much air. Well made and straightforward to put up.",
+            body: "Absolutely love the Gloria H. The windows are a real highlight â€” they open both ways and let in so much air. Well made and straightforward to put up.",
             authorName: "Mike D.",
             authorAge: "41",
             authorUse: "Home Office",
@@ -298,7 +357,7 @@ Ideal as a serene home office, cosy guest accommodation, tranquil reading nook, 
           {
             rating: 5,
             title: "Perfect reading room",
-            body: "My 68-year-old mother uses this as a reading and craft room. She's absolutely delighted — warm, bright, and very well made. Delivery was quick and the instructions were clear.",
+            body: "My 68-year-old mother uses this as a reading and craft room. She's absolutely delighted â€” warm, bright, and very well made. Delivery was quick and the instructions were clear.",
             authorName: "Helen P.",
             authorAge: "44",
             authorUse: "Reading Room",
@@ -309,14 +368,14 @@ Ideal as a serene home office, cosy guest accommodation, tranquil reading nook, 
     },
   });
 
-  // ─── 4. DOVER COMBI ─────────────────────────────────────────
+  // â”€â”€â”€ 4. DOVER COMBI â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   await prisma.product.create({
     data: {
       slug: "dover-combi-6m-x-4m",
-      name: "Dover Combi — 6m×4m Log Cabin",
-      tagline: "Two rooms in one — living space plus generous storage",
-      description: "Introducing the Dover Combi Log Cabin — a versatile and stylish dual-room cabin crafted with precision using 44mm double T&G Nordic pine wall logs. An internal partition creates two separate spaces: a 13.89m² living area and a 7.29m² storage room.",
-      longDescription: `The Dover Combi solves the age-old problem of wanting both a comfortable garden room and proper outdoor storage — without sacrificing either. The internal partition divides the cabin into a generous 13.89m² living or working space and a practical 7.29m² storage area, both accessed from the outside.
+      name: "Dover Combi â€” 6mÃ—4m Log Cabin",
+      tagline: "Two rooms in one â€” living space plus generous storage",
+      description: "Introducing the Dover Combi Log Cabin â€” a versatile and stylish dual-room cabin crafted with precision using 44mm double T&G Nordic pine wall logs. An internal partition creates two separate spaces: a 13.89mÂ² living area and a 7.29mÂ² storage room.",
+      longDescription: `The Dover Combi solves the age-old problem of wanting both a comfortable garden room and proper outdoor storage â€” without sacrificing either. The internal partition divides the cabin into a generous 13.89mÂ² living or working space and a practical 7.29mÂ² storage area, both accessed from the outside.
 
 Constructed from 44mm double tongue and groove Nordic pine wall logs, the Dover Combi exudes quality and durability. Double-glazed windows and doors with double rubber gasket seals ensure excellent insulation and a snug atmosphere year-round.
 
@@ -332,13 +391,13 @@ Comes with nails, screws, and detailed installation instructions for straightfor
       bestseller: true,
       rating: 4.8,
       reviewCount: 42,
-      leadTime: "3–5 weeks",
+      leadTime: "3â€“5 weeks",
       warranty: "5 years structural",
       features: [
         "44mm double T&G Nordic pine wall logs",
-        "Internal partition — two separate rooms",
-        "Main room: 13.89m² living space",
-        "Storage room: 7.29m²",
+        "Internal partition â€” two separate rooms",
+        "Main room: 13.89mÂ² living space",
+        "Storage room: 7.29mÂ²",
         "Double-glazed windows and doors",
         "Double rubber gasket insulation seal",
         "Cylinder lock security",
@@ -348,12 +407,12 @@ Comes with nails, screws, and detailed installation instructions for straightfor
       ],
       specs: {
         wallLogs: "44mm double T&G Nordic pine",
-        mainRoomArea: "13.89 m²",
-        storageArea: "7.29 m²",
-        internalDimensions: "4.3 × 2.8m",
-        doubleDoor: "1210 × 1940mm",
-        singleDoor: "850 × 1940mm",
-        doubleWindow: "1370 × 1030mm",
+        mainRoomArea: "13.89 mÂ²",
+        storageArea: "7.29 mÂ²",
+        internalDimensions: "4.3 Ã— 2.8m",
+        doubleDoor: "1210 Ã— 1940mm",
+        singleDoor: "850 Ã— 1940mm",
+        doubleWindow: "1370 Ã— 1030mm",
         lock: "Cylinder lock",
         roofCovering: "Supports bitumen tiles and alternatives",
         warranty: "5 years from purchase",
@@ -376,16 +435,35 @@ Comes with nails, screws, and detailed installation instructions for straightfor
       },
       sizes: {
         create: [
-          { label: "6m × 4m (Standard)", widthM: 6.0, depthM: 4.0, heightM: 2.5, sqm: 21.18, priceAdder: 0 },
+          { label: "6m Ã— 4m (Standard)", widthM: 6.0, depthM: 4.0, heightM: 2.5, sqm: 21.18, priceAdder: 0 },
         ],
       },
       finishes: {
         create: [
-          { name: "Natural Pine", hexColor: "#D4A76A", priceAdder: 0 },
-          { name: "Light Grey", hexColor: "#A0A0A0", priceAdder: 0 },
-          { name: "Dark Grey", hexColor: "#4A4A4A", priceAdder: 0 },
-          { name: "Black", hexColor: "#1A1A1A", priceAdder: 350 },
-          { name: "Forest Green", hexColor: "#2D5016", priceAdder: 0 },
+          {
+            name: "Birch",
+            hexColor: "#D4C5A9",
+            imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/birch-aluwoodpanel1.jpg?v=1724067587&width=1030",
+            priceAdder: 0,
+          },
+          {
+            name: "Stone Grey",
+            hexColor: "#8A8F8A",
+            imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/stonegray-outdoorwallpanel1.jpg?v=1725361464&width=1030",
+            priceAdder: 0,
+          },
+          {
+            name: "Oak",
+            hexColor: "#B8864E",
+            imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/oak-outdoorwallpanel1.jpg?v=1730215792&width=1030",
+            priceAdder: 0,
+          },
+          {
+            name: "Black",
+            hexColor: "#1A1A1A",
+            imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/black-aluwoodpanel1.jpg?v=1724067608&width=1030",
+            priceAdder: 0,
+          },
         ],
       },
       reviews: {
@@ -413,16 +491,16 @@ Comes with nails, screws, and detailed installation instructions for straightfor
     },
   });
 
-  // ─── 5. GLORIA-F ─────────────────────────────────────────────
+  // â”€â”€â”€ 5. GLORIA-F â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   await prisma.product.create({
     data: {
       slug: "gloria-f-4-5x2-0m-log-cabin",
-      name: "Gloria F — 4.5×2.0m Log Cabin",
+      name: "Gloria F â€” 4.5Ã—2.0m Log Cabin",
       tagline: "Elegant Nordic retreat in a compact footprint",
-      description: "Introducing the Gloria F Log Cabin — a retreat crafted from 100% Nordic high-quality spruce. Featuring doors and windows made from extra-dry laminated timber with just 8–12% moisture content, this elegant cabin combines beauty with long-lasting durability.",
-      longDescription: `The Gloria F is proof that you don't need a large garden to enjoy a premium log cabin. At just 4.5m × 2.0m, it fits neatly into smaller gardens and patios while delivering the same quality construction as our larger models.
+      description: "Introducing the Gloria F Log Cabin â€” a retreat crafted from 100% Nordic high-quality spruce. Featuring doors and windows made from extra-dry laminated timber with just 8â€“12% moisture content, this elegant cabin combines beauty with long-lasting durability.",
+      longDescription: `The Gloria F is proof that you don't need a large garden to enjoy a premium log cabin. At just 4.5m Ã— 2.0m, it fits neatly into smaller gardens and patios while delivering the same quality construction as our larger models.
 
-Doors and windows are produced from extra-dry laminated timber with a moisture content of just 8–12%, ensuring they resist warping and continue to fit perfectly for years. The large glazed windows open in both directions for excellent ventilation, while the glazed doors bring generous natural light into the space.
+Doors and windows are produced from extra-dry laminated timber with a moisture content of just 8â€“12%, ensuring they resist warping and continue to fit perfectly for years. The large glazed windows open in both directions for excellent ventilation, while the glazed doors bring generous natural light into the space.
 
 An 18mm thick profile board is used for both ceiling and floor, giving the interior a refined, finished feel. Autoclave impregnated timber foundation beams provide a rot-resistant, durable base. Storm bars and all fixation equipment are included.
 
@@ -435,35 +513,35 @@ Covered by our 5-year construction warranty from the date of purchase. All produ
       featured: false,
       rating: 4.7,
       reviewCount: 19,
-      leadTime: "2–3 weeks",
+      leadTime: "2â€“3 weeks",
       warranty: "5 years structural",
       features: [
         "100% Nordic high-quality spruce",
-        "Extra-dry laminated timber doors & windows (8–12% moisture)",
+        "Extra-dry laminated timber doors & windows (8â€“12% moisture)",
         "Large windows open in both directions",
         "18mm profile board ceiling and floor",
         "Autoclave impregnated foundation beams",
         "Storm bars included",
         "All fixation equipment included",
         "Installation drawings included",
-        "Compact 4.5 × 2.0m footprint",
-        "Floor area: 7.7m²",
+        "Compact 4.5 Ã— 2.0m footprint",
+        "Floor area: 7.7mÂ²",
       ],
       specs: {
-        externalDimensions: "445 × 200 cm",
-        wallDimensions: "425 × 180 cm",
+        externalDimensions: "445 Ã— 200 cm",
+        wallDimensions: "425 Ã— 180 cm",
         logThickness: "28mm",
-        sideWallHeight: "188–211 cm",
+        sideWallHeight: "188â€“211 cm",
         ridgeHeight: "217 cm",
-        roofSurface: "10.6 m²",
+        roofSurface: "10.6 mÂ²",
         roofBoards: "18 mm",
         frontOverhang: "20 cm",
-        roofTiltAngle: "7°",
+        roofTiltAngle: "7Â°",
         floorBoards: "18 mm",
-        floorSurface: "7.7 m²",
-        door: "840 × 1955mm + 1425 × 1955mm",
+        floorSurface: "7.7 mÂ²",
+        door: "840 Ã— 1955mm + 1425 Ã— 1955mm",
         packageWeight: "41 kg",
-        packageSize: "470 × 108 × 41 cm",
+        packageSize: "470 Ã— 108 Ã— 41 cm",
       },
       images: {
         create: [
@@ -483,15 +561,35 @@ Covered by our 5-year construction warranty from the date of purchase. All produ
       },
       sizes: {
         create: [
-          { label: "4.5 × 2.0m (Standard)", widthM: 4.5, depthM: 2.0, heightM: 2.17, sqm: 7.7, priceAdder: 0 },
+          { label: "4.5 Ã— 2.0m (Standard)", widthM: 4.5, depthM: 2.0, heightM: 2.17, sqm: 7.7, priceAdder: 0 },
         ],
       },
       finishes: {
         create: [
-          { name: "Natural Spruce", hexColor: "#C8A96A", priceAdder: 0 },
-          { name: "Light Grey", hexColor: "#A0A0A0", priceAdder: 0 },
-          { name: "Dark Grey", hexColor: "#4A4A4A", priceAdder: 0 },
-          { name: "Forest Green", hexColor: "#2D5016", priceAdder: 0 },
+          {
+            name: "Birch",
+            hexColor: "#D4C5A9",
+            imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/birch-aluwoodpanel1.jpg?v=1724067587&width=1030",
+            priceAdder: 0,
+          },
+          {
+            name: "Stone Grey",
+            hexColor: "#8A8F8A",
+            imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/stonegray-outdoorwallpanel1.jpg?v=1725361464&width=1030",
+            priceAdder: 0,
+          },
+          {
+            name: "Oak",
+            hexColor: "#B8864E",
+            imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/oak-outdoorwallpanel1.jpg?v=1730215792&width=1030",
+            priceAdder: 0,
+          },
+          {
+            name: "Black",
+            hexColor: "#1A1A1A",
+            imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/black-aluwoodpanel1.jpg?v=1724067608&width=1030",
+            priceAdder: 0,
+          },
         ],
       },
       reviews: {
@@ -499,7 +597,7 @@ Covered by our 5-year construction warranty from the date of purchase. All produ
           {
             rating: 5,
             title: "Perfect for a small garden",
-            body: "We have a terrace garden so space is limited. The Gloria F fits perfectly and looks lovely. Great quality for the price — warm, dry and well made.",
+            body: "We have a terrace garden so space is limited. The Gloria F fits perfectly and looks lovely. Great quality for the price â€” warm, dry and well made.",
             authorName: "Anna K.",
             authorAge: "35",
             authorUse: "Garden Retreat",
@@ -510,20 +608,20 @@ Covered by our 5-year construction warranty from the date of purchase. All produ
     },
   });
 
-  // ─── 6. DERBY ────────────────────────────────────────────────
+  // â”€â”€â”€ 6. DERBY â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   await prisma.product.create({
     data: {
       slug: "derby-4-5m-x-3m",
-      name: "Derby — 4.5m×3m Log Cabin",
+      name: "Derby â€” 4.5mÃ—3m Log Cabin",
       tagline: "Versatile outdoor living with style and functionality",
-      description: "Introducing the Derby Log Cabin from Northern Log Cabins — your go-to choice for versatile outdoor living and storage solutions. Crafted with 44mm Spruce double T&G wall logs, this cabin combines a comfortable 7.617m² cabin area with a practical 3.907m² storage section.",
-      longDescription: `The Derby is built for those who want a proper multi-purpose outdoor building. The clever design combines a comfortable, insulated living or working space of 7.617m² with a 3.907m² storage area — all within a 4.5m × 3m footprint.
+      description: "Introducing the Derby Log Cabin from Northern Log Cabins â€” your go-to choice for versatile outdoor living and storage solutions. Crafted with 44mm Spruce double T&G wall logs, this cabin combines a comfortable 7.617mÂ² cabin area with a practical 3.907mÂ² storage section.",
+      longDescription: `The Derby is built for those who want a proper multi-purpose outdoor building. The clever design combines a comfortable, insulated living or working space of 7.617mÂ² with a 3.907mÂ² storage area â€” all within a 4.5m Ã— 3m footprint.
 
 Wall logs of 44mm Spruce with double T&G jointing provide enhanced stability and excellent insulation. The high ridge height of 2.5m adds a spacious feel to the main cabin area, while the varying wall heights of 2.2m and 1.9m give the structure its distinctive split-level profile.
 
-A cylinder lock provides added security, while adjustable hinges on windows and doors guarantee a snug, secure fit. The practical layout features a double door (1210 × 1940mm) and a single door (850 × 1940mm), along with a double window (1370 × 1030mm) for natural light and visibility.
+A cylinder lock provides added security, while adjustable hinges on windows and doors guarantee a snug, secure fit. The practical layout features a double door (1210 Ã— 1940mm) and a single door (850 Ã— 1940mm), along with a double window (1370 Ã— 1030mm) for natural light and visibility.
 
-The internal dimensions of 4.3 × 2.8m offer versatility for a range of uses — from a home office or creative studio to a storage space for tools and equipment. Foundation bearers are treated against rot for a sturdy and durable base.
+The internal dimensions of 4.3 Ã— 2.8m offer versatility for a range of uses â€” from a home office or creative studio to a storage space for tools and equipment. Foundation bearers are treated against rot for a sturdy and durable base.
 
 Comes complete with nails, screws, and detailed installation instructions, making assembly straightforward for the DIY enthusiast. Covered by our 5-year construction warranty.`,
       price: 5499,
@@ -532,18 +630,18 @@ Comes complete with nails, screws, and detailed installation instructions, makin
       featured: true,
       rating: 4.8,
       reviewCount: 37,
-      leadTime: "3–4 weeks",
+      leadTime: "3â€“4 weeks",
       warranty: "5 years structural",
       features: [
         "44mm Spruce double T&G wall logs",
         "Ridge height: 2.5m",
-        "Cabin area: 7.617m²",
-        "Storage area: 3.907m²",
-        "Internal dimensions: 4.3 × 2.8m",
+        "Cabin area: 7.617mÂ²",
+        "Storage area: 3.907mÂ²",
+        "Internal dimensions: 4.3 Ã— 2.8m",
         "Cylinder lock security",
-        "Double door (1210 × 1940mm)",
-        "Single door (850 × 1940mm)",
-        "Double window (1370 × 1030mm)",
+        "Double door (1210 Ã— 1940mm)",
+        "Single door (850 Ã— 1940mm)",
+        "Double window (1370 Ã— 1030mm)",
         "Rot-treated foundation bearers",
         "All fixings and instructions included",
       ],
@@ -551,12 +649,12 @@ Comes complete with nails, screws, and detailed installation instructions, makin
         wallLogs: "44mm Spruce double T&G",
         ridgeHeight: "2.5 m",
         wallHeights: "2.2m and 1.9m",
-        cabinArea: "7.617 m²",
-        storageArea: "3.907 m²",
-        internalDimensions: "4.3 × 2.8 m",
-        doubleDoor: "1210 × 1940mm",
-        singleDoor: "850 × 1940mm",
-        doubleWindow: "1370 × 1030mm",
+        cabinArea: "7.617 mÂ²",
+        storageArea: "3.907 mÂ²",
+        internalDimensions: "4.3 Ã— 2.8 m",
+        doubleDoor: "1210 Ã— 1940mm",
+        singleDoor: "850 Ã— 1940mm",
+        doubleWindow: "1370 Ã— 1030mm",
         lock: "Cylinder lock",
         warranty: "5 years from purchase",
       },
@@ -572,16 +670,35 @@ Comes complete with nails, screws, and detailed installation instructions, makin
       },
       sizes: {
         create: [
-          { label: "4.5 × 3m (Standard)", widthM: 4.5, depthM: 3.0, heightM: 2.5, sqm: 11.52, priceAdder: 0 },
+          { label: "4.5 Ã— 3m (Standard)", widthM: 4.5, depthM: 3.0, heightM: 2.5, sqm: 11.52, priceAdder: 0 },
         ],
       },
       finishes: {
         create: [
-          { name: "Natural Spruce", hexColor: "#C8A96A", priceAdder: 0 },
-          { name: "Light Grey", hexColor: "#A0A0A0", priceAdder: 0 },
-          { name: "Dark Grey", hexColor: "#4A4A4A", priceAdder: 0 },
-          { name: "Black", hexColor: "#1A1A1A", priceAdder: 350 },
-          { name: "Forest Green", hexColor: "#2D5016", priceAdder: 0 },
+          {
+            name: "Birch",
+            hexColor: "#D4C5A9",
+            imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/birch-aluwoodpanel1.jpg?v=1724067587&width=1030",
+            priceAdder: 0,
+          },
+          {
+            name: "Stone Grey",
+            hexColor: "#8A8F8A",
+            imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/stonegray-outdoorwallpanel1.jpg?v=1725361464&width=1030",
+            priceAdder: 0,
+          },
+          {
+            name: "Oak",
+            hexColor: "#B8864E",
+            imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/oak-outdoorwallpanel1.jpg?v=1730215792&width=1030",
+            priceAdder: 0,
+          },
+          {
+            name: "Black",
+            hexColor: "#1A1A1A",
+            imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/black-aluwoodpanel1.jpg?v=1724067608&width=1030",
+            priceAdder: 0,
+          },
         ],
       },
       reviews: {
@@ -609,7 +726,7 @@ Comes complete with nails, screws, and detailed installation instructions, makin
     },
   });
 
-  console.log("✅ All 6 Northern Log Cabins products seeded successfully!");
+  console.log("âœ… All 6 Northern Log Cabins products seeded successfully!");
 }
 
 main()
