@@ -1,6 +1,7 @@
 // src/components/ui/logo.tsx
+"use client";
+
 import Link from "next/link";
-import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 interface LogoProps {
@@ -11,25 +12,27 @@ interface LogoProps {
 
 export function Logo({ variant = "dark", className, size = "md" }: LogoProps) {
   const sizes = {
-    sm: { width: 100, height: 40 },
-    md: { width: 130, height: 52 },
-    lg: { width: 160, height: 64 },
+    sm: { width: 90,  height: 36 },
+    md: { width: 120, height: 48 },
+    lg: { width: 150, height: 60 },
   };
 
   const s = sizes[size];
 
   return (
     <Link href="/" className={cn("inline-flex items-center group", className)}>
-      <Image
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
         src="/tainhaus-logo.png"
-        alt="Tainhaus â€” Log Cabins & Garden Rooms"
+        alt="Tainhaus"
         width={s.width}
         height={s.height}
-        className={cn(
-          "object-contain transition-all duration-300",
-          variant === "light" ? "brightness-0 invert" : "brightness-0"
-        )}
-        priority
+        style={{
+          width: s.width,
+          height: s.height,
+          objectFit: "contain",
+          filter: variant === "light" ? "brightness(0) invert(1)" : "brightness(0)",
+        }}
       />
     </Link>
   );
