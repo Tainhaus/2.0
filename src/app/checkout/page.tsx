@@ -26,12 +26,12 @@ export default function CheckoutPage() {
         body: JSON.stringify({
           items: items.map((item) => ({
             productId: item.productId,
-            name:      item.name,
-            price:     item.price,
+            name:      item.product.name,
+            price:     item.unitPrice,
             quantity:  item.quantity,
-            image:     item.image,
-            size:      item.selectedSize,
-            finish:    item.selectedFinish,
+            image:     (item.product.images as any[])?.[0]?.url,
+            size:      item.selectedSize?.label,
+            finish:    item.selectedFinish?.name,
           })),
         }),
       });
@@ -80,24 +80,24 @@ export default function CheckoutPage() {
           {/* Order items */}
           <div className="lg:col-span-2 space-y-4">
             {items.map((item) => (
-              <div key={`${item.productId}-${item.selectedSize}-${item.selectedFinish}`}
+              <div key={`${item.productId}-${item.selectedSize?.label}-${item.selectedFinish?.name}`}
                 className="bg-white rounded-2xl p-5 border border-sand-200 flex gap-4">
-                {item.image && (
+                {(item.product.images as any[])?.[0]?.url && (
                   <div className="relative w-24 h-24 rounded-xl overflow-hidden shrink-0 bg-sand-100">
-                    <Image src={item.image} alt={item.name} fill className="object-cover" />
+                    <Image src={(item.product.images as any[])[0].url} alt={item.product.name} fill className="object-cover" />
                   </div>
                 )}
                 <div className="flex-1 min-w-0">
-                  <h3 className="font-display font-semibold text-charcoal-900 mb-1">{item.name}</h3>
+                  <h3 className="font-display font-semibold text-charcoal-900 mb-1">{item.product.name}</h3>
                   {item.selectedSize && (
-                    <p className="font-body text-sm text-charcoal-500">Size: {item.selectedSize}</p>
+                    <p className="font-body text-sm text-charcoal-500">Size: {item.selectedSize.label}</p>
                   )}
                   {item.selectedFinish && (
-                    <p className="font-body text-sm text-charcoal-500">Finish: {item.selectedFinish}</p>
+                    <p className="font-body text-sm text-charcoal-500">Finish: {item.selectedFinish.name}</p>
                   )}
                   <div className="flex items-center justify-between mt-3">
                     <span className="font-body text-sm text-charcoal-500">Qty: {item.quantity}</span>
-                    <span className="font-display font-bold text-forest-800">{formatPrice(item.price * item.quantity)}</span>
+                    <span className="font-display font-bold text-forest-800">{formatPrice(item.unitPrice * item.quantity)}</span>
                   </div>
                 </div>
               </div>
