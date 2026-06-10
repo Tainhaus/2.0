@@ -31,7 +31,6 @@ export function Logo({ variant = "dark", className, size = "md" }: LogoProps) {
           width: s.width,
           height: s.height,
           objectFit: "contain",
-          filter: variant === "light" ? "brightness(0) invert(1)" : "brightness(0)",
         }}
       />
     </Link>
