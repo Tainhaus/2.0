@@ -4,7 +4,7 @@
 import { useRouter, usePathname } from "next/navigation";
 import { X } from "lucide-react";
 import { cn, formatPrice } from "@/lib/utils";
-
+import { CATEGORIES } from "@/types";
 interface ShopFiltersProps {
   searchParams: Record<string, string | undefined>;
 }
