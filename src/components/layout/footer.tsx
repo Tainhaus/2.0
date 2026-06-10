@@ -55,7 +55,7 @@ export function Footer() {
                 Get inspired in your inbox
               </h3>
               <p className="text-forest-200 font-body text-sm max-w-md">
-                Design ideas, customer stories, seasonal offers, and planning tips â€” delivered monthly.
+                Design ideas, customer stories, seasonal offers, and planning tips -” delivered monthly.
               </p>
             </div>
             <div className="w-full md:w-auto md:min-w-[400px]">

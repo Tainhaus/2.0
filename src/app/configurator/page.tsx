@@ -159,7 +159,7 @@ Customer message: ${quoteForm.message || "None"}`;
 
             <div className="bg-white rounded-3xl p-8 shadow-card min-h-[400px]">
 
-              {/* Step 1 â€” Type */}
+              {/* Step 1 -” Type */}
               {step === "type" && (
                 <StepSection title="What type of space do you need?">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -187,7 +187,7 @@ Customer message: ${quoteForm.message || "None"}`;
                 </StepSection>
               )}
 
-              {/* Step 2 â€” Size */}
+              {/* Step 2 -” Size */}
               {step === "size" && (
                 <StepSection title="What size do you need?">
                   <div className="space-y-3">
@@ -213,7 +213,7 @@ Customer message: ${quoteForm.message || "None"}`;
                 </StepSection>
               )}
 
-              {/* Step 3 â€” Finish */}
+              {/* Step 3 -” Finish */}
               {step === "finish" && (
                 <StepSection title="Choose your exterior finish" subtitle={`Selected: ${config.finish.name}`}>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
@@ -232,7 +232,7 @@ Customer message: ${quoteForm.message || "None"}`;
                 </StepSection>
               )}
 
-              {/* Step 4 â€” Use Case */}
+              {/* Step 4 -” Use Case */}
               {step === "use-case" && (
                 <StepSection title="What will you use it for?" subtitle="Select all that apply or describe your own use">
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
@@ -264,7 +264,7 @@ Customer message: ${quoteForm.message || "None"}`;
                 </StepSection>
               )}
 
-              {/* Step 5 â€” Quote form (replaces summary) */}
+              {/* Step 5 -” Quote form (replaces summary) */}
               {step === "quote" && (
                 <StepSection title="Request your quote">
                   {submitted ? (
@@ -283,7 +283,7 @@ Customer message: ${quoteForm.message || "None"}`;
                         Fill in your details below and we'll prepare a personalised quote based on your configuration and call you back at a time that suits you.
                       </p>
 
-                      {/* Config summary â€” compact */}
+                      {/* Config summary -” compact */}
                       <div className="bg-sand-100 rounded-2xl p-4 space-y-2">
                         <p className="font-body text-xs font-semibold text-charcoal-500 uppercase tracking-widest mb-3">Your configuration</p>
                         {[
@@ -329,7 +329,7 @@ Customer message: ${quoteForm.message || "None"}`;
 
                       <div>
                         <label className="font-body text-sm font-medium text-charcoal-700 block mb-1.5">
-                          Phone number <span className="text-charcoal-400 font-normal">(optional â€” for callback)</span>
+                          Phone number <span className="text-charcoal-400 font-normal">(optional -” for callback)</span>
                         </label>
                         <input
                           type="tel"

@@ -16,7 +16,7 @@ export default function HomePage() {
       {/* Hero */}
       <HeroSection />
 
-      {/* Our selection â€” replaces "One garden, infinite possibilities" */}
+      {/* Our selection -” replaces "One garden, infinite possibilities" */}
       <Suspense
         fallback={
           <section className="section bg-white">
@@ -33,7 +33,7 @@ export default function HomePage() {
         <FeaturedProductsSection />
       </Suspense>
 
-      {/* From idea to your garden â€” process */}
+      {/* From idea to your garden -” process */}
       <ProcessSection />
 
       {/* Built to last */}

@@ -45,9 +45,9 @@ export default function PrivacyPage() {
             <h2 className="font-display text-2xl font-semibold text-charcoal-900 mb-3">4. Legal basis for processing</h2>
             <p>We process your data on the following legal bases under UK GDPR:</p>
             <ul className="list-disc pl-6 space-y-1 mt-2">
-              <li><strong>Contract</strong> â€” to fulfil orders you have placed</li>
-              <li><strong>Legitimate interests</strong> â€” to respond to enquiries and improve our services</li>
-              <li><strong>Consent</strong> â€” for marketing emails and analytics cookies</li>
+              <li><strong>Contract</strong> -” to fulfil orders you have placed</li>
+              <li><strong>Legitimate interests</strong> -” to respond to enquiries and improve our services</li>
+              <li><strong>Consent</strong> -” for marketing emails and analytics cookies</li>
             </ul>
           </section>
 
@@ -60,8 +60,8 @@ export default function PrivacyPage() {
             <h2 className="font-display text-2xl font-semibold text-charcoal-900 mb-3">6. Third parties</h2>
             <p>We share your data with the following trusted third parties:</p>
             <ul className="list-disc pl-6 space-y-1 mt-2">
-              <li><strong>Stripe</strong> â€” payment processing (they do not store your card details on our servers)</li>
-              <li><strong>Neon / Railway</strong> â€” secure database hosting</li>
+              <li><strong>Stripe</strong> -” payment processing (they do not store your card details on our servers)</li>
+              <li><strong>Neon / Railway</strong> -” secure database hosting</li>
               <li>We do not sell your data to any third party.</li>
             </ul>
           </section>

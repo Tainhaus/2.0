@@ -1,5 +1,5 @@
 // src/lib/rate-limit.ts
-// Simple in-memory rate limiter â€” works on serverless (per-instance)
+// Simple in-memory rate limiter -” works on serverless (per-instance)
 
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
 
