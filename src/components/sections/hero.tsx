@@ -13,7 +13,7 @@ const HERO_SLIDES = [
     alt: "Beautiful garden room in a lush green garden",
     headline: "Your garden,",
     headlineAccent: "transformed.",
-    sub: "Premium garden rooms and pods — crafted for every life stage, every dream.",
+    sub: "Premium garden rooms and pods â€” crafted for every life stage, every dream.",
     cta: "Shop Garden Rooms",
     ctaHref: "/shop",
   },
@@ -31,7 +31,7 @@ const HERO_SLIDES = [
     alt: "Nordic barrel sauna in a beautiful garden",
     headline: "Rest,",
     headlineAccent: "restored.",
-    sub: "From saunas to yoga studios — your personal wellness sanctuary starts here.",
+    sub: "From saunas to yoga studios â€” your personal wellness sanctuary starts here.",
     cta: "Wellness Spaces",
     ctaHref: "/shop?useCase=SAUNA_SPA",
   },
@@ -166,33 +166,7 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Stats bar */}
-        <div
-          className={cn(
-            "absolute bottom-20 left-0 right-0 transition-all duration-1000",
-            isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          )}
-          style={{ transitionDelay: "700ms" }}
-        >
-          <div className="container-site">
-            <div className="flex flex-wrap items-center gap-px bg-white/10 backdrop-blur-md rounded-2xl overflow-hidden w-fit">
-              {HERO_STATS.map((stat, i) => (
-                <div
-                  key={stat.label}
-                  className={cn(
-                    "px-6 py-4 flex flex-col items-center text-center",
-                    i < HERO_STATS.length - 1 && "border-r border-white/10"
-                  )}
-                >
-                  <span className="font-display font-bold text-xl text-white">{stat.value}</span>
-                  <span className="font-body text-xs text-white/60 mt-0.5 whitespace-nowrap">
-                    {stat.label}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+
       </div>
 
       {/* Slide indicators */}
@@ -241,7 +215,7 @@ export function HeroSection() {
               onClick={() => setShowVideo(false)}
               className="absolute top-4 right-4 w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-colors z-10"
             >
-              ✕
+              âœ•
             </button>
             <div className="w-full h-full flex items-center justify-center">
               <p className="text-white/60 font-body text-sm">

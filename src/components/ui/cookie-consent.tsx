@@ -29,50 +29,39 @@ export function CookieConsent() {
 
   return (
     <div
-      className="fixed bottom-0 left-0 right-0 z-50 p-4 md:p-6"
+      className="fixed bottom-0 left-0 right-0 z-50 p-3 md:p-4"
       role="dialog"
       aria-label="Cookie consent"
     >
-      <div className="max-w-4xl mx-auto bg-charcoal-900 text-white rounded-2xl shadow-luxury-xl p-5 md:p-6">
-        <div className="flex items-start gap-4">
-          <div className="shrink-0 w-10 h-10 bg-forest-800 rounded-xl flex items-center justify-center">
-            <Cookie className="w-5 h-5 text-sand-200" />
-          </div>
-          <div className="flex-1 min-w-0">
-            <h3 className="font-display text-base font-semibold text-white mb-1">
-              We use cookies
-            </h3>
-            <p className="font-body text-sm text-sand-400 leading-relaxed mb-4">
-              We use essential cookies to make our site work, and optional analytics cookies to understand how you use it.
-              By clicking &quot;Accept all&quot; you consent to all cookies. See our{" "}
-              <Link href="/privacy" className="text-sand-300 underline underline-offset-2 hover:text-white transition-colors">
-                Privacy Policy
-              </Link>{" "}
-              for details.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <button
-                onClick={acceptAll}
-                className="btn-primary text-sm px-5 py-2.5"
-              >
-                Accept all
-              </button>
-              <button
-                onClick={acceptEssential}
-                className="font-body text-sm text-sand-400 hover:text-white transition-colors px-2 py-2.5"
-              >
-                Essential only
-              </button>
-            </div>
-          </div>
+      <div className="max-w-2xl mx-auto bg-charcoal-900 text-white rounded-xl shadow-luxury-xl px-4 py-3 flex items-center gap-4">
+        <Cookie className="w-4 h-4 text-sand-400 shrink-0" />
+        <p className="font-body text-xs text-sand-400 flex-1 leading-relaxed">
+          We use essential and optional analytics cookies.{" "}
+          <Link href="/privacy" className="text-sand-300 underline underline-offset-2 hover:text-white transition-colors">
+            Privacy Policy
+          </Link>
+        </p>
+        <div className="flex items-center gap-3 shrink-0">
           <button
             onClick={acceptEssential}
-            className="shrink-0 text-sand-500 hover:text-white transition-colors"
-            aria-label="Close"
+            className="font-body text-xs text-sand-500 hover:text-white transition-colors whitespace-nowrap"
           >
-            <X className="w-5 h-5" />
+            Essential only
+          </button>
+          <button
+            onClick={acceptAll}
+            className="btn-primary text-xs px-4 py-2 whitespace-nowrap"
+          >
+            Accept all
           </button>
         </div>
+        <button
+          onClick={acceptEssential}
+          className="shrink-0 text-sand-500 hover:text-white transition-colors"
+          aria-label="Close"
+        >
+          <X className="w-4 h-4" />
+        </button>
       </div>
     </div>
   );
