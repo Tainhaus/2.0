@@ -4,29 +4,30 @@ import "@/app/globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { CartDrawer } from "@/components/layout/cart-drawer";
+import { CookieConsent } from "@/components/ui/cookie-consent";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://Tainhaus.co.uk"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://tainhaus.co.uk"),
   title: {
-    default: "Tainhaus — Premium Garden Rooms & Pods",
+    default: "Tainhaus â€” Premium Garden Rooms & Pods",
     template: "%s | Tainhaus",
   },
   description:
-    "Bespoke garden rooms, pods, studios, saunas, and annexes. Handcrafted to the highest standard, designed to transform your outdoor space — for life.",
+    "Bespoke garden rooms, pods, studios, saunas, and annexes. Handcrafted to the highest standard, designed to transform your outdoor space â€” for life.",
   keywords: ["garden room","garden pod","garden office","home office pod","garden studio","garden sauna","garden annexe","outdoor living","bespoke garden buildings"],
   authors: [{ name: "Tainhaus" }],
   openGraph: {
     type: "website",
     locale: "en_GB",
-    url: "https://Tainhaus.co.uk",
+    url: "https://tainhaus.co.uk",
     siteName: "Tainhaus",
-    title: "Tainhaus — Premium Garden Rooms & Pods",
+    title: "Tainhaus â€” Premium Garden Rooms & Pods",
     description: "Bespoke garden rooms, pods, studios, saunas, and annexes. Handcrafted to the highest standard.",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Tainhaus" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tainhaus — Premium Garden Rooms & Pods",
+    title: "Tainhaus â€” Premium Garden Rooms & Pods",
     description: "Bespoke garden rooms, pods, studios, saunas, and annexes.",
     images: ["/og-image.jpg"],
   },
@@ -55,6 +56,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className="min-h-screen">{children}</main>
         <Footer />
         <CartDrawer />
+        <CookieConsent />
       </body>
     </html>
   );

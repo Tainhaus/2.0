@@ -1,95 +1,88 @@
 export const dynamic = "force-dynamic";
-// src/app/api/checkout/route.ts
+export const runtime = "nodejs";
+
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
-import Stripe from "stripe";
+import { rateLimit, getClientIP } from "@/lib/rate-limit";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2023-10-16",
-});
-
-const cartItemSchema = z.object({
-  productId: z.string(),
-  quantity: z.number().min(1),
-  unitPrice: z.number(),
-  product: z.object({
-    name: z.string(),
-    images: z.array(z.object({ url: z.string() })),
-  }),
-  selectedSize: z.object({ label: z.string() }).optional(),
-  selectedFinish: z.object({ name: z.string() }).optional(),
-});
-
-const checkoutSchema = z.object({
-  items: z.array(cartItemSchema),
-  customerDetails: z.object({
-    email: z.string().email(),
-    firstName: z.string(),
-    lastName: z.string(),
-    phone: z.string().optional(),
-    address1: z.string(),
-    address2: z.string().optional(),
-    city: z.string(),
-    postcode: z.string(),
-    notes: z.string().optional(),
-  }),
+const schema = z.object({
+  items: z.array(z.object({
+    productId: z.string(),
+    name:      z.string(),
+    price:     z.number().positive(),
+    quantity:  z.number().int().positive(),
+    image:     z.string().optional(),
+    size:      z.string().optional(),
+    finish:    z.string().optional(),
+  })),
+  successUrl: z.string().url().optional(),
+  cancelUrl:  z.string().url().optional(),
 });
 
 export async function POST(req: NextRequest) {
+  // Rate limit: 10 checkout attempts per IP per 15 minutes
+  const ip = getClientIP(req);
+  const limit = rateLimit(`checkout:${ip}`, { maxRequests: 10, windowMs: 15 * 60_000 });
+  if (!limit.success) {
+    return NextResponse.json(
+      { error: "Too many requests. Please try again later." },
+      { status: 429 }
+    );
+  }
+
+  if (!process.env.STRIPE_SECRET_KEY) {
+    console.error("STRIPE_SECRET_KEY not configured");
+    return NextResponse.json({ error: "Payment system not configured." }, { status: 500 });
+  }
+
   try {
     const body = await req.json();
-    const { items, customerDetails } = checkoutSchema.parse(body);
-    const origin = req.headers.get("origin") ?? process.env.NEXT_PUBLIC_SITE_URL;
+    const { items, successUrl, cancelUrl } = schema.parse(body);
 
-    const lineItems: Stripe.Checkout.SessionCreateParams.LineItem[] = items.map((item) => {
-      const description = [item.selectedSize?.label, item.selectedFinish?.name].filter(Boolean).join(" · ");
-      const imageUrl = item.product.images?.[0]?.url;
-      return {
+    const stripe = (await import("stripe")).default;
+    const stripeClient = new stripe(process.env.STRIPE_SECRET_KEY, {
+      apiVersion: "2023-10-16",
+    });
+
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://tainhaus.co.uk";
+
+    const session = await stripeClient.checkout.sessions.create({
+      payment_method_types: ["card"],
+      mode: "payment",
+      line_items: items.map((item) => ({
         price_data: {
           currency: "gbp",
           product_data: {
-            name: item.product.name,
-            description: description || undefined,
-            images: imageUrl ? [imageUrl] : undefined,
+            name: item.name,
+            description: [item.size, item.finish].filter(Boolean).join(" Â· ") || undefined,
+            images: item.image ? [item.image] : [],
           },
-          unit_amount: Math.round(item.unitPrice * 100),
+          unit_amount: Math.round(item.price * 100), // pence
         },
         quantity: item.quantity,
-      };
-    });
-
-    const subtotal = items.reduce((acc, item) => acc + item.unitPrice * item.quantity, 0);
-    lineItems.push({
-      price_data: {
-        currency: "gbp",
-        product_data: { name: "VAT (20%)" },
-        unit_amount: Math.round(subtotal * 0.2 * 100),
+      })),
+      success_url: successUrl ?? `${siteUrl}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url:  cancelUrl  ?? `${siteUrl}/checkout`,
+      billing_address_collection: "required",
+      shipping_address_collection: {
+        allowed_countries: ["GB"],
       },
-      quantity: 1,
-    });
-
-    const session = await stripe.checkout.sessions.create({
-      mode: "payment",
-      line_items: lineItems,
-      customer_email: customerDetails.email,
-      billing_address_collection: "auto",
-      shipping_address_collection: { allowed_countries: ["GB"] },
-      success_url: `${origin}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${origin}/checkout?cancelled=true`,
       metadata: {
-        customerName: `${customerDetails.firstName} ${customerDetails.lastName}`,
-        phone: customerDetails.phone ?? "",
-        address: `${customerDetails.address1}, ${customerDetails.city}, ${customerDetails.postcode}`,
-        notes: customerDetails.notes ?? "",
+        source: "tainhaus-web",
+      },
+      custom_text: {
+        submit: {
+          message: "We will contact you within 24 hours to confirm your order and arrange delivery.",
+        },
       },
     });
 
-    return NextResponse.json({ url: session.url });
+    return NextResponse.json({ sessionId: session.id, url: session.url });
   } catch (err) {
     if (err instanceof z.ZodError) {
-      return NextResponse.json({ error: err.errors[0]?.message ?? "Invalid input" }, { status: 400 });
+      return NextResponse.json({ error: "Invalid order data." }, { status: 400 });
     }
-    console.error("[checkout] error:", err);
-    return NextResponse.json({ error: "Failed to create checkout session" }, { status: 500 });
+    console.error("[checkout] Stripe error:", err);
+    return NextResponse.json({ error: "Failed to create checkout session." }, { status: 500 });
   }
 }
