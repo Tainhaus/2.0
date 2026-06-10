@@ -11,8 +11,10 @@ import type { ProductImage } from "@/types";
 // Map of slug + finish name â†’ local image path
 const FINISH_IMAGES: Record<string, Record<string, string>> = {
   "sicilia-6-7x3-8m-log-cabin": {
-    "Birch": "/products/sicilia-birch.png",
-    "Black": "/products/sicilia-black.png",
+    "Birch":       "/products/sicilia-birch.png",
+    "Black":       "/products/sicilia-black.png",
+    "Oak":         "/products/sicilia-oak.png",
+    "Stone Grey":  "/products/sicilia-stone-grey.png",
   },
 };
 
@@ -68,7 +70,8 @@ export function ProductGallery({ images, productName, productSlug }: ProductGall
           fill
           priority
           className={cn(
-            "object-cover transition-opacity duration-300",
+            "transition-opacity duration-300",
+            finishOverride ? "object-contain" : "object-cover",
             isTransitioning ? "opacity-0" : "opacity-100"
           )}
           sizes="(max-width: 1024px) 100vw, 50vw"
