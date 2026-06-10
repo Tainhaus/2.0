@@ -68,7 +68,7 @@ function CtaSection() {
               your outdoor space?
             </h2>
             <p className="font-body text-forest-200 max-w-xl mx-auto mb-8 leading-relaxed">
-              Call us or place your order today. Most customers receive their cabin within 4â€“6 weeks.
+              Call us or place your order today. Most customers receive their cabin within 4-6 weeks.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Link href="/contact" className="btn-terracotta text-base px-8 py-4">
@@ -76,7 +76,7 @@ function CtaSection() {
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <Link href="/shop" className="inline-flex items-center gap-2 text-white/80 hover:text-white font-body text-sm font-medium transition-colors">
-                Browse our collection â†’
+                Browse our collection
               </Link>
             </div>
           </div>
