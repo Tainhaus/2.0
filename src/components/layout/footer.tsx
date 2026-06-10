@@ -1,5 +1,6 @@
 // src/components/layout/footer.tsx
 import Link from "next/link";
+import { Logo } from "@/components/ui/logo";
 import { Instagram, Facebook, Youtube, Linkedin, ArrowRight, MapPin, Phone, Mail } from "lucide-react";
 import { NewsletterForm } from "@/components/ui/newsletter-form";
 
@@ -9,30 +10,21 @@ const FOOTER_LINKS = {
     { label: "Garden Pods", href: "/shop?category=GARDEN_POD" },
     { label: "Studios", href: "/shop?category=STUDIO" },
     { label: "Saunas", href: "/shop?category=SAUNA" },
-    { label: "Annexes", href: "/shop?category=GARDEN_ROOM&useCase=GUEST_ROOM" },
     { label: "All Products", href: "/shop" },
   ],
   Services: [
     { label: "Design Configurator", href: "/configurator" },
-    { label: "Free Consultation", href: "/contact" },
     { label: "Installation", href: "/about#installation" },
-    { label: "Maintenance", href: "/about#maintenance" },
-    { label: "Trade Enquiries", href: "/contact?type=trade" },
   ],
   Company: [
     { label: "Our Story", href: "/about" },
-    { label: "Craftsmanship", href: "/about#craftsmanship" },
     { label: "Sustainability", href: "/about#sustainability" },
     { label: "Inspiration Gallery", href: "/inspiration" },
-    { label: "Blog", href: "/blog" },
-    { label: "Careers", href: "/careers" },
   ],
   Help: [
-    { label: "FAQ", href: "/faq" },
-    { label: "Delivery & Lead Times", href: "/faq#delivery" },
-    { label: "Planning Permission", href: "/faq#planning" },
-    { label: "Warranty & Guarantee", href: "/faq#warranty" },
-    { label: "Returns Policy", href: "/faq#returns" },
+    { label: "Returns Policy", href: "/returns" },
+    { label: "Warranty & Guarantee", href: "/warranty" },
+    { label: "Delivery & Lead Time", href: "/delivery" },
     { label: "Contact Us", href: "/contact" },
   ],
 };
@@ -45,10 +37,10 @@ const SOCIAL = [
 ];
 
 const TRUST_BADGES = [
-  { label: "10-Year Structural Warranty", icon: "🛡" },
-  { label: "FSC Certified Timber", icon: "🌲" },
-  { label: "Carbon Neutral Delivery", icon: "♻️" },
-  { label: "UK Manufactured", icon: "🇬🇧" },
+  { label: "10-Year Structural Warranty", icon: "ðŸ›¡" },
+  { label: "FSC Certified Timber", icon: "ðŸŒ²" },
+  { label: "Carbon Neutral Delivery", icon: "â™»ï¸" },
+  { label: "UK Manufactured", icon: "ðŸ‡¬ðŸ‡§" },
 ];
 
 export function Footer() {
@@ -63,7 +55,7 @@ export function Footer() {
                 Get inspired in your inbox
               </h3>
               <p className="text-forest-200 font-body text-sm max-w-md">
-                Design ideas, customer stories, seasonal offers, and planning tips — delivered monthly.
+                Design ideas, customer stories, seasonal offers, and planning tips â€” delivered monthly.
               </p>
             </div>
             <div className="w-full md:w-auto md:min-w-[400px]">
@@ -94,14 +86,9 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-16">
           {/* Brand column */}
           <div className="md:col-span-3">
-            <Link href="/" className="inline-flex items-center gap-2.5 mb-6 group">
-              <div className="w-9 h-9 bg-forest-700 rounded-xl flex items-center justify-center">
-                <span className="text-white font-display font-bold text-lg">Y</span>
-              </div>
-              <span className="font-display font-semibold text-white text-lg">
-                Tainhaus
-              </span>
-            </Link>
+            <div className="mb-6">
+              <Logo variant="light" size="md" />
+            </div>
 
             <p className="font-body text-sm text-sand-500 leading-relaxed mb-8">
               Bespoke garden rooms and pods, handcrafted in the UK with premium sustainable materials. 
@@ -124,8 +111,8 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-terracotta-400 shrink-0" />
-                <Link href="mailto:hello@Tainhaus.co.uk" className="font-body text-xs text-sand-500 hover:text-white transition-colors">
-                  hello@Tainhaus.co.uk
+                <Link href="mailto:hello@tainhaus.co.uk" className="font-body text-xs text-sand-500 hover:text-white transition-colors">
+                  hello@tainhaus.co.uk
                 </Link>
               </div>
             </div>
@@ -177,7 +164,7 @@ export function Footer() {
       <div className="border-t border-white/5 py-6">
         <div className="container-site flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="font-body text-xs text-sand-600">
-            © {new Date().getFullYear()} Tainhaus Ltd. All rights reserved. Company No. 12345678. 
+            Â© {new Date().getFullYear()} Tainhaus Ltd. All rights reserved. Company No. 12345678. 
             VAT No. GB 123 4567 89
           </p>
           <div className="flex items-center gap-6">

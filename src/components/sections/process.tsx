@@ -1,15 +1,15 @@
 // src/components/sections/process.tsx
 import Link from "next/link";
-import { ArrowRight, MessageSquare, Pencil, Hammer, Home } from "lucide-react";
+import { ArrowRight, Phone, Pencil, Package, Home } from "lucide-react";
 
 const STEPS = [
   {
     number: "01",
-    Icon: MessageSquare,
-    title: "Free Consultation",
+    Icon: Phone,
+    title: "Call or Order",
     description:
-      "Book a free call with one of our garden room specialists. We'll discuss your space, your needs, and your budget with zero pressure.",
-    cta: "Book a call",
+      "Get in touch with our team or place your order directly online. We'll confirm your requirements and answer any questions.",
+    cta: "Contact us",
     ctaHref: "/contact",
   },
   {
@@ -17,25 +17,25 @@ const STEPS = [
     Icon: Pencil,
     title: "Design & Customise",
     description:
-      "Use our online configurator or work with our design team to choose your size, finish, interior fit-out, and add-ons.",
+      "Choose your size, finish and any add-ons using our online configurator or with help from our team.",
     cta: "Try the configurator",
     ctaHref: "/configurator",
   },
   {
     number: "03",
-    Icon: Hammer,
-    title: "Built by Hand",
+    Icon: Package,
+    title: "Built & Dispatched",
     description:
-      "Your pod is assembled from scratch in our UK workshop using premium sustainable materials. Quality-checked before it leaves our doors.",
+      "Your cabin is carefully prepared and quality-checked before being packaged and dispatched to you within the agreed lead time.",
     cta: null,
     ctaHref: null,
   },
   {
     number: "04",
     Icon: Home,
-    title: "Installed & Enjoyed",
+    title: "Delivered & Installed",
     description:
-      "Our expert installation team arrives, assembles your pod in 1–3 days, and walks you through everything. Then you get to live in it.",
+      "Your cabin arrives and is installed by our team. We'll walk you through everything so you can start enjoying it straight away.",
     cta: null,
     ctaHref: null,
   },
@@ -55,14 +55,13 @@ export function ProcessSection() {
             </h2>
           </div>
           <p className="font-body text-charcoal-600 max-w-sm leading-relaxed">
-            We handle every step of the journey — from that first conversation to the 
-            day you step inside your finished pod.
+            We handle every step of the journey â€” from that first conversation to the
+            day you step inside your finished cabin.
           </p>
         </div>
 
         {/* Steps */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
-          {/* Connecting line on desktop */}
           <div className="hidden lg:block absolute top-14 left-[12.5%] right-[12.5%] h-px bg-gradient-to-r from-transparent via-sand-400 to-transparent" />
 
           {STEPS.map((step, i) => (
@@ -70,7 +69,6 @@ export function ProcessSection() {
               key={step.number}
               className="relative bg-white rounded-3xl p-7 shadow-card hover:shadow-luxury transition-all duration-400 group"
             >
-              {/* Step number + icon */}
               <div className="flex items-start gap-4 mb-5">
                 <div className="w-12 h-12 bg-forest-800 rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-terracotta-500 transition-colors duration-300">
                   <step.Icon className="w-5 h-5 text-white" />
@@ -97,7 +95,6 @@ export function ProcessSection() {
                 </Link>
               )}
 
-              {/* Connection arrow - desktop */}
               {i < STEPS.length - 1 && (
                 <div className="hidden lg:flex absolute -right-3 top-12 z-10 w-7 h-7 bg-sand-200 rounded-full items-center justify-center">
                   <ArrowRight className="w-3.5 h-3.5 text-sand-500" />
@@ -115,17 +112,17 @@ export function ProcessSection() {
                 Average timeline
               </p>
               <h3 className="font-display text-2xl md:text-3xl text-white font-bold mb-1">
-                From first call to first coffee — in 8 weeks.
+                From call to cabin â€” in 4â€“6 weeks.
               </h3>
               <p className="font-body text-forest-300 text-sm">
-                Most of our customers move into their pod within 6–10 weeks of ordering.
+                Most customers receive their cabin within 4â€“6 weeks of ordering.
               </p>
             </div>
             <div className="flex gap-8 shrink-0">
               {[
-                { v: "Week 1", l: "Design call" },
-                { v: "Week 2-4", l: "Build phase" },
-                { v: "Week 6-8", l: "Installation" },
+                { v: "Day 1", l: "Call / Order" },
+                { v: "Weeks 1â€“4", l: "Build & dispatch" },
+                { v: "Weeks 4â€“6", l: "Delivery & install" },
               ].map((t) => (
                 <div key={t.l} className="text-center">
                   <p className="font-display text-xl font-bold text-terracotta-300 whitespace-nowrap">{t.v}</p>
