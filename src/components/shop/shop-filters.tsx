@@ -4,7 +4,6 @@
 import { useRouter, usePathname } from "next/navigation";
 import { X } from "lucide-react";
 import { cn, formatPrice } from "@/lib/utils";
-import { CATEGORIES, USE_CASES } from "@/types";
 
 interface ShopFiltersProps {
   searchParams: Record<string, string | undefined>;
@@ -68,20 +67,6 @@ export function ShopFilters({ searchParams }: ShopFiltersProps) {
             isActive={searchParams.category === cat.id}
             onClick={() =>
               updateParam("category", searchParams.category === cat.id ? null : cat.id)
-            }
-          />
-        ))}
-      </FilterGroup>
-
-      {/* Use Case */}
-      <FilterGroup title="Use Case">
-        {USE_CASES.map((uc) => (
-          <FilterOption
-            key={uc.id}
-            label={`${uc.icon} ${uc.label}`}
-            isActive={searchParams.useCase === uc.id}
-            onClick={() =>
-              updateParam("useCase", searchParams.useCase === uc.id ? null : uc.id)
             }
           />
         ))}
