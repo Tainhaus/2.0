@@ -1,10 +1,11 @@
 // src/components/shop/product-configurator.tsx
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ShoppingBag, MessageSquare, Plus, Minus } from "lucide-react";
 import { cn, formatPrice } from "@/lib/utils";
 import { useCartStore } from "@/lib/cart-store";
+import { useFinish } from "@/lib/finish-context";
 import type { Product, ProductSize, Finish } from "@/types";
 
 const USE_CASE_LABELS: Record<string, string> = {
@@ -37,6 +38,13 @@ export function ProductConfigurator({ product }: ProductConfiguratorProps) {
   const [quantity, setQuantity] = useState(1);
   const [isAdding, setIsAdding] = useState(false);
   const [addedFeedback, setAddedFeedback] = useState(false);
+
+  const { setSelectedFinishName } = useFinish();
+
+  // Broadcast finish name to gallery whenever it changes
+  useEffect(() => {
+    setSelectedFinishName(selectedFinish?.name ?? "");
+  }, [selectedFinish, setSelectedFinishName]);
 
   const { addItem } = useCartStore();
 
