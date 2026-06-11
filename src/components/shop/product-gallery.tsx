@@ -16,6 +16,12 @@ const FINISH_IMAGES: Record<string, Record<string, string>> = {
     "Oak":         "/products/sicilia-oak.png",
     "Stone Grey":  "/products/sicilia-stone-grey.png",
   },
+  "oriental-4-4-7x3-2m-log-cabin": {
+    "Oak":         "/products/oriental-4-4-7x3-2m-log-cabin-oak.png",
+    "Black":       "/products/oriental-4-4-7x3-2m-log-cabin-black.png",
+    "Stone Grey":  "/products/oriental-4-4-7x3-2m-log-cabin-stone-grey.png",
+    "Birch":       "/products/oriental-4-4-7x3-2m-log-cabin-birch.png",
+  },
 };
 
 interface ProductGalleryProps {
