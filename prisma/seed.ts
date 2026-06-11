@@ -753,7 +753,113 @@ Comes complete with nails, screws, and detailed installation instructions, makin
     },
   });
 
-  console.log("âœ… All 7 Northern Log Cabins products seeded successfully!");
+  
+  // â”€â”€â”€ 9. OUTDOOR KITCHEN POD â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  await prisma.product.create({
+    data: {
+      slug: "outdoor-kitchen-pod-garden-bar-3-0x2-6m",
+      name: "Outdoor Kitchen Pod & Garden Bar",
+      tagline: "The ultimate alfresco entertainment suite for your garden",
+      description: "Elevate your outdoor hosting with the ultimate luxury garden addition. This premium timber kitchen pod comes complete with integrated kitchen units, a fridge, and a premium BBQ â€” turning your backyard into a high-end restaurant and bar.",
+      longDescription: `Transform your garden with the ultimate entertaining space. Crafted from high-quality dense timber, the Kitchen Pod comes complete with integrated kitchen units, a fridge, and a premium BBQ, allowing you to prep, cook, and serve without ever stepping inside the main house.
+
+When the party winds down, the insulated electrical roller shutter secures the unit with the push of a button. Available as a full luxury turnkey install or as a shell-only unit â€” the perfect customisable upgrade for your outdoor lifestyle.
+
+The standard footprint is 3.0m x 2.6m but this pod is fully customisable and available in any size to fit your garden layout. Wall thickness options of 44mm, 70mm, or 95mm interlocking premium solid logs are available.
+
+Pre-drilled internal cable channels allow electrical wiring to be completely hidden for a flawless finish. Fully outfitted with 2 internal sockets, 1 weatherproof external socket, and elegant internal and external lighting as standard.`,
+      price: 15445,
+      category: "GARDEN_ROOM",
+      useCase: ["ENTERTAINMENT", "HOME_OFFICE"],
+      featured: true,
+      new: true,
+      inStock: true,
+      bestseller: false,
+      rating: 5.0,
+      reviewCount: 0,
+      leadTime: "4-6 weeks",
+      warranty: "5 years structural",
+      features: [
+        "3.0m x 2.6m standard footprint â€” any size available",
+        "44mm, 70mm or 95mm solid log wall options",
+        "Premium kitchen units, fridge and BBQ included",
+        "Integrated bar counter and bench seating",
+        "Insulated electrical roller shutter (auto)",
+        "Heavy-duty EPDM rubber roof",
+        "Pre-drilled log channels for concealed electrics",
+        "2 internal sockets, 1 external socket",
+        "Internal and external lighting included",
+        "Optional decking extension available",
+      ],
+      specs: {
+        standardFootprint: "3.0m x 2.6m",
+        sizing: "Fully customisable â€” any size",
+        wallThickness: "44mm, 70mm or 95mm",
+        roofMaterial: "Heavy-duty EPDM rubber",
+        shutter: "Insulated electrical roller shutter",
+        shutterFinishes: "Anthracite Grey, Black, White or Oak",
+        electrics: "2x internal, 1x external socket",
+        lighting: "Internal and external fittings",
+        appliances: "BBQ, fridge, kitchen cabinetry",
+        warranty: "5 years from purchase",
+      },
+      images: {
+        create: [
+          {
+            url: "https://www.northernlogcabins.com/cdn/shop/files/Kitchen_pod_log_cabin_by_Northen_Log_cabins_5_3add265e-ecc9-494e-88d5-79c92e245bc6.png?v=1779456884",
+            alt: "Outdoor Kitchen Pod exterior view",
+            isPrimary: true,
+            order: 0,
+          },
+          {
+            url: "https://www.northernlogcabins.com/cdn/shop/files/Kitchen_pod_log_cabin_by_Northen_Log_cabins_7_6cb60713-64ec-45c4-a1f7-fc3292a59d22.jpg?v=1779450829",
+            alt: "Outdoor Kitchen Pod with shutter open",
+            isPrimary: false,
+            order: 1,
+          },
+        ],
+      },
+      sizes: {
+        create: [
+          { label: "Standard 3.0 x 2.6m", widthM: 3.0, depthM: 2.6, heightM: 2.5, sqm: 7.8, priceAdder: 0 },
+          { label: "Custom size", widthM: 0, depthM: 0, heightM: 0, sqm: 0, priceAdder: 0 },
+        ],
+      },
+      finishes: {
+        create: [
+          {
+            name: "Birch",
+            hexColor: "#D4C5A9",
+            imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/birch-aluwoodpanel1.jpg?v=1724067587&width=1030",
+            priceAdder: 0,
+          },
+          {
+            name: "Stone Grey",
+            hexColor: "#8A8F8A",
+            imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/stonegray-outdoorwallpanel1.jpg?v=1725361464&width=1030",
+            priceAdder: 0,
+          },
+          {
+            name: "Oak",
+            hexColor: "#B8864E",
+            imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/oak-outdoorwallpanel1.jpg?v=1730215792&width=1030",
+            priceAdder: 0,
+          },
+          {
+            name: "Black",
+            hexColor: "#1A1A1A",
+            imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/black-aluwoodpanel1.jpg?v=1724067608&width=1030",
+            priceAdder: 0,
+          },
+        ],
+      },
+      reviews: {
+        create: [],
+      },
+    },
+  });
+
+  console.log("âœ… All 8 Tainhaus products seeded successfully!");
 }
 
 main()
