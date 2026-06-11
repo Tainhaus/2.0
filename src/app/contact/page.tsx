@@ -2,8 +2,9 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { Phone, Mail, Clock, ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const ENQUIRY_TYPES = [
@@ -69,7 +70,7 @@ export default function ContactPage() {
             </h1>
             <p className="font-body text-lg text-charcoal-600 leading-relaxed">
               Whether you know exactly what you want or you&apos;re just starting to explore,
-              our team is here to help. No pressure, no jargon â€” just an honest conversation.
+              our team is here to help. No pressure, no jargon — just an honest conversation.
             </p>
           </div>
         </div>
@@ -88,7 +89,7 @@ export default function ContactPage() {
                   Message received!
                 </h2>
                 <p className="font-body text-charcoal-600 mb-6 max-w-md mx-auto">
-                  Thank you for getting in touch. One of our garden room specialists will
+                  Thank you for getting in touch. One of our garden room specialists will 
                   be in contact within one working day.
                 </p>
                 <div className="flex flex-wrap justify-center gap-3">
@@ -171,10 +172,7 @@ export default function ContactPage() {
                 {/* Phone */}
                 <div>
                   <label htmlFor="phone" className="label">
-                    Phone number{" "}
-                    <span className="text-charcoal-400 font-normal normal-case tracking-normal">
-                      (optional)
-                    </span>
+                    Phone number <span className="text-charcoal-400 font-normal normal-case tracking-normal">(optional)</span>
                   </label>
                   <input
                     id="phone"
@@ -187,20 +185,26 @@ export default function ContactPage() {
                   />
                 </div>
 
-                {/* Product interest â€” free text */}
+                {/* Product interest */}
                 <div>
                   <label htmlFor="productInterest" className="label">
                     Which product interests you?
                   </label>
-                  <input
+                  <select
                     id="productInterest"
                     name="productInterest"
-                    type="text"
                     value={form.productInterest}
                     onChange={handleChange}
-                    placeholder="e.g. garden room, home office, outdoor bar..."
                     className="input-field"
-                  />
+                  >
+                    <option value="">— I&apos;m not sure yet —</option>
+                    <option value="horizon">The Horizon (Garden Room)</option>
+                    <option value="zenith">The Zenith (Wellness Pod)</option>
+                    <option value="nordic">The Nordic (Sauna)</option>
+                    <option value="studio">The Studio (Gym/Studio)</option>
+                    <option value="annexe">The Annexe (Full Annexe)</option>
+                    <option value="custom">Something bespoke</option>
+                  </select>
                 </div>
 
                 {/* Message */}
@@ -270,13 +274,19 @@ export default function ContactPage() {
                   {
                     Icon: Mail,
                     label: "Email us",
-                    value: "info@tainhaus.co.uk",
-                    href: "mailto:info@tainhaus.co.uk",
+                    value: "hello@tainhaus.co.uk",
+                    href: "mailto:hello@tainhaus.co.uk",
+                  },
+                  {
+                    Icon: MapPin,
+                    label: "Visit us",
+                    value: "14 Craftsman Way, Worcestershire WR4 0AB",
+                    href: "https://maps.google.com",
                   },
                   {
                     Icon: Clock,
                     label: "Hours",
-                    value: "Monâ€“Fri 8amâ€“6pm Â· Sat 9amâ€“4pm",
+                    value: "Mon–Fri 8am–6pm · Sat 9am–4pm",
                     href: null,
                   },
                 ].map(({ Icon, label, value, href }) => (
@@ -303,6 +313,26 @@ export default function ContactPage() {
                     </div>
                   </div>
                 ))}
+              </div>
+            </div>
+
+            {/* Showroom image */}
+            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden">
+              <Image
+                src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&q=85"
+                alt="Tainhaus showroom"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 33vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-forest-950/60 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <p className="font-body text-xs text-white/80 font-semibold uppercase tracking-wide mb-1">
+                  Open by appointment
+                </p>
+                <p className="font-body text-sm text-white">
+                  Visit our showroom in Worcestershire to see our pods in person.
+                </p>
               </div>
             </div>
 
