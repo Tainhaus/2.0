@@ -69,7 +69,7 @@ export function ProductConfigurator({ product }: ProductConfiguratorProps) {
       {product.sizes && product.sizes.length > 0 && (
         <ConfigSection
           title="Size"
-          subtitle={selectedSize ? `${selectedSize.sqm}mÂ² floor area` : undefined}
+          subtitle={selectedSize ? `${selectedSize.sqm}m² floor area` : undefined}
         >
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {product.sizes.map((size) => (
@@ -91,7 +91,7 @@ export function ProductConfigurator({ product }: ProductConfiguratorProps) {
                     {size.label}
                   </p>
                   <p className="font-body text-xs text-charcoal-500 mt-0.5">
-                    {size.sqm}mÂ² Â· {size.heightM}m height
+                    {size.sqm}m² · {size.heightM}m height
                   </p>
                 </div>
                 {size.priceAdder > 0 && (
@@ -261,7 +261,7 @@ export function ProductConfigurator({ product }: ProductConfiguratorProps) {
 
       {/* Lead time note */}
       <p className="font-body text-xs text-center text-charcoal-500">
-        Typical lead time: <strong>{product.leadTime}</strong> Â· {product.warranty}
+        Typical lead time: <strong>{product.leadTime}</strong> · {product.warranty}
       </p>
     </div>
   );
@@ -283,7 +283,7 @@ function ConfigSection({
           {title}
         </p>
         {subtitle && (
-          <span className="font-body text-xs text-charcoal-500">â€” {subtitle}</span>
+          <span className="font-body text-xs text-charcoal-500">— {subtitle}</span>
         )}
       </div>
       {children}
