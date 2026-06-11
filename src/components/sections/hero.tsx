@@ -17,7 +17,7 @@ const HERO_STATS = [
 const HERO_SLIDES = [
   {
     src: "/hero-1.jpg",
-    alt: "Premium timber garden room in a beautifully landscaped garden",
+    alt: "Premium timber garden room with decking in a beautifully landscaped garden",
     headline: "Your garden,",
     headlineAccent: "transformed.",
     sub: "Premium log cabins and garden rooms â€” crafted for every life stage, every dream.",
@@ -26,7 +26,7 @@ const HERO_SLIDES = [
   },
   {
     src: "/hero-2.jpg",
-    alt: "Contemporary garden room seamlessly extending a family home",
+    alt: "Contemporary dark-clad garden room at dusk with warm interior lighting",
     headline: "Work from",
     headlineAccent: "paradise.",
     sub: "Home offices that make your commute a five-second walk through the garden.",
@@ -35,10 +35,19 @@ const HERO_SLIDES = [
   },
   {
     src: "/hero-3.jpg",
-    alt: "Beautiful garden room with large doors and natural timber cladding",
+    alt: "Open-fronted log cabin with outdoor kitchen, BBQ and bar seating",
+    headline: "Entertain",
+    headlineAccent: "in style.",
+    sub: "From garden bars to outdoor kitchens â€” build the space your summer deserves.",
+    cta: "Explore All Cabins",
+    ctaHref: "/shop",
+  },
+  {
+    src: "/hero-4.jpg",
+    alt: "Large golden-stained log cabin with full-width glazing and bi-fold doors",
     headline: "Built to last.",
     headlineAccent: "Loved forever.",
-    sub: "Delivered and installed across the UK in just 4 to 6 weeks.",
+    sub: "Delivered and installed across the UK in just 6 to 8 weeks.",
     cta: "Design Your Space",
     ctaHref: "/configurator",
   },
@@ -172,12 +181,10 @@ export function HeroSection() {
             </button>
           </div>
         </div>
-
-
       </div>
 
       {/* Slide indicators */}
-      <div className="absolute right-8 top-1/2 -translate-y-1/2 z-10 flex flex-col gap-2 hidden md:flex">
+      <div className="absolute right-8 top-1/2 -translate-y-1/2 z-10 flex-col gap-2 hidden md:flex">
         {HERO_SLIDES.map((_, i) => (
           <button
             key={i}
