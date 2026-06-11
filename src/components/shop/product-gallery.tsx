@@ -96,7 +96,7 @@ export function ProductGallery({ images, productName, productSlug }: ProductGall
   const activeImage = images[activeIndex];
   const displaySrc = finishOverride ?? activeImage.url;
   const displayAlt = finishOverride
-    ? `${productName} â€” ${selectedFinishName} cladding`
+    ? `${productName} — ${selectedFinishName} cladding`
     : activeImage.alt;
 
   const openLightbox = (index: number) => {
@@ -165,7 +165,7 @@ export function ProductGallery({ images, productName, productSlug }: ProductGall
         )}
       </div>
 
-      {/* Thumbnails â€” always visible, click to view product image and clear finish override */}
+      {/* Thumbnails — always visible, click to view product image and clear finish override */}
       {images.length > 1 && (
         <div className="flex gap-2 overflow-x-auto no-scrollbar pb-1">
           {images.map((img, i) => (
@@ -219,7 +219,7 @@ export function ProductGallery({ images, productName, productSlug }: ProductGall
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={finishOverride ?? images[lightboxIndex]?.url}
-              alt={finishOverride ? `${productName} â€” ${selectedFinishName}` : images[lightboxIndex]?.alt}
+              alt={finishOverride ? `${productName} — ${selectedFinishName}` : images[lightboxIndex]?.alt}
               className="w-full max-h-[85vh] object-contain"
             />
           </div>
