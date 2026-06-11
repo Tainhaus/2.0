@@ -27,7 +27,7 @@ Double-glazed windows and secure doors flood the interior with natural light whi
 
 All products are packaged in UV-resistant plastic film and protected during transport. Installation plans are available for download upon purchase.`,
       price: 6237,
-      category: "GARDEN_ROOM",
+      category: "LOG_CABIN",
       useCase: ["HOME_OFFICE", "ART_STUDIO", "GUEST_ROOM", "ENTERTAINMENT"],
       featured: true,
       bestseller: true,
@@ -152,7 +152,7 @@ Whether you envision it as a cosy retreat, an artistic studio, or a peaceful med
 
 All products are constructed using dry spruce grown in ecologically managed forests of Sweden, Finland, Russia or the Baltic States, packaged in UV-resistant plastic film and covered by our 5-year construction warranty.`,
       price: 5371,
-      category: "GARDEN_ROOM",
+      category: "LOG_CABIN",
       useCase: ["READING_RETREAT", "ART_STUDIO", "HOME_OFFICE", "YOGA_STUDIO"],
       featured: true,
       rating: 4.7,
@@ -265,7 +265,7 @@ Autoclave impregnated timber foundation beams ensure long-term durability and re
 
 Ideal as a serene home office, cosy guest accommodation, tranquil reading nook, or artist's studio, the Gloria H is a versatile space that will enhance your garden for decades. Covered by our 5-year construction warranty and packaged in UV-resistant plastic film for safe delivery.`,
       price: 3788,
-      category: "GARDEN_ROOM",
+      category: "LOG_CABIN",
       useCase: ["HOME_OFFICE", "READING_RETREAT", "GUEST_ROOM", "ART_STUDIO"],
       featured: true,
       new: true,
@@ -385,7 +385,7 @@ The light construction supports various roof coverings including bitumen tiles, 
 
 Comes with nails, screws, and detailed installation instructions for straightforward DIY assembly.`,
       price: 7699,
-      category: "GARDEN_ROOM",
+      category: "LOG_CABIN",
       useCase: ["HOME_OFFICE", "ENTERTAINMENT", "GYM_WELLNESS", "GARDEN_ROOM"],
       featured: true,
       bestseller: true,
@@ -508,7 +508,7 @@ Perfect as a peaceful garden retreat, an artist's studio bathed in natural light
 
 Covered by our 5-year construction warranty from the date of purchase. All products are packaged in UV-resistant plastic film for protection during delivery and storage.`,
       price: 3367,
-      category: "GARDEN_ROOM",
+      category: "LOG_CABIN",
       useCase: ["HOME_OFFICE", "READING_RETREAT", "ART_STUDIO", "GUEST_ROOM"],
       featured: false,
       rating: 4.7,
@@ -625,7 +625,7 @@ The internal dimensions of 4.3 × 2.8m offer versatility for a range of uses —
 
 Comes complete with nails, screws, and detailed installation instructions, making assembly straightforward for the DIY enthusiast. Covered by our 5-year construction warranty.`,
       price: 5499,
-      category: "GARDEN_ROOM",
+      category: "LOG_CABIN",
       useCase: ["HOME_OFFICE", "GYM_WELLNESS", "GARDEN_ROOM", "ART_STUDIO"],
       featured: true,
       rating: 4.8,
@@ -735,7 +735,7 @@ Comes complete with nails, screws, and detailed installation instructions, makin
       description: "Experience luxury living with the Monaco 2 Bed Log Cabin. This exceptional cabin combines elegance and functionality, offering a spacious retreat that embodies contemporary design and comfort.",
       longDescription: "The Monaco 2 Bed Log Cabin is built with 70mm thick triple tongue and groove logs sourced from Finland. Two well-appointed bedrooms make this cabin ideal as a permanent residence, a holiday retreat, or a premium guest annexe.\n\nEvery Monaco comes with 100mm insulation in both floor and roof. Premium double-glazed doors and windows are available in any colour, and pre-drilled logs allow electrical cables to be concealed.\n\nBacked by our 5-year structural warranty. Call us for pricing on this bespoke product.",
       price: 0,
-      category: "GARDEN_ROOM",
+      category: "ANNEXE",
       useCase: ["GUEST_ROOM", "HOME_OFFICE", "ENTERTAINMENT"],
       featured: true,
       new: true,
@@ -769,7 +769,7 @@ The standard footprint is 3.0m x 2.6m but this pod is fully customisable and ava
 
 Pre-drilled internal cable channels allow electrical wiring to be completely hidden for a flawless finish. Fully outfitted with 2 internal sockets, 1 weatherproof external socket, and elegant internal and external lighting as standard.`,
       price: 15445,
-      category: "GARDEN_ROOM",
+      category: "KITCHEN_POD",
       useCase: ["ENTERTAINMENT", "HOME_OFFICE"],
       featured: true,
       new: true,
