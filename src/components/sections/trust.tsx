@@ -19,8 +19,8 @@ const TRUST_ITEMS = [
   },
   {
     Icon: Truck,
-    title: "Delivered in 4-“6 Weeks",
-    description: "Fast, reliable delivery and installation across the UK. Most orders completed within 4-“6 weeks.",
+    title: "Delivered in 4–6 Weeks",
+    description: "Fast, reliable delivery and installation across the UK. Most orders completed within 4–6 weeks.",
   },
 ];
 
