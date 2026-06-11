@@ -4,7 +4,7 @@
 import { useRouter, usePathname } from "next/navigation";
 import { X } from "lucide-react";
 import { cn, formatPrice } from "@/lib/utils";
-import { CATEGORIES, USE_CASES } from "@/types";
+import { CATEGORIES } from "@/types";
 
 interface ShopFiltersProps {
   searchParams: Record<string, string | undefined>;
@@ -73,19 +73,6 @@ export function ShopFilters({ searchParams }: ShopFiltersProps) {
         ))}
       </FilterGroup>
 
-      {/* Use Case */}
-      <FilterGroup title="Use Case">
-        {USE_CASES.map((uc) => (
-          <FilterOption
-            key={uc.id}
-            label={`${uc.icon} ${uc.label}`}
-            isActive={searchParams.useCase === uc.id}
-            onClick={() =>
-              updateParam("useCase", searchParams.useCase === uc.id ? null : uc.id)
-            }
-          />
-        ))}
-      </FilterGroup>
 
       {/* Price */}
       <FilterGroup title="Price Range">
