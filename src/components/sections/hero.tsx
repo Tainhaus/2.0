@@ -7,33 +7,40 @@ import Image from "next/image";
 import { ArrowRight, Play, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+const HERO_STATS = [
+  { value: "2,400+", label: "Happy homeowners" },
+  { value: "10yr", label: "Structural warranty" },
+  { value: "4.9â˜…", label: "Average review" },
+  { value: "6â€“8wk", label: "Lead time" },
+];
+
 const HERO_SLIDES = [
   {
-    src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=2400&q=90",
-    alt: "Beautiful garden room in a lush green garden",
+    src: "/hero-1.jpg",
+    alt: "Premium timber garden room in a beautifully landscaped garden",
     headline: "Your garden,",
     headlineAccent: "transformed.",
-    sub: "Premium garden rooms and pods â€” crafted for every life stage, every dream.",
+    sub: "Premium log cabins and garden rooms â€” crafted for every life stage, every dream.",
     cta: "Shop Garden Rooms",
     ctaHref: "/shop",
   },
   {
-    src: "https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?w=2400&q=90",
-    alt: "Architect-designed garden pod in a serene setting",
+    src: "/hero-2.jpg",
+    alt: "Contemporary garden room seamlessly extending a family home",
     headline: "Work from",
     headlineAccent: "paradise.",
     sub: "Home offices that make your commute a five-second walk through the garden.",
     cta: "See Office Pods",
-    ctaHref: "/shop?useCase=HOME_OFFICE",
+    ctaHref: "/shop",
   },
   {
-    src: "https://images.unsplash.com/photo-1544985361-b420d7a77043?w=2400&q=90",
-    alt: "Nordic barrel sauna in a beautiful garden",
-    headline: "Rest,",
-    headlineAccent: "restored.",
-    sub: "From saunas to yoga studios â€” your personal wellness sanctuary starts here.",
-    cta: "Wellness Spaces",
-    ctaHref: "/shop?useCase=SAUNA_SPA",
+    src: "/hero-3.jpg",
+    alt: "Beautiful garden room with large doors and natural timber cladding",
+    headline: "Built to last.",
+    headlineAccent: "Loved forever.",
+    sub: "Delivered and installed across the UK in just 4 to 6 weeks.",
+    cta: "Design Your Space",
+    ctaHref: "/configurator",
   },
 ];
 
@@ -79,8 +86,8 @@ export function HeroSection() {
             sizes="100vw"
           />
           {/* Dark gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-charcoal-950/75 via-charcoal-950/40 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/60 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-charcoal-950/65 via-charcoal-950/30 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/50 via-transparent to-transparent" />
         </div>
       ))}
 
