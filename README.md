@@ -13,7 +13,7 @@ A production-ready Next.js 15 e-commerce website for a premium garden rooms and 
 - Fully **responsive & mobile-first**
 - Smooth **CSS animations** and micro-interactions
 - **Dark/light mode** ready (warm tones default)
-- 95+ Lighthouse score target
+- 95+ Lighthouse score target 
 
 ### Pages
 | Route | Description |
