@@ -7,10 +7,11 @@ import { usePathname } from "next/navigation";
 import { ShoppingBag, Menu, X, ChevronDown, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useCartStore } from "@/lib/cart-store";
+import { Logo } from "@/components/ui/logo";
 
 const NAV_LINKS = [
   {
-    label: "Garden Rooms",
+    label: "Log Cabins",
     href: "/shop",
     dropdown: [
       { label: "All Products", href: "/shop" },
@@ -18,21 +19,11 @@ const NAV_LINKS = [
       { label: "Garden Pods", href: "/shop?category=GARDEN_POD" },
       { label: "Studios & Gyms", href: "/shop?category=STUDIO" },
       { label: "Saunas", href: "/shop?category=SAUNA" },
-      { label: "Annexes", href: "/shop?category=GARDEN_ROOM&useCase=GUEST_ROOM" },
     ],
   },
-  {
-    label: "Design Your Pod",
-    href: "/configurator",
-  },
-  {
-    label: "Our Story",
-    href: "/about",
-  },
-  {
-    label: "Inspiration",
-    href: "/inspiration",
-  },
+  { label: "Design Your Space", href: "/configurator" },
+  { label: "Our Story", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export function Navbar() {
@@ -80,26 +71,11 @@ export function Navbar() {
         <div className="container-site">
           <nav className="flex items-center justify-between h-18 md:h-20">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2.5 group z-10">
-              <div
-                className={cn(
-                  "w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300",
-                  isScrolled || !isHomePage
-                    ? "bg-forest-800"
-                    : "bg-white/20 backdrop-blur-sm"
-                )}
-              >
-                <span className="text-white font-display font-bold text-lg leading-none">Y</span>
-              </div>
-              <span
-                className={cn(
-                  "font-display font-semibold text-lg tracking-tight transition-colors duration-300",
-                  isScrolled || !isHomePage ? "text-charcoal-900" : "text-white"
-                )}
-              >
-                Tainhaus
-              </span>
-            </Link>
+            <Logo
+              variant={isScrolled || !isHomePage ? "dark" : "light"}
+              size="md"
+              className="z-10"
+            />
 
             {/* Desktop nav */}
             <div ref={dropdownRef} className="hidden lg:flex items-center gap-1">
@@ -143,7 +119,6 @@ export function Navbar() {
                     </Link>
                   )}
 
-                  {/* Dropdown menu */}
                   {link.dropdown && activeDropdown === link.label && (
                     <div
                       className="absolute top-full left-0 mt-2 w-52 bg-white rounded-2xl shadow-luxury-lg border border-sand-200/60 py-2 z-50"
@@ -166,7 +141,6 @@ export function Navbar() {
 
             {/* Right actions */}
             <div className="flex items-center gap-2">
-              {/* Phone */}
               <Link
                 href="tel:+441234567890"
                 className={cn(
@@ -181,7 +155,6 @@ export function Navbar() {
                 01234 567 890
               </Link>
 
-              {/* CTA */}
               <Link
                 href="/contact"
                 className={cn(
@@ -192,7 +165,6 @@ export function Navbar() {
                 Get a Quote
               </Link>
 
-              {/* Cart */}
               <button
                 onClick={openCart}
                 className={cn(
@@ -209,7 +181,6 @@ export function Navbar() {
                 )}
               </button>
 
-              {/* Mobile toggle */}
               <button
                 onClick={() => setIsMobileOpen(!isMobileOpen)}
                 className={cn(
@@ -225,7 +196,7 @@ export function Navbar() {
         </div>
       </header>
 
-      {/* Mobile menu overlay */}
+      {/* Mobile menu */}
       {isMobileOpen && (
         <div className="fixed inset-0 z-40 lg:hidden">
           <div
@@ -234,11 +205,8 @@ export function Navbar() {
           />
           <div className="absolute right-0 top-0 bottom-0 w-80 bg-sand-100 shadow-luxury-xl flex flex-col">
             <div className="flex items-center justify-between p-5 border-b border-sand-200">
-              <span className="font-display font-semibold text-forest-800">Menu</span>
-              <button
-                onClick={() => setIsMobileOpen(false)}
-                className="btn-icon text-charcoal-700"
-              >
+              <Logo variant="dark" size="sm" />
+              <button onClick={() => setIsMobileOpen(false)} className="btn-icon text-charcoal-700">
                 <X className="w-5 h-5" />
               </button>
             </div>
