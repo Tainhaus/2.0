@@ -66,12 +66,12 @@ export default async function ProductPage({ params }: Props) {
       <div className="container-site pb-16">
         <FinishProvider>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-16">
-            {/* Left column â€” sticky gallery */}
+            {/* Left column — sticky gallery */}
             <div className="lg:sticky lg:top-24 lg:self-start">
               <ProductGallery images={images} productName={product.name} productSlug={product.slug} />
             </div>
 
-            {/* Right column â€” details + configurator */}
+            {/* Right column — details + configurator */}
             <div className="flex flex-col gap-7">
               <div className="flex flex-wrap gap-2">
                 {product.new && <span className="badge-terracotta">New</span>}
