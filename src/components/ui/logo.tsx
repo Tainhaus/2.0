@@ -13,7 +13,7 @@ interface LogoProps {
 export function Logo({ variant = "dark", className, size = "md" }: LogoProps) {
   const sizes = {
     sm:  { width: 120, height: 48  },
-    md:  { width: 420, height: 168 }, // navbar — 100% bigger
+    md:  { width: 294, height: 118 }, // navbar
     lg:  { width: 260, height: 104 }, // footer — 30% bigger
   };
 
