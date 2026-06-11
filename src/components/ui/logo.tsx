@@ -7,20 +7,19 @@ import { cn } from "@/lib/utils";
 interface LogoProps {
   variant?: "light" | "dark";
   className?: string;
-  size?: "sm" | "md" | "lg";
+  size?: "sm" | "md" | "lg" | "xl";
 }
 
 export function Logo({ variant = "dark", className, size = "md" }: LogoProps) {
   const sizes = {
-    sm: { width: 110, height: 44 },
-    md: { width: 150, height: 60 },
-    lg: { width: 200, height: 80 },
+    sm:  { width: 110, height: 44  },
+    md:  { width: 195, height: 78  }, // navbar â€” +30%
+    lg:  { width: 240, height: 96  }, // footer â€” +20% on top of previous lg
+    xl:  { width: 260, height: 104 },
   };
 
   const s = sizes[size];
 
-  // Light variant (on dark backgrounds like hero/footer) â€” use white logo
-  // Dark variant (on light backgrounds like scrolled navbar) â€” use dark logo with mix-blend-mode
   return (
     <Link href="/" className={cn("inline-flex items-center group", className)}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -33,7 +32,6 @@ export function Logo({ variant = "dark", className, size = "md" }: LogoProps) {
           width: s.width,
           height: s.height,
           objectFit: "contain",
-          // For dark variant: multiply blend removes the grey background
           mixBlendMode: variant === "dark" ? "multiply" : "screen",
         }}
       />
