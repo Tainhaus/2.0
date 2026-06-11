@@ -4,29 +4,29 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight, Play, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const HERO_STATS = [
   { value: "2,400+", label: "Happy homeowners" },
   { value: "10yr", label: "Structural warranty" },
-  { value: "4.9â˜…", label: "Average review" },
-  { value: "6â€“8wk", label: "Lead time" },
+  { value: "4.9★", label: "Average review" },
+  { value: "6–8wk", label: "Lead time" },
 ];
 
 const HERO_SLIDES = [
   {
     src: "/hero-1.jpg",
-    alt: "Premium timber garden room with decking in a beautifully landscaped garden",
+    alt: "Premium timber garden room in a beautifully landscaped garden",
     headline: "Your garden,",
     headlineAccent: "transformed.",
-    sub: "Premium log cabins and garden rooms â€” crafted for every life stage, every dream.",
+    sub: "Premium log cabins and garden rooms — crafted for every life stage, every dream.",
     cta: "Shop Garden Rooms",
     ctaHref: "/shop",
   },
   {
     src: "/hero-2.jpg",
-    alt: "Contemporary dark-clad garden room at dusk with warm interior lighting",
+    alt: "Contemporary garden room seamlessly extending a family home",
     headline: "Work from",
     headlineAccent: "paradise.",
     sub: "Home offices that make your commute a five-second walk through the garden.",
@@ -35,19 +35,10 @@ const HERO_SLIDES = [
   },
   {
     src: "/hero-3.jpg",
-    alt: "Open-fronted log cabin with outdoor kitchen, BBQ and bar seating",
-    headline: "Entertain",
-    headlineAccent: "in style.",
-    sub: "From garden bars to outdoor kitchens â€” build the space your summer deserves.",
-    cta: "Explore All Cabins",
-    ctaHref: "/shop",
-  },
-  {
-    src: "/hero-4.jpg",
-    alt: "Large golden-stained log cabin with full-width glazing and bi-fold doors",
+    alt: "Beautiful garden room with large doors and natural timber cladding",
     headline: "Built to last.",
     headlineAccent: "Loved forever.",
-    sub: "Delivered and installed across the UK in just 6 to 8 weeks.",
+    sub: "Delivered and installed across the UK in just 4 to 6 weeks.",
     cta: "Design Your Space",
     ctaHref: "/configurator",
   },
@@ -56,6 +47,7 @@ const HERO_SLIDES = [
 export function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [showVideo, setShowVideo] = useState(false);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
@@ -169,13 +161,23 @@ export function HeroSection() {
               <ArrowRight className="w-4 h-4" />
             </Link>
 
-
+            <button
+              onClick={() => setShowVideo(true)}
+              className="inline-flex items-center gap-2.5 text-white/90 hover:text-white font-body text-sm font-medium transition-colors duration-200 group"
+            >
+              <div className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center group-hover:bg-white/10 group-hover:border-white/50 transition-all duration-200">
+                <Play className="w-3.5 h-3.5 fill-current ml-0.5" />
+              </div>
+              Watch the build
+            </button>
           </div>
         </div>
+
+
       </div>
 
       {/* Slide indicators */}
-      <div className="absolute right-8 top-1/2 -translate-y-1/2 z-10 flex-col gap-2 hidden md:flex">
+      <div className="absolute right-8 top-1/2 -translate-y-1/2 z-10 flex flex-col gap-2 hidden md:flex">
         {HERO_SLIDES.map((_, i) => (
           <button
             key={i}
@@ -209,7 +211,27 @@ export function HeroSection() {
         </button>
       </div>
 
-
+      {/* Video modal */}
+      {showVideo && (
+        <div
+          className="absolute inset-0 z-50 bg-black/90 flex items-center justify-center"
+          onClick={() => setShowVideo(false)}
+        >
+          <div className="relative w-full max-w-4xl mx-8 aspect-video bg-charcoal-900 rounded-2xl overflow-hidden">
+            <button
+              onClick={() => setShowVideo(false)}
+              className="absolute top-4 right-4 w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-colors z-10"
+            >
+              ✕
+            </button>
+            <div className="w-full h-full flex items-center justify-center">
+              <p className="text-white/60 font-body text-sm">
+                Replace with your brand video embed
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
