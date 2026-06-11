@@ -726,7 +726,34 @@ Comes complete with nails, screws, and detailed installation instructions, makin
     },
   });
 
-  console.log("âœ… All 6 Northern Log Cabins products seeded successfully!");
+  // â”€â”€â”€ 7. MONACO 2 BED LOG CABIN â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  await prisma.product.create({
+    data: {
+      slug: "monaco-2-bed-log-cabin",
+      name: "Monaco 2 â€” 2 Bed Log Cabin",
+      tagline: "Your spacious retreat for modern living",
+      description: "Experience luxury living with the Monaco 2 Bed Log Cabin. This exceptional cabin combines elegance and functionality, offering a spacious retreat that embodies contemporary design and comfort.",
+      longDescription: "The Monaco 2 Bed Log Cabin is built with 70mm thick triple tongue and groove logs sourced from Finland. Two well-appointed bedrooms make this cabin ideal as a permanent residence, a holiday retreat, or a premium guest annexe.\n\nEvery Monaco comes with 100mm insulation in both floor and roof. Premium double-glazed doors and windows are available in any colour, and pre-drilled logs allow electrical cables to be concealed.\n\nBacked by our 5-year structural warranty. Call us for pricing on this bespoke product.",
+      price: 0,
+      category: "GARDEN_ROOM",
+      useCase: ["GUEST_ROOM", "HOME_OFFICE", "ENTERTAINMENT"],
+      featured: true,
+      new: true,
+      inStock: true,
+      rating: 5.0,
+      reviewCount: 0,
+      leadTime: "Call for lead time",
+      warranty: "5 years structural",
+      features: ["70mm triple T\console.log("âœ… All 6 Northern Log Cabins products seeded successfully!");G logs from Finland", "Two bedrooms", "Spacious lounge and kitchen", "100mm floor and roof insulation", "Premium double-glazed doors and windows", "Pre-drilled logs for concealed electrics", "HIAB delivery to site included", "5-year structural warranty"],
+      specs: { logThickness: "70mm triple tongue and groove", timberSource: "Finland", bedrooms: "2", insulation: "100mm floor and roof", delivery: "HIAB to site", warranty: "5 years" },
+      images: { create: [{ url: "https://www.northernlogcabins.com/cdn/shop/files/Monaco2bedroomlogcabinNorthernLogCabins1.jpg?v=1750691417", alt: "Monaco 2 Bed Log Cabin exterior", isPrimary: true, order: 0 }, { url: "https://www.northernlogcabins.com/cdn/shop/files/Monaco2bedroomlogcabinNorthernLogCabins2.jpg?v=1750691421", alt: "Monaco 2 Bed Log Cabin side view", isPrimary: false, order: 1 }, { url: "https://www.northernlogcabins.com/cdn/shop/files/Monaco2bedroomlogcabinNorthernLogCabins3.jpg?v=1750691423", alt: "Monaco interior living area", isPrimary: false, order: 2 }, { url: "https://www.northernlogcabins.com/cdn/shop/files/Monaco2bedroomlogcabinNorthernLogCabins4.jpg?v=1750691425", alt: "Monaco bedroom", isPrimary: false, order: 3 }, { url: "https://www.northernlogcabins.com/cdn/shop/files/Monaco2bedroomlogcabinNorthernLogCabins5.jpg?v=1750691426", alt: "Monaco detail", isPrimary: false, order: 4 }, { url: "https://www.northernlogcabins.com/cdn/shop/files/Monaco2bedroomlogcabinNorthernLogCabins6.jpg?v=1750691428", alt: "Monaco kitchen", isPrimary: false, order: 5 }, { url: "https://www.northernlogcabins.com/cdn/shop/files/Monaco2bedroomlogcabinNorthernLogCabins7.jpg?v=1750691429", alt: "Monaco bedroom detail", isPrimary: false, order: 6 }, { url: "https://www.northernlogcabins.com/cdn/shop/files/Monaco2bedroomlogcabinNorthernLogCabins8.jpg?v=1750691430", alt: "Monaco garden view", isPrimary: false, order: 7 }, { url: "https://www.northernlogcabins.com/cdn/shop/files/Monaco2bedroomlogcabinNorthernLogCabins9.jpg?v=1750691431", alt: "Monaco detail view", isPrimary: false, order: 8 }, { url: "https://www.northernlogcabins.com/cdn/shop/files/Monaco2bedroomlogcabinNorthernLogCabins10.jpg?v=1750691432", alt: "Monaco interior", isPrimary: false, order: 9 }, { url: "https://www.northernlogcabins.com/cdn/shop/files/Monaco2bedroomlogcabinNorthernLogCabins11.jpg?v=1750691433", alt: "Monaco exterior detail", isPrimary: false, order: 10 }, { url: "https://www.northernlogcabins.com/cdn/shop/files/Monaco2bedroomlogcabinNorthernLogCabins12.jpg?v=1750691434", alt: "Monaco full exterior", isPrimary: false, order: 11 }] },
+      sizes: { create: [{ label: "Call for pricing", widthM: 0, depthM: 0, heightM: 0, sqm: 0, priceAdder: 0 }] },
+      finishes: { create: [{ name: "Birch", hexColor: "#D4C5A9", imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/birch-aluwoodpanel1.jpg?v=1724067587&width=1030", priceAdder: 0 }, { name: "Stone Grey", hexColor: "#8A8F8A", imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/stonegray-outdoorwallpanel1.jpg?v=1725361464&width=1030", priceAdder: 0 }, { name: "Oak", hexColor: "#B8864E", imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/oak-outdoorwallpanel1.jpg?v=1730215792&width=1030", priceAdder: 0 }, { name: "Black", hexColor: "#1A1A1A", imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/black-aluwoodpanel1.jpg?v=1724067608&width=1030", priceAdder: 0 }] },
+      reviews: { create: [] },
+    },
+  });
+
+  console.log("âœ… All 7 Northern Log Cabins products seeded successfully!");
 }
 
 main()
