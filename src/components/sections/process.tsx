@@ -55,7 +55,7 @@ export function ProcessSection() {
             </h2>
           </div>
           <p className="font-body text-charcoal-600 max-w-sm leading-relaxed">
-            We handle every step of the journey -” from that first conversation to the
+            We handle every step of the journey — from that first conversation to the
             day you step inside your finished cabin.
           </p>
         </div>
@@ -112,17 +112,17 @@ export function ProcessSection() {
                 Average timeline
               </p>
               <h3 className="font-display text-2xl md:text-3xl text-white font-bold mb-1">
-                From call to cabin -” in 4-“6 weeks.
+                From call to cabin — in 4–6 weeks.
               </h3>
               <p className="font-body text-forest-300 text-sm">
-                Most customers receive their cabin within 4-“6 weeks of ordering.
+                Most customers receive their cabin within 4–6 weeks of ordering.
               </p>
             </div>
             <div className="flex gap-8 shrink-0">
               {[
                 { v: "Day 1", l: "Call / Order" },
-                { v: "Weeks 1-“4", l: "Build & dispatch" },
-                { v: "Weeks 4-“6", l: "Delivery & install" },
+                { v: "Weeks 1–4", l: "Build & dispatch" },
+                { v: "Weeks 4–6", l: "Delivery & install" },
               ].map((t) => (
                 <div key={t.l} className="text-center">
                   <p className="font-display text-xl font-bold text-terracotta-300 whitespace-nowrap">{t.v}</p>
