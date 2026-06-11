@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-forest:     #0A3D2A;
+  --color-olive:      #4A5F3A;
+  --color-terracotta: #C26B4A;
+  --color-sand:       #EDE6D8;
+  --color-off-white:  #F8F5F0;
+  --color-charcoal:   #2C2C2C;
+}
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body { overflow-x: hidden; background-color: #F8F5F0; }
+  h1,h2,h3,h4,h5,h6 { font-family: var(--font-display), Georgia, serif; font-weight: 600; line-height: 1.15; letter-spacing: -0.02em; }
+  p { line-height: 1.7; }
+  a { text-decoration: none; color: inherit; }
+  img { max-width: 100%; height: auto; display: block; }
+  button { cursor: pointer; font-family: inherit; }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: #F8F5F0; }
+  ::-webkit-scrollbar-thumb { background: rgba(10,61,42,.25); border-radius: 99px; }
+}
+
+@layer components {
+  .container-site {
+    @apply max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 xl:px-16;
+  }
+  .container-narrow {
+    @apply max-w-4xl mx-auto px-5 sm:px-8;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2
+           bg-forest-800 text-sand-100
+           px-7 py-3.5 rounded-full
+           font-body font-medium text-sm tracking-wide
+           transition-all duration-300
+           hover:bg-forest-700 hover:-translate-y-0.5
+           active:translate-y-0
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2
+           bg-transparent text-forest-800
+           border border-forest-800/30
+           px-7 py-3.5 rounded-full
+           font-body font-medium text-sm tracking-wide
+           transition-all duration-300
+           hover:bg-forest-800 hover:text-sand-100 hover:border-forest-800
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2
+           bg-transparent text-charcoal-700
+           px-6 py-3 rounded-full
+           font-body font-medium text-sm
+           transition-all duration-200
+           hover:bg-charcoal-100 hover:text-charcoal-900;
+  }
+  .btn-terracotta {
+    @apply inline-flex items-center justify-center gap-2
+           bg-terracotta-500 text-white
+           px-7 py-3.5 rounded-full
+           font-body font-medium text-sm tracking-wide
+           transition-all duration-300
+           hover:bg-terracotta-600 hover:-translate-y-0.5;
+  }
+  .btn-icon {
+    @apply inline-flex items-center justify-center
+           w-11 h-11 rounded-full bg-transparent
+           transition-all duration-200
+           hover:bg-charcoal-100;
+  }
+  .card {
+    @apply bg-white rounded-3xl overflow-hidden
+           shadow-card transition-all duration-500
+           hover:shadow-card-hover hover:-translate-y-1;
+  }
+  .card-luxury {
+    @apply bg-white rounded-3xl overflow-hidden
+           shadow-luxury transition-all duration-500
+           hover:shadow-luxury-lg hover:-translate-y-1.5;
+  }
+  .input-field {
+    @apply w-full px-4 py-3.5
+           bg-white border border-sand-300
+           rounded-xl text-charcoal-800
+           font-body text-sm
+           placeholder:text-charcoal-400
+           transition-all duration-200
+           focus:outline-none focus:border-forest-600 focus:ring-2 focus:ring-forest-600/10;
+  }
+  .label {
+    @apply block text-xs font-body font-semibold text-charcoal-600
+           uppercase tracking-widest mb-2;
+  }
+  .badge {
+    @apply inline-flex items-center gap-1
+           px-3 py-1 rounded-full
+           text-xs font-body font-semibold uppercase tracking-wider;
+  }
+  .badge-forest { @apply badge bg-forest-800/10 text-forest-800; }
+  .badge-terracotta { @apply badge bg-terracotta-500/10 text-terracotta-600; }
+  .badge-sand { @apply badge bg-sand-300 text-charcoal-700; }
+  .section { @apply py-20 md:py-28 lg:py-36; }
+  .section-sm { @apply py-12 md:py-16 lg:py-20; }
+  .divider { @apply w-12 h-0.5 bg-terracotta-500 rounded-full; }
+  .divider-lg { @apply w-20 h-0.5 bg-terracotta-500 rounded-full; }
+}
+
+@layer utilities {
+  .text-gradient-forest {
+    @apply bg-gradient-to-r from-forest-800 to-olive-600 bg-clip-text text-transparent;
+  }
+  .text-gradient-warm {
+    @apply bg-gradient-to-r from-terracotta-500 to-terracotta-300 bg-clip-text text-transparent;
+  }
+  .glass { @apply bg-white/60 backdrop-blur-xl border border-white/40; }
+  .glass-dark { @apply bg-charcoal-900/60 backdrop-blur-xl border border-white/10; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  .hover-lift { @apply transition-transform duration-300 hover:-translate-y-1.5; }
+  .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%) skewX(-15deg); }
+  100% { transform: translateX(300%) skewX(-15deg); }
+}
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.94); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes blob {
+  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+}
