@@ -155,13 +155,6 @@ export function ProductConfigurator({ product }: ProductConfiguratorProps) {
               </button>
             ))}
           </div>
-          <p className="font-body text-xs text-charcoal-400 mt-3">
-            Cladding supplied by{" "}
-            <a href="https://akuwoodpanel.uk/collections/exterior-wall-cladding" target="_blank" rel="noopener noreferrer" className="text-forest-700 underline underline-offset-2 hover:text-forest-900">
-              Akuwood Panel
-            </a>
-            {" "}â€” weather-resistant composite, 25-year lifespan.
-          </p>
         </ConfigSection>
       )}
 
@@ -262,7 +255,7 @@ export function ProductConfigurator({ product }: ProductConfiguratorProps) {
           className="flex items-center justify-center gap-2 w-full py-3.5 rounded-full border-2 border-forest-800/20 text-forest-800 font-body font-medium text-sm hover:border-forest-800/40 hover:bg-forest-800/5 transition-all duration-200"
         >
           <MessageSquare className="w-4 h-4" />
-          Speak to our expert first
+          Speak to an expert first
         </a>
       </div>
 
