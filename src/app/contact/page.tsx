@@ -2,9 +2,8 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { Phone, Mail, MapPin, Clock, ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
+import { Phone, Mail, Clock, ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const ENQUIRY_TYPES = [
@@ -274,15 +273,10 @@ export default function ContactPage() {
                   {
                     Icon: Mail,
                     label: "Email us",
-                    value: "hello@tainhaus.co.uk",
-                    href: "mailto:hello@tainhaus.co.uk",
+                    value: "info@tainhaus.co.uk",
+                    href: "mailto:info@tainhaus.co.uk",
                   },
-                  {
-                    Icon: MapPin,
-                    label: "Visit us",
-                    value: "14 Craftsman Way, Worcestershire WR4 0AB",
-                    href: "https://maps.google.com",
-                  },
+
                   {
                     Icon: Clock,
                     label: "Hours",
@@ -316,25 +310,6 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Showroom image */}
-            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden">
-              <Image
-                src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&q=85"
-                alt="Tainhaus showroom"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 33vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-forest-950/60 to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4">
-                <p className="font-body text-xs text-white/80 font-semibold uppercase tracking-wide mb-1">
-                  Open by appointment
-                </p>
-                <p className="font-body text-sm text-white">
-                  Visit our showroom in Worcestershire to see our pods in person.
-                </p>
-              </div>
-            </div>
 
             {/* Quick configurator CTA */}
             <div className="bg-forest-800 rounded-3xl p-7 text-white">
