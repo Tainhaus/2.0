@@ -8,8 +8,23 @@ import { ShopFilters } from "@/components/shop/shop-filters";
 import { ShopHeader } from "@/components/shop/shop-header";
 
 export const metadata: Metadata = {
-  title: "Shop Garden Rooms & Pods",
-  description: "Browse our full collection of bespoke garden rooms, pods, studios, saunas, and annexes.",
+  title: "Shop Log Cabins & Garden Rooms",
+  description:
+    "Browse our full range of premium log cabins and garden rooms. From compact garden offices to full 2-bedroom annexes — all delivered and installed across the UK in 4-6 weeks.",
+  keywords: [
+    "log cabins for sale UK",
+    "garden rooms for sale",
+    "buy log cabin",
+    "garden office for sale",
+    "log cabin prices UK",
+    "garden room shop",
+    "wooden garden rooms",
+  ],
+  openGraph: {
+    title: "Shop Log Cabins & Garden Rooms | Tainhaus",
+    description: "Browse premium log cabins and garden rooms. Delivered and installed UK-wide in 4-6 weeks.",
+    images: [{ url: "/hero-1.jpg", width: 1200, height: 630, alt: "Tainhaus log cabin collection" }],
+  },
 };
 
 type SearchParams = Promise<{
