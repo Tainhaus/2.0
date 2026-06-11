@@ -5,7 +5,6 @@ import { FeaturedProductsSection } from "@/components/sections/featured-products
 import { TestimonialsSection } from "@/components/sections/testimonials";
 import { ProcessSection } from "@/components/sections/process";
 import { TrustSection } from "@/components/sections/trust";
-import { NewsletterSection } from "@/components/sections/newsletter-section";
 import { ProductCardSkeleton } from "@/components/shop/product-card-skeleton";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -45,8 +44,6 @@ export default function HomePage() {
       {/* CTA */}
       <CtaSection />
 
-      {/* Newsletter */}
-      <NewsletterSection />
     </>
   );
 }
