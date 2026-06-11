@@ -22,6 +22,30 @@ const FINISH_IMAGES: Record<string, Record<string, string>> = {
     "Stone Grey":  "/products/oriental-4-4-7x3-2m-log-cabin-stone-grey.png",
     "Birch":       "/products/oriental-4-4-7x3-2m-log-cabin-birch.png",
   },
+  "gloria-h-4-5x2-9m-log-cabin": {
+    "Oak":         "/products/gloria-h-4-5x2-9m-log-cabin-oak.png",
+    "Birch":       "/products/gloria-h-4-5x2-9m-log-cabin-birch.png",
+    "Stone Grey":  "/products/gloria-h-4-5x2-9m-log-cabin-stone-grey.png",
+    "Black":       "/products/gloria-h-4-5x2-9m-log-cabin-black.png",
+  },
+  "dover-combi-6m-x-4m": {
+    "Oak":         "/products/dover-combi-6m-x-4m-oak.png",
+    "Birch":       "/products/dover-combi-6m-x-4m-birch.png",
+    "Stone Grey":  "/products/dover-combi-6m-x-4m-stone-grey.png",
+    "Black":       "/products/dover-combi-6m-x-4m-black.png",
+  },
+  "derby-4-5m-x-3m": {
+    "Oak":         "/products/derby-4-5m-x-3m-oak.png",
+    "Birch":       "/products/derby-4-5m-x-3m-birch.png",
+    "Stone Grey":  "/products/derby-4-5m-x-3m-stone-grey.png",
+    "Black":       "/products/derby-4-5m-x-3m-black.png",
+  },
+  "monaco-2-bed-log-cabin": {
+    "Oak":         "/products/monaco-2-bed-log-cabin-oak.png",
+    "Birch":       "/products/monaco-2-bed-log-cabin-birch.png",
+    "Stone Grey":  "/products/monaco-2-bed-log-cabin-stone-grey.png",
+    "Black":       "/products/monaco-2-bed-log-cabin-black.png",
+  },
 };
 
 interface ProductGalleryProps {
