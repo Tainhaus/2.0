@@ -11,7 +11,7 @@ const TESTIMONIALS = [
     id: 1,
     rating: 5,
     title: "Best investment we've ever made",
-    body: "I'm 67 and I use The Horizon every single morning as my reading room and art studio. It's the most peaceful space I've ever had. The installation team were absolute gentlemen -” professional, tidy, and finished in a day. I tell everyone about Tainhaus.",
+    body: "I'm 67 and I use The Horizon every single morning as my reading room and art studio. It's the most peaceful space I've ever had. The installation team were absolute gentlemen — professional, tidy, and finished in a day. I tell everyone about Tainhaus.",
     author: "Margaret H.",
     age: "67",
     use: "Art Studio & Reading Room",
@@ -24,7 +24,7 @@ const TESTIMONIALS = [
     id: 2,
     rating: 5,
     title: "Cancelled my gym membership the day it went up",
-    body: "The Studio with the sprung floor is genuinely better than the gym I was using. I do HIIT, pilates, and weights every morning. My partner does yoga in the evenings. It's paid for itself many times over in membership fees alone -” let alone the time saved.",
+    body: "The Studio with the sprung floor is genuinely better than the gym I was using. I do HIIT, pilates, and weights every morning. My partner does yoga in the evenings. It's paid for itself many times over in membership fees alone — let alone the time saved.",
     author: "Amanda W.",
     age: "52",
     use: "Home Gym",
@@ -50,7 +50,7 @@ const TESTIMONIALS = [
     id: 4,
     rating: 5,
     title: "My yoga clients are blown away every single class",
-    body: "I run a private yoga and sound healing practice from The Zenith. Six clients at a time, perfect acoustics, infrared heating, cork floor. It feels like a luxury studio. I've doubled my rates since getting it -” my clients think I've found a new venue.",
+    body: "I run a private yoga and sound healing practice from The Zenith. Six clients at a time, perfect acoustics, infrared heating, cork floor. It feels like a luxury studio. I've doubled my rates since getting it — my clients think I've found a new venue.",
     author: "Priya K.",
     age: "34",
     use: "Yoga Studio",
@@ -75,8 +75,8 @@ const TESTIMONIALS = [
   {
     id: 6,
     rating: 5,
-    title: "The Nordic sauna in January -” absolutely incredible",
-    body: "I'm 45 and I've wanted a home sauna for 20 years. The Nordic is perfect. It heats to 90Â°C in 25 minutes. My wife and I use it three or four times a week. The alder wood smell is gorgeous. It dropped into our garden in half a day. Completely life-changing.",
+    title: "The Nordic sauna in January — absolutely incredible",
+    body: "I'm 45 and I've wanted a home sauna for 20 years. The Nordic is perfect. It heats to 90°C in 25 minutes. My wife and I use it three or four times a week. The alder wood smell is gorgeous. It dropped into our garden in half a day. Completely life-changing.",
     author: "Mike T.",
     age: "45",
     use: "Home Sauna",
@@ -116,7 +116,7 @@ export function TestimonialsSection() {
             <span className="text-terracotta-300 italic">generation</span>
           </h2>
           <p className="font-body text-sm text-forest-300 max-w-lg mx-auto">
-            From 22 to 82 -” our cabins are transforming lives across the UK.
+            From 22 to 82 — our cabins are transforming lives across the UK.
           </p>
         </div>
 
@@ -145,11 +145,11 @@ export function TestimonialsSection() {
                     {active.author}
                     {active.age && <span className="font-normal text-forest-300 ml-2 text-xs">Age {active.age}</span>}
                   </p>
-                  <p className="font-body text-xs text-forest-400">{active.use} Â· {active.location}</p>
+                  <p className="font-body text-xs text-forest-400">{active.use} · {active.location}</p>
                 </div>
               </div>
               {active.verified && (
-                <span className="badge bg-terracotta-500/20 text-terracotta-300 text-xs">âœ“ Verified purchase</span>
+                <span className="badge bg-terracotta-500/20 text-terracotta-300 text-xs">✓ Verified purchase</span>
               )}
             </div>
           </div>
