@@ -66,8 +66,10 @@ export default async function ProductPage({ params }: Props) {
       <div className="container-site pb-16">
         <FinishProvider>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-16">
-            {/* Left column â€” gallery */}
-            <ProductGallery images={images} productName={product.name} productSlug={product.slug} />
+            {/* Left column â€” sticky gallery */}
+            <div className="lg:sticky lg:top-24 lg:self-start">
+              <ProductGallery images={images} productName={product.name} productSlug={product.slug} />
+            </div>
 
             {/* Right column â€” details + configurator */}
             <div className="flex flex-col gap-7">
@@ -95,6 +97,7 @@ export default async function ProductPage({ params }: Props) {
                 <div className="flex items-baseline gap-2 mb-1">
                   <span className="font-display text-3xl font-bold text-forest-800">{formatPrice(product.salePrice ?? product.price)}</span>
                   {product.salePrice && <span className="font-body text-lg text-charcoal-400 line-through">{formatPrice(product.price)}</span>}
+                  <span className="font-body text-sm text-charcoal-500">inc. VAT</span>
                 </div>
                 <p className="font-body text-xs text-charcoal-500">Starting price for base size. Customise below.</p>
               </div>
