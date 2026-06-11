@@ -44,6 +44,12 @@ const FINISH_IMAGES: Record<string, Record<string, string>> = {
     "Stone Grey": "/products/monaco-2-bed-log-cabin-stone-grey.png",
     "Black":      "/products/monaco-2-bed-log-cabin-black.png",
   },
+  "outdoor-kitchen-pod-garden-bar-3-0x2-6m": {
+    "Oak":        "/products/outdoor-kitchen-pod-garden-bar-3-0x2-6m-oak.png",
+    "Birch":      "/products/outdoor-kitchen-pod-garden-bar-3-0x2-6m-birch.png",
+    "Stone Grey": "/products/outdoor-kitchen-pod-garden-bar-3-0x2-6m-stone-grey.png",
+    "Black":      "/products/outdoor-kitchen-pod-garden-bar-3-0x2-6m-black.png",
+  },
 };
 
 interface ProductGalleryProps {
@@ -159,7 +165,7 @@ export function ProductGallery({ images, productName, productSlug }: ProductGall
         )}
       </div>
 
-      {/* Thumbnails */}
+      {/* Thumbnails â€” always visible, click to view product image and clear finish override */}
       {images.length > 1 && (
         <div className="flex gap-2 overflow-x-auto no-scrollbar pb-1">
           {images.map((img, i) => (
@@ -175,6 +181,7 @@ export function ProductGallery({ images, productName, productSlug }: ProductGall
                   ? "ring-2 ring-forest-800 ring-offset-1"
                   : "opacity-60 hover:opacity-100"
               )}
+              title="View product photo"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -184,6 +191,17 @@ export function ProductGallery({ images, productName, productSlug }: ProductGall
               />
             </button>
           ))}
+          {/* Show active cladding thumbnail if finish is selected */}
+          {finishOverride && (
+            <div className="relative shrink-0 w-16 h-14 rounded-lg overflow-hidden ring-2 ring-forest-800 ring-offset-1 bg-sand-100">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={finishOverride}
+                alt={`${selectedFinishName} cladding`}
+                className="w-full h-full object-contain"
+              />
+            </div>
+          )}
         </div>
       )}
 
