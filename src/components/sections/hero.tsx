@@ -4,7 +4,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Play, ChevronDown } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const HERO_STATS = [
@@ -161,15 +161,6 @@ export function HeroSection() {
               <ArrowRight className="w-4 h-4" />
             </Link>
 
-            <button
-              onClick={() => setShowVideo(true)}
-              className="inline-flex items-center gap-2.5 text-white/90 hover:text-white font-body text-sm font-medium transition-colors duration-200 group"
-            >
-              <div className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center group-hover:bg-white/10 group-hover:border-white/50 transition-all duration-200">
-                <Play className="w-3.5 h-3.5 fill-current ml-0.5" />
-              </div>
-              Watch the build
-            </button>
           </div>
         </div>
 
