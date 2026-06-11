@@ -7,15 +7,14 @@ import { cn } from "@/lib/utils";
 interface LogoProps {
   variant?: "light" | "dark";
   className?: string;
-  size?: "sm" | "md" | "lg" | "xl";
+  size?: "sm" | "md" | "lg";
 }
 
 export function Logo({ variant = "dark", className, size = "md" }: LogoProps) {
   const sizes = {
-    sm:  { width: 110, height: 44  },
-    md:  { width: 195, height: 78  }, // navbar â€” +30%
-    lg:  { width: 240, height: 96  }, // footer â€” +20% on top of previous lg
-    xl:  { width: 260, height: 104 },
+    sm:  { width: 120, height: 48  },
+    md:  { width: 210, height: 84  }, // navbar â€” 40% bigger
+    lg:  { width: 260, height: 104 }, // footer â€” 30% bigger
   };
 
   const s = sizes[size];
@@ -32,7 +31,6 @@ export function Logo({ variant = "dark", className, size = "md" }: LogoProps) {
           width: s.width,
           height: s.height,
           objectFit: "contain",
-          mixBlendMode: variant === "dark" ? "multiply" : "screen",
         }}
       />
     </Link>
