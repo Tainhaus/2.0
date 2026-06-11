@@ -735,7 +735,7 @@ Comes complete with nails, screws, and detailed installation instructions, makin
       description: "Experience luxury living with the Monaco 2 Bed Log Cabin. This exceptional cabin combines elegance and functionality, offering a spacious retreat that embodies contemporary design and comfort.",
       longDescription: "The Monaco 2 Bed Log Cabin is built with 70mm thick triple tongue and groove logs sourced from Finland. Two well-appointed bedrooms make this cabin ideal as a permanent residence, a holiday retreat, or a premium guest annexe.\n\nEvery Monaco comes with 100mm insulation in both floor and roof. Premium double-glazed doors and windows are available in any colour, and pre-drilled logs allow electrical cables to be concealed.\n\nBacked by our 5-year structural warranty. Call us for pricing on this bespoke product.",
       price: 0,
-      category: "ANNEXE",
+      category: "LOG_CABIN",
       useCase: ["GUEST_ROOM", "HOME_OFFICE", "ENTERTAINMENT"],
       featured: true,
       new: true,
