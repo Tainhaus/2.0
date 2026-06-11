@@ -113,9 +113,8 @@ export const USE_CASES = [
 ] as const;
 
 export const CATEGORIES = [
-  { id: "GARDEN_ROOM", label: "Garden Rooms" },
-  { id: "GARDEN_POD", label: "Garden Pods" },
-  { id: "STUDIO", label: "Studios" },
-  { id: "SAUNA", label: "Saunas" },
-  { id: "OFFICE", label: "Offices" },
+  { id: "LOG_CABIN",      label: "Log Cabins" },
+  { id: "GARDEN_ROOM",   label: "Garden Rooms" },
+  { id: "ANNEXE",        label: "Annexes" },
+  { id: "KITCHEN_POD",   label: "Kitchen & Bar Pods" },
 ] as const;
