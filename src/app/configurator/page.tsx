@@ -25,7 +25,7 @@ const POD_TYPES = [
   {
     id: "sauna",
     name: "Sauna",
-    desc: "Authentic Scandinavian sauna â€” compact and beautifully crafted",
+    desc: "Authentic Scandinavian sauna — compact and beautifully crafted",
     price: 8995,
     image: "https://images.unsplash.com/photo-1615529328331-f8917597711f?w=800&q=80",
   },
@@ -39,18 +39,18 @@ const POD_TYPES = [
   {
     id: "annexe",
     name: "Full Annexe",
-    desc: "Complete two-bedroom living suite â€” kitchen, bathroom included",
+    desc: "Complete two-bedroom living suite — kitchen, bathroom included",
     price: 0,
     image: "https://www.northernlogcabins.com/cdn/shop/files/Monaco2bedroomlogcabinNorthernLogCabins1.jpg?v=1750691417",
   },
 ];
 
 const SIZES = [
-  { id: "xs", label: "Compact",  dims: "2.5 Ã— 3.0m", sqm: 7.5,  adder: 0     },
-  { id: "sm", label: "Small",    dims: "3.0 Ã— 4.0m", sqm: 12,   adder: 2500  },
-  { id: "md", label: "Medium",   dims: "3.5 Ã— 5.0m", sqm: 17.5, adder: 5500  },
-  { id: "lg", label: "Large",    dims: "4.0 Ã— 6.0m", sqm: 24,   adder: 9500  },
-  { id: "xl", label: "X-Large",  dims: "5.0 Ã— 7.0m", sqm: 35,   adder: 16000 },
+  { id: "xs", label: "Compact",  dims: "2.5 × 3.0m", sqm: 7.5,  adder: 0     },
+  { id: "sm", label: "Small",    dims: "3.0 × 4.0m", sqm: 12,   adder: 2500  },
+  { id: "md", label: "Medium",   dims: "3.5 × 5.0m", sqm: 17.5, adder: 5500  },
+  { id: "lg", label: "Large",    dims: "4.0 × 6.0m", sqm: 24,   adder: 9500  },
+  { id: "xl", label: "X-Large",  dims: "5.0 × 7.0m", sqm: 35,   adder: 16000 },
 ];
 
 const FINISHES = [
@@ -213,7 +213,7 @@ Customer message: ${quoteForm.message || "None"}`;
 
             <div className="bg-white rounded-3xl p-8 shadow-card min-h-[400px]">
 
-              {/* â”€â”€ Step 1 â€” Type â”€â”€ */}
+              {/* ── Step 1 — Type ── */}
               {step === "type" && (
                 <StepSection title="What type of space do you need?">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -255,7 +255,7 @@ Customer message: ${quoteForm.message || "None"}`;
                 </StepSection>
               )}
 
-              {/* â”€â”€ Step 2 â€” Size â”€â”€ */}
+              {/* ── Step 2 — Size ── */}
               {step === "size" && (
                 <StepSection title="What size do you need?">
                   <div className="space-y-3">
@@ -275,7 +275,7 @@ Customer message: ${quoteForm.message || "None"}`;
                           </div>
                           <div>
                             <p className="font-body font-semibold text-charcoal-900">{size.label}</p>
-                            <p className="font-body text-xs text-charcoal-500">{size.dims} Â· {size.sqm}mÂ²</p>
+                            <p className="font-body text-xs text-charcoal-500">{size.dims} · {size.sqm}m²</p>
                           </div>
                         </div>
                         <span className={cn("font-body text-sm font-semibold",
@@ -288,7 +288,7 @@ Customer message: ${quoteForm.message || "None"}`;
                 </StepSection>
               )}
 
-              {/* â”€â”€ Step 3 â€” Cladding â”€â”€ */}
+              {/* ── Step 3 — Cladding ── */}
               {step === "finish" && (
                 <StepSection title="Choose your exterior cladding" subtitle={`Selected: ${config.finish.name}`}>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
@@ -336,7 +336,7 @@ Customer message: ${quoteForm.message || "None"}`;
                 </StepSection>
               )}
 
-              {/* â”€â”€ Step 4 â€” Use Case â”€â”€ */}
+              {/* ── Step 4 — Use Case ── */}
               {step === "use-case" && (
                 <StepSection title="What will you use it for?" subtitle="Select the closest option or describe your own">
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
@@ -379,7 +379,7 @@ Customer message: ${quoteForm.message || "None"}`;
                 </StepSection>
               )}
 
-              {/* â”€â”€ Step 5 â€” Quote â”€â”€ */}
+              {/* ── Step 5 — Quote ── */}
               {step === "quote" && (
                 <StepSection title="Request your quote">
                   {submitted ? (
@@ -403,7 +403,7 @@ Customer message: ${quoteForm.message || "None"}`;
                         <p className="font-body text-xs font-semibold text-charcoal-500 uppercase tracking-widest mb-3">Your configuration</p>
                         {[
                           { label: "Type",     value: config.type.name },
-                          { label: "Size",     value: `${config.size.label} Â· ${config.size.dims}` },
+                          { label: "Size",     value: `${config.size.label} · ${config.size.dims}` },
                           { label: "Cladding", value: (config.finish as any).isCustom ? "Custom (to discuss)" : config.finish.name },
                           { label: "Use case", value: useCaseDisplay },
                         ].map((item) => (
