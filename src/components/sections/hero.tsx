@@ -4,7 +4,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Play, ChevronDown } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const HERO_STATS = [
@@ -56,7 +56,6 @@ const HERO_SLIDES = [
 export function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [showVideo, setShowVideo] = useState(false);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
@@ -170,15 +169,7 @@ export function HeroSection() {
               <ArrowRight className="w-4 h-4" />
             </Link>
 
-            <button
-              onClick={() => setShowVideo(true)}
-              className="inline-flex items-center gap-2.5 text-white/90 hover:text-white font-body text-sm font-medium transition-colors duration-200 group"
-            >
-              <div className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center group-hover:bg-white/10 group-hover:border-white/50 transition-all duration-200">
-                <Play className="w-3.5 h-3.5 fill-current ml-0.5" />
-              </div>
-              Watch the build
-            </button>
+
           </div>
         </div>
       </div>
@@ -218,27 +209,7 @@ export function HeroSection() {
         </button>
       </div>
 
-      {/* Video modal */}
-      {showVideo && (
-        <div
-          className="absolute inset-0 z-50 bg-black/90 flex items-center justify-center"
-          onClick={() => setShowVideo(false)}
-        >
-          <div className="relative w-full max-w-4xl mx-8 aspect-video bg-charcoal-900 rounded-2xl overflow-hidden">
-            <button
-              onClick={() => setShowVideo(false)}
-              className="absolute top-4 right-4 w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-colors z-10"
-            >
-              âœ•
-            </button>
-            <div className="w-full h-full flex items-center justify-center">
-              <p className="text-white/60 font-body text-sm">
-                Replace with your brand video embed
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
+
     </section>
   );
 }
