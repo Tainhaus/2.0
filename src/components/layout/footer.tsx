@@ -37,10 +37,10 @@ const SOCIAL = [
 ];
 
 const TRUST_BADGES = [
-  { label: "10-Year Structural Warranty", icon: "ðŸ›¡" },
-  { label: "FSC Certified Timber", icon: "ðŸŒ²" },
-  { label: "Carbon Neutral Delivery", icon: "â™»ï¸" },
-  { label: "UK Manufactured", icon: "ðŸ‡¬ðŸ‡§" },
+  { label: "10-Year Structural Warranty", icon: "🛡" },
+  { label: "FSC Certified Timber", icon: "🌲" },
+  { label: "Carbon Neutral Delivery", icon: "♻️" },
+  { label: "UK Manufactured", icon: "🇬🇧" },
 ];
 
 export function Footer() {
@@ -55,7 +55,7 @@ export function Footer() {
                 Get inspired in your inbox
               </h3>
               <p className="text-forest-200 font-body text-sm max-w-md">
-                Design ideas, customer stories, seasonal offers, and planning tips â€” delivered monthly.
+                Design ideas, customer stories, seasonal offers, and planning tips — delivered monthly.
               </p>
             </div>
             <div className="w-full md:w-auto md:min-w-[400px]">
@@ -164,7 +164,7 @@ export function Footer() {
       <div className="border-t border-white/5 py-6">
         <div className="container-site flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="font-body text-xs text-sand-600">
-            Â© {new Date().getFullYear()} Tainhaus Ltd. All rights reserved. Company No. 12345678. 
+            © {new Date().getFullYear()} Tainhaus Ltd. All rights reserved. Company No. 12345678. 
             VAT No. GB 123 4567 89
           </p>
           <div className="flex items-center gap-6">
