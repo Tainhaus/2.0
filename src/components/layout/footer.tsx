@@ -111,8 +111,8 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-terracotta-400 shrink-0" />
-                <Link href="mailto:hello@tainhaus.co.uk" className="font-body text-xs text-sand-500 hover:text-white transition-colors">
-                  hello@tainhaus.co.uk
+                <Link href="mailto:info@tainhaus.co.uk" className="font-body text-xs text-sand-500 hover:text-white transition-colors">
+                  info@tainhaus.co.uk
                 </Link>
               </div>
             </div>
