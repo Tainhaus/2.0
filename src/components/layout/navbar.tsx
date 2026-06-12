@@ -69,11 +69,11 @@ export function Navbar() {
         )}
       >
         <div className="container-site">
-          <nav className="flex items-center justify-between h-16 md:h-20">
+          <nav className="flex items-center justify-between h-14 sm:h-16 md:h-20">
             {/* Logo */}
             <Logo
               variant={isScrolled || !isHomePage ? "dark" : "light"}
-              size="md"
+              size="sm"
               className="z-10"
             />
 
