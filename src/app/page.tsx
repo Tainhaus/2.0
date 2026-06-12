@@ -52,11 +52,11 @@ function CtaSection() {
   return (
     <section className="section-sm bg-sand-200/50">
       <div className="container-site">
-        <div className="bg-gradient-to-br from-forest-800 to-olive-700 rounded-4xl p-10 md:p-16 text-center relative overflow-hidden">
+        <div className="bg-gradient-to-br from-charcoal-800 to-charcoal-900 rounded-4xl p-10 md:p-16 text-center relative overflow-hidden">
           <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-white/5" />
           <div className="absolute -bottom-12 -left-12 w-48 h-48 rounded-full bg-white/5" />
           <div className="relative z-10">
-            <p className="font-body text-xs font-semibold text-sand-300 uppercase tracking-[0.2em] mb-4 text-center">
+            <p className="font-body text-xs font-semibold text-terracotta-400 uppercase tracking-[0.2em] mb-4 text-center">
               Start your journey
             </p>
             <h2 className="font-display text-2xl sm:text-3xl md:text-display-md text-white mb-4 text-center">
