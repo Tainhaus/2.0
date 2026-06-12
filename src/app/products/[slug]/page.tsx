@@ -65,9 +65,16 @@ export default async function ProductPage({ params }: Props) {
       </div>
       <div className="container-site pb-16">
         <FinishProvider>
+          {/* Sticky gallery on mobile — fixed at top so image always visible when picking colours */}
+          <div className="lg:hidden sticky top-14 z-30 bg-white shadow-md">
+            <div className="container-site py-2">
+              <ProductGallery images={images} productName={product.name} productSlug={product.slug} />
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10 xl:gap-16 items-start">
-            {/* Left column — sticky gallery */}
-            <div className="md:sticky md:top-24 md:self-start">
+            {/* Left column — sticky gallery desktop only */}
+            <div className="hidden lg:block lg:sticky lg:top-24 lg:self-start">
               <ProductGallery images={images} productName={product.name} productSlug={product.slug} />
             </div>
 
