@@ -43,7 +43,7 @@ const STEPS = [
 
 export function ProcessSection() {
   return (
-    <section className="section bg-sand-100">
+    <section className="section bg-white">
       <div className="container-site">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
           <div>
@@ -105,7 +105,7 @@ export function ProcessSection() {
         </div>
 
         {/* Timeline callout */}
-        <div className="mt-12 bg-forest-800 rounded-3xl p-6 md:p-10">
+        <div className="mt-12 bg-charcoal-900 rounded-3xl p-6 md:p-10">
           <div className="flex flex-col items-start gap-6">
             <div className="text-center md:text-left">
               <p className="font-body text-xs font-semibold text-forest-300 uppercase tracking-widest mb-2">
