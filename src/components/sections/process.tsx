@@ -106,7 +106,7 @@ export function ProcessSection() {
 
         {/* Timeline callout */}
         <div className="mt-12 bg-forest-800 rounded-3xl p-8 md:p-10">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex flex-col items-start gap-6">
             <div className="text-center md:text-left">
               <p className="font-body text-xs font-semibold text-forest-300 uppercase tracking-widest mb-2">
                 Average timeline
