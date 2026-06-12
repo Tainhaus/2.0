@@ -83,7 +83,7 @@ export function Footer() {
 
       {/* Main footer */}
       <div className="container-site py-14 md:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-16">
           {/* Brand column */}
           <div className="md:col-span-3">
             <div className="mb-6">
@@ -135,7 +135,7 @@ export function Footer() {
           </div>
 
           {/* Links */}
-          <div className="md:col-span-9 grid grid-cols-2 sm:grid-cols-4 gap-8">
+          <div className="md:col-span-9 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8">
             {Object.entries(FOOTER_LINKS).map(([category, links]) => (
               <div key={category}>
                 <h4 className="font-body text-xs font-semibold text-sand-400 uppercase tracking-widest mb-5">
