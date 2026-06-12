@@ -16,8 +16,8 @@ const HERO_STATS = [
 
 const HERO_SLIDES = [
   {
-    src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=2400&q=90",
-    alt: "Premium timber garden room in a beautifully landscaped garden",
+    src: "/hero-1.jpg",
+    alt: "Premium log cabin in a beautifully landscaped garden",
     headline: "Your garden,",
     headlineAccent: "transformed.",
     sub: "Premium log cabins and garden rooms — crafted for every life stage, every dream.",
@@ -25,22 +25,31 @@ const HERO_SLIDES = [
     ctaHref: "/shop",
   },
   {
-    src: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=2400&q=90",
-    alt: "Contemporary garden room seamlessly extending a family home",
+    src: "/hero-2.jpg",
+    alt: "Contemporary garden room extending a family home",
     headline: "Work from",
     headlineAccent: "paradise.",
     sub: "Home offices that make your commute a five-second walk through the garden.",
-    cta: "See Office Pods",
+    cta: "See the range",
     ctaHref: "/shop",
   },
   {
-    src: "https://images.unsplash.com/photo-1416331108676-a22ccb276e35?w=2400&q=90",
-    alt: "Beautiful garden with natural timber cabin",
+    src: "/hero-3.jpg",
+    alt: "Beautiful timber garden room with natural cladding",
     headline: "Built to last.",
     headlineAccent: "Loved forever.",
     sub: "Delivered and installed across the UK in just 4 to 6 weeks.",
     cta: "Design Your Space",
     ctaHref: "/configurator",
+  },
+  {
+    src: "/hero-4.jpg",
+    alt: "Premium log cabin installed in a UK garden",
+    headline: "From idea",
+    headlineAccent: "to your garden.",
+    sub: "Call or order today — most customers receive their cabin within 4 to 6 weeks.",
+    cta: "Get a quote",
+    ctaHref: "/contact",
   },
 ];
 
@@ -82,7 +91,7 @@ export function HeroSection() {
             alt={s.alt}
             fill
             priority={i === 0}
-            className="object-cover object-center"
+            className="object-cover object-center sm:object-center"
             sizes="100vw"
           />
           {/* Dark gradient overlay */}
