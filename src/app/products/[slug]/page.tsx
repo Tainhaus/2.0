@@ -65,9 +65,9 @@ export default async function ProductPage({ params }: Props) {
       </div>
       <div className="container-site pb-16">
         <FinishProvider>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10 xl:gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10 xl:gap-16 items-start">
             {/* Left column — sticky gallery */}
-            <div className="lg:sticky lg:top-24 lg:self-start">
+            <div className="md:sticky md:top-24 md:self-start">
               <ProductGallery images={images} productName={product.name} productSlug={product.slug} />
             </div>
 
