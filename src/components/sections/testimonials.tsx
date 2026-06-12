@@ -101,9 +101,9 @@ export function TestimonialsSection() {
   const active = TESTIMONIALS[activeIndex];
 
   return (
-    <section className="section-sm bg-charcoal-900 relative overflow-hidden">
-      <div className="absolute top-10 right-12 opacity-5">
-        <Quote className="w-48 h-48 text-white fill-white" />
+    <section className="section-sm bg-sand-100 relative overflow-hidden">
+      <div className="absolute top-10 right-12 opacity-10">
+        <Quote className="w-48 h-48 text-sand-400 fill-sand-400" />
       </div>
 
       <div className="container-site relative z-10">
@@ -111,11 +111,11 @@ export function TestimonialsSection() {
           <div className="flex justify-center mb-4">
             <div className="w-12 h-0.5 bg-terracotta-400 rounded-full" />
           </div>
-          <h2 className="font-display text-2xl sm:text-3xl md:text-display-sm text-white mb-3">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-display-sm text-charcoal-900 mb-3">
             Loved across every{" "}
             <span className="text-terracotta-300 italic">generation</span>
           </h2>
-          <p className="font-body text-sm text-sand-300 max-w-lg mx-auto">
+          <p className="font-body text-sm text-charcoal-500 max-w-lg mx-auto">
             From 22 to 82 — our cabins are transforming lives across the UK.
           </p>
         </div>
@@ -123,7 +123,7 @@ export function TestimonialsSection() {
         <div className="max-w-3xl mx-auto">
           <div
             className={cn(
-              "bg-white/8 backdrop-blur-md rounded-3xl p-7 md:p-10 border border-white/10 transition-all duration-400",
+              "bg-white rounded-3xl p-7 md:p-10 border border-sand-200 shadow-card transition-all duration-400",
               isAnimating ? "opacity-0 scale-[0.98]" : "opacity-100 scale-100"
             )}
           >
@@ -132,7 +132,7 @@ export function TestimonialsSection() {
                 <Star key={s} className="w-4 h-4 fill-terracotta-400 text-terracotta-400" />
               ))}
             </div>
-            <blockquote className="font-display text-base sm:text-lg md:text-xl text-sand-100 font-medium leading-relaxed mb-6 italic">
+            <blockquote className="font-display text-base sm:text-lg md:text-xl text-charcoal-800 font-medium leading-relaxed mb-6 italic">
               &ldquo;{active.body}&rdquo;
             </blockquote>
             <div className="flex items-center justify-between flex-wrap gap-4">
@@ -141,7 +141,7 @@ export function TestimonialsSection() {
                   <Image src={active.image} alt={active.author} fill className="object-cover" sizes="40px" />
                 </div>
                 <div>
-                  <p className="font-body font-semibold text-sand-100 text-sm">
+                  <p className="font-body font-semibold text-charcoal-900 text-sm">
                     {active.author}
                     {active.age && <span className="font-normal text-forest-300 ml-2 text-xs">Age {active.age}</span>}
                   </p>
@@ -149,7 +149,7 @@ export function TestimonialsSection() {
                 </div>
               </div>
               {active.verified && (
-                <span className="badge bg-terracotta-500/20 text-terracotta-300 text-xs">✓ Verified purchase</span>
+                <span className="badge bg-terracotta-500/10 text-terracotta-600 text-xs">✓ Verified purchase</span>
               )}
             </div>
           </div>
@@ -162,18 +162,18 @@ export function TestimonialsSection() {
                   onClick={() => setActiveIndex(i)}
                   className={cn(
                     "rounded-full transition-all duration-300",
-                    i === activeIndex ? "w-8 h-2 bg-white" : "w-2 h-2 bg-white/30 hover:bg-white/50"
+                    i === activeIndex ? "w-8 h-2 bg-forest-800" : "w-2 h-2 bg-sand-400 hover:bg-sand-600"
                   )}
                   aria-label={`Testimonial ${i + 1}`}
                 />
               ))}
             </div>
             <div className="flex gap-2">
-              <button onClick={() => navigate(-1)} className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-all duration-200" aria-label="Previous">
-                <ChevronLeft className="w-4 h-4" />
+              <button onClick={() => navigate(-1)} className="w-9 h-9 rounded-full bg-sand-200 hover:bg-sand-300 flex items-center justify-center text-charcoal-700 transition-all duration-200" aria-label="Previous">
+                <ChevronLeft className="w-4 h-4 text-charcoal-700" />
               </button>
-              <button onClick={() => navigate(1)} className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-all duration-200" aria-label="Next">
-                <ChevronRight className="w-4 h-4" />
+              <button onClick={() => navigate(1)} className="w-9 h-9 rounded-full bg-sand-200 hover:bg-sand-300 flex items-center justify-center text-charcoal-700 transition-all duration-200" aria-label="Next">
+                <ChevronRight className="w-4 h-4 text-charcoal-700" />
               </button>
             </div>
           </div>
