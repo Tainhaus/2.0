@@ -116,7 +116,14 @@
     @apply bg-gradient-to-r from-forest-800 to-olive-600 bg-clip-text text-transparent;
   }
   .text-gradient-warm {
-    @apply bg-gradient-to-r from-terracotta-500 to-terracotta-300 bg-clip-text text-transparent;
+    color: #C26B4A;
+    background: linear-gradient(to right, #C26B4A, #E08060);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  @supports not (-webkit-background-clip: text) {
+    .text-gradient-warm { color: #C26B4A; -webkit-text-fill-color: #C26B4A; }
   }
   .glass { @apply bg-white/60 backdrop-blur-xl border border-white/40; }
   .glass-dark { @apply bg-charcoal-900/60 backdrop-blur-xl border border-white/10; }
