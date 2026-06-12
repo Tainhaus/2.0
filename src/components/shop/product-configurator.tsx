@@ -90,8 +90,8 @@ export function ProductConfigurator({ product }: ProductConfiguratorProps) {
                   )}>
                     {size.label}
                   </p>
-                  <p className="font-body text-xs text-charcoal-500 mt-0.5">
-                    {size.sqm}m² · {size.heightM}m height
+                  <p className="font-body text-xs text-charcoal-500 mt-0.5 leading-tight">
+                    {size.sqm}m²
                   </p>
                 </div>
                 {size.priceAdder > 0 && (
