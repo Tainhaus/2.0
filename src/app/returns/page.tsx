@@ -27,12 +27,12 @@ export default function ReturnsPage() {
 
           <section>
             <h2 className="font-display text-2xl font-semibold text-charcoal-900 mb-3">3. Cancellations before production</h2>
-            <p>If you wish to cancel your order before production has commenced, please contact us immediately at <a href="mailto:hello@tainhaus.co.uk" className="text-forest-800 underline">hello@tainhaus.co.uk</a>. Cancellations received before production begins may be eligible for a full refund minus any administration costs already incurred.</p>
+            <p>If you wish to cancel your order before production has commenced, please contact us immediately at <a href="mailto:info@tainhaus.co.uk" className="text-forest-800 underline">info@tainhaus.co.uk</a>. Cancellations received before production begins may be eligible for a full refund minus any administration costs already incurred.</p>
           </section>
 
           <section>
             <h2 className="font-display text-2xl font-semibold text-charcoal-900 mb-3">4. Damaged or incorrect items</h2>
-            <p>If your order arrives damaged or does not match your agreed specification, you must notify us within <strong>48 hours of delivery</strong> by emailing <a href="mailto:hello@tainhaus.co.uk" className="text-forest-800 underline">hello@tainhaus.co.uk</a> with photographs of the damage or discrepancy.</p>
+            <p>If your order arrives damaged or does not match your agreed specification, you must notify us within <strong>48 hours of delivery</strong> by emailing <a href="mailto:info@tainhaus.co.uk" className="text-forest-800 underline">info@tainhaus.co.uk</a> with photographs of the damage or discrepancy.</p>
             <p className="mt-3">We will assess the claim and, where valid, arrange for replacement parts, repair, or in cases of significant damage, a replacement product. We will not accept damage claims reported more than 48 hours after delivery unless the damage could not reasonably have been identified at the point of delivery.</p>
           </section>
 
@@ -64,7 +64,7 @@ export default function ReturnsPage() {
 
           <section>
             <h2 className="font-display text-2xl font-semibold text-charcoal-900 mb-3">9. Contact us</h2>
-            <p>For any returns or refund queries, contact us at <a href="mailto:hello@tainhaus.co.uk" className="text-forest-800 underline">hello@tainhaus.co.uk</a> or visit our <Link href="/contact" className="text-forest-800 underline">contact page</Link>.</p>
+            <p>For any returns or refund queries, contact us at <a href="mailto:info@tainhaus.co.uk" className="text-forest-800 underline">info@tainhaus.co.uk</a> or visit our <Link href="/contact" className="text-forest-800 underline">contact page</Link>.</p>
           </section>
         </div>
       </div>
