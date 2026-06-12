@@ -32,7 +32,7 @@ export function TrustSection() {
           <div className="flex justify-center mb-5">
             <div className="w-12 h-0.5 bg-terracotta-500 rounded-full" />
           </div>
-          <h2 className="font-display text-display-sm text-charcoal-900 mb-3">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-display-sm text-charcoal-900 mb-3">
             Built to last.{" "}
             <span className="text-terracotta-500 italic">Crafted to care.</span>
           </h2>
@@ -45,7 +45,7 @@ export function TrustSection() {
           {TRUST_ITEMS.map((item) => (
             <div
               key={item.title}
-              className="group flex flex-col gap-3 p-5 rounded-2xl bg-white border border-sand-200 hover:shadow-luxury hover:border-transparent transition-all duration-400"
+              className="group flex flex-col gap-2 p-4 sm:p-5 rounded-2xl bg-white border border-sand-200 hover:shadow-luxury hover:border-transparent transition-all duration-400"
             >
               <div className="w-10 h-10 bg-forest-800/8 rounded-xl flex items-center justify-center group-hover:bg-forest-800 transition-colors duration-300">
                 <item.Icon className="w-4 h-4 text-forest-800 group-hover:text-white transition-colors duration-300" />
