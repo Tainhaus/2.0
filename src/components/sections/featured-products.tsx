@@ -37,7 +37,7 @@ export async function FeaturedProductsSection() {
               Every pod is designed, engineered, and assembled by hand at our UK workshop. Built to last decades. Installed in days.
             </p>
           </div>
-          <Link href="/shop" className="btn-secondary shrink-0 group">
+          <Link href="/shop" className="btn-terracotta shrink-0 group">
             View all products
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
