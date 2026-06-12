@@ -12,7 +12,7 @@ interface LogoProps {
 
 export function Logo({ variant = "dark", className, size = "md" }: LogoProps) {
   const sizes = {
-    sm:  { width: 140, height: 56  },
+    sm:  { width: 200, height: 80  },
     md:  { width: 220, height: 88  },
     lg:  { width: 260, height: 104 },
   };
