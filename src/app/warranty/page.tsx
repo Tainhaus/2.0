@@ -64,7 +64,7 @@ export default function WarrantyPage() {
 
           <section>
             <h2 className="font-display text-2xl font-semibold text-charcoal-900 mb-3">How to make a claim</h2>
-            <p>To make a warranty claim, please email <a href="mailto:hello@tainhaus.co.uk" className="text-forest-800 underline">hello@tainhaus.co.uk</a> with:</p>
+            <p>To make a warranty claim, please email <a href="mailto:info@tainhaus.co.uk" className="text-forest-800 underline">info@tainhaus.co.uk</a> with:</p>
             <ul className="list-disc pl-6 space-y-1 mt-2">
               <li>Your order number and delivery date</li>
               <li>A clear description of the defect or issue</li>
@@ -92,7 +92,7 @@ export default function WarrantyPage() {
 
           <section>
             <h2 className="font-display text-2xl font-semibold text-charcoal-900 mb-3">Contact</h2>
-            <p>For warranty queries, email <a href="mailto:hello@tainhaus.co.uk" className="text-forest-800 underline">hello@tainhaus.co.uk</a> or visit our <Link href="/contact" className="text-forest-800 underline">contact page</Link>.</p>
+            <p>For warranty queries, email <a href="mailto:info@tainhaus.co.uk" className="text-forest-800 underline">info@tainhaus.co.uk</a> or visit our <Link href="/contact" className="text-forest-800 underline">contact page</Link>.</p>
           </section>
         </div>
       </div>
