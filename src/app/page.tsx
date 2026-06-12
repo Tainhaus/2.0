@@ -70,7 +70,7 @@ function CtaSection() {
                 Get in touch
                 <ArrowRight className="w-5 h-5" />
               </Link>
-              <Link href="/shop" className="inline-flex items-center gap-2 text-charcoal-600 hover:text-charcoal-900 font-body text-sm font-medium transition-colors">
+              <Link href="/shop" className="inline-flex items-center gap-2 text-terracotta-500 hover:text-terracotta-400 font-body text-sm font-semibold transition-colors">
                 Browse our collection →
               </Link>
             </div>
