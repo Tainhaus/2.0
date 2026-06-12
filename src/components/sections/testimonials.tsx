@@ -111,11 +111,11 @@ export function TestimonialsSection() {
           <div className="flex justify-center mb-4">
             <div className="w-12 h-0.5 bg-terracotta-400 rounded-full" />
           </div>
-          <h2 className="font-display text-display-sm text-white mb-3">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-display-sm text-white mb-3">
             Loved across every{" "}
             <span className="text-terracotta-300 italic">generation</span>
           </h2>
-          <p className="font-body text-sm text-forest-300 max-w-lg mx-auto">
+          <p className="font-body text-sm text-sand-300 max-w-lg mx-auto">
             From 22 to 82 — our cabins are transforming lives across the UK.
           </p>
         </div>
@@ -127,12 +127,12 @@ export function TestimonialsSection() {
               isAnimating ? "opacity-0 scale-[0.98]" : "opacity-100 scale-100"
             )}
           >
-            <div className="flex gap-1 mb-4">
+            <div className="flex gap-1 mb-4 justify-start">
               {[1,2,3,4,5].map((s) => (
                 <Star key={s} className="w-4 h-4 fill-terracotta-400 text-terracotta-400" />
               ))}
             </div>
-            <blockquote className="font-display text-base sm:text-lg md:text-xl text-white font-medium leading-relaxed mb-6 italic">
+            <blockquote className="font-display text-base sm:text-lg md:text-xl text-sand-100 font-medium leading-relaxed mb-6 italic">
               &ldquo;{active.body}&rdquo;
             </blockquote>
             <div className="flex items-center justify-between flex-wrap gap-4">
@@ -141,11 +141,11 @@ export function TestimonialsSection() {
                   <Image src={active.image} alt={active.author} fill className="object-cover" sizes="40px" />
                 </div>
                 <div>
-                  <p className="font-body font-semibold text-white text-sm">
+                  <p className="font-body font-semibold text-sand-100 text-sm">
                     {active.author}
                     {active.age && <span className="font-normal text-forest-300 ml-2 text-xs">Age {active.age}</span>}
                   </p>
-                  <p className="font-body text-xs text-forest-400">{active.use} · {active.location}</p>
+                  <p className="font-body text-xs text-sand-400">{active.use} · {active.location}</p>
                 </div>
               </div>
               {active.verified && (
