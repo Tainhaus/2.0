@@ -134,6 +134,8 @@ model NewsletterSubscriber {
 }
 
 enum Category {
+  LOG_CABIN
+  KITCHEN_POD
   GARDEN_ROOM
   GARDEN_POD
   STUDIO
