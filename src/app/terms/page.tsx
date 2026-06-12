@@ -56,7 +56,7 @@ export default function TermsPage() {
 
           <section>
             <h2 className="font-display text-2xl font-semibold text-charcoal-900 mb-3">9. Contact</h2>
-            <p>For any queries, email <a href="mailto:hello@tainhaus.co.uk" className="text-forest-800 underline">hello@tainhaus.co.uk</a>.</p>
+            <p>For any queries, email <a href="mailto:info@tainhaus.co.uk" className="text-forest-800 underline">info@tainhaus.co.uk</a>.</p>
           </section>
 
         </div>
