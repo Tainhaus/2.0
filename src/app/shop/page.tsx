@@ -73,8 +73,8 @@ export default async function ShopPage({ searchParams }: { searchParams: SearchP
     <div className="min-h-screen bg-sand-100">
       <ShopHeader searchParams={params} productCount={products.length} />
       <div className="container-site py-10">
-        <div className="flex flex-col lg:flex-row gap-8">
-          <aside className="lg:w-64 shrink-0">
+        <div className="flex flex-col lg:flex-row gap-4 lg:gap-8">
+          <aside className="w-full lg:w-64 shrink-0">
             <ShopFilters searchParams={params} />
           </aside>
           <main className="flex-1">
