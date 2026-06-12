@@ -21,7 +21,7 @@ const NAV_LINKS = [
       { label: "Saunas", href: "/shop?category=SAUNA" },
     ],
   },
-  { label: "Design Your Space", href: "/configurator", highlight: true },
+  { label: "Design Your Space", href: "/configurator" },
   { label: "Our Story", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
@@ -109,10 +109,12 @@ export function Navbar() {
                       className={cn(
                         "flex items-center px-4 py-2 rounded-full text-sm font-body font-medium",
                         "transition-all duration-200",
-                        isScrolled || !isHomePage
+                        link.href === "/configurator"
+                          ? "bg-terracotta-500 text-white hover:bg-terracotta-400"
+                          : isScrolled || !isHomePage
                           ? "text-charcoal-700 hover:text-forest-800 hover:bg-forest-800/5"
                           : "text-white/90 hover:text-white hover:bg-white/10",
-                        pathname === link.href && "text-forest-800 bg-forest-800/5"
+                        pathname === link.href && link.href !== "/configurator" && "text-forest-800 bg-forest-800/5"
                       )}
                     >
                       {link.label}
