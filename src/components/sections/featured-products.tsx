@@ -32,7 +32,7 @@ export async function FeaturedProductsSection() {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
           <div>
             <div className="divider mb-5" />
-            <h2 className="font-display text-display-md text-charcoal-900">Our collection</h2>
+            <h2 className="font-display text-2xl sm:text-3xl md:text-display-md text-charcoal-900">Our collection</h2>
             <p className="font-body text-charcoal-600 mt-3 max-w-lg">
               Every pod is designed, engineered, and assembled by hand at our UK workshop. Built to last decades. Installed in days.
             </p>
