@@ -1,4 +1,4 @@
-// prisma/seed.ts - v2.1 mobile fix
+// prisma/seed.ts - v2.2 reseed fix
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
