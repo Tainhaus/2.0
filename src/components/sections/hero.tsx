@@ -67,7 +67,7 @@ export function HeroSection() {
   const slide = HERO_SLIDES[currentSlide];
 
   return (
-    <section className="relative w-full h-[100svh] min-h-[580px] max-h-[1080px] overflow-hidden bg-forest-950">
+    <section className="relative w-full min-h-[500px] h-[70vh] sm:h-[85vh] md:h-screen max-h-[1080px] overflow-hidden bg-forest-950">
       {/* Background images */}
       {HERO_SLIDES.map((s, i) => (
         <div
@@ -82,7 +82,7 @@ export function HeroSection() {
             alt={s.alt}
             fill
             priority={i === 0}
-            className="object-cover object-top"
+            className="object-cover sm:object-cover object-center"
             sizes="100vw"
           />
           {/* Dark gradient overlay */}
@@ -155,7 +155,7 @@ export function HeroSection() {
           >
             <Link
               href={slide.ctaHref}
-              className="inline-flex items-center gap-2 bg-terracotta-500 hover:bg-terracotta-400 text-white font-body font-semibold text-sm px-7 py-4 rounded-full transition-all duration-300 hover:shadow-warm hover:-translate-y-0.5"
+              style={{backgroundColor:"#C26B4A",color:"white",display:"inline-flex",alignItems:"center",gap:"8px",padding:"16px 28px",borderRadius:"9999px",fontWeight:600,fontSize:"14px",border:"none",cursor:"pointer",textDecoration:"none"}}
             >
               {slide.cta}
               <ArrowRight className="w-4 h-4" />
