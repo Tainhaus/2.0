@@ -66,7 +66,7 @@ function CtaSection() {
               Call us or place your order today. Most customers receive their cabin within 4–6 weeks.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
-              <Link href="/contact" className="btn-terracotta text-base px-8 py-4">
+              <Link href="/contact" style={{backgroundColor:"#C26B4A",color:"white",display:"inline-flex",alignItems:"center",gap:"8px",padding:"16px 32px",borderRadius:"9999px",fontWeight:600,fontSize:"16px",textDecoration:"none"}}>
                 Get in touch
                 <ArrowRight className="w-5 h-5" />
               </Link>
