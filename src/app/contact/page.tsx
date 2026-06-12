@@ -76,9 +76,9 @@ export default function ContactPage() {
       </section>
 
       <div className="container-site py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-12">
           {/* Form */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2 min-w-0">
             {status === "success" ? (
               <div className="bg-white rounded-3xl p-12 shadow-card text-center">
                 <div className="w-16 h-16 bg-forest-800/10 rounded-full flex items-center justify-center mx-auto mb-5">
