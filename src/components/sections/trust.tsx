@@ -45,7 +45,7 @@ export function TrustSection() {
           {TRUST_ITEMS.map((item) => (
             <div
               key={item.title}
-              className="group flex flex-col gap-3 p-6 rounded-3xl bg-sand-50 border border-sand-200/60 hover:bg-white hover:shadow-luxury hover:border-transparent transition-all duration-400"
+              className="group flex flex-col gap-3 p-5 rounded-2xl bg-white border border-sand-200 hover:shadow-luxury hover:border-transparent transition-all duration-400"
             >
               <div className="w-10 h-10 bg-forest-800/8 rounded-xl flex items-center justify-center group-hover:bg-forest-800 transition-colors duration-300">
                 <item.Icon className="w-4 h-4 text-forest-800 group-hover:text-white transition-colors duration-300" />
