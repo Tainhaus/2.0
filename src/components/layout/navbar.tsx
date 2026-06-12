@@ -158,8 +158,7 @@ export function Navbar() {
               <Link
                 href="/contact"
                 className={cn(
-                  "hidden md:inline-flex btn-primary text-xs px-5 py-2.5",
-                  !isScrolled && isHomePage && "bg-white text-forest-800 hover:bg-sand-100"
+                  "hidden md:inline-flex btn-terracotta text-xs px-5 py-2.5"
                 )}
               >
                 Get a Quote
@@ -238,7 +237,7 @@ export function Navbar() {
             </nav>
 
             <div className="p-5 border-t border-sand-200 space-y-3">
-              <Link href="/contact" className="btn-primary w-full justify-center">
+              <Link href="/contact" className="btn-terracotta w-full justify-center">
                 Get a Free Quote
               </Link>
               <Link href="tel:+441234567890" className="btn-secondary w-full justify-center">
