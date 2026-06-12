@@ -16,7 +16,7 @@ export default function PrivacyPage() {
 
           <section>
             <h2 className="font-display text-2xl font-semibold text-charcoal-900 mb-3">1. Who we are</h2>
-            <p>Tainhaus (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) is a UK-based retailer of premium log cabins and garden rooms. Our website is <strong>tainhaus.co.uk</strong>. For any data-related queries, contact us at <a href="mailto:hello@tainhaus.co.uk" className="text-forest-800 underline">hello@tainhaus.co.uk</a>.</p>
+            <p>Tainhaus (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) is a UK-based retailer of premium log cabins and garden rooms. Our website is <strong>tainhaus.co.uk</strong>. For any data-related queries, contact us at <a href="mailto:info@tainhaus.co.uk" className="text-forest-800 underline">info@tainhaus.co.uk</a>.</p>
           </section>
 
           <section>
@@ -77,7 +77,7 @@ export default function PrivacyPage() {
               <li>Withdraw consent at any time</li>
               <li>Lodge a complaint with the ICO at <a href="https://ico.org.uk" className="text-forest-800 underline" target="_blank" rel="noopener noreferrer">ico.org.uk</a></li>
             </ul>
-            <p className="mt-3">To exercise any of these rights, email <a href="mailto:hello@tainhaus.co.uk" className="text-forest-800 underline">hello@tainhaus.co.uk</a>.</p>
+            <p className="mt-3">To exercise any of these rights, email <a href="mailto:info@tainhaus.co.uk" className="text-forest-800 underline">info@tainhaus.co.uk</a>.</p>
           </section>
 
           <section>
@@ -87,7 +87,7 @@ export default function PrivacyPage() {
 
           <section>
             <h2 className="font-display text-2xl font-semibold text-charcoal-900 mb-3">9. Contact</h2>
-            <p>For any privacy-related questions, contact us at <a href="mailto:hello@tainhaus.co.uk" className="text-forest-800 underline">hello@tainhaus.co.uk</a>.</p>
+            <p>For any privacy-related questions, contact us at <a href="mailto:info@tainhaus.co.uk" className="text-forest-800 underline">info@tainhaus.co.uk</a>.</p>
           </section>
 
         </div>
