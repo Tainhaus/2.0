@@ -43,7 +43,7 @@ export async function FeaturedProductsSection() {
           </Link>
         </div>
         {products.length === 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {[1,2,3,4].map((i) => (
               <div key={i} className="rounded-3xl overflow-hidden bg-white shadow-card animate-pulse">
                 <div className="aspect-[4/3] bg-sand-200" />
@@ -56,7 +56,7 @@ export async function FeaturedProductsSection() {
             ))}
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {(products as any[]).map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
