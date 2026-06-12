@@ -34,7 +34,7 @@ export function TrustSection() {
           </div>
           <h2 className="font-display text-display-sm text-charcoal-900 mb-3">
             Built to last.{" "}
-            <span className="text-gradient-forest italic">Crafted to care.</span>
+            <span className="text-terracotta-500 italic">Crafted to care.</span>
           </h2>
           <p className="font-body text-sm text-charcoal-600">
             Quality and sustainability built into every cabin we sell.
