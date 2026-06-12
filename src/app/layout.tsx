@@ -103,7 +103,7 @@ const structuredData = {
   logo: "https://tainhaus.co.uk/tainhaus-logo.png",
   image: "https://tainhaus.co.uk/hero-1.jpg",
   telephone: "+441234567890",
-  email: "hello@tainhaus.co.uk",
+  email: "info@tainhaus.co.uk",
   address: {
     "@type": "PostalAddress",
     addressCountry: "GB",
