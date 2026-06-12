@@ -56,15 +56,15 @@ function CtaSection() {
           <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-white/5" />
           <div className="absolute -bottom-12 -left-12 w-48 h-48 rounded-full bg-white/5" />
           <div className="relative z-10">
-            <p className="font-body text-xs font-semibold text-forest-300 uppercase tracking-[0.2em] mb-4">
+            <p className="font-body text-xs font-semibold text-sand-300 uppercase tracking-[0.2em] mb-4 text-center">
               Start your journey
             </p>
-            <h2 className="font-display text-display-md text-white mb-4">
+            <h2 className="font-display text-2xl sm:text-3xl md:text-display-md text-white mb-4 text-center">
               Ready to transform
               <br />
               your outdoor space?
             </h2>
-            <p className="font-body text-forest-200 max-w-xl mx-auto mb-8 leading-relaxed">
+            <p className="font-body text-sand-200 max-w-xl mx-auto mb-8 leading-relaxed text-center">
               Call us or place your order today. Most customers receive their cabin within 4–6 weeks.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
