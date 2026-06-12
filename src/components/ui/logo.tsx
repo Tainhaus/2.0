@@ -13,8 +13,8 @@ interface LogoProps {
 export function Logo({ variant = "dark", className, size = "md" }: LogoProps) {
   const sizes = {
     sm:  { width: 120, height: 48  },
-    md:  { width: 294, height: 118 }, // navbar
-    lg:  { width: 260, height: 104 }, // footer — 30% bigger
+    md:  { width: 294, height: 118 },
+    lg:  { width: 260, height: 104 },
   };
 
   const s = sizes[size];
@@ -23,7 +23,7 @@ export function Logo({ variant = "dark", className, size = "md" }: LogoProps) {
     <Link href="/" className={cn("inline-flex items-center group", className)}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src={variant === "light" ? "/tainhaus-logo-dark.png" : "/tainhaus-logo.png"}
+        src="/tainhaus-logo-dark.png"
         alt="Tainhaus"
         width={s.width}
         height={s.height}
@@ -31,6 +31,9 @@ export function Logo({ variant = "dark", className, size = "md" }: LogoProps) {
           width: s.width,
           height: s.height,
           objectFit: "contain",
+          // light variant (on dark/hero bg) = white logo via invert
+          // dark variant (on light/scrolled bg) = dark logo as-is
+          filter: variant === "light" ? "brightness(0) invert(1)" : "none",
         }}
       />
     </Link>
