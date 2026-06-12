@@ -90,7 +90,7 @@ export function Footer() {
               <Logo variant="light" size="lg" />
             </div>
 
-            <p className="font-body text-sm text-sand-500 leading-relaxed mb-8">
+            <p className="font-body text-sm text-sand-300 leading-relaxed mb-8">
               Bespoke garden rooms and pods, handcrafted in the UK with premium sustainable materials. 
               Transforming outdoor spaces since 2015.
             </p>
@@ -146,7 +146,7 @@ export function Footer() {
                     <li key={link.href}>
                       <Link
                         href={link.href}
-                        className="font-body text-sm text-sand-500 hover:text-white transition-colors duration-150 inline-flex items-center gap-1 group"
+                        className="font-body text-sm text-sand-400 hover:text-white transition-colors duration-150 inline-flex items-center gap-1 group"
                       >
                         {link.label}
                         <ArrowRight className="w-3 h-3 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
