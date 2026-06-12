@@ -67,7 +67,7 @@ export function HeroSection() {
   const slide = HERO_SLIDES[currentSlide];
 
   return (
-    <section className="relative w-full min-h-[500px] h-[70vh] sm:h-[85vh] md:h-screen max-h-[1080px] overflow-hidden bg-forest-950">
+    <section className="relative w-full min-h-[400px] h-[60vh] sm:h-[85vh] md:h-screen max-h-[1080px] overflow-hidden bg-forest-950">
       {/* Background images */}
       {HERO_SLIDES.map((s, i) => (
         <div
@@ -82,7 +82,7 @@ export function HeroSection() {
             alt={s.alt}
             fill
             priority={i === 0}
-            className="object-cover sm:object-cover object-center"
+            className="object-contain sm:object-cover object-center bg-forest-950"
             sizes="100vw"
           />
           {/* Dark gradient overlay */}
