@@ -12,8 +12,8 @@ interface LogoProps {
 
 export function Logo({ variant = "dark", className, size = "md" }: LogoProps) {
   const sizes = {
-    sm:  { width: 120, height: 48  },
-    md:  { width: 294, height: 118 },
+    sm:  { width: 140, height: 56  },
+    md:  { width: 220, height: 88  },
     lg:  { width: 260, height: 104 },
   };
 
