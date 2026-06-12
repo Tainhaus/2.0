@@ -31,9 +31,11 @@ export function Logo({ variant = "dark", className, size = "md" }: LogoProps) {
           width: s.width,
           height: s.height,
           objectFit: "contain",
-          // light variant (on dark/hero bg) = white logo via invert
-          // dark variant (on light/scrolled bg) = dark logo as-is
-          filter: variant === "light" ? "brightness(0) invert(1)" : "none",
+          // light = white (on dark hero bg)
+          // dark = pure black (on light scrolled navbar)
+          filter: variant === "light"
+            ? "brightness(0) invert(1)"
+            : "brightness(0)",
         }}
       />
     </Link>
