@@ -130,7 +130,7 @@ export function ProcessSection() {
                 </div>
               ))}
             </div>
-            <Link href="/contact" className="btn-terracotta shrink-0 whitespace-nowrap">
+            <Link href="/contact" style={{backgroundColor:"#C26B4A",color:"white",display:"inline-flex",alignItems:"center",gap:"8px",padding:"14px 24px",borderRadius:"9999px",fontWeight:600,fontSize:"14px",textDecoration:"none",whiteSpace:"nowrap",flexShrink:0}}>
               Start your journey
               <ArrowRight className="w-4 h-4" />
             </Link>
