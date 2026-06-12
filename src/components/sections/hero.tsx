@@ -16,7 +16,7 @@ const HERO_STATS = [
 
 const HERO_SLIDES = [
   {
-    src: "/hero-1.jpg",
+    src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=2400&q=90",
     alt: "Premium timber garden room in a beautifully landscaped garden",
     headline: "Your garden,",
     headlineAccent: "transformed.",
@@ -25,7 +25,7 @@ const HERO_SLIDES = [
     ctaHref: "/shop",
   },
   {
-    src: "/hero-2.jpg",
+    src: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=2400&q=90",
     alt: "Contemporary garden room seamlessly extending a family home",
     headline: "Work from",
     headlineAccent: "paradise.",
@@ -34,8 +34,8 @@ const HERO_SLIDES = [
     ctaHref: "/shop",
   },
   {
-    src: "/hero-3.jpg",
-    alt: "Beautiful garden room with large doors and natural timber cladding",
+    src: "https://images.unsplash.com/photo-1416331108676-a22ccb276e35?w=2400&q=90",
+    alt: "Beautiful garden with natural timber cabin",
     headline: "Built to last.",
     headlineAccent: "Loved forever.",
     sub: "Delivered and installed across the UK in just 4 to 6 weeks.",
@@ -67,7 +67,7 @@ export function HeroSection() {
   const slide = HERO_SLIDES[currentSlide];
 
   return (
-    <section className="relative w-full min-h-[400px] h-[60vh] sm:h-[85vh] md:h-screen max-h-[1080px] overflow-hidden bg-forest-950">
+    <section className="relative w-full h-[75vh] sm:h-[85vh] md:h-screen min-h-[480px] max-h-[1080px] overflow-hidden bg-forest-950">
       {/* Background images */}
       {HERO_SLIDES.map((s, i) => (
         <div
@@ -82,7 +82,7 @@ export function HeroSection() {
             alt={s.alt}
             fill
             priority={i === 0}
-            className="object-contain sm:object-cover object-center bg-forest-950"
+            className="object-cover object-center"
             sizes="100vw"
           />
           {/* Dark gradient overlay */}
