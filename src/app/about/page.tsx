@@ -5,7 +5,7 @@ import { ArrowRight, Leaf, Heart, Globe, Shield } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Our Story | Tainhaus Log Cabins",
-  description: "The story behind Tainhaus — two founders from different parts of the world, united by a vision to bring premium, sustainable garden rooms to homes across the UK.",
+  description: "The story behind Tainhaus — two founders united by a vision to bring premium, sustainable garden rooms to homes across the UK.",
 };
 
 export default function AboutPage() {
@@ -44,16 +44,16 @@ export default function AboutPage() {
                 but arrived at the same conclusion — that outdoor living in the UK was being done all wrong.
               </p>
               <p className="mt-4">
-                Marcus grew up in Scandinavia, where the relationship between a home and its garden
-                is considered inseparable. Log cabins, garden studios and outdoor rooms aren't a luxury
-                there — they're a way of life. Natural timber, thoughtful design, and spaces that
-                connect you to the outside world are simply how people live.
+                One of us grew up in a culture where the relationship between a home and its garden
+                is considered inseparable. Log cabins, garden studios and outdoor rooms aren't a luxury —
+                they're simply how people live. Natural timber, thoughtful design, and spaces that
+                connect you to the outside world are a way of life.
               </p>
               <p className="mt-4">
-                Priya grew up in southern India, where extended families have always understood the
-                value of space — where a room of your own isn't a privilege, it's a necessity.
-                She came to the UK to study architecture, fell in love with the country's gardens,
-                and spent years frustrated that so few people were making the most of them.
+                The other grew up somewhere where extended families have always understood the value
+                of space — where a room of your own isn't a privilege, it's a necessity. Moving
+                to the UK brought a deep appreciation for British gardens and a growing frustration
+                that so few people were making the most of them.
               </p>
             </div>
 
@@ -63,29 +63,24 @@ export default function AboutPage() {
                 &ldquo;We kept seeing the same thing — beautiful gardens with nothing in them.
                 And people cramped inside houses that had run out of room. We knew we could change that.&rdquo;
               </p>
-              <p className="font-body text-forest-300 text-sm mt-4">— Marcus &amp; Priya, Co-founders of Tainhaus</p>
+              <p className="font-body text-forest-300 text-sm mt-4">— The founders of Tainhaus</p>
             </div>
 
             <div>
               <h2 className="font-display text-2xl md:text-3xl font-bold text-charcoal-900 mb-5">
-                The meeting point
+                Coming together
               </h2>
               <p>
-                Marcus and Priya met at a sustainable architecture conference in Manchester in 2019.
-                Marcus had spent a decade working with Nordic timber suppliers and construction teams.
-                Priya had been designing bespoke residential extensions and was increasingly drawn
-                to the idea of structures that could be built quickly, sustainably, and without
-                the upheaval of traditional construction.
+                We met through a shared passion for sustainable architecture and outdoor living.
+                Between us we brought together years of experience in timber construction, bespoke
+                residential design, and a deep belief that garden buildings deserved to be taken
+                seriously — not as sheds or afterthoughts, but as genuine living spaces worthy of
+                quality materials and careful thought.
               </p>
               <p className="mt-4">
-                They talked for hours. About sustainability. About the housing crisis. About the
-                millions of square metres of underused garden space sitting behind British homes.
-                About what it might look like if someone finally took garden buildings seriously —
-                treating them not as sheds or afterthoughts, but as genuine living spaces worthy
-                of careful design and quality materials.
-              </p>
-              <p className="mt-4">
-                Tainhaus was incorporated six months later.
+                We talked for a long time about sustainability, about the housing pressures facing
+                families across the UK, and about the millions of square metres of underused garden
+                space sitting behind British homes. Tainhaus was the answer to all of it.
               </p>
             </div>
 
@@ -96,7 +91,7 @@ export default function AboutPage() {
               <p>
                 We believe your garden is some of the most valuable space you own — and that most
                 people are barely using it. A well-designed garden room doesn't just add square
-                footage. It changes how you live. It gives you a place to focus without
+                footage. It changes how you live. It gives you somewhere to focus without
                 interruption. It gives your children room to grow. It gives guests somewhere
                 comfortable to stay. It gives you somewhere to simply be.
               </p>
@@ -115,19 +110,18 @@ export default function AboutPage() {
               </h2>
               <p>
                 From the beginning we wanted Tainhaus to mean something more than a transaction.
-                We've worked with families who needed a home office to avoid redundancy during the
-                pandemic. With carers who needed a quiet space to recover. With artists who needed
-                somewhere to create. With elderly parents who needed to stay close to their children
-                without giving up their independence.
+                We've worked with families who needed a home office. With people who needed a quiet
+                space to recover. With artists who needed somewhere to create. With those who needed
+                to stay close to loved ones without giving up their independence.
               </p>
               <p className="mt-4">
                 Every cabin we install is a small but meaningful change to someone's life.
-                That's not something we take lightly — and it's what gets us up in the morning.
+                That's not something we take lightly — and it's what drives everything we do.
               </p>
               <p className="mt-4">
                 We're still a small team. We still care deeply about every order. And we're still
-                driven by that same conversation in Manchester — the belief that the garden behind
-                your home could be so much more than it is right now.
+                driven by that original belief — that the garden behind your home could be so much
+                more than it is right now.
               </p>
             </div>
 
@@ -157,7 +151,7 @@ export default function AboutPage() {
               {
                 Icon: Globe,
                 title: "Global perspective",
-                desc: "Inspired by Scandinavian living and South Asian warmth — design that works for every family.",
+                desc: "Inspired by the best of international design — cabins that work for every family and every garden.",
               },
               {
                 Icon: Shield,
