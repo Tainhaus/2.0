@@ -77,7 +77,7 @@ export default function DeliveryPage() {
 
           <section>
             <h2 className="font-display text-2xl font-semibold text-charcoal-900 mb-3">Questions about your delivery</h2>
-            <p>If you have any questions about your delivery, please contact us at <a href="mailto:hello@tainhaus.co.uk" className="text-forest-800 underline">hello@tainhaus.co.uk</a> or visit our <Link href="/contact" className="text-forest-800 underline">contact page</Link>.</p>
+            <p>If you have any questions about your delivery, please contact us at <a href="mailto:info@tainhaus.co.uk" className="text-forest-800 underline">info@tainhaus.co.uk</a> or visit our <Link href="/contact" className="text-forest-800 underline">contact page</Link>.</p>
           </section>
         </div>
       </div>
