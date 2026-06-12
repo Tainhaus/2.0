@@ -65,11 +65,11 @@ export function Navbar() {
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
           isScrolled || !isHomePage
             ? "bg-sand-100/95 backdrop-blur-xl shadow-luxury border-b border-sand-200/60"
-            : "bg-transparent"
+            : "bg-gradient-to-b from-charcoal-950/40 to-transparent sm:bg-transparent"
         )}
       >
         <div className="container-site">
-          <nav className="flex items-center justify-between h-18 md:h-20">
+          <nav className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
             <Logo
               variant={isScrolled || !isHomePage ? "dark" : "light"}
