@@ -21,7 +21,7 @@ const NAV_LINKS = [
       { label: "Saunas", href: "/shop?category=SAUNA" },
     ],
   },
-  { label: "Design Your Space", href: "/configurator" },
+  { label: "Design Your Space", href: "/configurator", highlight: true },
   { label: "Our Story", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
