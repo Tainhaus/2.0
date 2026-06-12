@@ -65,7 +65,7 @@ export default async function ProductPage({ params }: Props) {
       </div>
       <div className="container-site pb-16">
         <FinishProvider>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10 xl:gap-16">
             {/* Left column — sticky gallery */}
             <div className="lg:sticky lg:top-24 lg:self-start">
               <ProductGallery images={images} productName={product.name} productSlug={product.slug} />
@@ -79,7 +79,7 @@ export default async function ProductPage({ params }: Props) {
                 <span className="badge-sand">{product.category.replace(/_/g, " ")}</span>
               </div>
               <div>
-                <h1 className="font-display text-4xl md:text-5xl font-bold text-charcoal-900 mb-3">{product.name}</h1>
+                <h1 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-charcoal-900 mb-3">{product.name}</h1>
                 <p className="font-body text-lg text-charcoal-600 leading-relaxed">{product.tagline}</p>
               </div>
               {product.reviewCount > 0 && (
@@ -131,7 +131,7 @@ export default async function ProductPage({ params }: Props) {
           </div>
         </FinishProvider>
 
-        <div className="mt-20 grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div className="mt-10 md:mt-20 grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-12">
           <div className="lg:col-span-2">
             <h2 className="font-display text-3xl font-bold text-charcoal-900 mb-6">About {product.name}</h2>
             <div className="space-y-4">
