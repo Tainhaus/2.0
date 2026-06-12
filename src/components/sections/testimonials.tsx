@@ -101,7 +101,7 @@ export function TestimonialsSection() {
   const active = TESTIMONIALS[activeIndex];
 
   return (
-    <section className="section-sm bg-forest-800 relative overflow-hidden">
+    <section className="section-sm bg-charcoal-900 relative overflow-hidden">
       <div className="absolute top-10 right-12 opacity-5">
         <Quote className="w-48 h-48 text-white fill-white" />
       </div>
@@ -137,7 +137,7 @@ export function TestimonialsSection() {
             </blockquote>
             <div className="flex items-center justify-between flex-wrap gap-4">
               <div className="flex items-center gap-3">
-                <div className="relative w-10 h-10 rounded-full overflow-hidden bg-forest-700 shrink-0">
+                <div className="relative w-10 h-10 rounded-full overflow-hidden bg-charcoal-700 shrink-0">
                   <Image src={active.image} alt={active.author} fill className="object-cover" sizes="40px" />
                 </div>
                 <div>
