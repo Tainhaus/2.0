@@ -82,7 +82,7 @@ export function HeroSection() {
             alt={s.alt}
             fill
             priority={i === 0}
-            className="object-cover object-center sm:object-center"
+            className="object-cover object-[center_30%] sm:object-center"
             sizes="100vw"
           />
           {/* Dark gradient overlay */}
@@ -131,7 +131,7 @@ export function HeroSection() {
           >
             {slide.headline}
             <br />
-            <span className="text-gradient-warm italic">{slide.headlineAccent}</span>
+            <span className="text-terracotta-400 italic">{slide.headlineAccent}</span>
           </h1>
 
           {/* Sub */}
