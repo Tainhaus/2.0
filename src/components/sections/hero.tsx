@@ -67,7 +67,7 @@ export function HeroSection() {
   const slide = HERO_SLIDES[currentSlide];
 
   return (
-    <section className="relative w-full h-[85vh] sm:h-screen min-h-[500px] max-h-[1080px] overflow-hidden bg-forest-950">
+    <section className="relative w-full h-[100svh] min-h-[580px] max-h-[1080px] overflow-hidden bg-forest-950">
       {/* Background images */}
       {HERO_SLIDES.map((s, i) => (
         <div
@@ -86,8 +86,8 @@ export function HeroSection() {
             sizes="100vw"
           />
           {/* Dark gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-charcoal-950/80 via-charcoal-950/50 to-charcoal-950/30 sm:from-charcoal-950/65 sm:via-charcoal-950/30 sm:to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/70 via-charcoal-950/20 to-transparent sm:from-charcoal-950/50 sm:via-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-charcoal-950/60 via-charcoal-950/40 to-charcoal-950/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-charcoal-950/70 via-transparent to-transparent hidden sm:block" />
         </div>
       ))}
 
@@ -101,7 +101,7 @@ export function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 h-full container-site flex flex-col justify-center">
-        <div className="max-w-2xl pt-16 sm:pt-20">
+        <div className="max-w-2xl pt-14 sm:pt-20 px-1">
           {/* Pre-headline label */}
           <div
             className={cn(
