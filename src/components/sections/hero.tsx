@@ -16,7 +16,7 @@ const HERO_STATS = [
 
 const HERO_SLIDES = [
   {
-    src: "/hero-1.jpg",
+    src: "/hero-1.jpg.png",
     alt: "Premium log cabin in a beautifully landscaped garden",
     headline: "Your garden,",
     headlineAccent: "transformed.",
@@ -25,7 +25,7 @@ const HERO_SLIDES = [
     ctaHref: "/shop",
   },
   {
-    src: "/hero-2.jpg",
+    src: "/hero-2.jpg.png",
     alt: "Contemporary garden room extending a family home",
     headline: "Work from",
     headlineAccent: "paradise.",
@@ -34,7 +34,7 @@ const HERO_SLIDES = [
     ctaHref: "/shop",
   },
   {
-    src: "/hero-3.jpg",
+    src: "/hero-3.jpg.png",
     alt: "Beautiful timber garden room with natural cladding",
     headline: "Built to last.",
     headlineAccent: "Loved forever.",
@@ -43,7 +43,7 @@ const HERO_SLIDES = [
     ctaHref: "/configurator",
   },
   {
-    src: "/hero-4.jpg",
+    src: "/hero-4.jpg.png",
     alt: "Premium log cabin installed in a UK garden",
     headline: "From idea",
     headlineAccent: "to your garden.",
@@ -86,13 +86,11 @@ export function HeroSection() {
             i === currentSlide ? "opacity-100" : "opacity-0"
           )}
         >
-          <Image
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             src={s.src}
             alt={s.alt}
-            fill
-            priority={i === 0}
-            className="object-cover object-center sm:object-center"
-            sizes="100vw"
+            style={{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",objectPosition:"center"}}
           />
           {/* Dark gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-charcoal-950/60 via-charcoal-950/40 to-charcoal-950/70" />
