@@ -132,7 +132,7 @@ export function TestimonialsSection() {
                 <Star key={s} className="w-4 h-4 fill-terracotta-400 text-terracotta-400" />
               ))}
             </div>
-            <blockquote className="font-display text-lg md:text-xl text-white font-medium leading-relaxed mb-6 italic">
+            <blockquote className="font-display text-base sm:text-lg md:text-xl text-white font-medium leading-relaxed mb-6 italic">
               &ldquo;{active.body}&rdquo;
             </blockquote>
             <div className="flex items-center justify-between flex-wrap gap-4">
