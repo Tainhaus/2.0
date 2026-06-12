@@ -64,6 +64,7 @@ export function ProductGallery({ images, productName, productSlug }: ProductGall
   const [lightboxIndex, setLightboxIndex] = useState(0);
   const [finishOverride, setFinishOverride] = useState<string | null>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [showMobilePreview, setShowMobilePreview] = useState(false);
   const { selectedFinishName } = useFinish();
 
   useEffect(() => {
@@ -76,14 +77,15 @@ export function ProductGallery({ images, productName, productSlug }: ProductGall
       setTimeout(() => {
         setFinishOverride(newImage);
         setIsTransitioning(false);
-      }, 250);
+        // Show mobile floating preview when a finish is selected
+        if (newImage) setShowMobilePreview(true);
+      }, 200);
     }
   }, [selectedFinishName, productSlug, finishOverride]);
 
-  // Close lightbox on escape key
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setIsLightboxOpen(false);
+      if (e.key === "Escape") { setIsLightboxOpen(false); setShowMobilePreview(false); }
       if (e.key === "ArrowLeft") setLightboxIndex(p => Math.max(0, p - 1));
       if (e.key === "ArrowRight") setLightboxIndex(p => Math.min(images.length - 1, p + 1));
     };
@@ -94,10 +96,8 @@ export function ProductGallery({ images, productName, productSlug }: ProductGall
   if (!images.length) return null;
 
   const activeImage = images[activeIndex];
-  const displaySrc = finishOverride ?? activeImage.url;
-  const displayAlt = finishOverride
-    ? `${productName} — ${selectedFinishName} cladding`
-    : activeImage.alt;
+  const displaySrc  = finishOverride ?? activeImage.url;
+  const displayAlt  = finishOverride ? `${productName} — ${selectedFinishName} cladding` : activeImage.alt;
 
   const openLightbox = (index: number) => {
     setLightboxIndex(index);
@@ -109,7 +109,53 @@ export function ProductGallery({ images, productName, productSlug }: ProductGall
 
   return (
     <div className="space-y-3">
-      {/* Main image */}
+
+      {/* ── Mobile floating preview — shows when a colour is selected ── */}
+      {showMobilePreview && finishOverride && (
+        <div
+          className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-sand-200 shadow-luxury-xl"
+          style={{paddingBottom: "env(safe-area-inset-bottom)"}}
+        >
+          <div className="flex items-center gap-3 p-3">
+            {/* Thumbnail */}
+            <div className="w-24 h-20 rounded-xl overflow-hidden bg-sand-100 shrink-0">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={finishOverride}
+                alt={displayAlt}
+                className={cn(
+                  "w-full h-full object-contain transition-opacity duration-200",
+                  isTransitioning ? "opacity-0" : "opacity-100"
+                )}
+              />
+            </div>
+            {/* Label */}
+            <div className="flex-1 min-w-0">
+              <p className="font-body text-xs text-charcoal-500 uppercase tracking-widest mb-0.5">Selected cladding</p>
+              <p className="font-display text-base font-bold text-charcoal-900">{selectedFinishName}</p>
+              <p className="font-body text-xs text-charcoal-500 truncate">{productName}</p>
+            </div>
+            {/* Expand button */}
+            <button
+              onClick={() => openLightbox(activeIndex)}
+              className="shrink-0 w-10 h-10 bg-sand-100 rounded-xl flex items-center justify-center"
+              aria-label="View full image"
+            >
+              <ZoomIn className="w-4 h-4 text-charcoal-600" />
+            </button>
+            {/* Close button */}
+            <button
+              onClick={() => setShowMobilePreview(false)}
+              className="shrink-0 w-10 h-10 bg-sand-100 rounded-xl flex items-center justify-center"
+              aria-label="Close preview"
+            >
+              <X className="w-4 h-4 text-charcoal-600" />
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* ── Main image ── */}
       <div
         className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-sand-200 group cursor-zoom-in"
         onClick={() => openLightbox(activeIndex)}
@@ -165,16 +211,13 @@ export function ProductGallery({ images, productName, productSlug }: ProductGall
         )}
       </div>
 
-      {/* Thumbnails — always visible, click to view product image and clear finish override */}
+      {/* ── Thumbnails ── */}
       {images.length > 1 && (
         <div className="flex gap-2 overflow-x-auto no-scrollbar pb-1">
           {images.map((img, i) => (
             <button
               key={img.id ?? i}
-              onClick={() => {
-                setActiveIndex(i);
-                setFinishOverride(null);
-              }}
+              onClick={() => { setActiveIndex(i); setFinishOverride(null); setShowMobilePreview(false); }}
               className={cn(
                 "relative shrink-0 w-16 h-14 rounded-lg overflow-hidden transition-all duration-200 bg-sand-100",
                 i === activeIndex && !finishOverride
@@ -184,38 +227,26 @@ export function ProductGallery({ images, productName, productSlug }: ProductGall
               title="View product photo"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={img.url}
-                alt={img.alt}
-                className="w-full h-full object-cover"
-              />
+              <img src={img.url} alt={img.alt} className="w-full h-full object-cover" />
             </button>
           ))}
-          {/* Show active cladding thumbnail if finish is selected */}
+          {/* Active cladding thumbnail */}
           {finishOverride && (
-            <div className="relative shrink-0 w-16 h-14 rounded-lg overflow-hidden ring-2 ring-forest-800 ring-offset-1 bg-sand-100">
+            <div className="relative shrink-0 w-16 h-14 rounded-lg overflow-hidden ring-2 ring-terracotta-500 ring-offset-1 bg-sand-100">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={finishOverride}
-                alt={`${selectedFinishName} cladding`}
-                className="w-full h-full object-contain"
-              />
+              <img src={finishOverride} alt={`${selectedFinishName} cladding`} className="w-full h-full object-contain" />
             </div>
           )}
         </div>
       )}
 
-      {/* Lightbox */}
+      {/* ── Lightbox ── */}
       {isLightboxOpen && (
         <div
           className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center"
           onClick={() => setIsLightboxOpen(false)}
         >
-          {/* Image */}
-          <div
-            className="relative w-full max-w-5xl mx-4"
-            onClick={(e) => e.stopPropagation()}
-          >
+          <div className="relative w-full max-w-5xl mx-4" onClick={(e) => e.stopPropagation()}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={finishOverride ?? images[lightboxIndex]?.url}
@@ -223,8 +254,6 @@ export function ProductGallery({ images, productName, productSlug }: ProductGall
               className="w-full max-h-[85vh] object-contain"
             />
           </div>
-
-          {/* Nav */}
           {!finishOverride && images.length > 1 && (
             <>
               <button
@@ -243,15 +272,11 @@ export function ProductGallery({ images, productName, productSlug }: ProductGall
               </button>
             </>
           )}
-
-          {/* Counter */}
           {!finishOverride && images.length > 1 && (
             <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-black/50 text-white text-sm font-body px-4 py-2 rounded-full">
               {lightboxIndex + 1} / {images.length}
             </div>
           )}
-
-          {/* Close */}
           <button
             onClick={() => setIsLightboxOpen(false)}
             className="absolute top-4 right-4 w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-colors"
