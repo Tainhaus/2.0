@@ -48,7 +48,7 @@ export function ProcessSection() {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
           <div>
             <div className="divider mb-5" />
-            <h2 className="font-display text-display-md text-charcoal-900">
+            <h2 className="font-display text-2xl sm:text-3xl md:text-display-md text-charcoal-900">
               From idea to
               <br />
               <span className="text-terracotta-300 italic">your garden</span>
@@ -67,7 +67,7 @@ export function ProcessSection() {
           {STEPS.map((step, i) => (
             <div
               key={step.number}
-              className="relative bg-white rounded-3xl p-7 shadow-card hover:shadow-luxury transition-all duration-400 group"
+              className="relative bg-white rounded-2xl p-5 sm:p-7 shadow-card hover:shadow-luxury transition-all duration-400 group"
             >
               <div className="flex items-start gap-4 mb-5">
                 <div className="w-12 h-12 bg-forest-800 rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-terracotta-500 transition-colors duration-300">
@@ -118,7 +118,7 @@ export function ProcessSection() {
                 Most customers receive their cabin within 4–6 weeks of ordering.
               </p>
             </div>
-            <div className="flex gap-8 shrink-0">
+            <div className="flex gap-4 sm:gap-8 flex-wrap">
               {[
                 { v: "Day 1", l: "Call / Order" },
                 { v: "Weeks 1–4", l: "Build & dispatch" },
