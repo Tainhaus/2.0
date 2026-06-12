@@ -105,16 +105,16 @@ export function ProcessSection() {
         </div>
 
         {/* Timeline callout */}
-        <div className="mt-12 bg-sand-200 md:bg-forest-900 rounded-3xl p-6 md:p-10">
+        <div className="mt-12 bg-sand-200 rounded-3xl p-6 md:p-10">
           <div className="flex flex-col items-start gap-6">
             <div className="text-center md:text-left">
-              <p className="font-body text-xs font-semibold text-charcoal-500 md:text-forest-300 uppercase tracking-widest mb-2">
+              <p className="font-body text-xs font-semibold text-charcoal-500 uppercase tracking-widest mb-2">
                 Average timeline
               </p>
-              <h3 className="font-display text-xl md:text-3xl text-charcoal-900 md:text-white font-bold mb-1">
+              <h3 className="font-display text-xl md:text-3xl text-charcoal-900 font-bold mb-1">
                 From call to cabin — in 4–6 weeks.
               </h3>
-              <p className="font-body text-charcoal-600 md:text-forest-300 text-sm">
+              <p className="font-body text-charcoal-600 text-sm">
                 Most customers receive their cabin within 4–6 weeks of ordering.
               </p>
             </div>
@@ -125,8 +125,8 @@ export function ProcessSection() {
                 { v: "Weeks 4–6", l: "Delivery & install" },
               ].map((t) => (
                 <div key={t.l} className="text-center">
-                  <p className="font-display text-lg font-bold text-terracotta-500 md:text-terracotta-300 whitespace-nowrap">{t.v}</p>
-                  <p className="font-body text-xs text-charcoal-500 md:text-forest-400 mt-1">{t.l}</p>
+                  <p className="font-display text-lg font-bold text-terracotta-500 whitespace-nowrap">{t.v}</p>
+                  <p className="font-body text-xs text-charcoal-500 mt-1">{t.l}</p>
                 </div>
               ))}
             </div>
