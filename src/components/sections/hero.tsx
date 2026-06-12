@@ -82,7 +82,7 @@ export function HeroSection() {
             alt={s.alt}
             fill
             priority={i === 0}
-            className="object-cover object-[center_30%] sm:object-center"
+            className="object-cover object-top"
             sizes="100vw"
           />
           {/* Dark gradient overlay */}
