@@ -1,10 +1,27 @@
 // src/app/layout.tsx
 import type { Metadata, Viewport } from "next";
+import { Playfair_Display, DM_Sans } from "next/font/google";
 import "@/app/globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { CartDrawer } from "@/components/layout/cart-drawer";
 import { CookieConsent } from "@/components/ui/cookie-consent";
+
+// Load fonts via next/font for performance (no render blocking)
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-dm-sans",
+  display: "swap",
+  weight: ["300", "400", "500", "600"],
+});
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -25,6 +42,9 @@ export const metadata: Metadata = {
     "garden rooms UK",
     "log cabin for sale",
     "garden office UK",
+    "sustainable log cabin",
+    "eco garden room",
+    "FSC certified log cabin",
     "log cabin home office",
     "garden room with installation",
     "log cabin annexe",
@@ -35,12 +55,9 @@ export const metadata: Metadata = {
     "buy log cabin UK",
     "log cabin delivered installed",
     "garden room prices",
-    "log cabin garden office",
     "tainhaus",
     "log cabins England",
     "garden rooms North West",
-    "garden studio UK",
-    "home office garden pod",
   ],
   authors: [{ name: "Tainhaus", url: "https://tainhaus.co.uk" }],
   creator: "Tainhaus",
@@ -84,16 +101,16 @@ export const metadata: Metadata = {
     canonical: "https://tainhaus.co.uk",
   },
   icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
-  },
-  verification: {
-    google: "REPLACE_WITH_GOOGLE_SEARCH_CONSOLE_CODE",
+    icon: [
+      { url: "/tainhaus-logo.png", type: "image/png" },
+    ],
+    apple: "/tainhaus-logo.png",
+    shortcut: "/tainhaus-logo.png",
   },
   category: "home improvement",
 };
 
-// JSON-LD structured data for rich results in Google
+// JSON-LD structured data
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "HomeAndConstructionBusiness",
@@ -109,10 +126,7 @@ const structuredData = {
     addressCountry: "GB",
     addressRegion: "England",
   },
-  areaServed: {
-    "@type": "Country",
-    name: "United Kingdom",
-  },
+  areaServed: { "@type": "Country", name: "United Kingdom" },
   priceRange: "££",
   openingHoursSpecification: [
     {
@@ -136,13 +150,14 @@ const structuredData = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-GB" className="scroll-smooth">
+    <html lang="en-GB" className={`scroll-smooth ${playfair.variable} ${dmSans.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Preload first hero image for LCP performance */}
         <link
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap"
-          rel="stylesheet"
+          rel="preload"
+          as="image"
+          href="/hero-1.jpg.png"
+          fetchPriority="high"
         />
         {/* Google Analytics */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-38Y28936K6" />
