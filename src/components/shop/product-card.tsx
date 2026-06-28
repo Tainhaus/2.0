@@ -3,7 +3,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Star, ArrowRight, Heart } from "lucide-react";
+import { Star, ArrowRight, Heart, TreePine } from "lucide-react";
 import { useState } from "react";
 import { cn, formatPrice } from "@/lib/utils";
 import type { Product } from "@/types";
@@ -16,25 +16,43 @@ interface ProductCardProps {
 export function ProductCard({ product, className }: ProductCardProps) {
   const [isWishlisted, setIsWishlisted] = useState(false);
   const [imageIndex, setImageIndex] = useState(0);
+  const [imgError, setImgError] = useState(false);
 
   const primaryImage = product.images?.find((i) => i.isPrimary) ?? product.images?.[0];
   const secondaryImage = product.images?.[1];
   const minPrice = product.price;
   const maxSizeAdder = Math.max(...(product.sizes?.map((s) => s.priceAdder) ?? [0]));
 
+  const currentImageUrl = imageIndex === 0
+    ? primaryImage?.url
+    : (secondaryImage?.url ?? primaryImage?.url);
+
+  const currentImageAlt = imageIndex === 0
+    ? primaryImage?.alt
+    : (secondaryImage?.alt ?? primaryImage?.alt);
+
   return (
     <div className={cn("group card-luxury flex flex-col", className)}>
       {/* Image container */}
       <div className="relative aspect-[4/3] overflow-hidden bg-sand-200">
-        {/* Primary image */}
-        {primaryImage && (
+        {primaryImage && !imgError ? (
           <Image
-            src={imageIndex === 0 ? primaryImage.url : (secondaryImage?.url ?? primaryImage.url)}
-            alt={imageIndex === 0 ? primaryImage.alt : (secondaryImage?.alt ?? primaryImage.alt)}
+            src={currentImageUrl ?? ""}
+            alt={currentImageAlt ?? product.name}
             fill
             className="object-cover transition-all duration-700 group-hover:scale-[1.03]"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+            onError={() => setImgError(true)}
+            unoptimized={currentImageUrl?.includes("northernlogcabins.com")}
           />
+        ) : (
+          // Fallback when image fails to load
+          <div className="absolute inset-0 flex flex-col items-center justify-center bg-sand-200 gap-2">
+            <TreePine className="w-10 h-10 text-forest-800/30" />
+            <span className="font-body text-xs text-charcoal-400 text-center px-4">
+              {product.name}
+            </span>
+          </div>
         )}
 
         {/* Hover overlay */}
@@ -49,10 +67,16 @@ export function ProductCard({ product, className }: ProductCardProps) {
             <span className="badge bg-forest-800 text-white text-xs">Bestseller</span>
           )}
           {product.salePrice && (
-            <span className="badge bg-red-500 text-white text-xs">
-              Sale
-            </span>
+            <span className="badge bg-red-500 text-white text-xs">Sale</span>
           )}
+        </div>
+
+        {/* Eco badge */}
+        <div className="absolute top-3 right-10">
+          <span className="inline-flex items-center gap-1 bg-green-600/90 text-white text-2xs font-semibold px-2 py-0.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <TreePine className="w-2.5 h-2.5" />
+            FSC
+          </span>
         </div>
 
         {/* Wishlist */}
@@ -73,7 +97,7 @@ export function ProductCard({ product, className }: ProductCardProps) {
           <Heart className={cn("w-3.5 h-3.5", isWishlisted && "fill-current")} />
         </button>
 
-        {/* View product overlay button */}
+        {/* View product overlay */}
         <div className="absolute bottom-3 inset-x-3 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
           <Link
             href={`/products/${product.slug}`}
@@ -84,8 +108,8 @@ export function ProductCard({ product, className }: ProductCardProps) {
           </Link>
         </div>
 
-        {/* Image toggle dots (on hover) */}
-        {secondaryImage && (
+        {/* Image toggle dots */}
+        {secondaryImage && !imgError && (
           <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             {[0, 1].map((i) => (
               <button
@@ -121,6 +145,12 @@ export function ProductCard({ product, className }: ProductCardProps) {
           {product.tagline}
         </p>
 
+        {/* Sustainability note */}
+        <p className="font-body text-2xs text-green-700 flex items-center gap-1 mb-2">
+          <TreePine className="w-3 h-3" />
+          FSC-certified Nordic timber
+        </p>
+
         {/* Rating */}
         <div className="flex items-center gap-1.5 mb-3">
           <div className="flex items-center gap-0.5">
@@ -146,7 +176,7 @@ export function ProductCard({ product, className }: ProductCardProps) {
           <div>
             <div className="flex items-baseline gap-1.5">
               <span className="font-display text-xl font-bold text-forest-800">
-                {formatPrice(minPrice)}
+                {minPrice === 0 ? "Call for price" : formatPrice(minPrice)}
               </span>
               {maxSizeAdder > 0 && (
                 <span className="font-body text-xs text-charcoal-500">
@@ -160,7 +190,7 @@ export function ProductCard({ product, className }: ProductCardProps) {
               </span>
             )}
             <p className="font-body text-2xs text-charcoal-400 mt-0.5">
-              From {product.sizes?.[0]?.label ?? "Various sizes"} • {product.leadTime}
+              {product.sizes?.[0]?.label ?? "Various sizes"} • {product.leadTime}
             </p>
           </div>
         </div>
