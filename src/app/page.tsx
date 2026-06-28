@@ -5,6 +5,7 @@ import { FeaturedProductsSection } from "@/components/sections/featured-products
 import { TestimonialsSection } from "@/components/sections/testimonials";
 import { ProcessSection } from "@/components/sections/process";
 import { TrustSection } from "@/components/sections/trust";
+import { SustainabilitySection } from "@/components/sections/sustainability";
 import { ProductCardSkeleton } from "@/components/shop/product-card-skeleton";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -15,7 +16,7 @@ export default function HomePage() {
       {/* Hero */}
       <HeroSection />
 
-      {/* Our selection — replaces "One garden, infinite possibilities" */}
+      {/* Featured products */}
       <Suspense
         fallback={
           <section className="section bg-white">
@@ -32,8 +33,11 @@ export default function HomePage() {
         <FeaturedProductsSection />
       </Suspense>
 
-      {/* From idea to your garden — process */}
+      {/* From idea to your garden */}
       <ProcessSection />
+
+      {/* Sustainability */}
+      <SustainabilitySection />
 
       {/* Built to last */}
       <TrustSection />
@@ -43,7 +47,6 @@ export default function HomePage() {
 
       {/* CTA */}
       <CtaSection />
-
     </>
   );
 }
@@ -66,11 +69,17 @@ function CtaSection() {
               Call us or place your order today. Most customers receive their cabin within 4–6 weeks.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
-              <Link href="/contact" style={{backgroundColor:"#C26B4A",color:"white",display:"inline-flex",alignItems:"center",gap:"8px",padding:"16px 32px",borderRadius:"9999px",fontWeight:600,fontSize:"16px",textDecoration:"none"}}>
+              <Link
+                href="/contact"
+                style={{ backgroundColor: "#C26B4A", color: "white", display: "inline-flex", alignItems: "center", gap: "8px", padding: "16px 32px", borderRadius: "9999px", fontWeight: 600, fontSize: "16px", textDecoration: "none" }}
+              >
                 Get in touch
                 <ArrowRight className="w-5 h-5" />
               </Link>
-              <Link href="/shop" className="inline-flex items-center gap-2 text-terracotta-500 hover:text-terracotta-400 font-body text-sm font-semibold transition-colors">
+              <Link
+                href="/shop"
+                className="inline-flex items-center gap-2 text-terracotta-500 hover:text-terracotta-400 font-body text-sm font-semibold transition-colors"
+              >
                 Browse our collection →
               </Link>
             </div>
