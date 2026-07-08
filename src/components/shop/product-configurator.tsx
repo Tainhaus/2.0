@@ -2,7 +2,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ShoppingBag, MessageSquare, Plus, Minus } from "lucide-react";
+import { ShoppingBag, MessageSquare, Plus, Minus, Check } from "lucide-react";
 import { cn, formatPrice } from "@/lib/utils";
 import { useCartStore } from "@/lib/cart-store";
 import { useFinish } from "@/lib/finish-context";
@@ -19,6 +19,14 @@ const USE_CASE_LABELS: Record<string, string> = {
   YOGA_STUDIO:     "Yoga Studio",
   MUSIC_STUDIO:    "Music Studio",
   GARDEN_ROOM:     "Garden Room",
+};
+
+// Standard paint colours for each finish option
+const COLOUR_MAP: Record<string, { bg: string; border: string; label: string }> = {
+  "Birch":      { bg: "#D4C5A9", border: "#B8A98A", label: "Birch" },
+  "Oak":        { bg: "#B8864E", border: "#9A6E3A", label: "Oak" },
+  "Stone Grey": { bg: "#8A8F8A", border: "#6E7370", label: "Stone Grey" },
+  "Black":      { bg: "#1A1A1A", border: "#000000", label: "Black" },
 };
 
 interface ProductConfiguratorProps {
@@ -47,11 +55,11 @@ export function ProductConfigurator({ product }: ProductConfiguratorProps) {
 
   const { addItem } = useCartStore();
 
-  const basePrice  = product.salePrice ?? product.price;
-  const sizeAdder  = selectedSize?.priceAdder ?? 0;
+  const basePrice   = product.salePrice ?? product.price;
+  const sizeAdder   = selectedSize?.priceAdder ?? 0;
   const finishAdder = selectedFinish?.priceAdder ?? 0;
-  const unitPrice  = basePrice + sizeAdder + finishAdder;
-  const totalPrice = unitPrice * quantity;
+  const unitPrice   = basePrice + sizeAdder + finishAdder;
+  const totalPrice  = unitPrice * quantity;
 
   const handleAddToCart = async () => {
     setIsAdding(true);
@@ -105,55 +113,72 @@ export function ProductConfigurator({ product }: ProductConfiguratorProps) {
         </ConfigSection>
       )}
 
-      {/* Cladding finish selector */}
+      {/* Colour selector — simple colour buttons, no images */}
       {product.finishes && product.finishes.length > 0 && (
         <ConfigSection
-          title="Exterior Cladding"
-          subtitle={selectedFinish ? `Selected: ${selectedFinish.name}` : "Choose a cladding style"}
+          title="Colour"
+          subtitle={selectedFinish ? `Selected: ${selectedFinish.name}` : "Choose a colour"}
         >
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            {product.finishes.map((finish) => (
-              <button
-                key={finish.id}
-                onClick={() => setSelectedFinish(finish)}
-                className={cn(
-                  "group relative rounded-xl overflow-hidden border-2 transition-all duration-200 text-left",
-                  selectedFinish?.id === finish.id
-                    ? "border-forest-800 shadow-luxury"
-                    : "border-sand-200 hover:border-sand-400"
-                )}
-              >
-                <div className="aspect-[4/3] overflow-hidden bg-sand-100">
-                  {(finish as any).imageUrl ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                      src={(finish as any).imageUrl}
-                      alt={finish.name}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
-                  ) : (
-                    <div className="w-full h-full" style={{ backgroundColor: finish.hexColor ?? "#D4A76A" }} />
+          <div className="flex flex-wrap gap-3">
+            {product.finishes.map((finish) => {
+              const colour = COLOUR_MAP[finish.name] ?? {
+                bg: finish.hexColor ?? "#D4C5A9",
+                border: "#999",
+                label: finish.name,
+              };
+              const isSelected = selectedFinish?.id === finish.id;
+
+              return (
+                <button
+                  key={finish.id}
+                  onClick={() => setSelectedFinish(finish)}
+                  className={cn(
+                    "flex flex-col items-center gap-2 group transition-all duration-200"
                   )}
-                </div>
-                <div className="p-2.5">
-                  <p className="font-body text-xs font-semibold text-charcoal-800 leading-tight">
-                    {finish.name}
-                  </p>
-                  {finish.priceAdder > 0 && (
-                    <p className="font-body text-xs text-terracotta-600 mt-0.5">
-                      +{formatPrice(finish.priceAdder)}
-                    </p>
-                  )}
-                </div>
-                {selectedFinish?.id === finish.id && (
-                  <div className="absolute top-2 right-2 w-5 h-5 bg-forest-800 rounded-full flex items-center justify-center">
-                    <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 12 12">
-                      <path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
+                  aria-label={`Select ${finish.name} colour`}
+                  title={finish.name}
+                >
+                  {/* Colour circle */}
+                  <div
+                    className={cn(
+                      "relative w-12 h-12 rounded-full border-4 transition-all duration-200 shadow-sm",
+                      isSelected
+                        ? "border-forest-800 scale-110 shadow-md"
+                        : "border-transparent hover:border-sand-400 hover:scale-105"
+                    )}
+                    style={{ backgroundColor: colour.bg, outline: `2px solid ${colour.border}`, outlineOffset: "0px" }}
+                  >
+                    {/* Tick when selected */}
+                    {isSelected && (
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <Check
+                          className={cn(
+                            "w-5 h-5 drop-shadow",
+                            finish.name === "Black" ? "text-white" : "text-charcoal-900"
+                          )}
+                          strokeWidth={3}
+                        />
+                      </div>
+                    )}
                   </div>
-                )}
-              </button>
-            ))}
+
+                  {/* Label */}
+                  <span className={cn(
+                    "font-body text-xs font-medium leading-tight text-center",
+                    isSelected ? "text-forest-800 font-semibold" : "text-charcoal-600"
+                  )}>
+                    {finish.name}
+                  </span>
+
+                  {/* Price adder if any */}
+                  {finish.priceAdder > 0 && (
+                    <span className="font-body text-xs text-terracotta-600">
+                      +{formatPrice(finish.priceAdder)}
+                    </span>
+                  )}
+                </button>
+              );
+            })}
           </div>
         </ConfigSection>
       )}
@@ -194,7 +219,7 @@ export function ProductConfigurator({ product }: ProductConfiguratorProps) {
         )}
         {finishAdder > 0 && (
           <div className="flex items-center justify-between">
-            <span className="font-body text-sm text-charcoal-600">Finish upgrade</span>
+            <span className="font-body text-sm text-charcoal-600">Colour upgrade</span>
             <span className="font-body text-sm font-medium text-terracotta-600">+{formatPrice(finishAdder)}</span>
           </div>
         )}
