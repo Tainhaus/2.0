@@ -269,26 +269,6 @@ export function ProductGallery({ images, productName, productSlug }: ProductGall
           </div>
         )}
       </div>
-
-      {/* Lightbox */}
-      {isLightboxOpen && (
-        <div
-          className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center"
-          onClick={() => setIsLightboxOpen(false)}
-        >
-          <div className="relative w-full max-w-5xl mx-4" onClick={(e) => e.stopPropagation()}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={colourOverride ?? displayImages[lightboxIndex]?.url}
-              alt={colourOverride ? `${productName} — ${selectedFinishName}` : (displayImages[lightboxIndex]?.alt ?? productName)}
-              className="w-full max-h-[85vh] object-contain"
-            />
-          </div>
-          {!colourOverride && totalImages > 1 && (
-            <>
-              <button
-                onClick={(e) => { e.stopPropagation(); setLightboxIndex(p => Math.max(0, p - 1)); }}
-                className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-colors"
                 disabled={lightboxIndex === 0}
               >
                 <ChevronLeft className="w-6 h-6" />
