@@ -270,26 +270,6 @@ export function ProductGallery({ images, productName, productSlug }: ProductGall
         )}
       </div>
 
-      {/* Thumbnails */}
-      {totalImages > 1 && (
-        <div className="flex gap-2 overflow-x-auto no-scrollbar pb-1">
-          {displayImages.map((img, i) => (
-            <ThumbButton
-              key={img.id ?? i}
-              img={img}
-              isActive={i === activeIndex && !colourOverride}
-              onClick={() => { setActiveIndex(i); setColourOverride(null); setShowMobilePreview(false); }}
-            />
-          ))}
-          {colourOverride && (
-            <div className="relative shrink-0 w-16 h-14 rounded-lg overflow-hidden ring-2 ring-terracotta-500 ring-offset-1 bg-sand-100">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={colourOverride} alt={`${selectedFinishName}`} className="w-full h-full object-contain" />
-            </div>
-          )}
-        </div>
-      )}
-
       {/* Lightbox */}
       {isLightboxOpen && (
         <div
