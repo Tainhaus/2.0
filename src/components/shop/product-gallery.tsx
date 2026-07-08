@@ -52,6 +52,60 @@ const FINISH_IMAGES: Record<string, Record<string, string>> = {
   },
 };
 
+
+// Local images guaranteed to exist — used as primary display images
+// These bypass any broken DB image URLs entirely
+const PRODUCT_PRIMARY_IMAGES: Record<string, string[]> = {
+  "sicilia-6-7x3-8m-log-cabin": [
+    "/products/sicilia-birch.png",
+    "/products/sicilia-oak.png",
+    "/products/sicilia-stone-grey.png",
+    "/products/sicilia-black.png",
+  ],
+  "oriental-4-4-7x3-2m-log-cabin": [
+    "/products/oriental-4-4-7x3-2m-log-cabin-birch.png",
+    "/products/oriental-4-4-7x3-2m-log-cabin-oak.png",
+    "/products/oriental-4-4-7x3-2m-log-cabin-stone-grey.png",
+    "/products/oriental-4-4-7x3-2m-log-cabin-black.png",
+  ],
+  "gloria-h-4-5x2-9m-log-cabin": [
+    "/products/gloria-h-4-5x2-9m-log-cabin-birch.png",
+    "/products/gloria-h-4-5x2-9m-log-cabin-oak.png",
+    "/products/gloria-h-4-5x2-9m-log-cabin-stone-grey.png",
+    "/products/gloria-h-4-5x2-9m-log-cabin-black.png",
+  ],
+  "dover-combi-6m-x-4m": [
+    "/products/dover-combi-6m-x-4m-birch.png",
+    "/products/dover-combi-6m-x-4m-oak.png",
+    "/products/dover-combi-6m-x-4m-stone-grey.png",
+    "/products/dover-combi-6m-x-4m-black.png",
+  ],
+  "gloria-f-4-5x2-0m-log-cabin": [
+    "/products/gloria-h-4-5x2-9m-log-cabin-birch.png",
+    "/products/gloria-h-4-5x2-9m-log-cabin-oak.png",
+    "/products/gloria-h-4-5x2-9m-log-cabin-stone-grey.png",
+    "/products/gloria-h-4-5x2-9m-log-cabin-black.png",
+  ],
+  "derby-4-5m-x-3m": [
+    "/products/derby-4-5m-x-3m-birch.png",
+    "/products/derby-4-5m-x-3m-oak.png",
+    "/products/derby-4-5m-x-3m-stone-grey.png",
+    "/products/derby-4-5m-x-3m-black.png",
+  ],
+  "monaco-2-bed-log-cabin": [
+    "/products/monaco-2-bed-log-cabin-birch.png",
+    "/products/monaco-2-bed-log-cabin-oak.png",
+    "/products/monaco-2-bed-log-cabin-stone-grey.png",
+    "/products/monaco-2-bed-log-cabin-black.png",
+  ],
+  "outdoor-kitchen-pod-garden-bar-3-0x2-6m": [
+    "/products/outdoor-kitchen-pod-garden-bar-3-0x2-6m-birch.png",
+    "/products/outdoor-kitchen-pod-garden-bar-3-0x2-6m-oak.png",
+    "/products/outdoor-kitchen-pod-garden-bar-3-0x2-6m-stone-grey.png",
+    "/products/outdoor-kitchen-pod-garden-bar-3-0x2-6m-black.png",
+  ],
+};
+
 interface ProductGalleryProps {
   images: ProductImage[];
   productName: string;
@@ -234,7 +288,7 @@ export function ProductGallery({ images, productName, productSlug }: ProductGall
         )}
 
         {/* Counter */}
-        {!finishOverride && images.length > 1 && (
+        {!finishOverride && effectiveImages.length > 1 && (
           <div className="absolute bottom-3 right-3 bg-black/50 text-white text-xs font-body px-2.5 py-1 rounded-full backdrop-blur-sm pointer-events-none">
             {activeIndex + 1} / {images.length}
           </div>
@@ -242,9 +296,9 @@ export function ProductGallery({ images, productName, productSlug }: ProductGall
       </div>
 
       {/* ── Thumbnails ── */}
-      {images.length > 1 && (
+      {effectiveImages.length > 1 && (
         <div className="flex gap-2 overflow-x-auto no-scrollbar pb-1">
-          {images.map((img, i) => (
+          {effectiveImages.map((img, i) => (
             <ThumbButton
               key={img.id ?? i}
               img={img}
