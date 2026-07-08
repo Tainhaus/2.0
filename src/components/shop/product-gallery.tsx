@@ -58,6 +58,36 @@ interface ProductGalleryProps {
   productSlug?: string;
 }
 
+
+// Thumbnail that hides itself if the image fails to load
+function ThumbButton({ img, index, isActive, onClick }: {
+  img: any;
+  index: number;
+  isActive: boolean;
+  onClick: () => void;
+}) {
+  const [failed, setFailed] = useState(false);
+  if (failed) return null;
+  return (
+    <button
+      onClick={onClick}
+      className={cn(
+        "relative shrink-0 w-16 h-14 rounded-lg overflow-hidden transition-all duration-200 bg-sand-100",
+        isActive ? "ring-2 ring-forest-800 ring-offset-1" : "opacity-60 hover:opacity-100"
+      )}
+      title="View product photo"
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={img.url}
+        alt={img.alt}
+        className="w-full h-full object-cover"
+        onError={() => setFailed(true)}
+      />
+    </button>
+  );
+}
+
 export function ProductGallery({ images, productName, productSlug }: ProductGalleryProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
@@ -215,20 +245,13 @@ export function ProductGallery({ images, productName, productSlug }: ProductGall
       {images.length > 1 && (
         <div className="flex gap-2 overflow-x-auto no-scrollbar pb-1">
           {images.map((img, i) => (
-            <button
+            <ThumbButton
               key={img.id ?? i}
+              img={img}
+              index={i}
+              isActive={i === activeIndex && !finishOverride}
               onClick={() => { setActiveIndex(i); setFinishOverride(null); setShowMobilePreview(false); }}
-              className={cn(
-                "relative shrink-0 w-16 h-14 rounded-lg overflow-hidden transition-all duration-200 bg-sand-100",
-                i === activeIndex && !finishOverride
-                  ? "ring-2 ring-forest-800 ring-offset-1"
-                  : "opacity-60 hover:opacity-100"
-              )}
-              title="View product photo"
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={img.url} alt={img.alt} className="w-full h-full object-cover" />
-            </button>
+            />
           ))}
           {/* Active cladding thumbnail */}
           {finishOverride && (
