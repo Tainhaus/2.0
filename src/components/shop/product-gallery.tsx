@@ -288,9 +288,9 @@ export function ProductGallery({ images, productName, productSlug }: ProductGall
         )}
 
         {/* Counter */}
-        {!finishOverride && effectiveImages.length > 1 && (
+        {!finishOverride && (effectiveImages ?? images).length > 1 && (
           <div className="absolute bottom-3 right-3 bg-black/50 text-white text-xs font-body px-2.5 py-1 rounded-full backdrop-blur-sm pointer-events-none">
-            {activeIndex + 1} / {images.length}
+            {activeIndex + 1} / {(effectiveImages ?? images).length}
           </div>
         )}
       </div>
