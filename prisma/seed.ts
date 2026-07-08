@@ -66,13 +66,13 @@ All products are packaged in UV-resistant plastic film and protected during tran
       images: {
         create: [
           {
-            url: "https://www.northernlogcabins.com/cdn/shop/products/2971356815.jpg?v=1750691576",
+            url: "/products/sicilia-birch.png",
             alt: "Sicilia 6.7x3.8m Log Cabin exterior",
             isPrimary: true,
             order: 0,
           },
           {
-            url: "https://www.northernlogcabins.com/cdn/shop/files/Sicilia_jpg.jpg?v=1750691577",
+            url: "/products/sicilia-oak.png",
             alt: "Sicilia Log Cabin floor plan",
             isPrimary: false,
             order: 1,
@@ -188,13 +188,13 @@ All products are constructed using dry spruce grown in ecologically managed fore
       images: {
         create: [
           {
-            url: "https://www.northernlogcabins.com/cdn/shop/products/2971356160.jpg?v=1750691476",
+            url: "/products/oriental-4-4-7x3-2m-log-cabin-birch.png",
             alt: "Oriental 4 4.7x3.2m Log Cabin exterior",
             isPrimary: true,
             order: 0,
           },
           {
-            url: "https://www.northernlogcabins.com/cdn/shop/files/Oriental_4_jpg.jpg?v=1750691479",
+            url: "/products/oriental-4-4-7x3-2m-log-cabin-oak.png",
             alt: "Oriental 4 Log Cabin floor plan",
             isPrimary: false,
             order: 1,
@@ -297,13 +297,13 @@ Ideal as a serene home office, cosy guest accommodation, tranquil reading nook, 
       images: {
         create: [
           {
-            url: "https://www.northernlogcabins.com/cdn/shop/products/2971355675.jpg?v=1744282003",
+            url: "/products/gloria-h-4-5x2-9m-log-cabin-birch.png",
             alt: "Gloria H 4.5x2.9m Log Cabin exterior",
             isPrimary: true,
             order: 0,
           },
           {
-            url: "https://www.northernlogcabins.com/cdn/shop/files/Gloria_H_JPG.jpg?v=1744282011",
+            url: "/products/gloria-h-4-5x2-9m-log-cabin-oak.png",
             alt: "Gloria H Log Cabin floor plan",
             isPrimary: false,
             order: 1,
@@ -420,13 +420,13 @@ Comes with nails, screws, and detailed installation instructions for straightfor
       images: {
         create: [
           {
-            url: "https://www.northernlogcabins.com/cdn/shop/products/2362063246.jpg?v=1744280566",
+            url: "/products/dover-combi-6m-x-4m-birch.png",
             alt: "Dover Combi 6m x 4m Log Cabin exterior",
             isPrimary: true,
             order: 0,
           },
           {
-            url: "https://www.northernlogcabins.com/cdn/shop/files/608B0749-AA6B-4613-9B28-C67F6404A8B7.jpg?v=1744280574",
+            url: "/products/dover-combi-6m-x-4m-oak.png",
             alt: "Dover Combi interior showing dual rooms",
             isPrimary: false,
             order: 1,
@@ -546,13 +546,13 @@ Covered by our 5-year construction warranty from the date of purchase. All produ
       images: {
         create: [
           {
-            url: "https://www.northernlogcabins.com/cdn/shop/products/2971355665.jpg?v=1744282005",
+            url: "/products/gloria-h-4-5x2-9m-log-cabin-birch.png",
             alt: "Gloria F 4.5x2.0m Log Cabin exterior",
             isPrimary: true,
             order: 0,
           },
           {
-            url: "https://www.northernlogcabins.com/cdn/shop/files/Gloria_F_jpg.jpg?v=1744282011",
+            url: "/products/gloria-h-4-5x2-9m-log-cabin-oak.png",
             alt: "Gloria F Log Cabin floor plan",
             isPrimary: false,
             order: 1,
@@ -661,7 +661,7 @@ Comes complete with nails, screws, and detailed installation instructions, makin
       images: {
         create: [
           {
-            url: "https://www.northernlogcabins.com/cdn/shop/products/2361983871.jpg?v=1744280565",
+            url: "/products/derby-4-5m-x-3m-birch.png",
             alt: "Derby 4.5m x 3m Log Cabin exterior",
             isPrimary: true,
             order: 0,
@@ -746,7 +746,7 @@ Comes complete with nails, screws, and detailed installation instructions, makin
       warranty: "5 years structural",
       features: ["70mm triple T&G logs from Finland", "Two bedrooms", "Spacious lounge and kitchen", "100mm floor and roof insulation", "Premium double-glazed doors and windows", "Pre-drilled logs for concealed electrics", "HIAB delivery to site included", "5-year structural warranty"],
       specs: { logThickness: "70mm triple tongue and groove", timberSource: "Finland", bedrooms: "2", insulation: "100mm floor and roof", delivery: "HIAB to site", warranty: "5 years" },
-      images: { create: [{ url: "https://www.northernlogcabins.com/cdn/shop/files/Monaco2bedroomlogcabinNorthernLogCabins1.jpg?v=1750691417", alt: "Monaco 2 Bed Log Cabin exterior", isPrimary: true, order: 0 }, { url: "https://www.northernlogcabins.com/cdn/shop/files/Monaco2bedroomlogcabinNorthernLogCabins2.jpg?v=1750691421", alt: "Monaco 2 Bed Log Cabin side view", isPrimary: false, order: 1 }, { url: "https://www.northernlogcabins.com/cdn/shop/files/Monaco2bedroomlogcabinNorthernLogCabins3.jpg?v=1750691423", alt: "Monaco interior living area", isPrimary: false, order: 2 }, { url: "https://www.northernlogcabins.com/cdn/shop/files/Monaco2bedroomlogcabinNorthernLogCabins4.jpg?v=1750691425", alt: "Monaco bedroom", isPrimary: false, order: 3 }, { url: "https://www.northernlogcabins.com/cdn/shop/files/Monaco2bedroomlogcabinNorthernLogCabins5.jpg?v=1750691426", alt: "Monaco detail", isPrimary: false, order: 4 }, { url: "https://www.northernlogcabins.com/cdn/shop/files/Monaco2bedroomlogcabinNorthernLogCabins6.jpg?v=1750691428", alt: "Monaco kitchen", isPrimary: false, order: 5 }, { url: "https://www.northernlogcabins.com/cdn/shop/files/Monaco2bedroomlogcabinNorthernLogCabins7.jpg?v=1750691429", alt: "Monaco bedroom detail", isPrimary: false, order: 6 }, { url: "https://www.northernlogcabins.com/cdn/shop/files/Monaco2bedroomlogcabinNorthernLogCabins8.jpg?v=1750691430", alt: "Monaco garden view", isPrimary: false, order: 7 }, { url: "https://www.northernlogcabins.com/cdn/shop/files/Monaco2bedroomlogcabinNorthernLogCabins9.jpg?v=1750691431", alt: "Monaco detail view", isPrimary: false, order: 8 }, { url: "https://www.northernlogcabins.com/cdn/shop/files/Monaco2bedroomlogcabinNorthernLogCabins10.jpg?v=1750691432", alt: "Monaco interior", isPrimary: false, order: 9 }, { url: "https://www.northernlogcabins.com/cdn/shop/files/Monaco2bedroomlogcabinNorthernLogCabins11.jpg?v=1750691433", alt: "Monaco exterior detail", isPrimary: false, order: 10 }, { url: "https://www.northernlogcabins.com/cdn/shop/files/Monaco2bedroomlogcabinNorthernLogCabins12.jpg?v=1750691434", alt: "Monaco full exterior", isPrimary: false, order: 11 }] },
+      images: { create: [{ url: "/products/monaco-2-bed-log-cabin-birch.png", alt: "Monaco 2 Bed Log Cabin exterior", isPrimary: true, order: 0 }, { url: "/products/monaco-2-bed-log-cabin-oak.png", alt: "Monaco 2 Bed Log Cabin side view", isPrimary: false, order: 1 }, { url: "/products/monaco-2-bed-log-cabin-stone-grey.png", alt: "Monaco interior living area", isPrimary: false, order: 2 }, { url: "/products/monaco-2-bed-log-cabin-black.png", alt: "Monaco bedroom", isPrimary: false, order: 3 }, { url: "/products/monaco-2-bed-log-cabin-birch.png", alt: "Monaco detail", isPrimary: false, order: 4 }, { url: "/products/monaco-2-bed-log-cabin-oak.png", alt: "Monaco kitchen", isPrimary: false, order: 5 }, { url: "/products/monaco-2-bed-log-cabin-stone-grey.png", alt: "Monaco bedroom detail", isPrimary: false, order: 6 }, { url: "/products/monaco-2-bed-log-cabin-black.png", alt: "Monaco garden view", isPrimary: false, order: 7 }, { url: "/products/monaco-2-bed-log-cabin-birch.png", alt: "Monaco detail view", isPrimary: false, order: 8 }, { url: "/products/monaco-2-bed-log-cabin-oak.png", alt: "Monaco interior", isPrimary: false, order: 9 }, { url: "/products/monaco-2-bed-log-cabin-stone-grey.png", alt: "Monaco exterior detail", isPrimary: false, order: 10 }, { url: "/products/monaco-2-bed-log-cabin-black.png", alt: "Monaco full exterior", isPrimary: false, order: 11 }] },
       sizes: { create: [{ label: "Call for pricing", widthM: 0, depthM: 0, heightM: 0, sqm: 0, priceAdder: 0 }] },
       finishes: { create: [{ name: "Birch", hexColor: "#D4C5A9", imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/birch-aluwoodpanel1.jpg?v=1724067587&width=1030", priceAdder: 0 }, { name: "Stone Grey", hexColor: "#8A8F8A", imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/stonegray-outdoorwallpanel1.jpg?v=1725361464&width=1030", priceAdder: 0 }, { name: "Oak", hexColor: "#B8864E", imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/oak-outdoorwallpanel1.jpg?v=1730215792&width=1030", priceAdder: 0 }, { name: "Black", hexColor: "#1A1A1A", imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/black-aluwoodpanel1.jpg?v=1724067608&width=1030", priceAdder: 0 }] },
       reviews: { create: [] },
@@ -806,13 +806,13 @@ Pre-drilled internal cable channels allow electrical wiring to be completely hid
       images: {
         create: [
           {
-            url: "https://www.northernlogcabins.com/cdn/shop/files/Kitchen_pod_log_cabin_by_Northen_Log_cabins_5_3add265e-ecc9-494e-88d5-79c92e245bc6.png?v=1779456884",
+            url: "/products/outdoor-kitchen-pod-garden-bar-3-0x2-6m-birch.png",
             alt: "Outdoor Kitchen Pod exterior view",
             isPrimary: true,
             order: 0,
           },
           {
-            url: "https://www.northernlogcabins.com/cdn/shop/files/Kitchen_pod_log_cabin_by_Northen_Log_cabins_7_6cb60713-64ec-45c4-a1f7-fc3292a59d22.jpg?v=1779450829",
+            url: "/products/outdoor-kitchen-pod-garden-bar-3-0x2-6m-oak.png",
             alt: "Outdoor Kitchen Pod with shutter open",
             isPrimary: false,
             order: 1,
