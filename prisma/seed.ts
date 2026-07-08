@@ -26,7 +26,7 @@ Constructed with premium Nordic spruce logs grown in ecologically managed forest
 Double-glazed windows and secure doors flood the interior with natural light while maintaining energy efficiency. The flexible interior layout can be personalised to suit your exact needs — from a professional home office setup to a creative studio or entertainment space.
 
 All products are packaged in UV-resistant plastic film and protected during transport. Installation plans are available for download upon purchase.`,
-      price: 6237,
+      price: 16767,
       category: "LOG_CABIN",
       useCase: ["HOME_OFFICE", "ART_STUDIO", "GUEST_ROOM", "ENTERTAINMENT"],
       featured: true,
@@ -151,7 +151,7 @@ Multiple windows and a single door provide generous natural light and ventilatio
 Whether you envision it as a cosy retreat, an artistic studio, or a peaceful meditation space, the Oriental 4 is meticulously crafted to enrich your outdoor experience and create a tranquil sanctuary for rejuvenation and inspiration.
 
 All products are constructed using dry spruce grown in ecologically managed forests of Sweden, Finland, Russia or the Baltic States, packaged in UV-resistant plastic film and covered by our 5-year construction warranty.`,
-      price: 5371,
+      price: 12329,
       category: "LOG_CABIN",
       useCase: ["READING_RETREAT", "ART_STUDIO", "HOME_OFFICE", "YOGA_STUDIO"],
       featured: true,
@@ -264,7 +264,7 @@ The glazed windows open in both directions for optimal ventilation, keeping the 
 Autoclave impregnated timber foundation beams ensure long-term durability and resistance to damp and rot. Storm bars and all fixation equipment are included, making installation straightforward.
 
 Ideal as a serene home office, cosy guest accommodation, tranquil reading nook, or artist's studio, the Gloria H is a versatile space that will enhance your garden for decades. Covered by our 5-year construction warranty and packaged in UV-resistant plastic film for safe delivery.`,
-      price: 3788,
+      price: 11383,
       category: "LOG_CABIN",
       useCase: ["HOME_OFFICE", "READING_RETREAT", "GUEST_ROOM", "ART_STUDIO"],
       featured: true,
@@ -384,7 +384,7 @@ A cylinder lock provides added security for your belongings, while the double do
 The light construction supports various roof coverings including bitumen tiles, giving you flexibility to personalise the finish. Whether used as a home office with tool storage, a garden retreat with equipment storage, or a hobby room with a secure annex, the Dover Combi delivers where other single-room cabins fall short.
 
 Comes with nails, screws, and detailed installation instructions for straightforward DIY assembly.`,
-      price: 7699,
+      price: 14915,
       category: "LOG_CABIN",
       useCase: ["HOME_OFFICE", "ENTERTAINMENT", "GYM_WELLNESS", "GARDEN_ROOM"],
       featured: true,
@@ -507,7 +507,7 @@ An 18mm thick profile board is used for both ceiling and floor, giving the inter
 Perfect as a peaceful garden retreat, an artist's studio bathed in natural light, a cosy home office, or a stylish guest space. Comes complete with installation drawings and plans for straightforward assembly.
 
 Covered by our 5-year construction warranty from the date of purchase. All products are packaged in UV-resistant plastic film for protection during delivery and storage.`,
-      price: 3367,
+      price: 9706,
       category: "LOG_CABIN",
       useCase: ["HOME_OFFICE", "READING_RETREAT", "ART_STUDIO", "GUEST_ROOM"],
       featured: false,
@@ -624,7 +624,7 @@ A cylinder lock provides added security, while adjustable hinges on windows and 
 The internal dimensions of 4.3 × 2.8m offer versatility for a range of uses — from a home office or creative studio to a storage space for tools and equipment. Foundation bearers are treated against rot for a sturdy and durable base.
 
 Comes complete with nails, screws, and detailed installation instructions, making assembly straightforward for the DIY enthusiast. Covered by our 5-year construction warranty.`,
-      price: 5499,
+      price: 13719,
       category: "LOG_CABIN",
       useCase: ["HOME_OFFICE", "GYM_WELLNESS", "GARDEN_ROOM", "ART_STUDIO"],
       featured: true,
@@ -734,7 +734,7 @@ Comes complete with nails, screws, and detailed installation instructions, makin
       tagline: "Your spacious retreat for modern living",
       description: "Experience luxury living with the Monaco 2 Bed Log Cabin. This exceptional cabin combines elegance and functionality, offering a spacious retreat that embodies contemporary design and comfort.",
       longDescription: "The Monaco 2 Bed Log Cabin is built with 70mm thick triple tongue and groove logs sourced from Finland. Two well-appointed bedrooms make this cabin ideal as a permanent residence, a holiday retreat, or a premium guest annexe.\n\nEvery Monaco comes with 100mm insulation in both floor and roof. Premium double-glazed doors and windows are available in any colour, and pre-drilled logs allow electrical cables to be concealed.\n\nBacked by our 5-year structural warranty. Call us for pricing on this bespoke product.",
-      price: 0,
+      price: 62192,
       category: "LOG_CABIN",
       useCase: ["GUEST_ROOM", "HOME_OFFICE", "ENTERTAINMENT"],
       featured: true,
@@ -768,7 +768,7 @@ When the party winds down, the insulated electrical roller shutter secures the u
 The standard footprint is 3.0m x 2.6m but this pod is fully customisable and available in any size to fit your garden layout. Wall thickness options of 44mm, 70mm, or 95mm interlocking premium solid logs are available.
 
 Pre-drilled internal cable channels allow electrical wiring to be completely hidden for a flawless finish. Fully outfitted with 2 internal sockets, 1 weatherproof external socket, and elegant internal and external lighting as standard.`,
-      price: 15445,
+      price: 12071,
       category: "KITCHEN_POD",
       useCase: ["ENTERTAINMENT", "HOME_OFFICE"],
       featured: true,
@@ -870,3 +870,4 @@ main()
   .finally(async () => {
     await prisma.$disconnect();
   });
+
