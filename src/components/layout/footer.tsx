@@ -92,7 +92,7 @@ export function Footer() {
 
             <p className="font-body text-sm text-sand-300 leading-relaxed mb-8">
               Bespoke garden rooms and pods, handcrafted in the UK with premium sustainable materials. 
-              Transforming outdoor spaces since 2015.
+              Transforming outdoor spaces.
             </p>
 
             <div className="space-y-3 mb-8">
@@ -165,7 +165,7 @@ export function Footer() {
         <div className="container-site flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="font-body text-xs text-sand-600">
             © {new Date().getFullYear()} Tainhaus Ltd. All rights reserved. Company No. 12345678. 
-            VAT No. GB 123 4567 89
+            
           </p>
           <div className="flex items-center gap-6">
             {["Privacy Policy", "Cookie Policy", "Terms & Conditions", "Accessibility"].map((item) => (
