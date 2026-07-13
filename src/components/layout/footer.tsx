@@ -2,24 +2,23 @@
 import Link from "next/link";
 import { Logo } from "@/components/ui/logo";
 import { Instagram, Facebook, Youtube, Linkedin, ArrowRight, Phone, Mail } from "lucide-react";
-import { NewsletterForm } from "@/components/ui/newsletter-form";
 
 const FOOTER_LINKS = {
   Products: [
     { label: "Garden Rooms", href: "/shop?category=GARDEN_ROOM" },
     { label: "Garden Pods", href: "/shop?category=GARDEN_POD" },
     { label: "Studios", href: "/shop?category=STUDIO" },
-    { label: "Saunas", href: "/shop?category=SAUNA" },
+    { label: "Office Spaces", href: "/shop?category=GARDEN_ROOM" },
     { label: "All Products", href: "/shop" },
   ],
   Services: [
     { label: "Design Configurator", href: "/configurator" },
+    { label: "Custom Build", href: "/configurator" },
     { label: "Installation", href: "/about#installation" },
   ],
   Company: [
     { label: "Our Story", href: "/about" },
     { label: "Sustainability", href: "/about#sustainability" },
-    { label: "Inspiration Gallery", href: "/inspiration" },
   ],
   Help: [
     { label: "Returns Policy", href: "/returns" },
@@ -37,16 +36,15 @@ const SOCIAL = [
 ];
 
 const TRUST_BADGES = [
-  { label: "10-Year Structural Warranty", icon: "🛡" },
+  { label: "5-Year Structural Warranty", icon: "🛡" },
   { label: "FSC Certified Timber", icon: "🌲" },
   { label: "Carbon Neutral Delivery", icon: "♻️" },
-  { label: "UK Manufactured", icon: "🇬🇧" },
+  { label: "UK Installed", icon: "🇬🇧" },
 ];
 
 export function Footer() {
   return (
     <footer className="bg-charcoal-900 text-sand-200">
-      </div>
 
       {/* Trust badges strip */}
       <div className="border-b border-white/5 py-7">
@@ -74,18 +72,11 @@ export function Footer() {
             </div>
 
             <p className="font-body text-sm text-sand-300 leading-relaxed mb-8">
-              Bespoke garden rooms and pods, handcrafted in the UK with premium sustainable materials. 
-              Transforming outdoor spaces.
+              Premium log cabins and garden rooms, delivered and installed across the UK.
+              FSC-certified timber. Built to last decades.
             </p>
 
             <div className="space-y-3 mb-8">
-              <div className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-terracotta-400 mt-0.5 shrink-0" />
-                <span className="font-body text-xs text-sand-500">
-                  Tainhaus Workshop<br />
-                  14 Craftsman Way, Worcestershire, WR4 0AB
-                </span>
-              </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-terracotta-400 shrink-0" />
                 <Link href="tel:+441234567890" className="font-body text-xs text-sand-500 hover:text-white transition-colors">
@@ -97,6 +88,10 @@ export function Footer() {
                 <Link href="mailto:info@tainhaus.co.uk" className="font-body text-xs text-sand-500 hover:text-white transition-colors">
                   info@tainhaus.co.uk
                 </Link>
+              </div>
+              <div className="font-body text-xs text-sand-500">
+                Mon–Fri: 7:00am – 6:00pm<br />
+                Saturday: 9:00am – 5:00pm
               </div>
             </div>
 
@@ -126,7 +121,7 @@ export function Footer() {
                 </h4>
                 <ul className="space-y-3">
                   {links.map((link) => (
-                    <li key={link.href}>
+                    <li key={link.href + link.label}>
                       <Link
                         href={link.href}
                         className="font-body text-sm text-sand-400 hover:text-white transition-colors duration-150 inline-flex items-center gap-1 group"
@@ -147,11 +142,10 @@ export function Footer() {
       <div className="border-t border-white/5 py-6">
         <div className="container-site flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="font-body text-xs text-sand-600">
-            © {new Date().getFullYear()} Tainhaus Ltd. All rights reserved. 
-            
+            © {new Date().getFullYear()} Tainhaus Ltd. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            {["Privacy Policy", "Cookie Policy", "Terms & Conditions", "Accessibility"].map((item) => (
+            {["Privacy Policy", "Cookie Policy", "Terms & Conditions"].map((item) => (
               <Link
                 key={item}
                 href={`/${item.toLowerCase().replace(/ & /g, "-").replace(/ /g, "-")}`}
