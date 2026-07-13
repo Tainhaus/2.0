@@ -46,23 +46,6 @@ const TRUST_BADGES = [
 export function Footer() {
   return (
     <footer className="bg-charcoal-900 text-sand-200">
-      {/* Newsletter band */}
-      <div className="bg-forest-800 py-14 md:py-16">
-        <div className="container-site">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-            <div>
-              <h3 className="font-display text-2xl md:text-3xl text-white mb-2">
-                Get inspired in your inbox
-              </h3>
-              <p className="text-forest-200 font-body text-sm max-w-md">
-                Design ideas, customer stories, seasonal offers, and planning tips — delivered monthly.
-              </p>
-            </div>
-            <div className="w-full md:w-auto md:min-w-[400px]">
-              <NewsletterForm variant="dark" />
-            </div>
-          </div>
-        </div>
       </div>
 
       {/* Trust badges strip */}
