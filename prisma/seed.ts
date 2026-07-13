@@ -384,7 +384,7 @@ A cylinder lock provides added security for your belongings, while the double do
 The light construction supports various roof coverings including bitumen tiles, giving you flexibility to personalise the finish. Whether used as a home office with tool storage, a garden retreat with equipment storage, or a hobby room with a secure annex, the Dover Combi delivers where other single-room cabins fall short.
 
 Comes with nails, screws, and detailed installation instructions for straightforward DIY assembly.`,
-      price: 15000,
+      price: 14999,
       category: "LOG_CABIN",
       useCase: ["HOME_OFFICE", "ENTERTAINMENT", "GYM_WELLNESS", "GARDEN_ROOM"],
       featured: true,
