@@ -18,7 +18,7 @@ const NAV_LINKS = [
       { label: "Garden Rooms", href: "/shop?category=GARDEN_ROOM" },
       { label: "Garden Pods", href: "/shop?category=GARDEN_POD" },
       { label: "Studios & Gyms", href: "/shop?category=STUDIO" },
-      { label: "Saunas", href: "/shop?category=SAUNA" },
+      { label: "Office Spaces", href: "/shop?category=GARDEN_ROOM" },
     ],
   },
   { label: "Design Your Space", href: "/configurator" },
