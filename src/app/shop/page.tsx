@@ -4,7 +4,6 @@ import { Suspense } from "react";
 import type { Metadata } from "next";
 import { ProductCard } from "@/components/shop/product-card";
 import { ProductCardSkeleton } from "@/components/shop/product-card-skeleton";
-import { ShopFilters } from "@/components/shop/shop-filters";
 import { ShopHeader } from "@/components/shop/shop-header";
 
 export const metadata: Metadata = {
@@ -35,30 +34,12 @@ type SearchParams = Promise<{
   maxPrice?: string;
 }>;
 
-async function getProducts(params: Awaited<SearchParams>) {
+async function getProducts() {
   try {
     const { prisma } = await import("@/lib/prisma");
-    const where: Record<string, unknown> = {};
-    if (params.category) where.category = params.category;
-    if (params.useCase)  where.useCase = { has: params.useCase };
-    if (params.minPrice || params.maxPrice) {
-      where.price = {
-        ...(params.minPrice && { gte: Number(params.minPrice) }),
-        ...(params.maxPrice && { lte: Number(params.maxPrice) }),
-      };
-    }
-    const sortMap: Record<string, Record<string, string>> = {
-      "price-asc":  { price: "asc" },
-      "price-desc": { price: "desc" },
-      rating:       { rating: "desc" },
-      newest:       { createdAt: "desc" },
-      featured:     { featured: "desc" },
-    };
-    const orderBy = sortMap[params.sort ?? "featured"] ?? { featured: "desc" };
     return prisma.product.findMany({
-      where,
       include: { images: { orderBy: { order: "asc" } }, sizes: true, finishes: true },
-      orderBy,
+      orderBy: { featured: "desc" },
     });
   } catch {
     return [];
@@ -67,17 +48,14 @@ async function getProducts(params: Awaited<SearchParams>) {
 
 export default async function ShopPage({ searchParams }: { searchParams: SearchParams }) {
   const params = await searchParams;
-  const products = await getProducts(params);
+  const products = await getProducts();
 
   return (
     <div className="min-h-screen bg-sand-100">
       <ShopHeader searchParams={params} productCount={products.length} />
       <div className="container-site py-10">
-        <div className="flex flex-col lg:flex-row gap-4 lg:gap-8">
-          <aside className="w-full lg:w-56 xl:w-64 shrink-0">
-            <ShopFilters searchParams={params} />
-          </aside>
-          <main className="flex-1">
+        <div>
+          <main className="">
             {products.length === 0 ? (
               <div className="flex flex-col items-center justify-center py-24 text-center">
                 <div className="w-16 h-16 bg-sand-200 rounded-full flex items-center justify-center mb-4">
