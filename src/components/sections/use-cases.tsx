@@ -29,14 +29,14 @@ const USE_CASES = [
     gradient: "from-terracotta-700 to-terracotta-500",
   },
   {
-    title: "Sauna & Spa",
-    subtitle: "Warmth. Silence. Ritual.",
+    title: "Office Space",
+    subtitle: "Focus. Clarity. Productivity.",
     description:
-      "Step into genuine Scandinavian sauna culture. Real heat, real steam, real recovery — in your own garden, 365 days a year.",
-    image: "https://images.unsplash.com/photo-1544985361-b420d7a77043?w=900&q=85",
-    href: "/shop?useCase=SAUNA_SPA",
-    tag: "Premium",
-    gradient: "from-charcoal-800 to-charcoal-600",
+      "A dedicated workspace steps from your back door. No commute, no distractions — just a professional environment that helps you do your best work.",
+    image: "https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?w=900&q=85",
+    href: "/shop?useCase=HOME_OFFICE",
+    tag: "Popular",
+    gradient: "from-forest-800 to-forest-600",
   },
   {
     title: "Art & Music Studio",
