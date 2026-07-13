@@ -172,11 +172,11 @@ export function CartDrawer() {
                 <span className="font-body text-charcoal-500 text-xs">Quoted on survey</span>
               </div>
               <div className="flex justify-between text-sm">
-                <span className="font-body text-charcoal-600">VAT (20%)</span>
+                
                 <span className="font-body font-semibold text-charcoal-800">{formatPrice(total * 0.2)}</span>
               </div>
               <div className="border-t border-sand-200 pt-2 flex justify-between">
-                <span className="font-body font-semibold text-charcoal-900">Total (inc. VAT)</span>
+                <span className="font-body font-semibold text-charcoal-900">Total</span>
                 <span className="font-display font-bold text-lg text-forest-800">
                   {formatPrice(total * 1.2)}
                 </span>
