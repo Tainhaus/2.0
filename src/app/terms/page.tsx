@@ -26,7 +26,7 @@ export default function TermsPage() {
 
           <section>
             <h2 className="font-display text-2xl font-semibold text-charcoal-900 mb-3">3. Pricing</h2>
-            <p>All prices are shown in GBP and include VAT unless stated otherwise. We reserve the right to change prices at any time. Prices shown at the time of your order will be honoured.</p>
+            <p>All prices are shown in GBP. We reserve the right to change prices at any time. Prices shown at the time of your order will be honoured.</p>
           </section>
 
           <section>
