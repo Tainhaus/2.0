@@ -1,10 +1,9 @@
 // src/components/sections/featured-products.tsx
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
 import { ProductCard } from "@/components/shop/product-card";
 import { unstable_cache } from "next/cache";
 
-// Cache the DB query for 1 hour — massive speed improvement
 const getFeaturedProducts = unstable_cache(
   async () => {
     try {
@@ -24,7 +23,7 @@ const getFeaturedProducts = unstable_cache(
     }
   },
   ["featured-products"],
-  { revalidate: 3600 } // cache for 1 hour
+  { revalidate: 3600 }
 );
 
 export async function FeaturedProductsSection() {
@@ -52,26 +51,47 @@ export async function FeaturedProductsSection() {
           </Link>
         </div>
 
-        {products.length === 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="rounded-3xl overflow-hidden bg-white shadow-card animate-pulse">
-                <div className="aspect-[4/3] bg-sand-200" />
-                <div className="p-4 space-y-2.5">
-                  <div className="h-3 bg-sand-200 rounded-full w-1/3" />
-                  <div className="h-5 bg-sand-200 rounded-full w-2/3" />
-                  <div className="h-3 bg-sand-200 rounded-full w-full" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          {products.length === 0
+            ? [1, 2, 3, 4].map((i) => (
+                <div key={i} className="rounded-3xl overflow-hidden bg-white shadow-card animate-pulse">
+                  <div className="aspect-[4/3] bg-sand-200" />
+                  <div className="p-4 space-y-2.5">
+                    <div className="h-3 bg-sand-200 rounded-full w-1/3" />
+                    <div className="h-5 bg-sand-200 rounded-full w-2/3" />
+                    <div className="h-3 bg-sand-200 rounded-full w-full" />
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))
+            : (products as any[]).map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+
+          {/* Custom Build CTA card */}
+          <div className="card-luxury flex flex-col bg-forest-800 text-white overflow-hidden">
+            <div className="h-44 bg-forest-900 flex flex-col items-center justify-center gap-2">
+              <Phone className="w-8 h-8 text-white/40" />
+              <span className="font-body text-xs text-forest-300 uppercase tracking-widest">Bespoke</span>
+            </div>
+            <div className="flex flex-col flex-1 p-4">
+              <p className="font-body text-2xs font-semibold text-terracotta-400 uppercase tracking-widest mb-1.5">
+                Custom Build
+              </p>
+              <h3 className="font-display text-lg font-bold text-white mb-1">
+                Something unique?
+              </h3>
+              <p className="font-body text-xs text-forest-200 leading-relaxed flex-1">
+                Can&apos;t find exactly what you need? We design and build bespoke cabins to your exact specification. Call us to start the conversation.
+              </p>
+              <a
+                href="tel:01234567890"
+                className="flex items-center gap-2 mt-4 text-sm font-semibold text-terracotta-400 hover:text-terracotta-300 transition-colors"
+              >
+                Call us to discuss &rarr;
+              </a>
+            </div>
           </div>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            {(products as any[]).map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
-        )}
+        </div>
       </div>
     </section>
   );
