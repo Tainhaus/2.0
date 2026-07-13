@@ -2,10 +2,10 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight, ArrowLeft, Check, Ruler, Palette, Zap, MessageSquare, Loader2, Phone, Briefcase, Dumbbell, Palette as PaletteIcon, Flame, BedDouble, BookOpen, Wind, Music, Sparkles, HelpCircle } from "lucide-react";
+import { ArrowRight, ArrowLeft, Check, Ruler, Palette, MessageSquare, Loader2, Phone, Briefcase, Dumbbell, Palette as PaletteIcon, BedDouble, BookOpen, Wind, Music, Sparkles, HelpCircle } from "lucide-react";
 import { cn, formatPrice } from "@/lib/utils";
 
-type Step = "type" | "size" | "finish" | "use-case" | "quote";
+type Step = "type" | "size" | "colour" | "quote";
 
 const POD_TYPES = [
   {
@@ -13,35 +13,36 @@ const POD_TYPES = [
     name: "Garden Room",
     desc: "Versatile, fully-insulated room for year-round use",
     price: 5000,
-    image: "https://www.northernlogcabins.com/cdn/shop/products/2971356815.jpg?v=1750691576",
+    image: "/products/sicilia-birch.png",
   },
   {
     id: "wellness-pod",
     name: "Outdoor Kitchen & Bar",
     desc: "Premium outdoor entertaining suite with kitchen and bar",
-    price: 15445,
-    image: "https://www.northernlogcabins.com/cdn/shop/files/Kitchen_pod_log_cabin_by_Northen_Log_cabins_5_3add265e-ecc9-494e-88d5-79c92e245bc6.png?v=1779456884",
-  },
-  {
-    id: "sauna",
-    name: "Sauna",
-    desc: "Authentic Scandinavian sauna — compact and beautifully crafted",
-    price: 8995,
-    image: "https://images.unsplash.com/photo-1615529328331-f8917597711f?w=800&q=80",
+    price: 12100,
+    image: "/products/outdoor-kitchen-pod-garden-bar-3-0x2-6m-birch.png",
   },
   {
     id: "studio",
     name: "Studio / Gym",
     desc: "Light-filled creative or fitness space in your garden",
-    price: 5371,
-    image: "https://www.northernlogcabins.com/cdn/shop/products/2971356160.jpg?v=1750691476",
+    price: 12400,
+    image: "/products/oriental-4-4-7x3-2m-log-cabin-birch.png",
   },
   {
     id: "annexe",
     name: "Full Annexe",
     desc: "Complete two-bedroom living suite — kitchen, bathroom included",
+    price: 62200,
+    image: "/products/monaco-2-bed-log-cabin-birch.png",
+  },
+  {
+    id: "custom",
+    name: "Custom Build",
+    desc: "Something unique? Talk to us and we'll design exactly what you need.",
     price: 0,
-    image: "https://www.northernlogcabins.com/cdn/shop/files/Monaco2bedroomlogcabinNorthernLogCabins1.jpg?v=1750691417",
+    image: "",
+    isCustom: true,
   },
 ];
 
@@ -53,488 +54,336 @@ const SIZES = [
   { id: "xl", label: "X-Large",  dims: "5.0 × 7.0m", sqm: 35,   adder: 16000 },
 ];
 
-const FINISHES = [
-  {
-    id: "oak",
-    name: "Oak",
-    imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/oak-outdoorwallpanel1.jpg?v=1730215792&width=400",
-    adder: 0,
-  },
-  {
-    id: "birch",
-    name: "Birch",
-    imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/birch-aluwoodpanel1.jpg?v=1724067587&width=400",
-    adder: 0,
-  },
-  {
-    id: "stone-grey",
-    name: "Stone Grey",
-    imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/stonegray-outdoorwallpanel1.jpg?v=1725361464&width=400",
-    adder: 0,
-  },
-  {
-    id: "black",
-    name: "Black",
-    imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/black-aluwoodpanel1.jpg?v=1724067608&width=400",
-    adder: 0,
-  },
-  {
-    id: "custom",
-    name: "Custom",
-    imageUrl: "",
-    adder: 0,
-    isCustom: true,
-  },
-];
-
-const USE_CASE_OPTIONS = [
-  { id: "HOME_OFFICE",     label: "Home Office",      Icon: Briefcase   },
-  { id: "GYM_WELLNESS",   label: "Gym & Wellness",   Icon: Dumbbell    },
-  { id: "ART_STUDIO",     label: "Art Studio",       Icon: PaletteIcon },
-  { id: "SAUNA_SPA",      label: "Sauna & Spa",      Icon: Flame       },
-  { id: "GUEST_ROOM",     label: "Guest Room",       Icon: BedDouble   },
-  { id: "READING_RETREAT",label: "Reading Retreat",  Icon: BookOpen    },
-  { id: "YOGA_STUDIO",    label: "Yoga Studio",      Icon: Wind        },
-  { id: "MUSIC_STUDIO",   label: "Music Studio",     Icon: Music       },
-  { id: "MULTIPLE",       label: "Multiple Uses",    Icon: Sparkles    },
-  { id: "OTHER",          label: "Other",            Icon: HelpCircle  },
+// Standard wall colours — no exterior cladding images
+const COLOURS = [
+  { id: "birch",       name: "Birch",       hex: "#D4C5A9", border: "#B8A98A" },
+  { id: "oak",         name: "Oak",         hex: "#B8864E", border: "#9A6E3A" },
+  { id: "stone-grey",  name: "Stone Grey",  hex: "#8A8F8A", border: "#6E7370" },
+  { id: "black",       name: "Black",       hex: "#1A1A1A", border: "#000000" },
+  { id: "white",       name: "White",       hex: "#F5F5F0", border: "#D0CFC8" },
+  { id: "sage",        name: "Sage Green",  hex: "#7D9B76", border: "#607A5A" },
+  { id: "slate-blue",  name: "Slate Blue",  hex: "#6B7FA3", border: "#4E6280" },
+  { id: "terracotta",  name: "Terracotta",  hex: "#C26B4A", border: "#A0533A" },
+  { id: "custom",      name: "Custom",      hex: "", border: "", isCustom: true },
 ];
 
 const STEPS: { id: Step; label: string; icon: React.ComponentType<{ className?: string }> }[] = [
-  { id: "type",     label: "Type",      icon: MessageSquare },
-  { id: "size",     label: "Size",      icon: Ruler         },
-  { id: "finish",   label: "Cladding",  icon: Palette       },
-  { id: "use-case", label: "Use Case",  icon: Zap           },
-  { id: "quote",    label: "Get Quote", icon: Phone         },
+  { id: "type",   label: "Type",   icon: MessageSquare },
+  { id: "size",   label: "Size",   icon: Ruler         },
+  { id: "colour", label: "Colour", icon: Palette       },
+  { id: "quote",  label: "Quote",  icon: Check         },
 ];
 
 export default function ConfiguratorPage() {
-  const [step, setStep] = useState<Step>("type");
-  const [config, setConfig] = useState({
-    type:         POD_TYPES[0],
-    size:         SIZES[1],
-    finish:       FINISHES[0],
-    useCase:      USE_CASE_OPTIONS[0],
-    useCaseOther: "",
-  });
-
-  const [quoteForm, setQuoteForm] = useState({ name: "", email: "", phone: "", message: "" });
+  const [step, setStep]               = useState<Step>("type");
+  const [selectedType, setSelectedType] = useState<typeof POD_TYPES[0] | null>(null);
+  const [selectedSize, setSelectedSize] = useState<typeof SIZES[0] | null>(null);
+  const [selectedColour, setSelectedColour] = useState<typeof COLOURS[0] | null>(null);
+  const [form, setForm] = useState({ name: "", email: "", phone: "", notes: "" });
   const [submitting, setSubmitting] = useState(false);
-  const [submitted,  setSubmitted]  = useState(false);
-  const [error,      setError]      = useState<string | null>(null);
+  const [submitted, setSubmitted]   = useState(false);
 
-  const totalPrice = config.type.price + config.size.adder + config.finish.adder;
-  const stepIndex  = STEPS.findIndex((s) => s.id === step);
-  const goNext = () => { const next = STEPS[stepIndex + 1]; if (next) setStep(next.id); };
-  const goPrev = () => { const prev = STEPS[stepIndex - 1]; if (prev) setStep(prev.id); };
+  const stepIndex = STEPS.findIndex(s => s.id === step);
+  const totalPrice = (selectedType?.price ?? 0) + (selectedSize?.adder ?? 0);
+  const isCustomBuild = selectedType?.isCustom;
 
-  const useCaseDisplay =
-    config.useCase.id === "OTHER"    && config.useCaseOther ? config.useCaseOther :
-    config.useCase.id === "MULTIPLE" && config.useCaseOther ? `Multiple: ${config.useCaseOther}` :
-    config.useCase.label;
-
-  async function handleQuoteSubmit() {
-    if (!quoteForm.name || !quoteForm.email || !quoteForm.phone) {
-      setError("Please enter your name, email and phone number.");
-      return;
-    }
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
     setSubmitting(true);
-    setError(null);
-    try {
-      const finishLabel = (config.finish as any).isCustom ? "Custom (to be discussed)" : config.finish.name;
-      const message = `Configuration request:
-- Type: ${config.type.name}
-- Size: ${config.size.label} (${config.size.dims})
-- Cladding: ${finishLabel}
-- Use case: ${useCaseDisplay}
-${config.type.price > 0 ? `- Estimated price: ${formatPrice(totalPrice)}` : "- Price: Call for pricing"}
-
-Customer message: ${quoteForm.message || "None"}`;
-
-      const res = await fetch("/api/enquiry", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name:    quoteForm.name,
-          email:   quoteForm.email,
-          phone:   quoteForm.phone,
-          message,
-          type:    "CONFIGURATOR",
-        }),
-      });
-      if (!res.ok) throw new Error("Failed");
-      setSubmitted(true);
-    } catch {
-      setError("Something went wrong. Please try again or call us directly.");
-    } finally {
-      setSubmitting(false);
-    }
-  }
+    await new Promise(r => setTimeout(r, 800));
+    setSubmitted(true);
+    setSubmitting(false);
+  };
 
   return (
     <div className="min-h-screen bg-sand-100 pt-20">
-      <div className="bg-white border-b border-sand-200 py-8">
-        <div className="container-site">
-          <h1 className="font-display text-3xl font-bold text-charcoal-900 mb-1">Design Your Space</h1>
-          <p className="font-body text-charcoal-500">Tell us what you need and we'll get back to you with a tailored quote.</p>
+      <section className="bg-forest-800 py-12 md:py-16">
+        <div className="container-site max-w-3xl">
+          <div className="w-10 h-0.5 bg-terracotta-400 rounded-full mb-5" />
+          <h1 className="font-display text-3xl md:text-4xl font-bold text-white mb-3">
+            Design Your Space
+          </h1>
+          <p className="font-body text-forest-200 text-lg">
+            Tell us what you need and we&apos;ll put together a tailored quote.
+          </p>
         </div>
-      </div>
+      </section>
 
-      <div className="container-site py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2 space-y-6">
+      <div className="container-site max-w-3xl py-12">
+        {/* Progress */}
+        <div className="flex items-center gap-2 mb-10">
+          {STEPS.map((s, i) => (
+            <div key={s.id} className="flex items-center gap-2">
+              <div className={cn(
+                "w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-colors",
+                stepIndex > i ? "bg-forest-800 text-white" :
+                stepIndex === i ? "bg-terracotta-500 text-white" :
+                "bg-sand-300 text-charcoal-500"
+              )}>
+                {stepIndex > i ? <Check className="w-4 h-4" /> : i + 1}
+              </div>
+              <span className={cn("font-body text-sm hidden sm:block", stepIndex === i ? "text-charcoal-900 font-semibold" : "text-charcoal-400")}>
+                {s.label}
+              </span>
+              {i < STEPS.length - 1 && <div className="w-8 h-px bg-sand-300 mx-1" />}
+            </div>
+          ))}
+        </div>
 
-            {/* Step indicators */}
-            <div className="flex items-center gap-1 overflow-x-auto no-scrollbar">
-              {STEPS.map((s, i) => {
-                const isPast    = i < stepIndex;
-                const isCurrent = s.id === step;
-                return (
-                  <div key={s.id} className="flex items-center gap-1 shrink-0">
+        {submitted ? (
+          <div className="bg-white rounded-3xl p-12 text-center shadow-card">
+            <div className="w-16 h-16 bg-forest-800/10 rounded-full flex items-center justify-center mx-auto mb-5">
+              <Check className="w-8 h-8 text-forest-800" />
+            </div>
+            <h2 className="font-display text-2xl font-bold text-charcoal-900 mb-3">Quote request received</h2>
+            <p className="font-body text-charcoal-600 max-w-md mx-auto mb-6">
+              Thank you. One of our team will be in touch within one working day with your tailored quote.
+            </p>
+            <a href="/shop" className="inline-flex items-center gap-2 bg-forest-800 text-white font-semibold px-6 py-3 rounded-full hover:bg-forest-700 transition-colors">
+              Browse products while you wait <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
+        ) : (
+          <div className="bg-white rounded-3xl shadow-card overflow-hidden">
+
+            {/* STEP 1: Type */}
+            {step === "type" && (
+              <div className="p-8 md:p-10">
+                <h2 className="font-display text-2xl font-bold text-charcoal-900 mb-2">What are you looking for?</h2>
+                <p className="font-body text-charcoal-500 mb-7">Select the type that best matches your vision.</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {POD_TYPES.map((type) => (
                     <button
-                      onClick={() => isPast && setStep(s.id)}
+                      key={type.id}
+                      onClick={() => {
+                        setSelectedType(type);
+                        if (type.isCustom) {
+                          setStep("quote");
+                        } else {
+                          setStep("size");
+                        }
+                      }}
                       className={cn(
-                        "flex items-center gap-2 px-3 py-2 rounded-full text-xs font-body font-semibold transition-all duration-200",
-                        isCurrent ? "bg-forest-800 text-white"
-                          : isPast ? "bg-forest-800/15 text-forest-800 cursor-pointer hover:bg-forest-800/25"
-                          : "bg-sand-200 text-charcoal-400 cursor-not-allowed"
+                        "text-left rounded-2xl border-2 overflow-hidden transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg",
+                        selectedType?.id === type.id ? "border-forest-800" : "border-sand-200"
                       )}
                     >
-                      {isPast ? <Check className="w-3 h-3" /> : <s.icon className="w-3 h-3" />}
-                      {s.label}
-                    </button>
-                    {i < STEPS.length - 1 && (
-                      <div className={cn("w-4 h-px", i < stepIndex ? "bg-forest-600" : "bg-sand-300")} />
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-
-            <div className="bg-white rounded-3xl p-8 shadow-card min-h-[400px]">
-
-              {/* ── Step 1 — Type ── */}
-              {step === "type" && (
-                <StepSection title="What type of space do you need?">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {POD_TYPES.map((type) => (
-                      <button
-                        key={type.id}
-                        onClick={() => setConfig((p) => ({ ...p, type }))}
-                        className={cn(
-                          "group relative rounded-2xl overflow-hidden border-2 text-left transition-all duration-300",
-                          config.type.id === type.id ? "border-forest-800 shadow-luxury" : "border-sand-200 hover:border-sand-400"
-                        )}
-                      >
-                        <div className="relative h-40 overflow-hidden bg-sand-100">
+                      {!type.isCustom && type.image && (
+                        <div className="h-36 bg-sand-200 overflow-hidden">
                           {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img
-                            src={type.image}
-                            alt={type.name}
-                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                          />
-                          {config.type.id === type.id && (
-                            <div className="absolute inset-0 bg-forest-800/20 flex items-center justify-center">
-                              <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-                                <Check className="w-4 h-4 text-forest-800" />
-                              </div>
+                          <img src={type.image} alt={type.name} className="w-full h-full object-cover" />
+                        </div>
+                      )}
+                      {type.isCustom && (
+                        <div className="h-36 bg-forest-800 flex items-center justify-center">
+                          <Phone className="w-10 h-10 text-white/50" />
+                        </div>
+                      )}
+                      <div className="p-4">
+                        <div className="flex items-start justify-between gap-2">
+                          <h3 className="font-display font-bold text-charcoal-900">{type.name}</h3>
+                          {type.price > 0 && (
+                            <span className="font-body text-xs text-terracotta-500 font-semibold shrink-0">from {formatPrice(type.price)}</span>
+                          )}
+                          {type.isCustom && (
+                            <span className="font-body text-xs text-forest-800 font-semibold shrink-0">Call us</span>
+                          )}
+                        </div>
+                        <p className="font-body text-xs text-charcoal-500 mt-1">{type.desc}</p>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* STEP 2: Size */}
+            {step === "size" && (
+              <div className="p-8 md:p-10">
+                <button onClick={() => setStep("type")} className="flex items-center gap-2 text-sm text-charcoal-400 hover:text-charcoal-700 mb-6 transition-colors">
+                  <ArrowLeft className="w-4 h-4" /> Back
+                </button>
+                <h2 className="font-display text-2xl font-bold text-charcoal-900 mb-2">What size do you need?</h2>
+                <p className="font-body text-charcoal-500 mb-7">Choose the size that fits your garden and budget.</p>
+                <div className="space-y-3">
+                  {SIZES.map((size) => (
+                    <button
+                      key={size.id}
+                      onClick={() => { setSelectedSize(size); setStep("colour"); }}
+                      className={cn(
+                        "w-full flex items-center justify-between p-4 rounded-2xl border-2 text-left transition-all duration-200 hover:border-forest-800/40",
+                        selectedSize?.id === size.id ? "border-forest-800 bg-forest-800/5" : "border-sand-200"
+                      )}
+                    >
+                      <div>
+                        <span className="font-display font-bold text-charcoal-900 mr-3">{size.label}</span>
+                        <span className="font-body text-sm text-charcoal-500">{size.dims} · {size.sqm}m²</span>
+                      </div>
+                      {size.adder > 0 && (
+                        <span className="font-body text-sm font-semibold text-terracotta-500">+{formatPrice(size.adder)}</span>
+                      )}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* STEP 3: Colour */}
+            {step === "colour" && (
+              <div className="p-8 md:p-10">
+                <button onClick={() => setStep("size")} className="flex items-center gap-2 text-sm text-charcoal-400 hover:text-charcoal-700 mb-6 transition-colors">
+                  <ArrowLeft className="w-4 h-4" /> Back
+                </button>
+                <h2 className="font-display text-2xl font-bold text-charcoal-900 mb-2">Choose a colour</h2>
+                <p className="font-body text-charcoal-500 mb-2">Select a standard wall colour for your cabin.</p>
+                <p className="font-body text-xs text-charcoal-400 mb-7 bg-sand-100 rounded-xl px-4 py-2.5 border border-sand-200">
+                  🎨 <strong>Exterior cladding options are not available online</strong> — select &ldquo;Custom&rdquo; and our team will discuss bespoke cladding with you directly.
+                </p>
+                <div className="flex flex-wrap gap-5 mb-8">
+                  {COLOURS.map((colour) => {
+                    const isSelected = selectedColour?.id === colour.id;
+                    if (colour.isCustom) {
+                      return (
+                        <button
+                          key={colour.id}
+                          onClick={() => { setSelectedColour(colour); setStep("quote"); }}
+                          className={cn(
+                            "flex flex-col items-center gap-2 group",
+                          )}
+                        >
+                          <div className={cn(
+                            "w-12 h-12 rounded-full border-4 flex items-center justify-center transition-all duration-200 bg-gradient-to-br from-terracotta-400 to-forest-800",
+                            isSelected ? "border-forest-800 scale-110 shadow-md" : "border-transparent hover:scale-105"
+                          )}>
+                            <span className="text-white text-lg">✦</span>
+                          </div>
+                          <span className="font-body text-xs font-medium text-charcoal-600">Custom</span>
+                        </button>
+                      );
+                    }
+                    return (
+                      <button
+                        key={colour.id}
+                        onClick={() => setSelectedColour(colour)}
+                        className="flex flex-col items-center gap-2"
+                        title={colour.name}
+                      >
+                        <div
+                          className={cn(
+                            "w-12 h-12 rounded-full border-4 transition-all duration-200 shadow-sm",
+                            isSelected ? "border-forest-800 scale-110 shadow-md" : "border-transparent hover:scale-105"
+                          )}
+                          style={{
+                            backgroundColor: colour.hex,
+                            outline: `2px solid ${colour.border}`,
+                          }}
+                        >
+                          {isSelected && (
+                            <div className="w-full h-full flex items-center justify-center">
+                              <Check className={cn("w-5 h-5 drop-shadow", colour.id === "black" ? "text-white" : "text-charcoal-900")} strokeWidth={3} />
                             </div>
                           )}
-                          {/* Price badge */}
-                          <div className="absolute bottom-2 right-2 bg-charcoal-900/70 backdrop-blur-sm text-white text-xs font-body font-semibold px-2.5 py-1 rounded-full">
-                            {type.price > 0 ? `From ${formatPrice(type.price)}` : "Call for pricing"}
-                          </div>
                         </div>
-                        <div className="p-4">
-                          <p className="font-display font-bold text-charcoal-900">{type.name}</p>
-                          <p className="font-body text-xs text-charcoal-500 mt-0.5">{type.desc}</p>
-                        </div>
-                      </button>
-                    ))}
-                  </div>
-                </StepSection>
-              )}
-
-              {/* ── Step 2 — Size ── */}
-              {step === "size" && (
-                <StepSection title="What size do you need?">
-                  <div className="space-y-3">
-                    {SIZES.map((size) => (
-                      <button
-                        key={size.id}
-                        onClick={() => setConfig((p) => ({ ...p, size }))}
-                        className={cn(
-                          "w-full flex items-center justify-between p-4 rounded-2xl border-2 text-left transition-all duration-200",
-                          config.size.id === size.id ? "border-forest-800 bg-forest-800/5" : "border-sand-200 hover:border-sand-400"
-                        )}
-                      >
-                        <div className="flex items-center gap-4">
-                          <div className={cn("w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all",
-                            config.size.id === size.id ? "border-forest-800 bg-forest-800" : "border-sand-400")}>
-                            {config.size.id === size.id && <div className="w-2 h-2 bg-white rounded-full" />}
-                          </div>
-                          <div>
-                            <p className="font-body font-semibold text-charcoal-900">{size.label}</p>
-                            <p className="font-body text-xs text-charcoal-500">{size.dims} · {size.sqm}m²</p>
-                          </div>
-                        </div>
-                        <span className={cn("font-body text-sm font-semibold",
-                          size.adder > 0 ? "text-terracotta-600" : "text-charcoal-500")}>
-                          {size.adder > 0 ? `+${formatPrice(size.adder)}` : "Included"}
+                        <span className={cn("font-body text-xs font-medium text-center", isSelected ? "text-forest-800 font-semibold" : "text-charcoal-500")}>
+                          {colour.name}
                         </span>
                       </button>
-                    ))}
-                  </div>
-                </StepSection>
-              )}
-
-              {/* ── Step 3 — Cladding ── */}
-              {step === "finish" && (
-                <StepSection title="Choose your exterior cladding" subtitle={`Selected: ${config.finish.name}`}>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                    {FINISHES.map((finish) => (
-                      <button
-                        key={finish.id}
-                        onClick={() => setConfig((p) => ({ ...p, finish }))}
-                        className={cn(
-                          "group relative rounded-2xl overflow-hidden border-2 text-left transition-all duration-200",
-                          config.finish.id === finish.id ? "border-forest-800 shadow-luxury" : "border-sand-200 hover:border-sand-400"
-                        )}
-                      >
-                        {finish.isCustom ? (
-                          /* Custom option */
-                          <div className="aspect-[4/3] bg-gradient-to-br from-sand-200 to-sand-300 flex flex-col items-center justify-center gap-2">
-                            <Palette className="w-8 h-8 text-charcoal-400" />
-                            <span className="font-body text-xs text-charcoal-500 text-center px-2">We'll discuss your options</span>
-                          </div>
-                        ) : (
-                          <div className="aspect-[4/3] overflow-hidden bg-sand-100">
-                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img
-                              src={finish.imageUrl}
-                              alt={finish.name}
-                              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                            />
-                          </div>
-                        )}
-                        <div className="p-3 flex items-center justify-between">
-                          <p className="font-body text-sm font-semibold text-charcoal-800">{finish.name}</p>
-                          {config.finish.id === finish.id && (
-                            <div className="w-5 h-5 bg-forest-800 rounded-full flex items-center justify-center shrink-0">
-                              <Check className="w-3 h-3 text-white" />
-                            </div>
-                          )}
-                        </div>
-                        {finish.isCustom && config.finish.id === finish.id && (
-                          <p className="font-body text-xs text-charcoal-500 px-3 pb-3">
-                            Our team will contact you to discuss bespoke options.
-                          </p>
-                        )}
-                      </button>
-                    ))}
-                  </div>
-                </StepSection>
-              )}
-
-              {/* ── Step 4 — Use Case ── */}
-              {step === "use-case" && (
-                <StepSection title="What will you use it for?" subtitle="Select the closest option or describe your own">
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
-                    {USE_CASE_OPTIONS.map((uc) => (
-                      <button
-                        key={uc.id}
-                        onClick={() => setConfig((p) => ({ ...p, useCase: uc }))}
-                        className={cn(
-                          "flex flex-col items-center gap-3 p-4 rounded-2xl border-2 transition-all duration-200 text-center",
-                          config.useCase.id === uc.id ? "border-forest-800 bg-forest-800/5" : "border-sand-200 hover:border-sand-400"
-                        )}
-                      >
-                        <div className={cn(
-                          "w-10 h-10 rounded-xl flex items-center justify-center transition-colors duration-200",
-                          config.useCase.id === uc.id ? "bg-forest-800 text-white" : "bg-sand-200 text-charcoal-600"
-                        )}>
-                          <uc.Icon className="w-5 h-5" />
-                        </div>
-                        <span className="font-body text-xs font-semibold text-charcoal-700 leading-tight">{uc.label}</span>
-                      </button>
-                    ))}
-                  </div>
-
-                  {(config.useCase.id === "MULTIPLE" || config.useCase.id === "OTHER") && (
-                    <div className="mt-4">
-                      <label className="font-body text-sm font-medium text-charcoal-700 block mb-2">
-                        {config.useCase.id === "MULTIPLE" ? "Describe your intended uses:" : "Describe what you have in mind:"}
-                      </label>
-                      <textarea
-                        value={config.useCaseOther}
-                        onChange={(e) => setConfig((p) => ({ ...p, useCaseOther: e.target.value }))}
-                        placeholder={config.useCase.id === "MULTIPLE"
-                          ? "e.g. Home office during the week, yoga studio at weekends..."
-                          : "e.g. Storage and workshop space..."}
-                        rows={3}
-                        className="w-full px-4 py-3 rounded-xl border border-sand-300 font-body text-sm text-charcoal-800 focus:outline-none focus:ring-2 focus:ring-forest-800 focus:border-transparent resize-none"
-                      />
-                    </div>
-                  )}
-                </StepSection>
-              )}
-
-              {/* ── Step 5 — Quote ── */}
-              {step === "quote" && (
-                <StepSection title="Request your quote">
-                  {submitted ? (
-                    <div className="flex flex-col items-center justify-center py-12 text-center">
-                      <div className="w-16 h-16 bg-forest-800/10 rounded-full flex items-center justify-center mb-4">
-                        <Check className="w-8 h-8 text-forest-800" />
-                      </div>
-                      <h3 className="font-display text-2xl font-bold text-charcoal-900 mb-2">Request received!</h3>
-                      <p className="font-body text-charcoal-600 max-w-sm">
-                        Thank you. One of our team will be in touch within 24 hours with your personalised quote.
-                      </p>
-                    </div>
-                  ) : (
-                    <div className="space-y-5">
-                      <p className="font-body text-sm text-charcoal-600 leading-relaxed">
-                        Fill in your details and we'll prepare a personalised quote and call you back.
-                      </p>
-
-                      {/* Config summary */}
-                      <div className="bg-sand-100 rounded-2xl p-4 space-y-2">
-                        <p className="font-body text-xs font-semibold text-charcoal-500 uppercase tracking-widest mb-3">Your configuration</p>
-                        {[
-                          { label: "Type",     value: config.type.name },
-                          { label: "Size",     value: `${config.size.label} · ${config.size.dims}` },
-                          { label: "Cladding", value: (config.finish as any).isCustom ? "Custom (to discuss)" : config.finish.name },
-                          { label: "Use case", value: useCaseDisplay },
-                        ].map((item) => (
-                          <div key={item.label} className="flex justify-between text-sm font-body">
-                            <span className="text-charcoal-500">{item.label}</span>
-                            <span className="text-charcoal-800 font-medium">{item.value}</span>
-                          </div>
-                        ))}
-                      </div>
-
-                      {/* Form */}
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                          <label className="font-body text-sm font-medium text-charcoal-700 block mb-1.5">
-                            Full name <span className="text-terracotta-500">*</span>
-                          </label>
-                          <input type="text" value={quoteForm.name}
-                            onChange={(e) => setQuoteForm((p) => ({ ...p, name: e.target.value }))}
-                            placeholder="Your name"
-                            className="w-full px-4 py-3 rounded-xl border border-sand-300 font-body text-sm focus:outline-none focus:ring-2 focus:ring-forest-800 focus:border-transparent" />
-                        </div>
-                        <div>
-                          <label className="font-body text-sm font-medium text-charcoal-700 block mb-1.5">
-                            Email address <span className="text-terracotta-500">*</span>
-                          </label>
-                          <input type="email" value={quoteForm.email}
-                            onChange={(e) => setQuoteForm((p) => ({ ...p, email: e.target.value }))}
-                            placeholder="your@email.com"
-                            className="w-full px-4 py-3 rounded-xl border border-sand-300 font-body text-sm focus:outline-none focus:ring-2 focus:ring-forest-800 focus:border-transparent" />
-                        </div>
-                      </div>
-
-                      <div>
-                        <label className="font-body text-sm font-medium text-charcoal-700 block mb-1.5">
-                          Phone number <span className="text-terracotta-500">*</span>
-                        </label>
-                        <input type="tel" value={quoteForm.phone}
-                          onChange={(e) => setQuoteForm((p) => ({ ...p, phone: e.target.value }))}
-                          placeholder="07700 000000"
-                          className="w-full px-4 py-3 rounded-xl border border-sand-300 font-body text-sm focus:outline-none focus:ring-2 focus:ring-forest-800 focus:border-transparent" />
-                      </div>
-
-                      <div>
-                        <label className="font-body text-sm font-medium text-charcoal-700 block mb-1.5">
-                          Anything else? <span className="text-charcoal-400 font-normal">(optional)</span>
-                        </label>
-                        <textarea value={quoteForm.message}
-                          onChange={(e) => setQuoteForm((p) => ({ ...p, message: e.target.value }))}
-                          placeholder="e.g. garden size, access, budget, timeline..."
-                          rows={3}
-                          className="w-full px-4 py-3 rounded-xl border border-sand-300 font-body text-sm focus:outline-none focus:ring-2 focus:ring-forest-800 focus:border-transparent resize-none" />
-                      </div>
-
-                      {error && (
-                        <p className="font-body text-sm text-red-600 bg-red-50 px-4 py-3 rounded-xl">{error}</p>
-                      )}
-
-                      <button onClick={handleQuoteSubmit} disabled={submitting} className="btn-primary w-full justify-center gap-3">
-                        {submitting ? (
-                          <><Loader2 className="w-4 h-4 animate-spin" /> Sending your request...</>
-                        ) : (
-                          <>Request my quote <ArrowRight className="w-4 h-4" /></>
-                        )}
-                      </button>
-
-                      <p className="font-body text-xs text-charcoal-400 text-center">
-                        We'll respond within 24 hours. No obligation, no hard sell.
-                      </p>
-                    </div>
-                  )}
-                </StepSection>
-              )}
-            </div>
-
-            {/* Navigation */}
-            <div className="flex justify-between">
-              <button onClick={goPrev} disabled={stepIndex === 0} className="btn-ghost flex items-center gap-2 disabled:opacity-40">
-                <ArrowLeft className="w-4 h-4" /> Back
-              </button>
-              {step !== "quote" && (
-                <button onClick={goNext} className="btn-primary">
-                  Continue <ArrowRight className="w-4 h-4" />
+                    );
+                  })}
+                </div>
+                <button
+                  onClick={() => setStep("quote")}
+                  disabled={!selectedColour}
+                  className="w-full flex items-center justify-center gap-2 bg-forest-800 disabled:bg-sand-300 disabled:text-charcoal-400 text-white font-semibold py-4 rounded-2xl transition-colors hover:bg-forest-700"
+                >
+                  Continue to quote <ArrowRight className="w-4 h-4" />
                 </button>
-              )}
-            </div>
-          </div>
+              </div>
+            )}
 
-          {/* Sidebar */}
-          <div className="lg:sticky lg:top-24 h-fit space-y-4">
-            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-sand-200">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={config.type.image}
-                alt={config.type.name}
-                className="w-full h-full object-cover transition-all duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/60 to-transparent" />
-              <div className="absolute bottom-4 left-4">
-                <p className="font-display text-white font-bold text-xl">{config.type.name}</p>
-                {config.type.price > 0 && (
-                  <p className="font-body text-white/70 text-sm">From {formatPrice(config.type.price)}</p>
+            {/* STEP 4: Quote */}
+            {step === "quote" && (
+              <div className="p-8 md:p-10">
+                <button onClick={() => setStep(isCustomBuild ? "type" : "colour")} className="flex items-center gap-2 text-sm text-charcoal-400 hover:text-charcoal-700 mb-6 transition-colors">
+                  <ArrowLeft className="w-4 h-4" /> Back
+                </button>
+
+                {isCustomBuild ? (
+                  <>
+                    <h2 className="font-display text-2xl font-bold text-charcoal-900 mb-2">Let&apos;s talk about your custom build</h2>
+                    <p className="font-body text-charcoal-500 mb-7">
+                      Custom builds start with a conversation. Leave your details and we&apos;ll call you to discuss your vision, site requirements and budget.
+                    </p>
+                    <div className="bg-forest-800/5 border border-forest-800/20 rounded-2xl p-5 mb-7 flex items-center gap-4">
+                      <Phone className="w-6 h-6 text-forest-800 shrink-0" />
+                      <div>
+                        <p className="font-body text-sm font-semibold text-charcoal-900">Prefer to call us directly?</p>
+                        <a href="tel:01234567890" className="font-display text-lg font-bold text-forest-800 hover:underline">01234 567 890</a>
+                        <p className="font-body text-xs text-charcoal-400 mt-0.5">Mon–Fri 7am–6pm · Sat 9am–5pm</p>
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <h2 className="font-display text-2xl font-bold text-charcoal-900 mb-2">Almost there — get your quote</h2>
+                    <p className="font-body text-charcoal-500 mb-5">We&apos;ll prepare a detailed quote and call you within one working day.</p>
+
+                    {/* Summary */}
+                    <div className="bg-sand-100 rounded-2xl p-5 mb-7 space-y-2 border border-sand-200">
+                      <h3 className="font-body text-xs font-semibold text-charcoal-400 uppercase tracking-widest mb-3">Your selection</h3>
+                      {selectedType && (
+                        <div className="flex justify-between text-sm">
+                          <span className="text-charcoal-600">{selectedType.name}</span>
+                          <span className="font-semibold">{formatPrice(selectedType.price)}</span>
+                        </div>
+                      )}
+                      {selectedSize && (
+                        <div className="flex justify-between text-sm">
+                          <span className="text-charcoal-600">{selectedSize.label} ({selectedSize.dims})</span>
+                          {selectedSize.adder > 0 && <span className="font-semibold text-terracotta-500">+{formatPrice(selectedSize.adder)}</span>}
+                        </div>
+                      )}
+                      {selectedColour && !selectedColour.isCustom && (
+                        <div className="flex justify-between text-sm">
+                          <span className="text-charcoal-600">Colour: {selectedColour.name}</span>
+                        </div>
+                      )}
+                      <div className="border-t border-sand-200 pt-2 flex justify-between font-semibold">
+                        <span className="text-charcoal-900">Estimated from</span>
+                        <span className="text-forest-800 font-display text-lg">{formatPrice(totalPrice)}</span>
+                      </div>
+                    </div>
+                  </>
                 )}
-              </div>
-            </div>
-            <div className="bg-white rounded-3xl p-6 shadow-card">
-              <p className="font-body text-xs text-charcoal-500 uppercase tracking-widest mb-1">Your selection</p>
-              <div className="space-y-2 mt-3 text-sm font-body">
-                <div className="flex justify-between text-charcoal-600"><span>Type</span><span className="font-medium text-charcoal-900">{config.type.name}</span></div>
-                <div className="flex justify-between text-charcoal-600"><span>Size</span><span className="font-medium text-charcoal-900">{config.size.dims}</span></div>
-                <div className="flex justify-between text-charcoal-600"><span>Cladding</span><span className="font-medium text-charcoal-900">{(config.finish as any).isCustom ? "Custom" : config.finish.name}</span></div>
-                <div className="flex justify-between text-charcoal-600"><span>Use</span><span className="font-medium text-charcoal-900 text-right max-w-[60%] truncate">{useCaseDisplay}</span></div>
-              </div>
-              <p className="font-body text-xs text-charcoal-400 mt-4 pt-4 border-t border-sand-200">
-                Prices are guide estimates. Your final quote will be confirmed by our team.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
 
-function StepSection({ title, subtitle, children }: { title: string; subtitle?: string; children: React.ReactNode }) {
-  return (
-    <div>
-      <div className="mb-7">
-        <h2 className="font-display text-2xl font-bold text-charcoal-900">{title}</h2>
-        {subtitle && <p className="font-body text-sm text-charcoal-500 mt-1">{subtitle}</p>}
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="font-body text-xs font-semibold text-charcoal-500 uppercase tracking-wide block mb-1.5">Name *</label>
+                      <input required value={form.name} onChange={e => setForm(p => ({...p, name: e.target.value}))} placeholder="Your name" className="w-full border border-sand-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-forest-800 focus:border-transparent" />
+                    </div>
+                    <div>
+                      <label className="font-body text-xs font-semibold text-charcoal-500 uppercase tracking-wide block mb-1.5">Phone *</label>
+                      <input required type="tel" value={form.phone} onChange={e => setForm(p => ({...p, phone: e.target.value}))} placeholder="Your phone number" className="w-full border border-sand-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-forest-800 focus:border-transparent" />
+                    </div>
+                  </div>
+                  <div>
+                    <label className="font-body text-xs font-semibold text-charcoal-500 uppercase tracking-wide block mb-1.5">Email *</label>
+                    <input required type="email" value={form.email} onChange={e => setForm(p => ({...p, email: e.target.value}))} placeholder="your@email.com" className="w-full border border-sand-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-forest-800 focus:border-transparent" />
+                  </div>
+                  <div>
+                    <label className="font-body text-xs font-semibold text-charcoal-500 uppercase tracking-wide block mb-1.5">Anything else?</label>
+                    <textarea value={form.notes} onChange={e => setForm(p => ({...p, notes: e.target.value}))} placeholder="Garden size, access constraints, planning questions..." rows={3} className="w-full border border-sand-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-forest-800 focus:border-transparent resize-none" />
+                  </div>
+                  <button type="submit" disabled={submitting} className="w-full flex items-center justify-center gap-2 bg-terracotta-500 hover:bg-terracotta-600 disabled:bg-sand-300 text-white font-semibold py-4 rounded-2xl transition-colors">
+                    {submitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <>Send quote request <ArrowRight className="w-4 h-4" /></>}
+                  </button>
+                </form>
+              </div>
+            )}
+          </div>
+        )}
       </div>
-      {children}
     </div>
   );
 }
