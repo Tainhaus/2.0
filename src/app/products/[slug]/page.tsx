@@ -104,7 +104,7 @@ export default async function ProductPage({ params }: Props) {
                 <div className="flex items-baseline gap-2 mb-1">
                   <span className="font-display text-3xl font-bold text-forest-800">{formatPrice(product.salePrice ?? product.price)}</span>
                   {product.salePrice && <span className="font-body text-lg text-charcoal-400 line-through">{formatPrice(product.price)}</span>}
-                  <span className="font-body text-sm text-charcoal-500">inc. VAT</span>
+                  
                 </div>
                 <p className="font-body text-xs text-charcoal-500">Starting price for base size. Customise below.</p>
               </div>
