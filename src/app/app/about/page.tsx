@@ -11,12 +11,12 @@ export const metadata: Metadata = {
 };
 
 const MILESTONES = [
-  { year: "2015", label: "Founded in Birmingham by two joiners with a shared obsession" },
-  { year: "2017", label: "Opened our Worcestershire workshop — still our home today" },
-  { year: "2019", label: "500th pod installed. FSC certification achieved." },
-  { year: "2021", label: "Launched The Zenith — our first curved-roof wellness pod" },
-  { year: "2023", label: "Carbon-neutral manufacturing certified. 1,500 pods installed." },
-  { year: "2024", label: "Launched The Nordic sauna range. 2,000+ happy homeowners." },
+  
+  
+  
+  
+  
+  
 ];
 
 const VALUES = [
