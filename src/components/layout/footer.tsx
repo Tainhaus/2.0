@@ -164,7 +164,7 @@ export function Footer() {
       <div className="border-t border-white/5 py-6">
         <div className="container-site flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="font-body text-xs text-sand-600">
-            © {new Date().getFullYear()} Tainhaus Ltd. All rights reserved. Company No. 12345678. 
+            © {new Date().getFullYear()} Tainhaus Ltd. All rights reserved. 
             
           </p>
           <div className="flex items-center gap-6">
