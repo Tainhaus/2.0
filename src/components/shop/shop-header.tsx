@@ -32,7 +32,7 @@ export function ShopHeader({ searchParams, productCount }: ShopHeaderProps) {
     router.push(`${pathname}?${params.toString()}`);
   };
 
-  const activeCategory = searchParams.category;
+  const activeCategory = ""
   const activeUseCase = searchParams.useCase;
 
   const QUICK_FILTERS = [
