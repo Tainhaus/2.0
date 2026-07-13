@@ -151,7 +151,7 @@ Multiple windows and a single door provide generous natural light and ventilatio
 Whether you envision it as a cosy retreat, an artistic studio, or a peaceful meditation space, the Oriental 4 is meticulously crafted to enrich your outdoor experience and create a tranquil sanctuary for rejuvenation and inspiration.
 
 All products are constructed using dry spruce grown in ecologically managed forests of Sweden, Finland, Russia or the Baltic States, packaged in UV-resistant plastic film and covered by our 5-year construction warranty.`,
-      price: 12400,
+      price: 12700,
       category: "LOG_CABIN",
       useCase: ["READING_RETREAT", "ART_STUDIO", "HOME_OFFICE", "YOGA_STUDIO"],
       featured: true,
