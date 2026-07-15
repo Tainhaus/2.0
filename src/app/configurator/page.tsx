@@ -17,7 +17,7 @@ const POD_TYPES = [
   },
   {
     id: "wellness-pod",
-    name: "Outdoor Kitchen & Bar",
+    name: "Ibiza",
     desc: "Premium outdoor entertaining suite with kitchen and bar",
     price: 12100,
     image: "/products/outdoor-kitchen-pod-garden-bar-3-0x2-6m-birch.png",
