@@ -8,7 +8,6 @@ import { useState } from "react";
 import { cn, formatPrice } from "@/lib/utils";
 import type { Product } from "@/types";
 
-// Map slug → local image paths that are confirmed to exist in /public/products/
 const LOCAL_IMAGES: Record<string, string> = {
   "sicilia-6-7x3-8m-log-cabin":              "/products/sicilia-birch.png",
   "oriental-4-4-7x3-2m-log-cabin":           "/products/oriental-4-4-7x3-2m-log-cabin-birch.png",
@@ -32,7 +31,6 @@ export function ProductCard({ product, className }: ProductCardProps) {
   const minPrice = product.price;
   const maxSizeAdder = Math.max(...(product.sizes?.map((s) => s.priceAdder) ?? [0]));
 
-  // Use local image first — always works. Fall back to DB image if no local match.
   const localSrc = LOCAL_IMAGES[product.slug];
   const dbSrc = product.images?.find((i: any) => i.isPrimary)?.url ?? product.images?.[0]?.url;
   const imageSrc = localSrc ?? dbSrc;
@@ -96,16 +94,12 @@ export function ProductCard({ product, className }: ProductCardProps) {
         <h3 className="font-display text-lg font-bold text-charcoal-900 mb-1 group-hover:text-forest-800 transition-colors duration-200">
           {product.name}
         </h3>
-        <p className="font-body text-xs text-charcoal-500 mb-2 line-clamp-2 flex-1">
+        <p className="font-body text-xs text-charcoal-500 mb-3 line-clamp-2 flex-1">
           {product.tagline}
         </p>
-        <p className="font-body text-2xs text-green-700 flex items-center gap-1 mb-2">
+        <p className="font-body text-2xs text-green-700 flex items-center gap-1 mb-3">
           <TreePine className="w-3 h-3" /> FSC-certified Nordic timber
         </p>
-        <span className="font-body text-xs text-charcoal-500">
-            {product.rating.toFixed(1)} ({product.reviewCount})
-          </span>
-        </div>
         <div>
           <span className="font-display text-xl font-bold text-forest-800">
             {minPrice === 0 ? "Call for price" : formatPrice(minPrice)}
