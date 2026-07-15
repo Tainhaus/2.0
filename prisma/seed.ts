@@ -67,7 +67,7 @@ All products are packaged in UV-resistant plastic film and protected during tran
         create: [
           {
             url: "/products/sicilia-birch.png",
-            alt: "Santorini 6.7x3.8m Log Cabin exterior",
+            alt: "Santorini exterior view",
             isPrimary: true,
             order: 0,
           },
@@ -189,7 +189,7 @@ All products are constructed using dry spruce grown in ecologically managed fore
         create: [
           {
             url: "/products/oriental-4-4-7x3-2m-log-cabin-birch.png",
-            alt: "Maldives 4.7x3.2m Log Cabin exterior",
+            alt: "Maldives exterior view",
             isPrimary: true,
             order: 0,
           },
@@ -298,13 +298,13 @@ Ideal as a serene home office, cosy guest accommodation, tranquil reading nook, 
         create: [
           {
             url: "/products/gloria-h-4-5x2-9m-log-cabin-birch.png",
-            alt: "Corsica 4.5x2.9m Log Cabin exterior",
+            alt: "Corsica exterior view",
             isPrimary: true,
             order: 0,
           },
           {
             url: "/products/gloria-h-4-5x2-9m-log-cabin-oak.png",
-            alt: "Corsica Log Cabin floor plan",
+            alt: "Corsica floor plan",
             isPrimary: false,
             order: 1,
           },
@@ -421,13 +421,13 @@ Comes with nails, screws, and detailed installation instructions for straightfor
         create: [
           {
             url: "/products/dover-combi-6m-x-4m-birch.png",
-            alt: "Dover Combi 6m x 4m Log Cabin exterior",
+            alt: "Bahamas Combi 6m x 4m Log Cabin exterior",
             isPrimary: true,
             order: 0,
           },
           {
             url: "/products/dover-combi-6m-x-4m-oak.png",
-            alt: "Dover Combi interior showing dual rooms",
+            alt: "Bahamas Combi interior showing dual rooms",
             isPrimary: false,
             order: 1,
           },
@@ -547,7 +547,7 @@ Covered by our 5-year construction warranty from the date of purchase. All produ
         create: [
           {
             url: "/products/gloria-h-4-5x2-9m-log-cabin-birch.png",
-            alt: "Capri 4.5x2.0m Log Cabin exterior",
+            alt: "Capri exterior view",
             isPrimary: true,
             order: 0,
           },
@@ -746,7 +746,7 @@ Comes complete with nails, screws, and detailed installation instructions, makin
       warranty: "5 years structural",
       features: ["70mm triple T&G logs from Finland", "Two bedrooms", "Spacious lounge and kitchen", "100mm floor and roof insulation", "Premium double-glazed doors and windows", "Pre-drilled logs for concealed electrics", "HIAB delivery to site included", "5-year structural warranty"],
       specs: { logThickness: "70mm triple tongue and groove", timberSource: "Finland", bedrooms: "2", insulation: "100mm floor and roof", delivery: "HIAB to site", warranty: "5 years" },
-      images: { create: [{ url: "/products/monaco-2-bed-log-cabin-birch.png", alt: "Bali 2 Bed Log Cabin exterior", isPrimary: true, order: 0 }, { url: "/products/monaco-2-bed-log-cabin-oak.png", alt: "Bali 2 Bed Log Cabin side view", isPrimary: false, order: 1 }, { url: "/products/monaco-2-bed-log-cabin-stone-grey.png", alt: "Bali interior living area", isPrimary: false, order: 2 }, { url: "/products/monaco-2-bed-log-cabin-black.png", alt: "Bali bedroom", isPrimary: false, order: 3 }, { url: "/products/monaco-2-bed-log-cabin-birch.png", alt: "Bali detail", isPrimary: false, order: 4 }, { url: "/products/monaco-2-bed-log-cabin-oak.png", alt: "Bali kitchen", isPrimary: false, order: 5 }, { url: "/products/monaco-2-bed-log-cabin-stone-grey.png", alt: "Bali bedroom detail", isPrimary: false, order: 6 }, { url: "/products/monaco-2-bed-log-cabin-black.png", alt: "Bali garden view", isPrimary: false, order: 7 }, { url: "/products/monaco-2-bed-log-cabin-birch.png", alt: "Bali detail view", isPrimary: false, order: 8 }, { url: "/products/monaco-2-bed-log-cabin-oak.png", alt: "Bali interior", isPrimary: false, order: 9 }, { url: "/products/monaco-2-bed-log-cabin-stone-grey.png", alt: "Bali exterior detail", isPrimary: false, order: 10 }, { url: "/products/monaco-2-bed-log-cabin-black.png", alt: "Bali full exterior", isPrimary: false, order: 11 }] },
+      images: { create: [{ url: "/products/monaco-2-bed-log-cabin-birch.png", alt: "Bali exterior view", isPrimary: true, order: 0 }, { url: "/products/monaco-2-bed-log-cabin-oak.png", alt: "Bali 2 Bed Log Cabin side view", isPrimary: false, order: 1 }, { url: "/products/monaco-2-bed-log-cabin-stone-grey.png", alt: "Bali interior living area", isPrimary: false, order: 2 }, { url: "/products/monaco-2-bed-log-cabin-black.png", alt: "Bali bedroom", isPrimary: false, order: 3 }, { url: "/products/monaco-2-bed-log-cabin-birch.png", alt: "Bali detail", isPrimary: false, order: 4 }, { url: "/products/monaco-2-bed-log-cabin-oak.png", alt: "Bali kitchen", isPrimary: false, order: 5 }, { url: "/products/monaco-2-bed-log-cabin-stone-grey.png", alt: "Bali bedroom detail", isPrimary: false, order: 6 }, { url: "/products/monaco-2-bed-log-cabin-black.png", alt: "Bali garden view", isPrimary: false, order: 7 }, { url: "/products/monaco-2-bed-log-cabin-birch.png", alt: "Bali detail view", isPrimary: false, order: 8 }, { url: "/products/monaco-2-bed-log-cabin-oak.png", alt: "Bali interior", isPrimary: false, order: 9 }, { url: "/products/monaco-2-bed-log-cabin-stone-grey.png", alt: "Bali exterior detail", isPrimary: false, order: 10 }, { url: "/products/monaco-2-bed-log-cabin-black.png", alt: "Bali full exterior", isPrimary: false, order: 11 }] },
       sizes: { create: [{ label: "Call for pricing", widthM: 0, depthM: 0, heightM: 0, sqm: 0, priceAdder: 0 }] },
       finishes: { create: [{ name: "Birch", hexColor: "#D4C5A9", imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/birch-aluwoodpanel1.jpg?v=1724067587&width=1030", priceAdder: 0 }, { name: "Stone Grey", hexColor: "#8A8F8A", imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/stonegray-outdoorwallpanel1.jpg?v=1725361464&width=1030", priceAdder: 0 }, { name: "Oak", hexColor: "#B8864E", imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/oak-outdoorwallpanel1.jpg?v=1730215792&width=1030", priceAdder: 0 }, { name: "Black", hexColor: "#1A1A1A", imageUrl: "https://akuwoodpanel.uk/cdn/shop/files/black-aluwoodpanel1.jpg?v=1724067608&width=1030", priceAdder: 0 }] },
       reviews: { create: [] },
