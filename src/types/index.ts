@@ -114,5 +114,5 @@ export const USE_CASES = [
 
 export const CATEGORIES = [
   { id: "LOG_CABIN",    label: "Log Cabins & Garden Rooms" },
-  { id: "KITCHEN_POD", label: "Kitchen & Bar Pods" },
+  { id: "KITCHEN_POD", label: "Garden Bar & Kitchen Pods" },
 ] as const;
