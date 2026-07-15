@@ -33,7 +33,7 @@ export default function DeliveryPage() {
           <section>
             <h2 className="font-display text-2xl font-semibold text-charcoal-900 mb-3">Lead times</h2>
             <p>Most Tainhaus products are delivered within <strong>4 to 6 weeks</strong> from the date your order is confirmed. Lead times may vary depending on product type, customisation requirements, and seasonal demand.</p>
-            <p className="mt-3">For bespoke products such as the Monaco 2-bed cabin or custom-sized structures, lead times may be longer. We will confirm your estimated delivery date at the time of ordering.</p>
+            <p className="mt-3">For bespoke products such as the Bali or custom-sized structures, lead times may be longer. We will confirm your estimated delivery date at the time of ordering.</p>
           </section>
 
           <section>
