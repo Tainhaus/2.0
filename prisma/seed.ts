@@ -16,7 +16,7 @@ async function main() {
   await prisma.product.create({
     data: {
       slug: "sicilia-6-7x3-8m-log-cabin",
-      name: "Sicilia 6.7×3.8m Log Cabin",
+      name: "Santorini",
       tagline: "A contemporary haven of style and comfort",
       description: "Immerse yourself in the modern elegance and comfort of the Sicilia Log Cabin — a sleek retreat where contemporary design meets timeless charm. This spacious cabin is meticulously designed to provide a versatile space where you can relax, work, create, or entertain with flair.",
       longDescription: `The Sicilia is our most spacious contemporary log cabin. Whether you envision it as a stylish garden office, a chic studio space, a cosy lounge area, or a welcoming guest suite, the Sicilia is crafted to elevate your lifestyle and offer a luxurious haven amidst the serenity of nature.
