@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     "log cabins UK", "garden rooms UK", "log cabin for sale", "garden office UK",
     "sustainable log cabin", "eco garden room", "FSC certified log cabin",
     "log cabin home office", "garden room with installation", "log cabin annexe",
-    "outdoor kitchen pod", "garden bar UK", "wooden garden room",
+    "Ibiza", "garden bar UK", "wooden garden room",
     "insulated garden room", "buy log cabin UK", "tainhaus",
   ],
   authors: [{ name: "Tainhaus", url: "https://tainhaus.co.uk" }],
