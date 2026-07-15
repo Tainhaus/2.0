@@ -141,7 +141,7 @@ All products are packaged in UV-resistant plastic film and protected during tran
   await prisma.product.create({
     data: {
       slug: "oriental-4-4-7x3-2m-log-cabin",
-      name: "Oriental 4 — 4.7×3.2m Log Cabin",
+      name: "Maldives",
       tagline: "Your tranquil oasis in nature's embrace",
       description: "Unveil the perfect blend of elegance and tranquillity with the Oriental 4 Log Cabin. This captivating cabin offers a harmonious fusion of traditional allure and modern sophistication, providing a serene oasis where relaxation and creativity intertwine seamlessly.",
       longDescription: `The Oriental 4 is crafted from premium Nordic spruce wood, offering lasting durability and natural charm. Its generous dimensions of 4.7m × 3.2m provide ample room for various uses and configurations, from a reading nook or art studio to a meditation space or personal sanctuary.
@@ -254,7 +254,7 @@ All products are constructed using dry spruce grown in ecologically managed fore
   await prisma.product.create({
     data: {
       slug: "gloria-h-4-5x2-9m-log-cabin",
-      name: "Gloria H — 4.5×2.9m Log Cabin",
+      name: "Corsica",
       tagline: "Luxury craftsmanship in Nordic high-quality spruce",
       description: "Introducing the Gloria H Log Cabin from Northern Log Cabins, a stunning abode crafted from 100% Nordic high-quality spruce. Step into luxury and craftsmanship with this exquisite log cabin featuring extra-dry laminated timber windows and doors.",
       longDescription: `The Gloria H is built from 100% Nordic high-quality spruce — the same material used in premium Scandinavian construction for centuries. Extra-dry (8–12% moisture content) laminated timber windows and doors resist warping and ensure a perfect fit year after year.
@@ -372,7 +372,7 @@ Ideal as a serene home office, cosy guest accommodation, tranquil reading nook, 
   await prisma.product.create({
     data: {
       slug: "dover-combi-6m-x-4m",
-      name: "Dover Combi — 6m×4m Log Cabin",
+      name: "Bahamas",
       tagline: "Two rooms in one — living space plus generous storage",
       description: "Introducing the Dover Combi Log Cabin — a versatile and stylish dual-room cabin crafted with precision using 44mm double T&G Nordic pine wall logs. An internal partition creates two separate spaces: a 13.89m² living area and a 7.29m² storage room.",
       longDescription: `The Dover Combi solves the age-old problem of wanting both a comfortable garden room and proper outdoor storage — without sacrificing either. The internal partition divides the cabin into a generous 13.89m² living or working space and a practical 7.29m² storage area, both accessed from the outside.
@@ -495,7 +495,7 @@ Comes with nails, screws, and detailed installation instructions for straightfor
   await prisma.product.create({
     data: {
       slug: "gloria-f-4-5x2-0m-log-cabin",
-      name: "Gloria F — 4.5×2.0m Log Cabin",
+      name: "Capri",
       tagline: "Elegant Nordic retreat in a compact footprint",
       description: "Introducing the Gloria F Log Cabin — a retreat crafted from 100% Nordic high-quality spruce. Featuring doors and windows made from extra-dry laminated timber with just 8–12% moisture content, this elegant cabin combines beauty with long-lasting durability.",
       longDescription: `The Gloria F is proof that you don't need a large garden to enjoy a premium log cabin. At just 4.5m × 2.0m, it fits neatly into smaller gardens and patios while delivering the same quality construction as our larger models.
@@ -612,7 +612,7 @@ Covered by our 5-year construction warranty from the date of purchase. All produ
   await prisma.product.create({
     data: {
       slug: "derby-4-5m-x-3m",
-      name: "Derby — 4.5m×3m Log Cabin",
+      name: "Bermuda",
       tagline: "Versatile outdoor living with style and functionality",
       description: "Introducing the Derby Log Cabin from Northern Log Cabins — your go-to choice for versatile outdoor living and storage solutions. Crafted with 44mm Spruce double T&G wall logs, this cabin combines a comfortable 7.617m² cabin area with a practical 3.907m² storage section.",
       longDescription: `The Derby is built for those who want a proper multi-purpose outdoor building. The clever design combines a comfortable, insulated living or working space of 7.617m² with a 3.907m² storage area — all within a 4.5m × 3m footprint.
@@ -730,7 +730,7 @@ Comes complete with nails, screws, and detailed installation instructions, makin
   await prisma.product.create({
     data: {
       slug: "monaco-2-bed-log-cabin",
-      name: "Monaco 2 — 2 Bed Log Cabin",
+      name: "Bali",
       tagline: "Your spacious retreat for modern living",
       description: "Experience luxury living with the Monaco 2 Bed Log Cabin. This exceptional cabin combines elegance and functionality, offering a spacious retreat that embodies contemporary design and comfort.",
       longDescription: "The Monaco 2 Bed Log Cabin is built with 70mm thick triple tongue and groove logs sourced from Finland. Two well-appointed bedrooms make this cabin ideal as a permanent residence, a holiday retreat, or a premium guest annexe.\n\nEvery Monaco comes with 100mm insulation in both floor and roof. Premium double-glazed doors and windows are available in any colour, and pre-drilled logs allow electrical cables to be concealed.\n\nBacked by our 5-year structural warranty. Call us for pricing on this bespoke product.",
@@ -758,7 +758,7 @@ Comes complete with nails, screws, and detailed installation instructions, makin
   await prisma.product.create({
     data: {
       slug: "outdoor-kitchen-pod-garden-bar-3-0x2-6m",
-      name: "Outdoor Kitchen Pod & Garden Bar",
+      name: "Ibiza",
       tagline: "The ultimate alfresco entertainment suite for your garden",
       description: "Elevate your outdoor hosting with the ultimate luxury garden addition. This premium timber kitchen pod comes complete with integrated kitchen units, a fridge, and a premium BBQ — turning your backyard into a high-end restaurant and bar.",
       longDescription: `Transform your garden with the ultimate entertaining space. Crafted from high-quality dense timber, the Kitchen Pod comes complete with integrated kitchen units, a fridge, and a premium BBQ, allowing you to prep, cook, and serve without ever stepping inside the main house.
