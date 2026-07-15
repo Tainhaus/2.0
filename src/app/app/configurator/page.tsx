@@ -17,7 +17,7 @@ const POD_TYPES = [
   },
   {
     id: "wellness-pod",
-    name: "Outdoor Kitchen & Bar",
+    name: "Ibiza",
     desc: "Premium outdoor entertaining suite with kitchen and bar",
     price: 15445,
     image: "https://www.northernlogcabins.com/cdn/shop/files/Kitchen_pod_log_cabin_by_Northen_Log_cabins_5_3add265e-ecc9-494e-88d5-79c92e245bc6.png?v=1779456884",
@@ -41,7 +41,7 @@ const POD_TYPES = [
     name: "Full Annexe",
     desc: "Complete two-bedroom living suite — kitchen, bathroom included",
     price: 0,
-    image: "https://www.northernlogcabins.com/cdn/shop/files/Monaco2bedroomlogcabinNorthernLogCabins1.jpg?v=1750691417",
+    image: "https://www.northernlogcabins.com/cdn/shop/files/Bali2bedroomlogcabinNorthernLogCabins1.jpg?v=1750691417",
   },
 ];
 
