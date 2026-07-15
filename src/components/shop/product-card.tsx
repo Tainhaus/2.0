@@ -3,7 +3,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Star, ArrowRight, Heart, TreePine } from "lucide-react";
+import { ArrowRight, Heart, TreePine } from "lucide-react";
 import { useState } from "react";
 import { cn, formatPrice } from "@/lib/utils";
 import type { Product } from "@/types";
@@ -102,13 +102,7 @@ export function ProductCard({ product, className }: ProductCardProps) {
         <p className="font-body text-2xs text-green-700 flex items-center gap-1 mb-2">
           <TreePine className="w-3 h-3" /> FSC-certified Nordic timber
         </p>
-        <div className="flex items-center gap-1.5 mb-3">
-          <div className="flex items-center gap-0.5">
-            {[1, 2, 3, 4, 5].map((star) => (
-              <Star key={star} className={cn("w-3 h-3", star <= Math.round(product.rating) ? "fill-terracotta-400 text-terracotta-400" : "text-sand-300 fill-sand-300")} />
-            ))}
-          </div>
-          <span className="font-body text-xs text-charcoal-500">
+        <span className="font-body text-xs text-charcoal-500">
             {product.rating.toFixed(1)} ({product.reviewCount})
           </span>
         </div>
