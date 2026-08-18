@@ -10,17 +10,7 @@ import { useCartStore } from "@/lib/cart-store";
 import { Logo } from "@/components/ui/logo";
 
 const NAV_LINKS = [
-  {
-    label: "Log Cabins",
-    href: "/shop",
-    dropdown: [
-      { label: "All Products", href: "/shop" },
-      { label: "Garden Rooms", href: "/shop?category=GARDEN_ROOM" },
-      { label: "Garden Pods", href: "/shop?category=GARDEN_POD" },
-      { label: "Studios & Gyms", href: "/shop?category=STUDIO" },
-      { label: "Office Spaces", href: "/shop?category=GARDEN_ROOM" },
-    ],
-  },
+  { label: "Log Cabins", href: "/shop" },
   { label: "Design Your Space", href: "/configurator" },
   { label: "Our Story", href: "/about" },
   { label: "Contact", href: "/contact" },
