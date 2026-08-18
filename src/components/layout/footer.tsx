@@ -138,15 +138,8 @@ export function Footer() {
             © {new Date().getFullYear()} Tainhaus Ltd. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            {["Privacy Policy", "Cookie Policy", "Terms & Conditions"].map((item) => (
-              <Link
-                key={item}
-                href={`/${item.toLowerCase().replace(/ & /g, "-").replace(/ /g, "-")}`}
-                className="font-body text-xs text-sand-600 hover:text-sand-300 transition-colors"
-              >
-                {item}
-              </Link>
-            ))}
+            <Link href="/privacy" className="font-body text-xs text-sand-600 hover:text-sand-300 transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="font-body text-xs text-sand-600 hover:text-sand-300 transition-colors">Terms &amp; Conditions</Link>
           </div>
         </div>
       </div>
