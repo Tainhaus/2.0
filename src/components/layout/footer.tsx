@@ -1,7 +1,7 @@
 // src/components/layout/footer.tsx
 import Link from "next/link";
 import { Logo } from "@/components/ui/logo";
-import { Instagram, Facebook, Youtube, Linkedin, ArrowRight, Phone, Mail } from "lucide-react";
+import { Instagram, Facebook, ArrowRight, Mail } from "lucide-react";
 
 const FOOTER_LINKS = {
   Products: [
@@ -29,10 +29,8 @@ const FOOTER_LINKS = {
 };
 
 const SOCIAL = [
-  { label: "Instagram", href: "https://instagram.com", Icon: Instagram },
-  { label: "Facebook", href: "https://facebook.com", Icon: Facebook },
-  { label: "YouTube", href: "https://youtube.com", Icon: Youtube },
-  { label: "LinkedIn", href: "https://linkedin.com", Icon: Linkedin },
+  { label: "Instagram", href: "https://instagram.com/tainhaus", Icon: Instagram },
+  { label: "Facebook", href: "https://facebook.com/tainhaus", Icon: Facebook },
 ];
 
 const TRUST_BADGES = [
@@ -77,12 +75,7 @@ export function Footer() {
             </p>
 
             <div className="space-y-3 mb-8">
-              <div className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-terracotta-400 shrink-0" />
-                <Link href="tel:+441234567890" className="font-body text-xs text-sand-500 hover:text-white transition-colors">
-                  01234 567 890
-                </Link>
-              </div>
+
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-terracotta-400 shrink-0" />
                 <Link href="mailto:info@tainhaus.co.uk" className="font-body text-xs text-sand-500 hover:text-white transition-colors">
