@@ -3,7 +3,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Mail, Clock, ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
+import { Phone, Mail, Clock, ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const ENQUIRY_TYPES = [
@@ -264,12 +264,7 @@ export default function ContactPage() {
               </h3>
               <div className="space-y-4">
                 {[
-                  {
-                    Icon: Phone,
-                    label: "Call us",
-                    value: "01234 567 890",
-                    href: "tel:+441234567890",
-                  },
+
                   {
                     Icon: Mail,
                     label: "Email us",
@@ -280,7 +275,7 @@ export default function ContactPage() {
                   {
                     Icon: Clock,
                     label: "Hours",
-                    value: "Mon–Fri 8am–6pm · Sat 9am–4pm",
+                    value: "Mon–Fri 7am–6pm · Sat 9am–5pm",
                     href: null,
                   },
                 ].map(({ Icon, label, value, href }) => (
