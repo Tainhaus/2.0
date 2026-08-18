@@ -314,14 +314,6 @@ export default function ConfiguratorPage() {
                     <p className="font-body text-charcoal-500 mb-7">
                       Custom builds start with a conversation. Leave your details and we&apos;ll call you to discuss your vision, site requirements and budget.
                     </p>
-                    <div className="bg-forest-800/5 border border-forest-800/20 rounded-2xl p-5 mb-7 flex items-center gap-4">
-                      <Phone className="w-6 h-6 text-forest-800 shrink-0" />
-                      <div>
-                        <p className="font-body text-sm font-semibold text-charcoal-900">Prefer to call us directly?</p>
-                        <a href="tel:01234567890" className="font-display text-lg font-bold text-forest-800 hover:underline">01234 567 890</a>
-                        <p className="font-body text-xs text-charcoal-400 mt-0.5">Mon–Fri 7am–6pm · Sat 9am–5pm</p>
-                      </div>
-                    </div>
                   </>
                 ) : (
                   <>
