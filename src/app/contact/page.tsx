@@ -3,14 +3,14 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Phone, Mail, Clock, ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
+import { Mail, Clock, ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const ENQUIRY_TYPES = [
-  { id: "GENERAL", label: "General enquiry" },
-  { id: "PRODUCT", label: "Product question" },
+  { id: "GENERAL",      label: "General enquiry" },
+  { id: "PRODUCT",      label: "Product question" },
   { id: "CONFIGURATOR", label: "Design consultation" },
-  { id: "TRADE", label: "Trade / contractor" },
+  { id: "TRADE",        label: "Trade / contractor" },
 ];
 
 export default function ContactPage() {
@@ -35,221 +35,169 @@ export default function ContactPage() {
     e.preventDefault();
     setStatus("loading");
     setError("");
-
     try {
       const res = await fetch("/api/enquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
-
-      if (!res.ok) {
-        const data = await res.json();
-        throw new Error(data.error ?? "Something went wrong");
-      }
-
+      if (!res.ok) throw new Error("Failed to send");
       setStatus("success");
-    } catch (err) {
+    } catch {
       setStatus("error");
-      setError(err instanceof Error ? err.message : "Please try again");
+      setError("Something went wrong. Please try emailing us directly.");
     }
   };
 
   return (
-    <div className="min-h-screen bg-sand-100 pt-20">
-      {/* Header */}
-      <section className="bg-white py-16 border-b border-sand-200">
-        <div className="container-site">
-          <div className="max-w-2xl">
-            <div className="divider mb-6" />
-            <h1 className="font-display text-display-md text-charcoal-900 mb-4">
-              Let&apos;s talk
-              <br />
-              <span className="text-gradient-forest italic">about your garden</span>
-            </h1>
-            <p className="font-body text-lg text-charcoal-600 leading-relaxed">
-              Whether you know exactly what you want or you&apos;re just starting to explore,
-              our team is here to help. No pressure, no jargon — just an honest conversation.
-            </p>
-          </div>
+    <div className="min-h-screen bg-sand-100 pt-24">
+      {/* Hero */}
+      <section className="bg-forest-800 py-16 md:py-20">
+        <div className="container-site max-w-3xl">
+          <div className="w-12 h-0.5 bg-terracotta-400 rounded-full mb-5" />
+          <h1 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">
+            Get in touch
+          </h1>
+          <p className="font-body text-lg text-forest-200 leading-relaxed">
+            Whether you have a question about a product, want to discuss a custom build,
+            or are ready to place an order — we&apos;re here to help.
+          </p>
         </div>
       </section>
 
-      <div className="container-site py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-12">
-          {/* Form */}
-          <div className="lg:col-span-2 min-w-0">
+      <div className="container-site py-14 md:py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+
+          {/* Contact form */}
+          <div className="lg:col-span-2">
             {status === "success" ? (
-              <div className="bg-white rounded-3xl p-12 shadow-card text-center">
-                <div className="w-16 h-16 bg-forest-800/10 rounded-full flex items-center justify-center mx-auto mb-5">
-                  <CheckCircle2 className="w-8 h-8 text-forest-800" />
-                </div>
+              <div className="bg-white rounded-3xl p-10 shadow-card text-center">
+                <CheckCircle2 className="w-14 h-14 text-forest-700 mx-auto mb-5" />
                 <h2 className="font-display text-2xl font-bold text-charcoal-900 mb-3">
-                  Message received!
+                  Message received
                 </h2>
-                <p className="font-body text-charcoal-600 mb-6 max-w-md mx-auto">
-                  Thank you for getting in touch. One of our garden room specialists will 
-                  be in contact within one working day.
+                <p className="font-body text-charcoal-600 max-w-md mx-auto mb-6">
+                  Thank you for getting in touch. A member of our team will respond within one working day.
                 </p>
-                <div className="flex flex-wrap justify-center gap-3">
-                  <Link href="/shop" className="btn-primary">
-                    Browse while you wait
-                  </Link>
-                  <button
-                    onClick={() => setStatus("idle")}
-                    className="btn-secondary"
-                  >
-                    Send another message
-                  </button>
-                </div>
+                <button
+                  onClick={() => { setStatus("idle"); setForm({ name: "", email: "", phone: "", message: "", type: "GENERAL", productInterest: "" }); }}
+                  className="inline-flex items-center gap-2 text-forest-800 font-body font-semibold hover:underline"
+                >
+                  Send another message <ArrowRight className="w-4 h-4" />
+                </button>
               </div>
             ) : (
-              <form
-                onSubmit={handleSubmit}
-                className="bg-white rounded-3xl p-8 md:p-10 shadow-card space-y-6"
-              >
-                <h2 className="font-display text-2xl font-bold text-charcoal-900 mb-6">
-                  Send us a message
-                </h2>
+              <form onSubmit={handleSubmit} className="bg-white rounded-3xl p-8 md:p-10 shadow-card space-y-6">
+                <h2 className="font-display text-2xl font-bold text-charcoal-900">Send us a message</h2>
 
                 {/* Enquiry type */}
-                <div>
-                  <label className="label">Type of enquiry</label>
-                  <div className="flex flex-wrap gap-2">
-                    {ENQUIRY_TYPES.map((t) => (
-                      <button
-                        key={t.id}
-                        type="button"
-                        onClick={() => setForm((p) => ({ ...p, type: t.id }))}
-                        className={cn(
-                          "px-4 py-2 rounded-full text-sm font-body font-semibold transition-all duration-200",
-                          form.type === t.id
-                            ? "bg-forest-800 text-white"
-                            : "bg-sand-200 text-charcoal-700 hover:bg-sand-300"
-                        )}
-                      >
-                        {t.label}
-                      </button>
-                    ))}
-                  </div>
+                <div className="flex flex-wrap gap-2">
+                  {ENQUIRY_TYPES.map((type) => (
+                    <button
+                      key={type.id}
+                      type="button"
+                      onClick={() => setForm((p) => ({ ...p, type: type.id }))}
+                      className={cn(
+                        "px-4 py-2 rounded-full text-sm font-body font-medium transition-all duration-200",
+                        form.type === type.id
+                          ? "bg-forest-800 text-white"
+                          : "bg-sand-200 text-charcoal-700 hover:bg-sand-300"
+                      )}
+                    >
+                      {type.label}
+                    </button>
+                  ))}
                 </div>
 
-                {/* Name + email */}
+                {/* Name + Email */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="name" className="label">
-                      Full name <span className="text-terracotta-500">*</span>
+                    <label className="block font-body text-xs font-semibold text-charcoal-500 uppercase tracking-wide mb-1.5">
+                      Full name *
                     </label>
                     <input
-                      id="name"
-                      name="name"
-                      type="text"
                       required
+                      name="name"
                       value={form.name}
                       onChange={handleChange}
-                      placeholder="Jane Smith"
-                      className="input-field"
+                      placeholder="Your name"
+                      className="w-full border border-sand-300 rounded-xl px-4 py-3 text-sm font-body focus:outline-none focus:ring-2 focus:ring-forest-800 focus:border-transparent"
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="label">
-                      Email address <span className="text-terracotta-500">*</span>
+                    <label className="block font-body text-xs font-semibold text-charcoal-500 uppercase tracking-wide mb-1.5">
+                      Email address *
                     </label>
                     <input
-                      id="email"
-                      name="email"
-                      type="email"
                       required
+                      type="email"
+                      name="email"
                       value={form.email}
                       onChange={handleChange}
-                      placeholder="jane@example.com"
-                      className="input-field"
+                      placeholder="your@email.com"
+                      className="w-full border border-sand-300 rounded-xl px-4 py-3 text-sm font-body focus:outline-none focus:ring-2 focus:ring-forest-800 focus:border-transparent"
                     />
                   </div>
-                </div>
-
-                {/* Phone */}
-                <div>
-                  <label htmlFor="phone" className="label">
-                    Phone number <span className="text-charcoal-400 font-normal normal-case tracking-normal">(optional)</span>
-                  </label>
-                  <input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    value={form.phone}
-                    onChange={handleChange}
-                    placeholder="07700 900 123"
-                    className="input-field"
-                  />
                 </div>
 
                 {/* Product interest */}
                 <div>
-                  <label htmlFor="productInterest" className="label">
-                    Which product interests you?
+                  <label className="block font-body text-xs font-semibold text-charcoal-500 uppercase tracking-wide mb-1.5">
+                    Product of interest
                   </label>
                   <select
-                    id="productInterest"
                     name="productInterest"
                     value={form.productInterest}
                     onChange={handleChange}
-                    className="input-field"
+                    className="w-full border border-sand-300 rounded-xl px-4 py-3 text-sm font-body focus:outline-none focus:ring-2 focus:ring-forest-800 focus:border-transparent bg-white"
                   >
-                    <option value="">— I&apos;m not sure yet —</option>
-                    <option value="horizon">The Horizon (Garden Room)</option>
-                    <option value="zenith">The Zenith (Wellness Pod)</option>
-                    <option value="nordic">The Nordic (Sauna)</option>
-                    <option value="studio">The Studio (Gym/Studio)</option>
-                    <option value="annexe">The Annexe (Full Annexe)</option>
-                    <option value="custom">Something bespoke</option>
+                    <option value="">Select a product (optional)</option>
+                    <option value="Santorini">Santorini</option>
+                    <option value="Maldives">Maldives</option>
+                    <option value="Corsica">Corsica</option>
+                    <option value="Bahamas">Bahamas</option>
+                    <option value="Capri">Capri</option>
+                    <option value="Bermuda">Bermuda</option>
+                    <option value="Bali">Bali</option>
+                    <option value="Ibiza">Ibiza</option>
+                    <option value="Custom Build">Custom Build</option>
                   </select>
                 </div>
 
                 {/* Message */}
                 <div>
-                  <label htmlFor="message" className="label">
-                    Your message <span className="text-terracotta-500">*</span>
+                  <label className="block font-body text-xs font-semibold text-charcoal-500 uppercase tracking-wide mb-1.5">
+                    Message *
                   </label>
                   <textarea
-                    id="message"
-                    name="message"
                     required
+                    name="message"
                     value={form.message}
                     onChange={handleChange}
-                    placeholder="Tell us about your garden, what you're hoping to use the space for, and any questions you have..."
                     rows={5}
-                    className="input-field resize-none"
+                    placeholder="Tell us what you're looking for, your garden size, or any questions you have..."
+                    className="w-full border border-sand-300 rounded-xl px-4 py-3 text-sm font-body focus:outline-none focus:ring-2 focus:ring-forest-800 focus:border-transparent resize-none"
                   />
                 </div>
 
                 {error && (
-                  <p className="font-body text-sm text-red-500 bg-red-50 px-4 py-2.5 rounded-xl">
-                    {error}
-                  </p>
+                  <p className="font-body text-sm text-red-600">{error}</p>
                 )}
 
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className="btn-primary w-full justify-center py-4 text-base disabled:opacity-60"
+                  className="w-full flex items-center justify-center gap-2 bg-forest-800 hover:bg-forest-700 disabled:bg-sand-300 text-white font-body font-semibold py-4 rounded-2xl transition-colors"
                 >
                   {status === "loading" ? (
-                    <Loader2 className="w-5 h-5 animate-spin" />
+                    <Loader2 className="w-4 h-4 animate-spin" />
                   ) : (
-                    <>
-                      Send message
-                      <ArrowRight className="w-4 h-4" />
-                    </>
+                    <>Send message <ArrowRight className="w-4 h-4" /></>
                   )}
                 </button>
 
-                <p className="font-body text-xs text-center text-charcoal-400">
-                  We respond within one working day. By submitting you agree to our{" "}
-                  <Link href="/privacy-policy" className="underline hover:text-charcoal-600">
-                    privacy policy
-                  </Link>
-                  .
+                <p className="font-body text-xs text-charcoal-400 text-center">
+                  We aim to respond within one working day.
                 </p>
               </form>
             )}
@@ -263,61 +211,51 @@ export default function ContactPage() {
                 Get in touch
               </h3>
               <div className="space-y-4">
-                {[
-
-                  {
-                    Icon: Mail,
-                    label: "Email us",
-                    value: "info@tainhaus.co.uk",
-                    href: "mailto:info@tainhaus.co.uk",
-                  },
-
-                  {
-                    Icon: Clock,
-                    label: "Hours",
-                    value: "Mon–Fri 7am–6pm · Sat 9am–5pm",
-                    href: null,
-                  },
-                ].map(({ Icon, label, value, href }) => (
-                  <div key={label} className="flex gap-3">
-                    <div className="w-9 h-9 bg-forest-800/8 rounded-xl flex items-center justify-center shrink-0">
-                      <Icon className="w-4 h-4 text-forest-800" />
-                    </div>
-                    <div>
-                      <p className="font-body text-xs text-charcoal-500 uppercase tracking-wide mb-0.5">
-                        {label}
-                      </p>
-                      {href ? (
-                        <a
-                          href={href}
-                          className="font-body text-sm text-charcoal-800 hover:text-forest-800 transition-colors underline-grow"
-                          target={href.startsWith("http") ? "_blank" : undefined}
-                          rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                        >
-                          {value}
-                        </a>
-                      ) : (
-                        <p className="font-body text-sm text-charcoal-800">{value}</p>
-                      )}
-                    </div>
+                <div className="flex items-start gap-3">
+                  <Mail className="w-4 h-4 text-terracotta-500 shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-body text-xs text-charcoal-400 uppercase tracking-wide mb-0.5">Email</p>
+                    <a href="mailto:info@tainhaus.co.uk" className="font-body text-sm font-medium text-charcoal-800 hover:text-forest-800 transition-colors">
+                      info@tainhaus.co.uk
+                    </a>
                   </div>
-                ))}
+                </div>
+                <div className="flex items-start gap-3">
+                  <Clock className="w-4 h-4 text-terracotta-500 shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-body text-xs text-charcoal-400 uppercase tracking-wide mb-0.5">Hours</p>
+                    <p className="font-body text-sm font-medium text-charcoal-800">Mon–Fri: 7:00am – 6:00pm</p>
+                    <p className="font-body text-sm font-medium text-charcoal-800">Saturday: 9:00am – 5:00pm</p>
+                  </div>
+                </div>
               </div>
             </div>
 
-
-            {/* Quick configurator CTA */}
-            <div className="bg-forest-800 rounded-3xl p-7 text-white">
-              <h4 className="font-display text-lg font-bold mb-2">
-                Design your pod online
-              </h4>
-              <p className="font-body text-sm text-forest-200 mb-4">
-                Use our configurator to explore sizes, finishes, and options before you call.
+            {/* Quote CTA */}
+            <div className="bg-forest-800 rounded-3xl p-7">
+              <h3 className="font-display text-xl font-bold text-white mb-3">
+                Ready to design your space?
+              </h3>
+              <p className="font-body text-sm text-forest-200 mb-5 leading-relaxed">
+                Use our interactive configurator to choose your cabin type, size and colour — then request a tailored quote.
               </p>
-              <Link href="/configurator" className="btn-terracotta w-full justify-center text-sm py-3">
-                Open configurator
-                <ArrowRight className="w-4 h-4" />
+              <Link
+                href="/configurator"
+                className="inline-flex items-center gap-2 bg-terracotta-500 hover:bg-terracotta-400 text-white font-body font-semibold text-sm px-5 py-3 rounded-full transition-colors"
+              >
+                Design Your Space <ArrowRight className="w-4 h-4" />
               </Link>
+            </div>
+
+            {/* Response time */}
+            <div className="bg-sand-200 rounded-3xl p-7">
+              <p className="font-body text-sm text-charcoal-700 leading-relaxed">
+                <strong className="text-charcoal-900">We respond to all enquiries within one working day.</strong>{" "}
+                For urgent matters please email us directly at{" "}
+                <a href="mailto:info@tainhaus.co.uk" className="text-forest-800 underline">
+                  info@tainhaus.co.uk
+                </a>
+              </p>
             </div>
           </div>
         </div>
