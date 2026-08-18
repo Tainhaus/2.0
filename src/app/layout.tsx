@@ -68,9 +68,16 @@ export const metadata: Metadata = {
   },
   alternates: { canonical: "https://tainhaus.co.uk" },
   icons: {
-    icon: [{ url: "/tainhaus-logo.png", type: "image/png" }],
-    apple: "/tainhaus-logo.png",
-    shortcut: "/tainhaus-logo.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+      { url: "/favicon-192x192.png", type: "image/png", sizes: "192x192" },
+    ],
+    apple: "/favicon-192x192.png",
+    shortcut: "/favicon.ico",
+    other: [
+      { rel: "icon", url: "/favicon-512x512.png", sizes: "512x512" },
+    ],
   },
   category: "home improvement",
 };
