@@ -3,7 +3,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Phone, Mail, Clock, ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
+import { Mail, Clock, ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const ENQUIRY_TYPES = [
