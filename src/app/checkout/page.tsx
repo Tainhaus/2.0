@@ -29,7 +29,20 @@ export default function CheckoutPage() {
             name:      item.product.name,
             price:     item.unitPrice,
             quantity:  item.quantity,
-            image:     (item.product.images as any[])?.[0]?.url,
+            image:     (() => {
+              const slug = item.product.slug;
+              const imageMap: Record<string, string> = {
+                "sicilia-6-7x3-8m-log-cabin": "/products/sicilia-birch.png",
+                "oriental-4-4-7x3-2m-log-cabin": "/products/oriental-4-4-7x3-2m-log-cabin-birch.png",
+                "gloria-h-4-5x2-9m-log-cabin": "/products/gloria-h-4-5x2-9m-log-cabin-birch.png",
+                "dover-combi-6m-x-4m": "/products/dover-combi-6m-x-4m-birch.png",
+                "gloria-f-4-5x2-0m-log-cabin": "/products/gloria-h-4-5x2-9m-log-cabin-birch.png",
+                "derby-4-5m-x-3m": "/products/derby-4-5m-x-3m-birch.png",
+                "monaco-2-bed-log-cabin": "/products/monaco-2-bed-log-cabin-birch.png",
+                "outdoor-kitchen-pod-garden-bar-3-0x2-6m": "/products/outdoor-kitchen-pod-garden-bar-3-0x2-6m-birch.png",
+              };
+              return imageMap[slug] ?? (item.product.images as any[])?.[0]?.url ?? null;
+            })(),
             size:      item.selectedSize?.label,
             finish:    item.selectedFinish?.name,
           })),
