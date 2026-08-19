@@ -55,7 +55,9 @@ export async function POST(req: NextRequest) {
           product_data: {
             name: item.name,
             description: [item.size, item.finish].filter(Boolean).join(" - ") || undefined,
-            images: item.image ? [item.image] : [],
+            images: item.image
+                ? [item.image.startsWith("http") ? item.image : `https://www.tainhaus.co.uk${item.image}`]
+                : [],
           },
           unit_amount: Math.round(item.price * 100), // pence
         },
