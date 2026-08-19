@@ -90,7 +90,7 @@ const structuredData = {
   url: "https://tainhaus.co.uk",
   logo: "https://tainhaus.co.uk/tainhaus-logo.png",
   image: "https://tainhaus.co.uk/hero-1.jpg",
-  telephone: "+441234567890",
+  "telephone": "+447859765130",
   email: "info@tainhaus.co.uk",
   address: { "@type": "PostalAddress", addressCountry: "GB", addressRegion: "England" },
   areaServed: { "@type": "Country", name: "United Kingdom" },
