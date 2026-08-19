@@ -141,19 +141,7 @@ export function Navbar() {
 
             {/* Right actions */}
             <div className="flex items-center gap-2">
-              <Link
-                href="tel:+441234567890"
-                className={cn(
-                  "hidden xl:flex items-center gap-2 px-4 py-2 rounded-full text-sm font-body font-medium",
-                  "transition-all duration-200",
-                  isScrolled || !isHomePage
-                    ? "text-charcoal-600 hover:text-forest-800 hover:bg-forest-800/5"
-                    : "text-white/80 hover:text-white hover:bg-white/10"
-                )}
-              >
-                <Phone className="w-3.5 h-3.5" />
-                01234 567 890
-              </Link>
+              
 
               <Link
                 href="/contact"
@@ -241,10 +229,7 @@ export function Navbar() {
               <Link href="/contact" className="btn-primary w-full justify-center">
                 Get a Free Quote
               </Link>
-              <Link href="tel:+441234567890" className="btn-secondary w-full justify-center">
-                <Phone className="w-4 h-4" />
-                01234 567 890
-              </Link>
+              
             </div>
           </div>
         </div>
