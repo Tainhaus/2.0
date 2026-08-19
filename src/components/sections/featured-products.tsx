@@ -83,12 +83,7 @@ export async function FeaturedProductsSection() {
               <p className="font-body text-xs text-forest-200 leading-relaxed flex-1">
                 Can&apos;t find exactly what you need? We design and build bespoke cabins to your exact specification. Call us to start the conversation.
               </p>
-              <a
-                href="tel:01234567890"
-                className="flex items-center gap-2 mt-4 text-sm font-semibold text-terracotta-400 hover:text-terracotta-300 transition-colors"
-              >
-                Call us to discuss &rarr;
-              </a>
+              
             </div>
           </div>
         </div>
