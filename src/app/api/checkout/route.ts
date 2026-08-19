@@ -54,7 +54,7 @@ export async function POST(req: NextRequest) {
           currency: "gbp",
           product_data: {
             name: item.name,
-            description: [item.size, item.finish].filter(Boolean).join(" Â· ") || undefined,
+            description: [item.size, item.finish].filter(Boolean).join(" - ") || undefined,
             images: item.image ? [item.image] : [],
           },
           unit_amount: Math.round(item.price * 100), // pence
@@ -82,7 +82,7 @@ export async function POST(req: NextRequest) {
     if (err instanceof z.ZodError) {
       return NextResponse.json({ error: "Invalid order data." }, { status: 400 });
     }
-    console.error("[checkout] Stripe error:", err);
+    console.error("[checkout] Stripe error:", JSON.stringify(err, null, 2));
     return NextResponse.json({ error: "Failed to create checkout session." }, { status: 500 });
   }
 }
