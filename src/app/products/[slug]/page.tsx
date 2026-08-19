@@ -66,6 +66,37 @@ export default async function ProductPage({ params }: Props) {
 
       <div className="container-site pb-16">
         <FinishProvider>
+        {/* Product structured data for Google rich results */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Product",
+              "name": product.name,
+              "description": product.description,
+              "image": `https://www.tainhaus.co.uk/products/${product.slug}-birch.png`,
+              "brand": {
+                "@type": "Brand",
+                "name": "Tainhaus"
+              },
+              "offers": {
+                "@type": "Offer",
+                "url": `https://www.tainhaus.co.uk/products/${product.slug}`,
+                "priceCurrency": "GBP",
+                "price": product.price,
+                "priceValidUntil": new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split("T")[0],
+                "availability": product.inStock
+                  ? "https://schema.org/InStock"
+                  : "https://schema.org/OutOfStock",
+                "seller": {
+                  "@type": "Organization",
+                  "name": "Tainhaus"
+                }
+              }
+            })
+          }}
+        />
           {/* Mobile sticky gallery */}
           <div className="lg:hidden sticky top-14 z-30 bg-white shadow-md">
             <div className="container-site py-2">
