@@ -1,6 +1,6 @@
 // src/app/checkout/success/page.tsx
 import Link from "next/link";
-import { ArrowRight, Mail, Check } from "lucide-react";
+import { ArrowRight, Mail, Check, CheckCircle } from "lucide-react";
 
 import type { Metadata } from "next";
 
