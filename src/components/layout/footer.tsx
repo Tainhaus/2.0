@@ -1,7 +1,7 @@
 // src/components/layout/footer.tsx
 import Link from "next/link";
 import { Logo } from "@/components/ui/logo";
-import { Instagram, Facebook, ArrowRight, Mail } from "lucide-react";
+import { Instagram, Facebook, ArrowRight, Mail, Phone } from "lucide-react";
 
 const FOOTER_LINKS = {
   Products: [
@@ -76,6 +76,12 @@ export function Footer() {
 
             <div className="space-y-3 mb-8">
 
+              <div className="flex items-center gap-3">
+                <Phone className="w-4 h-4 text-terracotta-400 shrink-0" />
+                <a href="tel:+447859765130" className="font-body text-xs text-sand-500 hover:text-white transition-colors">
+                  07859 765130
+                </a>
+              </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-terracotta-400 shrink-0" />
                 <Link href="mailto:info@tainhaus.co.uk" className="font-body text-xs text-sand-500 hover:text-white transition-colors">
