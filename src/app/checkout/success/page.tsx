@@ -1,6 +1,6 @@
 // src/app/checkout/success/page.tsx
 import Link from "next/link";
-import { CheckCircle, Phone, Mail, ArrowRight } from "lucide-react";
+import from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = { title: "Order Confirmed | Tainhaus" };
@@ -40,13 +40,10 @@ export default function CheckoutSuccessPage() {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-3 justify-center mb-8">
-          <a href="tel:+441234567890" className="btn-secondary gap-2">
-            <Phone className="w-4 h-4" />
-            01234 567 890
-          </a>
-          <a href="mailto:hello@tainhaus.co.uk" className="btn-secondary gap-2">
+          
+          <a href="mailto:info@tainhaus.co.uk" className="btn-secondary gap-2">
             <Mail className="w-4 h-4" />
-            hello@tainhaus.co.uk
+            info@tainhaus.co.uk
           </a>
         </div>
 
