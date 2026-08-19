@@ -1,6 +1,7 @@
 // src/app/checkout/success/page.tsx
 import Link from "next/link";
-import from "lucide-react";
+import { ArrowRight, Mail, Check } from "lucide-react";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = { title: "Order Confirmed | Tainhaus" };
