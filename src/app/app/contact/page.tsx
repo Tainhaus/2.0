@@ -268,8 +268,8 @@ export default function ContactPage() {
                   {
                     Icon: Phone,
                     label: "Call us",
-                    value: "01234 567 890",
-                    href: "tel:+441234567890",
+                    value: "",
+                    href: "tel:",
                   },
                   {
                     Icon: Mail,
