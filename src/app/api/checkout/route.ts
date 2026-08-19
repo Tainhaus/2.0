@@ -47,7 +47,7 @@ export async function POST(req: NextRequest) {
     const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://tainhaus.co.uk";
 
     const session = await stripeClient.checkout.sessions.create({
-      automatic_payment_methods: { enabled: true },
+      payment_method_types: ["card"],
       mode: "payment",
       line_items: items.map((item) => ({
         price_data: {
