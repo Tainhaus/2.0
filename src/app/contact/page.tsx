@@ -3,7 +3,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Mail, Clock, ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
+import { Mail, Clock, ArrowRight, CheckCircle2, Loader2, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const ENQUIRY_TYPES = [
@@ -211,6 +211,15 @@ export default function ContactPage() {
                 Get in touch
               </h3>
               <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <Phone className="w-4 h-4 text-terracotta-500 shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-body text-xs text-charcoal-400 uppercase tracking-wide mb-0.5">Phone</p>
+                    <a href="tel:+447859765130" className="font-body text-sm font-medium text-charcoal-800 hover:text-forest-800 transition-colors">
+                      07859 765130
+                    </a>
+                  </div>
+                </div>
                 <div className="flex items-start gap-3">
                   <Mail className="w-4 h-4 text-terracotta-500 shrink-0 mt-0.5" />
                   <div>
