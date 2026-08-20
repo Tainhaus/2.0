@@ -7,12 +7,13 @@ import { rateLimit, getClientIP } from "@/lib/rate-limit";
 import { sendEnquiryEmail } from "@/lib/email";
 
 const schema = z.object({
-  name:    z.string().min(2).max(100),
-  email:   z.string().email(),
-  phone:   z.string().max(20).optional(),
-  message: z.string().min(10).max(2000),
-  type:    z.enum(["GENERAL", "PRODUCT", "CONFIGURATOR", "TRADE"]).default("GENERAL"),
-});
+  name:            z.string().min(2).max(100),
+  email:           z.string().email(),
+  phone:           z.string().max(20).optional(),
+  message:         z.string().min(10).max(2000),
+  type:            z.enum(["GENERAL", "PRODUCT", "CONFIGURATOR", "TRADE"]).default("GENERAL"),
+  productInterest: z.string().max(100).optional(),
+}).passthrough();
 
 export async function POST(req: NextRequest) {
   // Rate limit: 5 enquiries per IP per 10 minutes
@@ -48,6 +49,7 @@ export async function POST(req: NextRequest) {
         phone: data.phone,
         message: data.message,
         type: data.type,
+        productInterest: (data as any).productInterest,
       });
     } catch (emailErr) {
       console.error("[enquiry] email error:", emailErr);
