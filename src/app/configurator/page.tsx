@@ -182,9 +182,7 @@ export default function ConfiguratorPage() {
                       <div className="p-4">
                         <div className="flex items-start justify-between gap-2">
                           <h3 className="font-display font-bold text-charcoal-900">{type.name}</h3>
-                          {type.price > 0 && (
-                            <span className="font-body text-xs text-terracotta-500 font-semibold shrink-0">from {formatPrice(type.price)}</span>
-                          )}
+
                           {type.isCustom && (
                             <span className="font-body text-xs text-forest-800 font-semibold shrink-0">Call us</span>
                           )}
@@ -219,9 +217,7 @@ export default function ConfiguratorPage() {
                         <span className="font-display font-bold text-charcoal-900 mr-3">{size.label}</span>
                         <span className="font-body text-sm text-charcoal-500">{size.dims} · {size.sqm}m²</span>
                       </div>
-                      {size.adder > 0 && (
-                        <span className="font-body text-sm font-semibold text-terracotta-500">+{formatPrice(size.adder)}</span>
-                      )}
+
                     </button>
                   ))}
                 </div>
@@ -320,29 +316,36 @@ export default function ConfiguratorPage() {
                     <h2 className="font-display text-2xl font-bold text-charcoal-900 mb-2">Almost there — get your quote</h2>
                     <p className="font-body text-charcoal-500 mb-5">We&apos;ll prepare a detailed quote and call you within one working day.</p>
 
-                    {/* Summary */}
+                    {/* Summary — no prices shown, we call the customer */}
                     <div className="bg-sand-100 rounded-2xl p-5 mb-7 space-y-2 border border-sand-200">
                       <h3 className="font-body text-xs font-semibold text-charcoal-400 uppercase tracking-widest mb-3">Your selection</h3>
                       {selectedType && (
                         <div className="flex justify-between text-sm">
-                          <span className="text-charcoal-600">{selectedType.name}</span>
-                          <span className="font-semibold">{formatPrice(selectedType.price)}</span>
+                          <span className="text-charcoal-600">Type</span>
+                          <span className="font-semibold text-charcoal-900">{selectedType.name}</span>
                         </div>
                       )}
                       {selectedSize && (
                         <div className="flex justify-between text-sm">
-                          <span className="text-charcoal-600">{selectedSize.label} ({selectedSize.dims})</span>
-                          {selectedSize.adder > 0 && <span className="font-semibold text-terracotta-500">+{formatPrice(selectedSize.adder)}</span>}
+                          <span className="text-charcoal-600">Size</span>
+                          <span className="font-semibold text-charcoal-900">{selectedSize.label} — {selectedSize.dims}</span>
                         </div>
                       )}
                       {selectedColour && !selectedColour.isCustom && (
                         <div className="flex justify-between text-sm">
-                          <span className="text-charcoal-600">Colour: {selectedColour.name}</span>
+                          <span className="text-charcoal-600">Colour</span>
+                          <span className="font-semibold text-charcoal-900">{selectedColour.name}</span>
                         </div>
                       )}
-                      <div className="border-t border-sand-200 pt-2 flex justify-between font-semibold">
-                        <span className="text-charcoal-900">Estimated from</span>
-                        <span className="text-forest-800 font-display text-lg">{formatPrice(totalPrice)}</span>
+                      <div className="border-t border-sand-200 pt-3 mt-2">
+                        <div className="flex items-center gap-3 bg-forest-800/5 rounded-xl p-3">
+                          <div className="w-8 h-8 rounded-full bg-forest-800/10 flex items-center justify-center flex-shrink-0">
+                            <Check className="w-4 h-4 text-forest-800" />
+                          </div>
+                          <p className="font-body text-sm text-charcoal-700">
+                            <strong className="text-charcoal-900">We&apos;ll call you with a price.</strong> Our team will review your requirements and contact you within one working day with a tailored quote.
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </>
