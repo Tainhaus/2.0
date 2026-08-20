@@ -90,7 +90,23 @@ export default function ConfiguratorPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
-    await new Promise(r => setTimeout(r, 800));
+    try {
+      await fetch("/api/configurator-enquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          notes: form.notes,
+          cabinType: selectedType?.name ?? "",
+          size: selectedSize ? `${selectedSize.label} — ${selectedSize.dims}` : "",
+          colour: selectedColour?.name ?? "",
+        }),
+      });
+    } catch (err) {
+      console.error("Submit error:", err);
+    }
     setSubmitted(true);
     setSubmitting(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
