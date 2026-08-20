@@ -84,5 +84,6 @@ export default async function ShopPage({ searchParams }: { searchParams: SearchP
         </div>
       </div>
     </div>
+    </>
   );
 }
