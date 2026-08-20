@@ -105,6 +105,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preload" as="image" href="/hero-1.jpg.png" fetchPriority="high" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-38Y28936K6" />
         <script dangerouslySetInnerHTML={{ __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-38Y28936K6');` }} />
+        <script dangerouslySetInnerHTML={{ __html: `function gtagSendEvent(url){var callback=function(){if(typeof url==='string'){window.location=url;}};gtag('event','conversion_event_purchase',{'event_callback':callback,'event_timeout':2000});return false;}` }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       </head>
       <body className="font-body bg-sand-100 text-charcoal-900 antialiased">
