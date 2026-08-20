@@ -93,6 +93,7 @@ export default function ConfiguratorPage() {
     await new Promise(r => setTimeout(r, 800));
     setSubmitted(true);
     setSubmitting(false);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
