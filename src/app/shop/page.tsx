@@ -1,6 +1,7 @@
 export const dynamic = "force-dynamic";
 
 import { Suspense } from "react";
+import { ScrollToTop } from "@/components/ui/scroll-to-top";
 import type { Metadata } from "next";
 import { ProductCard } from "@/components/shop/product-card";
 import { ProductCardSkeleton } from "@/components/shop/product-card-skeleton";
@@ -51,6 +52,8 @@ export default async function ShopPage({ searchParams }: { searchParams: SearchP
   const products = await getProducts();
 
   return (
+    <>
+    <ScrollToTop />
     <div className="min-h-screen bg-sand-100">
       <ShopHeader searchParams={params} productCount={products.length} />
       <div className="container-site py-10">
