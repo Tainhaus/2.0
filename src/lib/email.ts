@@ -58,7 +58,7 @@ export async function sendEnquiryEmail(data: EnquiryEmailData) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      from: "Tainhaus Website <onboarding@resend.dev>",
+      from: "Tainhaus <info@tainhaus.co.uk>",
       to: ["info@tainhaus.co.uk"],
       subject: `New Enquiry from ${data.name} — Tainhaus`,
       html,
@@ -106,7 +106,7 @@ export async function sendConfiguratorEmail(data: ConfiguratorEmailData) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      from: "Tainhaus Website <onboarding@resend.dev>",
+      from: "Tainhaus <info@tainhaus.co.uk>",
       to: ["info@tainhaus.co.uk"],
       subject: `New Quote Request from ${data.name} — ${data.cabinType ?? "Design Your Space"}`,
       html,
