@@ -43,6 +43,7 @@ export default function ContactPage() {
       });
       if (!res.ok) throw new Error("Failed to send");
       setStatus("success");
+      window.scrollTo({ top: 0, behavior: "smooth" });
     } catch {
       setStatus("error");
       setError("Something went wrong. Please try emailing us directly.");
@@ -161,6 +162,7 @@ export default function ContactPage() {
                     <option value="Bali">Bali</option>
                     <option value="Ibiza">Ibiza</option>
                     <option value="Custom Build">Custom Build</option>
+                    <option value="Custom Option">Something different — let's chat</option>
                   </select>
                 </div>
 
