@@ -8,7 +8,9 @@ export const metadata: Metadata = { title: "Order Confirmed | Tainhaus" };
 
 export default function CheckoutSuccessPage() {
   return (
-    <div className="min-h-screen bg-sand-100 pt-28 pb-20 flex items-center justify-center">
+    <>
+      <ConversionScript />
+      <div className="min-h-screen bg-sand-100 pt-28 pb-20 flex items-center justify-center">
       <div className="max-w-lg w-full mx-auto px-6 text-center">
         <div className="w-20 h-20 bg-forest-800/10 rounded-full flex items-center justify-center mx-auto mb-6">
           <CheckCircle className="w-10 h-10 text-forest-800" />
@@ -54,5 +56,6 @@ export default function CheckoutSuccessPage() {
         </Link>
       </div>
     </div>
+    </>
   );
 }
