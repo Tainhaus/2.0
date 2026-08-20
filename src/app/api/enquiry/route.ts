@@ -4,6 +4,7 @@ export const runtime = "nodejs";
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { rateLimit, getClientIP } from "@/lib/rate-limit";
+import { sendEnquiryEmail } from "@/lib/email";
 
 const schema = z.object({
   name:    z.string().min(2).max(100),
@@ -38,6 +39,19 @@ export async function POST(req: NextRequest) {
         type:    data.type,
       },
     });
+
+    // Send email notification
+    try {
+      await sendEnquiryEmail({
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        message: data.message,
+        type: data.type,
+      });
+    } catch (emailErr) {
+      console.error("[enquiry] email error:", emailErr);
+    }
 
     return NextResponse.json({ success: true, id: enquiry.id }, { status: 201 });
   } catch (err) {
