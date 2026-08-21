@@ -56,6 +56,27 @@ export default async function ShopPage({ searchParams }: { searchParams: SearchP
     <ScrollToTop />
     <div className="min-h-screen bg-sand-100">
       <ShopHeader searchParams={params} productCount={products.length} />
+
+      {/* Custom Project Banner */}
+      <div className="bg-forest-800">
+        <div className="container-site py-5">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+              <p className="font-body text-xs font-semibold text-terracotta-400 uppercase tracking-widest mb-0.5">Bespoke builds</p>
+              <p className="font-display text-lg font-bold text-white">
+                Can&apos;t find exactly what you need? We build custom cabins.
+              </p>
+            </div>
+            <a
+              href="/configurator"
+              className="flex-shrink-0 inline-flex items-center gap-2 bg-terracotta-500 hover:bg-terracotta-400 text-white font-body font-semibold text-sm px-6 py-3 rounded-full transition-colors whitespace-nowrap"
+            >
+              Start a custom project →
+            </a>
+          </div>
+        </div>
+      </div>
+
       <div className="container-site py-10">
         <div>
           <main className="">
