@@ -1,53 +1,27 @@
 // src/lib/rate-limit.ts
-// Simple in-memory rate limiter — works on serverless (per-instance)
+const rateLimitMap = new Map<string, { count: number; lastReset: number }>();
 
-const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
-
-interface RateLimitOptions {
-  maxRequests: number;  // max requests per window
-  windowMs: number;     // window in milliseconds
-}
-
-export function rateLimit(
-  identifier: string,
-  options: RateLimitOptions = { maxRequests: 10, windowMs: 60_000 }
-): { success: boolean; remaining: number; resetIn: number } {
+export function rateLimit(ip: string, limit = 5, windowMs = 60000): boolean {
   const now = Date.now();
-  const key = identifier;
-  const entry = rateLimitMap.get(key);
+  const record = rateLimitMap.get(ip);
 
-  if (!entry || now > entry.resetTime) {
-    rateLimitMap.set(key, {
-      count: 1,
-      resetTime: now + options.windowMs,
-    });
-    return {
-      success: true,
-      remaining: options.maxRequests - 1,
-      resetIn: options.windowMs,
-    };
+  if (!record || now - record.lastReset > windowMs) {
+    rateLimitMap.set(ip, { count: 1, lastReset: now });
+    return true; // allowed
   }
 
-  if (entry.count >= options.maxRequests) {
-    return {
-      success: false,
-      remaining: 0,
-      resetIn: entry.resetTime - now,
-    };
+  if (record.count >= limit) {
+    return false; // blocked
   }
 
-  entry.count += 1;
-  return {
-    success: true,
-    remaining: options.maxRequests - entry.count,
-    resetIn: entry.resetTime - now,
-  };
+  record.count++;
+  return true; // allowed
 }
 
-export function getClientIP(request: Request): string {
+export function getClientIP(req: Request): string {
   return (
-    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
-    request.headers.get("x-real-ip") ||
+    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
+    req.headers.get("x-real-ip") ??
     "unknown"
   );
 }
