@@ -13,8 +13,8 @@ const schema = z.object({
 export async function POST(req: NextRequest) {
   // Rate limit: 3 signups per IP per 10 minutes
   const ip = getClientIP(req);
-  const limit = rateLimit(`newsletter:${ip}`, { maxRequests: 3, windowMs: 10 * 60_000 });
-  if (!limit.success) {
+  const allowed = rateLimit(ip, 3, 600000);
+  if (!allowed) {
     return NextResponse.json(
       { error: "Too many requests. Please try again later." },
       { status: 429 }
