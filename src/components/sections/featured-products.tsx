@@ -1,4 +1,5 @@
 // src/components/sections/featured-products.tsx
+// v2
 import Link from "next/link";
 import { ArrowRight, Phone } from "lucide-react";
 import { ProductCard } from "@/components/shop/product-card";
