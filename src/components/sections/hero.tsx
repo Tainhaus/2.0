@@ -44,6 +44,15 @@ const HERO_SLIDES = [
     cta: "Get a quote",
     ctaHref: "/contact",
   },
+  {
+    src: "/hero-promo.jpg",
+    alt: "Free exterior cladding with every Tainhaus cabin purchased — limited time offer",
+    headline: "Free exterior",
+    headlineAccent: "cladding. 🎁",
+    sub: "Limited time — free exterior cladding included with every cabin purchased. Transform your garden from £9,800.",
+    cta: "Claim this offer",
+    ctaHref: "/contact",
+  },
 ];
 
 export function HeroSection() {
