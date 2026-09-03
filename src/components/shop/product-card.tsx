@@ -101,6 +101,7 @@ export function ProductCard({ product, className }: ProductCardProps) {
           <TreePine className="w-3 h-3" /> FSC-certified Nordic timber
         </p>
         <div>
+          <p className="font-body text-2xs text-charcoal-400 uppercase tracking-widest mb-0.5">from</p>
           <span className="font-display text-xl font-bold text-forest-800">
             {minPrice === 0 ? "Call for price" : formatPrice(minPrice)}
           </span>
