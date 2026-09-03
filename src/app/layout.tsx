@@ -7,6 +7,7 @@ import { Footer } from "@/components/layout/footer";
 import { CartDrawer } from "@/components/layout/cart-drawer";
 import { CookieConsent } from "@/components/ui/cookie-consent";
 import { WhatsAppButton } from "@/components/ui/whatsapp-button";
+import { PromoBanner } from "@/components/ui/promo-banner";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -115,6 +116,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <CartDrawer />
         <CookieConsent />
         <WhatsAppButton />
+        <PromoBanner />
       </body>
     </html>
   );
