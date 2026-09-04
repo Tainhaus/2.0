@@ -1,4 +1,4 @@
-// cache-bust: v4
+// cache-bust: v5
 import type { NextConfig } from "next";
 
 const securityHeaders = [
@@ -17,7 +17,7 @@ const securityHeaders = [
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com",
       "img-src 'self' data: https: blob:",
-      "connect-src 'self' https://api.stripe.com https://www.google-analytics.com https://api.resend.com https://wa.me",
+      "connect-src 'self' https://api.stripe.com https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://*.analytics.google.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://api.resend.com https://wa.me",
       "frame-src https://js.stripe.com https://hooks.stripe.com",
       "object-src 'none'",
       "base-uri 'self'",
