@@ -29,7 +29,7 @@ export function CookieConsent() {
 
   return (
     <div
-      className="fixed bottom-0 left-0 right-0 z-50 p-3 md:p-4"
+      className="fixed bottom-16 md:bottom-20 left-0 right-0 z-[1000] p-3 md:p-4"
       role="dialog"
       aria-label="Cookie consent"
       aria-modal="true"
