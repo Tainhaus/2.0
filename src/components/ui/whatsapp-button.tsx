@@ -1,10 +1,26 @@
 // src/components/ui/whatsapp-button.tsx
 "use client";
 
+declare global {
+  interface Window {
+    dataLayer?: unknown[];
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
 export function WhatsAppButton() {
   const phone = "447859765130";
   const message = "Hi Tainhaus, I'm interested in one of your log cabins and would like a free quote.";
   const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
+  const handleClick = () => {
+    if (typeof window !== "undefined" && typeof window.gtag === "function") {
+      window.gtag("event", "conversion_event_whatsapp_click", {
+        event_category: "engagement",
+        event_label: "WhatsApp floating button",
+      });
+    }
+  };
 
   return (
     <a
@@ -12,6 +28,7 @@ export function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"
+      onClick={handleClick}
       className="fixed bottom-6 right-6 z-[999] w-14 h-14 bg-[#25D366] hover:bg-[#20BA5A] rounded-full flex items-center justify-center shadow-luxury hover:scale-110 transition-all duration-200"
     >
       <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
