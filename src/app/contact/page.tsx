@@ -6,6 +6,13 @@ import Link from "next/link";
 import { Mail, Clock, ArrowRight, CheckCircle2, Loader2, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+declare global {
+  interface Window {
+    dataLayer?: unknown[];
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
 const ENQUIRY_TYPES = [
   { id: "GENERAL",      label: "General enquiry" },
   { id: "PRODUCT",      label: "Product question" },
@@ -43,6 +50,12 @@ export default function ContactPage() {
       });
       if (!res.ok) throw new Error("Failed to send");
       setStatus("success");
+      if (typeof window !== "undefined" && typeof window.gtag === "function") {
+        window.gtag("event", "conversion_event_quote_request", {
+          event_category: "lead",
+          event_label: form.type,
+        });
+      }
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch {
       setStatus("error");
